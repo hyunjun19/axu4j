@@ -3,5 +3,16 @@
  "http://java.sun.com/dtd/web-app_2_3.dtd" >
 
 <web-app>
-  <display-name>Archetype Created Web Application</display-name>
+	<display-name>Archetype Created Web Application</display-name>
+	
+	<!-- axu4j config begin -->
+	<context-param>
+		<param-name>__AXU4J_LAYOUT_PRFIX__</param-name>
+		<param-value>/WEB-INF/layouts/</param-value>
+	</context-param>
+	<context-param>
+		<param-name>__AXU4J_LAYOUT_SUFFIX__</param-name>
+		<param-value>.jsp</param-value>
+	</context-param>
+	<!-- axu4j config end -->
 </web-app>

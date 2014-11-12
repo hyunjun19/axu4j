@@ -1,6 +1,5 @@
 <%@	tag body-content="empty"
-	description="AXInput see http://dev.axisj.com/samples/AXInput/index.html"
-	language="java"
+	description="AXInput. see http://dev.axisj.com/samples/AXInput/index.html"
 	pageEncoding="UTF-8"
 	import="com.axisj.axu4j.utils.*"
 %><%@ attribute name="id" required="true"
