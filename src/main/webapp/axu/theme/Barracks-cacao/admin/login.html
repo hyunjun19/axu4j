@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- META -->
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>Barracks</title>
+
+    <link rel="shortcut icon" href="http://dev.axisj.com/ui/axisj.ico" type="image/x-icon" />
+    <link rel="icon" href="http://dev.axisj.com/ui/axisj.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://dev.axisj.com/ui/AXJ.png" />
+    <link rel="apple-touch-icon-precomposed" href="http://dev.axisj.com/ui/AXJ.png" />
+    <meta property="og:image" content="http://dev.axisj.com/samples/_img/axisj_sns.png" />
+    <meta property="og:site_name" content="Axis of Javascript - axisj.com" />
+    <meta property="og:description" id="meta_description" content="Javascript UI Library based on JQuery" />
+
+    <link rel="stylesheet" href="ui/cacao/admin.css" />
+    <link href="resource/axicon/axicon.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="http://dev.axisj.com/ui/kakao/AXJ.min.css" />
+
+    <script type="text/javascript" src="http://dev.axisj.com/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="http://dev.axisj.com/dist/AXJ.min.js"></script>
+
+    <script>
+    var fnObj = {
+        pageStart: function(){
+
+            jQuery(".AXCheckbox").find("input").bind("click", function(){
+                if(this.checked)this.checked = true;else this.checked = false;
+                if(jQuery(this).parent().hasClass("checked")) jQuery(this).parent().removeClass("checked");
+                else jQuery(this).parent().addClass("checked");
+            });
+
+        }
+    };
+    jQuery(document).ready(fnObj.pageStart.delay(0.1));
+    </script>
+
+</head>
+
+<body>
+<div id="AXPage" class="login">
+	<div class="ax-body">
+		<div class="ax-wrap">
+
+			<div class="ax-layer ax-title">
+				<div class="ax-col-12">
+					<h1>관리자</h1>
+					<p class="desc">Application eXperience Universal Administrator</p>
+				</div>
+                <div class="ax-clear"></div>
+			</div>
+
+			<div class="ax-layer">
+				<div class="ax-col-12">
+					<div class="ax-unit">
+
+						<div class="ax-box">
+							<h1>로그인</h1>
+							<p>관리자 계정으로 로그인 해주세요.</p>
+							<div class="H20"></div>
+                            <form name="login-form" method="get" action="index.html" onsubmit="">
+                                <div class="ax-input">
+                                    <span class="name">E-mail</span>
+                                    <input type="text" name="input" value="" class="AXInput" placeholder="e-mail">
+                                </div>
+                                <div class="ax-input">
+                                    <span class="name">Password</span>
+                                    <input type="password" name="input" value="" class="AXInput" placeholder="password">
+                                </div>
+
+                                <div class="ax-clear"></div>
+                                <div class="H20"></div>
+
+                                <div class="ax-funcs">
+                                    <label class="AXCheckbox" for="mycheck0">
+                                        <input type="checkbox" name="mycheck" value="T1" id="mycheck0" /><span>로그인 기억하기</span>
+                                    </label>
+                                    <button type="submit" class="AXButtonLarge Blue">&nbsp;&nbsp;로그인&nbsp;&nbsp;</button>
+                                </div>
+                            </form>
+
+							<div class="ax-clear"></div>
+							<div class="H20"></div>
+
+							<div class="ax-opts">
+								<button type="button" class="AXButtonLarge Green">관리자에게 계정 신청하기</button>
+							</div>
+
+                            <p>
+                                IE8+, Chrome, Firefox, safari
+                            </p>
+                            <div class="H20"></div>
+
+						</div>
+
+					</div>
+				</div>
+                <div class="ax-clear"></div>
+			</div>
+
+			
+		</div>
+	</div>
+</div>
+</body>
+</html>

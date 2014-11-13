@@ -10,3 +10,5 @@
 	<ax:input id="input-number"   type="number" />
 </body>
 </html>
+
+

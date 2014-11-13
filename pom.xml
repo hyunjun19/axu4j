@@ -31,6 +31,11 @@
 		<artifactId>commons-lang</artifactId>
 		<version>2.6</version>
 	</dependency>
+	<dependency>
+		<groupId>taglibs</groupId>
+		<artifactId>standard</artifactId>
+		<version>1.1.2</version>
+	</dependency>
   </dependencies>
   <build>
     <finalName>axu4j</finalName>

@@ -8,9 +8,12 @@
 %><%
 	type = StringUtils.get(type, "APPEND");
 
+	String bodyResult = StringUtils.EMPTY;
 	StringWriter writer = new StringWriter();
-	getJspBody().invoke(writer);
-	String bodyResult = writer.toString();
+	if (getJspBody() != null) {
+		getJspBody().invoke(writer);
+		bodyResult = writer.toString();
+	}
 	
 	// pass to block.tag
 	jspContext.setAttribute(String.format("__AXU_BLOCK_%s_CONTENTS__", block.toUpperCase()), bodyResult, PageContext.REQUEST_SCOPE);

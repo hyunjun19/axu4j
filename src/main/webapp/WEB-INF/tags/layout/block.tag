@@ -5,9 +5,12 @@
 			javax.servlet.jsp.tagext.*"
 %><%@ attribute name="name" required="true" rtexprvalue="true" description="block name"
 %><%
+	String bodyResult = StringUtils.EMPTY;
 	StringWriter writer = new StringWriter();
-	getJspBody().invoke(writer);
-	String bodyResult = writer.toString();
+	if (getJspBody() != null) {
+		getJspBody().invoke(writer);
+		bodyResult = writer.toString();
+	}
 	
 	String putType     = (String)jspContext.findAttribute(String.format("__AXU_BLOCK_%s_TYPE__",     name.toUpperCase()));
 	String putContents = (String)jspContext.findAttribute(String.format("__AXU_BLOCK_%s_CONTENTS__", name.toUpperCase()));
