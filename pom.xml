@@ -36,6 +36,21 @@
 		<artifactId>standard</artifactId>
 		<version>1.1.2</version>
 	</dependency>
+	<dependency>
+		<groupId>ch.qos.logback</groupId>
+		<artifactId>logback-classic</artifactId>
+		<version>1.1.2</version>
+	</dependency>
+	<dependency>
+		<groupId>org.simpleframework</groupId>
+		<artifactId>simple-xml</artifactId>
+		<version>2.7.1</version>
+	</dependency>
+	<dependency>
+		<groupId>com.github.spullara.mustache.java</groupId>
+		<artifactId>compiler</artifactId>
+		<version>0.8.17</version>
+	</dependency>
   </dependencies>
   <build>
     <finalName>axu4j</finalName>

@@ -18,3 +18,4 @@ JSP Tag Files
 3. 중복코드의 최소화
 4. 간단한 커스터 마이징
 5. 템플릿 엔진 추가(https://github.com/kwon37xi/jsp-template-inheritance)
+6. XML 설정과 mustache 문법 적용(http://mustache.github.io/)

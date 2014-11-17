@@ -1,6 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8"
-%><%@ taglib prefix="c"      uri="http://java.sun.com/jsp/jstl/core"
-%><%@ taglib prefix="layout" tagdir="/WEB-INF/tags/layout"
+%><%@ taglib prefix="c"  uri="http://java.sun.com/jsp/jstl/core"
+%><%@ taglib prefix="ax" uri="http://axis.com/axu4j"
 %><!DOCTYPE html>
 <html>
 <head>
@@ -78,7 +78,7 @@
 			<div class="ax-layer ax-title">
 				<div class="ax-col-12 ax-content">
 <!-- @@@@@@@@@@@@@@@@@@@@@@ header begin @@@@@@@@@@@@@@@@@@@@@@ -->
-					<layout:block name="header" />
+					<ax:block name="header" />
 <!-- @@@@@@@@@@@@@@@@@@@@@@ header end   @@@@@@@@@@@@@@@@@@@@@@ -->
 				</div>
                 <div class="ax-clear"></div>
@@ -87,7 +87,7 @@
 			<div class="ax-layer">
 				<div class="ax-col-12 ax-content">
 <!-- @@@@@@@@@@@@@@@@@@@@@@ contents begin @@@@@@@@@@@@@@@@@@@@@@ -->
-					<layout:block name="contents" />
+					<ax:block name="contents" />
 <!-- @@@@@@@@@@@@@@@@@@@@@@ contents end   @@@@@@@@@@@@@@@@@@@@@@ -->
 				</div>
 				<div class="ax-clear"></div>
@@ -138,6 +138,8 @@
         </div>
 	</div>
 </div>
-
+<!-- @@@@@@@@@@@@@@@@@@@@@@ scripts begin @@@@@@@@@@@@@@@@@@@@@@ -->
+<ax:block name="scripts" />
+<!-- @@@@@@@@@@@@@@@@@@@@@@ scripts end   @@@@@@@@@@@@@@@@@@@@@@ -->
 </body>
 </html>
