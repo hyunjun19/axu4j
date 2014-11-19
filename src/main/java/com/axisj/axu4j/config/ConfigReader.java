@@ -1,6 +1,7 @@
 package com.axisj.axu4j.config;
 
 import java.io.File;
+import java.net.URL;
 
 import org.simpleframework.xml.Serializer;
 import org.simpleframework.xml.core.Persister;
@@ -42,8 +43,11 @@ public class ConfigReader {
 		}
 		
 		Serializer serializer = new Persister();
-//		File configFile = new File(ClassLoader.getSystemClassLoader().getResource(confingFilename).toURI());
-		File configFile = new File(config.getClass().getClassLoader().getResource(confingFilename).toURI());
+		URL configUrl = config.getClass().getClassLoader().getResource(confingFilename);
+		if (configUrl == null) {
+			configUrl = ClassLoader.getSystemClassLoader().getResource(confingFilename);
+		}
+		File configFile = new File(configUrl.toURI());
 		
 		serializer.read(config, configFile);
 		
