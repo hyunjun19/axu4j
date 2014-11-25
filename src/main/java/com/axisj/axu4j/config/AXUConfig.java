@@ -4,22 +4,19 @@ import org.simpleframework.xml.Attribute;
 import org.simpleframework.xml.Element;
 import org.simpleframework.xml.Root;
 
-import com.axisj.axu4j.tags.ButtonTag;
-
-@Root(name="axu4j")
+@Root(name = "axu4j")
 public class AXUConfig {
-	
-	@Attribute
-	private boolean realadable;
-	
-	@Element
-	private ButtonTag buttonTag;
 
-	//=======================================================
+	@Attribute(required = false)
+	private boolean realadable = false;
+
+	@Element(name = "buttonTag")
+	private String buttonTagBody;
 	
-	public ButtonTag getButtonTag() {
-		return buttonTag;
-	}
+	@Element(name = "inputTag")
+	private String inputTagBody;
+
+	// =======================================================
 
 	public boolean isRealadable() {
 		return realadable;
@@ -29,8 +26,20 @@ public class AXUConfig {
 		this.realadable = realadable;
 	}
 
-	public void setButtonTag(ButtonTag buttonTag) {
-		this.buttonTag = buttonTag;
+	public String getButtonTagBody() {
+		return buttonTagBody;
 	}
-	
+
+	public void setButtonTagBody(String buttonTagBody) {
+		this.buttonTagBody = buttonTagBody;
+	}
+
+	public String getInputTagBody() {
+		return inputTagBody;
+	}
+
+	public void setInputTagBody(String inputTagBody) {
+		this.inputTagBody = inputTagBody;
+	}
+
 }

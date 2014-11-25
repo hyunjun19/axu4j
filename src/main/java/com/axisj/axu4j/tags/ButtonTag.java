@@ -1,51 +1,50 @@
 package com.axisj.axu4j.tags;
 
-import java.io.StringReader;
-
-import javax.servlet.jsp.JspWriter;
-
+import org.apache.commons.lang.ArrayUtils;
 import org.apache.commons.lang.StringUtils;
-import org.simpleframework.xml.Attribute;
+
+import com.axisj.axu4j.config.ConfigReader;
 
 public class ButtonTag extends AXUTagSupport {
-	public ButtonTag() throws Exception {
+
+	protected ButtonTag() throws Exception {
 		super();
+		this.tagBody = ConfigReader.getConfig().getButtonTagBody();
 	}
-	
-	@Override
-	public void writeHtml(JspWriter out) {
-		mustacheHtml = mustacheFactory.compile(new StringReader(this.getBodyHtml()), this.getClass().getCanonicalName());
-		mustacheHtml.execute(out, this);
-	}
-	
-	//=======================================================
-	
-	@Attribute
-	private String buttonType;
-	private String css;
+
+	private String id;
+	private String buttonType = "button";
 	private String text;
-	private boolean isAnchorType;
-	private boolean isInputType;
-	private boolean isButtonType;
-	
+	private String css;
+	private String style;
+	private boolean isButton = true;
+	private boolean isAnchor = false;
+	private boolean isInput = false;
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
 	public String getButtonType() {
 		return buttonType;
 	}
 
 	public void setButtonType(String buttonType) {
-		this.buttonType = buttonType;
-		
-		this.isAnchorType = StringUtils.equalsIgnoreCase("anchor", buttonType);
-		this.isInputType  = StringUtils.equalsIgnoreCase("input",  buttonType);
-		this.isButtonType = StringUtils.equalsIgnoreCase("button", buttonType);
-	}
+		String[] buttonTypes = { "button", "input", "anchor" };
 
-	public String getCss() {
-		return css;
-	}
+		if (!ArrayUtils.contains(buttonTypes, buttonType)) {
+			throw new IllegalArgumentException(String.format("button tag buttonType only use button | input | anchor.[%s] is not available", buttonType));
+		}
 
-	public void setCss(String css) {
-		this.css = css;
+		this.buttonType = StringUtils.defaultIfBlank(buttonType, "button");
+
+		this.isButton = StringUtils.equalsIgnoreCase("button", this.buttonType);
+		this.isAnchor = StringUtils.equalsIgnoreCase("anchor", this.buttonType);
+		this.isInput = StringUtils.equalsIgnoreCase("input", this.buttonType);
 	}
 
 	public String getText() {
@@ -56,16 +55,31 @@ public class ButtonTag extends AXUTagSupport {
 		this.text = text;
 	}
 
-	public boolean isAnchorType() {
-		return isAnchorType;
+	public String getCss() {
+		return css;
 	}
 
-	public boolean isInputType() {
-		return isInputType;
+	public void setCss(String css) {
+		this.css = css;
 	}
 
-	public boolean isButtonType() {
-		return isButtonType;
+	public String getStyle() {
+		return style;
 	}
-	
+
+	public void setStyle(String style) {
+		this.style = style;
+	}
+
+	public boolean isAnchor() {
+		return isAnchor;
+	}
+
+	public boolean isInput() {
+		return isInput;
+	}
+
+	public boolean isButton() {
+		return isButton;
+	}
 }

@@ -8,8 +8,6 @@ import org.simpleframework.xml.core.Persister;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.axisj.axu4j.tags.ButtonTag;
-
 /**
  * 
  * @author HJ Park
@@ -22,7 +20,7 @@ public class ConfigReader {
 	
 	private ConfigReader() {}
 	
-	public static AXUConfig getConfig() throws Exception {
+	public static AXUConfig getConfig() {
 		if (config == null) {
 			load();
 		}
@@ -36,24 +34,26 @@ public class ConfigReader {
 	 * @param confingFilename
 	 * @throws Exception
 	 */
-	public static void load(String confingFilename) throws Exception {
-		if (config == null) {
-			config = new AXUConfig();
-			logger.debug("create new AXUConfig instance");
+	public static void load(String confingFilename) {
+		try {
+			if (config == null) {
+				config = new AXUConfig();
+				logger.debug("create new AXUConfig instance");
+			}
+			
+			Serializer serializer = new Persister();
+			URL configUrl = config.getClass().getClassLoader().getResource(confingFilename);
+			if (configUrl == null) {
+				configUrl = ClassLoader.getSystemClassLoader().getResource(confingFilename);
+			}
+			File configFile = new File(configUrl.toURI());
+			
+			serializer.read(config, configFile);
+			
+			logger.debug("load config to {}", configFile.getAbsolutePath());
+		} catch(Exception e) {
+			logger.error("Fail to load axu4j.xml", e);
 		}
-		
-		Serializer serializer = new Persister();
-		URL configUrl = config.getClass().getClassLoader().getResource(confingFilename);
-		if (configUrl == null) {
-			configUrl = ClassLoader.getSystemClassLoader().getResource(confingFilename);
-		}
-		File configFile = new File(configUrl.toURI());
-		
-		serializer.read(config, configFile);
-		
-		
-		
-		logger.debug("load config to {}", configFile.getAbsolutePath());
 	}
 	
 	/**
@@ -61,7 +61,7 @@ public class ConfigReader {
 	 * 
 	 * @throws Exception
 	 */
-	public static void load() throws Exception {
+	public static void load() {
 		load(defaultConfigFilename);
 	}
 	
@@ -82,12 +82,8 @@ public class ConfigReader {
 		try {
 			logger.debug("AXUConfig test start");
 			
-			config = new AXUConfig();
-			ButtonTag buttonTag = new ButtonTag();
-			buttonTag.setButtonType("button");
-			buttonTag.setBodyHtml("{{#isAnchor}}<a href=\"#{{id}}\" id=\"{{id}}\" class=\"AXButton {{css}}\">{{text}}</a>{{/isAnchor}}{{#isInput}}<input type=\"button\" id=\"{{id}}\" value=\"{{text}}\" class=\"AXButton {{css}}\" />{{/isInput}}{{#isButton}}<button type=\"button\" id=\"{{id}}\" class=\"AXButton {{css}}\">{{text}}</button>{{/isButton}}");
-			
-			config.setButtonTag(buttonTag);
+			config = new AXUConfig();		
+			config.setRealadable(true);
 			
 			ConfigReader.save();
 			
