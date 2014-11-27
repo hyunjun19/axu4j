@@ -7,6 +7,7 @@
 <body>
 <h2>Hello AXU4j</h2>
 	<ax:button id="btn01" text="button 01" />
+	<ax:text id="txt01" placeholder="write text" />
 </body>
 </html>
 

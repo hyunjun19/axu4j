@@ -20,7 +20,7 @@ public abstract class AXUTagSupport extends SimpleTagSupport {
 	protected String tagBody;
 	protected Logger logger = LoggerFactory.getLogger(getClass());
 
-	protected AXUTagSupport() throws Exception {
+	public AXUTagSupport() throws Exception {
 		super();
 	}
 

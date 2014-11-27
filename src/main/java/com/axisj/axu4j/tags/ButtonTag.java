@@ -7,10 +7,12 @@ import com.axisj.axu4j.config.ConfigReader;
 
 public class ButtonTag extends AXUTagSupport {
 
-	protected ButtonTag() throws Exception {
+	public ButtonTag() throws Exception {
 		super();
-		this.tagBody = ConfigReader.getConfig().getButtonTagBody();
+		this.tagBody = ConfigReader.getConfig().getButtonBody();
 	}
+	
+	// =======================================================
 
 	private String id;
 	private String buttonType = "button";
@@ -21,6 +23,8 @@ public class ButtonTag extends AXUTagSupport {
 	private boolean isAnchor = false;
 	private boolean isInput = false;
 
+	// =======================================================
+	
 	public String getId() {
 		return id;
 	}

@@ -1,16 +1,21 @@
 <axu4j realadable="true">
-   <buttonTag>
-      <![CDATA[
+   <button>
+      <body><![CDATA[
       	{{#isButton}}<button type="button" id="{{id}}" class="AXButton {{css}}" style={{style}}>{{text}}</button>{{/isButton}}
       	{{#isAnchor}}<a href="#{{id}}" id="{{id}}" class="AXButton {{css}}" style={{style}}>{{text}}</a>{{/isAnchor}}
       	{{#isInput}}<input type="button" id="{{id}}" value="{{text}}" class="AXButton {{css}}" style={{style}} />{{/isInput}}
-      ]]>
-   </buttonTag>
-   <inputTag>
-   	 <![CDATA[
-   	    {{#isText}}<input type="text" id="{{id}}" name="{{name}}" value="{{value}}" class="AXInput {{css}}" placeholder="{{placeHolder}}" style={{style}} />{{/isText}}
-   	    {{#isNumber}}<input type="tel" id="{{id}}" name="{{name}}" value="{{value}}" class="AXInput ax-number {{css}}" placeholder="{{placeHolder}}" style={{style}} />{{/isNumber}}
-   	    {{#isSwitch}}{{#label}}<label class="AXInputLabel">{{label}}</label>{{/label}}<input type="text" id="{{id}}" name="{{name}}" value="{{value}}" style={{style}} />{{/isSwitch}}
-   	 ]]>
-   </inputTag>
+      ]]></body>
+   </button>
+   <text>
+   	 <body><![CDATA[<input type="text" id="{{id}}" name="{{name}}" value="{{value}}" class="AXInput {{css}}" placeholder="{{placeholder}}" style={{style}} />]]></body>
+   </text>
+   <number>
+   	 <body><![CDATA[<input type="tel" id="{{id}}" name="{{name}}" value="{{value}}" class="AXInput ax-number {{css}}" style={{style}} />]]></body>
+   </number>
+   <switch>
+   	 <body><![CDATA[{{#label}}<label class="AXInputLabel">{{label}}</label>{{/label}}<input type="text" id="{{id}}" name="{{name}}" value="{{value}}" style={{style}} />]]></body>
+   </switch>
+   <segment>
+   	 <body><![CDATA[<input type="text" id={{id}} name="{{name}}" class="AXInput {{css}}" style="{{style}}" />]]></body>
+   </segment>
 </axu4j>

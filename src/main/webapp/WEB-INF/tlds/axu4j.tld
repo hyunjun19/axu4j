@@ -80,4 +80,42 @@
     		<rtexprvalue>true</rtexprvalue>
     	</attribute>
     </tag>
+    
+    <!-- [axu] text -->
+    <tag>
+    	<name>text</name>
+    	<tag-class>com.axisj.axu4j.tags.TextTag</tag-class>
+    	<body-content>empty</body-content>
+    	<attribute>
+    		<name>id</name>
+    		<description>text tag id</description>
+    		<required>true</required>
+    		<rtexprvalue>true</rtexprvalue>
+    	</attribute>
+    	<attribute>
+    		<name>name</name>
+    		<description>input text tag name</description>
+    		<rtexprvalue>true</rtexprvalue>
+    	</attribute>
+    	<attribute>
+    		<name>value</name>
+    		<description>input text tag value</description>
+    		<rtexprvalue>true</rtexprvalue>
+    	</attribute>
+    	<attribute>
+    		<name>css</name>
+    		<description>input text tag css</description>
+    		<rtexprvalue>true</rtexprvalue>
+    	</attribute>
+    	<attribute>
+    		<name>placeholder</name>
+    		<description>input text tag placeholder</description>
+    		<rtexprvalue>true</rtexprvalue>
+    	</attribute>
+    	<attribute>
+    		<name>style</name>
+    		<description>input text tag style</description>
+    		<rtexprvalue>true</rtexprvalue>
+    	</attribute>
+    </tag>
 </taglib>
