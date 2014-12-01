@@ -118,4 +118,98 @@
     		<rtexprvalue>true</rtexprvalue>
     	</attribute>
     </tag>
+    
+    <!-- [axu] number -->
+    <tag>
+    	<name>number</name>
+    	<tag-class>com.axisj.axu4j.tags.NumberTag</tag-class>
+    	<body-content>empty</body-content>
+    	<attribute>
+    		<name>id</name>
+    		<description>input number tag id</description>
+    		<required>true</required>
+    		<rtexprvalue>true</rtexprvalue>
+    	</attribute>
+    	<attribute>
+    		<name>name</name>
+    		<description>input number tag name</description>
+    		<rtexprvalue>true</rtexprvalue>
+    	</attribute>
+    	<attribute>
+    		<name>value</name>
+    		<description>input number tag value</description>
+    		<rtexprvalue>true</rtexprvalue>
+    	</attribute>
+    	<attribute>
+    		<name>css</name>
+    		<description>input number tag css</description>
+    		<rtexprvalue>true</rtexprvalue>
+    	</attribute>
+    	<attribute>
+    		<name>style</name>
+    		<description>input text tag style</description>
+    		<rtexprvalue>true</rtexprvalue>
+    	</attribute>
+    </tag>
+    
+    <!-- [axu] switch -->
+    <tag>
+    	<name>switch</name>
+    	<tag-class>com.axisj.axu4j.tags.SwitchTag</tag-class>
+    	<body-content>empty</body-content>
+    	<attribute>
+    		<name>label</name>
+    		<description>switch label</description>
+    		<rtexprvalue>true</rtexprvalue>
+    	</attribute>
+    	<attribute>
+    		<name>id</name>
+    		<description>switch tag id</description>
+    		<required>true</required>
+    		<rtexprvalue>true</rtexprvalue>
+    	</attribute>
+    	<attribute>
+    		<name>name</name>
+    		<description>switch tag name</description>
+    		<rtexprvalue>true</rtexprvalue>
+    	</attribute>
+    	<attribute>
+    		<name>value</name>
+    		<description>switch tag value</description>
+    		<rtexprvalue>true</rtexprvalue>
+    	</attribute>
+    	<attribute>
+    		<name>style</name>
+    		<description>switch tag style</description>
+    		<rtexprvalue>true</rtexprvalue>
+    	</attribute>
+    </tag>
+    
+    <!-- [axu] segment -->
+    <tag>
+    	<name>segment</name>
+    	<tag-class>com.axisj.axu4j.tags.SegmentTag</tag-class>
+    	<body-content>empty</body-content>
+    	<attribute>
+    		<name>id</name>
+    		<description>switch tag id</description>
+    		<required>true</required>
+    		<rtexprvalue>true</rtexprvalue>
+    	</attribute>
+    	<attribute>
+    		<name>name</name>
+    		<description>switch tag name</description>
+    		<rtexprvalue>true</rtexprvalue>
+    	</attribute>
+    	<attribute>
+    		<name>css</name>
+    		<description>input number tag css</description>
+    		<rtexprvalue>true</rtexprvalue>
+    	</attribute>
+    	<attribute>
+    		<name>style</name>
+    		<description>switch tag style</description>
+    		<rtexprvalue>true</rtexprvalue>
+    	</attribute>
+    </tag>
 </taglib>
