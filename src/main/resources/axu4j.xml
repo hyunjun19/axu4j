@@ -18,4 +18,40 @@
    <segment>
    	 <body><![CDATA[<input type="text" id={{id}} name="{{name}}" class="AXInput {{css}}" style="{{style}}" />]]></body>
    </segment>
+   <slider>
+   	 <body><![CDATA[]]></body>
+   </slider>
+   <selector>
+   	 <body><![CDATA[]]></body>
+   </selector>
+   <date>
+   	 <body><![CDATA[]]></body>
+   </date>
+   <pattern>
+   	 <body><![CDATA[]]></body>
+   </pattern>
+   <select>
+   	 <body><![CDATA[]]></body>
+   </select>
+   <tab>
+   	 <body><![CDATA[]]></body>
+   </tab>
+   <modal>
+   	 <body><![CDATA[]]></body>
+   </modal>
+   <grid>
+   	 <body><![CDATA[]]></body>
+   </grid>
+   <tree>
+   	 <body><![CDATA[]]></body>
+   </tree>
+   <editor>
+   	 <body><![CDATA[]]></body>
+   </editor>
+   <search>
+   	 <body><![CDATA[]]></body>
+   </search>
+   <upload5>
+   	 <body><![CDATA[]]></body>
+   </upload5>
 </axu4j>
