@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1" />
     <meta name="apple-mobile-web-app-capable" content="yes">
     <!-- TITLE -->
-    <title>Barracks</title>
+    <title>Barracks <ax:block name="title" /></title>
 
     <link rel="shortcut icon" href="http://dev.axisj.com/ui/axisj.ico" type="image/x-icon" />
     <link rel="icon" href="http://dev.axisj.com/ui/axisj.ico" type="image/x-icon" />
@@ -86,9 +86,13 @@
 
 			<div class="ax-layer">
 				<div class="ax-col-12 ax-content">
+					<!-- s.CXPage -->
+					<div id="CXPage">
 <!-- @@@@@@@@@@@@@@@@@@@@@@ contents begin @@@@@@@@@@@@@@@@@@@@@@ -->
-					<ax:block name="contents" />
+							<ax:block name="contents" />
 <!-- @@@@@@@@@@@@@@@@@@@@@@ contents end   @@@@@@@@@@@@@@@@@@@@@@ -->
+					</div>
+					<!-- e.CXPage -->
 				</div>
 				<div class="ax-clear"></div>
 			</div>

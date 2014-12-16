@@ -44,6 +44,12 @@ public class ExtendsTag extends SimpleTagSupport {
             pageContext.forward(getRefinedName());
         } catch (ServletException e) {
             throw new RuntimeException(e.getMessage(), e);
+		} catch (JspException e) {
+			logger.error(String.format("ExtendsTag doTag is fail.\nname: %s", name), e);
+			throw e;
+		} catch (IOException e) {
+			logger.error(String.format("ExtendsTag doTag is fail.\nname: %s", name), e);
+			throw e;
         }
     }
 

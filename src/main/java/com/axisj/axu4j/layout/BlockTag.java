@@ -3,6 +3,10 @@ package com.axisj.axu4j.layout;
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.PageContext;
 import javax.servlet.jsp.tagext.SimpleTagSupport;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.io.IOException;
 
 import static com.axisj.axu4j.layout.BlockTagUtils.*;
@@ -13,6 +17,8 @@ import static com.axisj.axu4j.layout.BlockTagUtils.*;
  * Author: KwonNam Son(kwon37xi@gmail.com)
  */
 public class BlockTag extends SimpleTagSupport {
+	private static Logger logger = LoggerFactory.getLogger(BlockTag.class);
+	
     public static final PutType DEFAULT_PUT_TYPE = PutType.APPEND;
 
     /** Block name **/
@@ -24,14 +30,22 @@ public class BlockTag extends SimpleTagSupport {
 
     @Override
     public void doTag() throws JspException, IOException {
-        PageContext pageContext = (PageContext)getJspContext();
-
-        PutType putType = getPutType(pageContext);
-
-        String bodyResult = getBodyResult(getJspBody());
-        String putContents = getPutContents(pageContext);
-
-        putType.write(pageContext.getOut(), bodyResult, putContents);
+    	try {
+	        PageContext pageContext = (PageContext)getJspContext();
+	
+	        PutType putType = getPutType(pageContext);
+	
+	        String bodyResult = getBodyResult(getJspBody());
+	        String putContents = getPutContents(pageContext);
+	
+	        putType.write(pageContext.getOut(), bodyResult, putContents);
+		} catch (JspException e) {
+			logger.error(String.format("BlockTag doTag is fail.\nname: %s", name), e);
+			throw e;
+		} catch (IOException e) {
+			logger.error(String.format("BlockTag doTag is fail.\nname: %s", name), e);
+			throw e;
+		}
     }
 
     private PutType getPutType(PageContext pageContext) {

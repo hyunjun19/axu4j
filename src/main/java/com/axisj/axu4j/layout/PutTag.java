@@ -1,11 +1,17 @@
 package com.axisj.axu4j.layout;
 
+import static com.axisj.axu4j.layout.BlockTagUtils.getBlockContentsAttributeName;
+import static com.axisj.axu4j.layout.BlockTagUtils.getBlockTypeAttributeName;
+import static com.axisj.axu4j.layout.BlockTagUtils.getBodyResult;
+
+import java.io.IOException;
+
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.PageContext;
 import javax.servlet.jsp.tagext.SimpleTagSupport;
-import java.io.IOException;
 
-import static com.axisj.axu4j.layout.BlockTagUtils.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * 레이아웃의 블럭으로 대체되어 들어갈 템플릿을 지정하는 태그.
@@ -13,6 +19,8 @@ import static com.axisj.axu4j.layout.BlockTagUtils.*;
  * Author: KwonNam Son(kwon37xi@gmail.com)
  */
 public class PutTag extends SimpleTagSupport {
+	private static Logger logger = LoggerFactory.getLogger(PutTag.class);
+	
     public static final String PUT_DATA_PREFIX = PutTag.class.getCanonicalName() + ".";
 
     private String block;
@@ -29,14 +37,22 @@ public class PutTag extends SimpleTagSupport {
 
     @Override
     public void doTag() throws JspException, IOException {
-        verifyParent();
-        PutType putType = getPutType();
-        String bodyResult  = getBodyResult(getJspBody());
-
-        PageContext pageContext = (PageContext)getJspContext();
-
-        pageContext.setAttribute(getBlockContentsAttributeName(block), bodyResult, PageContext.REQUEST_SCOPE);
-        pageContext.setAttribute(getBlockTypeAttributeName(block), putType, PageContext.REQUEST_SCOPE);
+    	try {
+	        verifyParent();
+	        PutType putType = getPutType();
+	        String bodyResult  = getBodyResult(getJspBody());
+	
+	        PageContext pageContext = (PageContext)getJspContext();
+	
+	        pageContext.setAttribute(getBlockContentsAttributeName(block), bodyResult, PageContext.REQUEST_SCOPE);
+	        pageContext.setAttribute(getBlockTypeAttributeName(block), putType, PageContext.REQUEST_SCOPE);
+		} catch (JspException e) {
+			logger.error(String.format("PutTag doTag is fail.\nblock: %s \ntype: %s", block, type), e);
+			throw e;
+		} catch (IOException e) {
+			logger.error(String.format("PutTag doTag is fail.\nblock: %s \ntype: %s", block, type), e);
+			throw e;
+		}
     }
 
     private void verifyParent() {
