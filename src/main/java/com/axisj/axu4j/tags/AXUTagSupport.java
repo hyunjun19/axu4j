@@ -11,21 +11,37 @@ import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.axisj.axu4j.layout.BlockTagUtils;
 import com.github.mustachejava.DefaultMustacheFactory;
 import com.github.mustachejava.Mustache;
 import com.github.mustachejava.MustacheFactory;
 
 public abstract class AXUTagSupport extends SimpleTagSupport {
 	protected static MustacheFactory mustacheFactory = new DefaultMustacheFactory();
-	protected Logger logger = LoggerFactory.getLogger(getClass());
+	protected static int tagIndex = 0;
+	
+	protected Logger   logger = LoggerFactory.getLogger(getClass());
 	protected Mustache mustacheHtml;
-	protected String tagBody;
+	protected String   tagBody  = StringUtils.EMPTY;
+	protected String   doBody   = StringUtils.EMPTY;
+	protected boolean isDoBody = false;
 	
 
 	public AXUTagSupport() throws Exception {
 		super();
+		tagIndex++;
 	}
 
+	// =======================================================
+
+	public String getDoBody() {
+		return doBody;
+	}
+
+	public void setDoBody(String doBody) {
+		this.doBody = doBody;
+	}
+	
 	// =======================================================
 
 	/**********************************
@@ -38,6 +54,10 @@ public abstract class AXUTagSupport extends SimpleTagSupport {
 	public void doTag() throws JspException, IOException {
 
 		try {
+			if (isDoBody) {
+				doBody = BlockTagUtils.getBodyResult(getJspBody());
+			}
+			
 			mustacheHtml = mustacheFactory.compile(new StringReader(tagBody), getClass().getCanonicalName());
 			mustacheHtml.execute(getJspContext().getOut(), this);
 		} catch (Exception e) {

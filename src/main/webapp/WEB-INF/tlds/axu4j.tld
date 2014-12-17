@@ -212,4 +212,125 @@
     		<rtexprvalue>true</rtexprvalue>
     	</attribute>
     </tag>
+    
+    <!-- [axu] row -->
+    <tag>
+    	<name>row</name>
+    	<tag-class>com.axisj.axu4j.tags.RowTag</tag-class>
+    	<body-content>scriptless</body-content>
+    	<attribute>
+    		<name>id</name>
+    		<rtexprvalue>true</rtexprvalue>
+    	</attribute>
+    	<attribute>
+    		<name>css</name>
+    		<rtexprvalue>true</rtexprvalue>
+    	</attribute>
+    	<attribute>
+    		<name>style</name>
+    		<rtexprvalue>true</rtexprvalue>
+    	</attribute>
+    </tag>
+    
+    <!-- [axu] col -->
+    <tag>
+    	<name>col</name>
+    	<tag-class>com.axisj.axu4j.tags.ColTag</tag-class>
+    	<body-content>scriptless</body-content>
+    	<attribute>
+    		<name>id</name>
+    		<rtexprvalue>true</rtexprvalue>
+    	</attribute>
+    	<attribute>
+    		<name>size</name>
+    		<required>true</required>
+    		<rtexprvalue>true</rtexprvalue>
+    	</attribute>
+    	<attribute>
+    		<name>css</name>
+    		<rtexprvalue>true</rtexprvalue>
+    	</attribute>
+    	<attribute>
+    		<name>style</name>
+    		<rtexprvalue>true</rtexprvalue>
+    	</attribute>
+    </tag>
+    
+    <!-- [axu] form -->
+    <tag>
+    	<name>form</name>
+    	<tag-class>com.axisj.axu4j.tags.FormTag</tag-class>
+    	<body-content>scriptless</body-content>
+    	<attribute>
+    		<name>id</name>
+    		<rtexprvalue>true</rtexprvalue>
+    	</attribute>
+    	<attribute>
+    		<name>name</name>
+    		<required>true</required>
+    		<rtexprvalue>true</rtexprvalue>
+    	</attribute>
+    	<attribute>
+    		<name>action</name>
+    		<rtexprvalue>true</rtexprvalue>
+    	</attribute>
+    	<attribute>
+    		<name>method</name>
+    		<rtexprvalue>true</rtexprvalue>
+    	</attribute>
+    	<attribute>
+    		<name>css</name>
+    		<rtexprvalue>true</rtexprvalue>
+    	</attribute>
+    	<attribute>
+    		<name>style</name>
+    		<rtexprvalue>true</rtexprvalue>
+    	</attribute>
+    </tag>
+    
+    <!-- [axu] fields -->
+    <tag>
+    	<name>fields</name>
+    	<tag-class>com.axisj.axu4j.tags.FieldsTag</tag-class>
+    	<body-content>scriptless</body-content>
+    	<attribute>
+    		<name>id</name>
+    		<rtexprvalue>true</rtexprvalue>
+    	</attribute>
+    	<attribute>
+    		<name>css</name>
+    		<rtexprvalue>true</rtexprvalue>
+    	</attribute>
+    	<attribute>
+    		<name>style</name>
+    		<rtexprvalue>true</rtexprvalue>
+    	</attribute>
+    </tag>
+    
+    <!-- [axu] field -->
+    <tag>
+    	<name>field</name>
+    	<tag-class>com.axisj.axu4j.tags.FieldTag</tag-class>
+    	<body-content>scriptless</body-content>
+    	<attribute>
+    		<name>id</name>
+    		<rtexprvalue>true</rtexprvalue>
+    	</attribute>
+    	<attribute>
+    		<name>label</name>
+    		<rtexprvalue>true</rtexprvalue>
+    	</attribute>
+    	<attribute>
+    		<name>title</name>
+    		<rtexprvalue>true</rtexprvalue>
+    	</attribute>
+    	<attribute>
+    		<name>css</name>
+    		<rtexprvalue>true</rtexprvalue>
+    	</attribute>
+    	<attribute>
+    		<name>style</name>
+    		<rtexprvalue>true</rtexprvalue>
+    	</attribute>
+    </tag>
 </taglib>

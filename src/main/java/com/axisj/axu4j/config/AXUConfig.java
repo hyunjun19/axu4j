@@ -79,6 +79,26 @@ public class AXUConfig {
 	@Element(name = "body", data = true)
 	private String upload5Body;
 	
+	@Path("row[1]")
+	@Element(name = "wrap", data = true)
+	private String rowWrap;
+	
+	@Path("col[1]")
+	@Element(name = "wrap", data = true)
+	private String colWrap;
+	
+	@Path("form[1]")
+	@Element(name = "wrap", data = true)
+	private String formWrap;
+	
+	@Path("fields[1]")
+	@Element(name = "wrap", data = true)
+	private String fieldsWrap;
+	
+	@Path("field[1]")
+	@Element(name = "wrap", data = true)
+	private String fieldWrap;
+	
 
 	// =======================================================
 
@@ -224,6 +244,46 @@ public class AXUConfig {
 
 	public void setUpload5Body(String upload5Body) {
 		this.upload5Body = upload5Body;
+	}
+
+	public String getRowWrap() {
+		return rowWrap;
+	}
+
+	public void setRowWrap(String rowWrap) {
+		this.rowWrap = rowWrap;
+	}
+
+	public String getColWrap() {
+		return colWrap;
+	}
+
+	public void setColWrap(String colWrap) {
+		this.colWrap = colWrap;
+	}
+
+	public String getFormWrap() {
+		return formWrap;
+	}
+
+	public void setFormWrap(String formWrap) {
+		this.formWrap = formWrap;
+	}
+
+	public String getFieldWrap() {
+		return fieldWrap;
+	}
+
+	public void setFieldWrap(String fieldWrap) {
+		this.fieldWrap = fieldWrap;
+	}
+
+	public String getFieldsWrap() {
+		return fieldsWrap;
+	}
+
+	public void setFieldsWrap(String fieldsWrap) {
+		this.fieldsWrap = fieldsWrap;
 	}
 
 }

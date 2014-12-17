@@ -1,53 +1,113 @@
 <axu4j realadable="true">
-   <button>
-      <body><![CDATA[{{#isButton}}<button type="button" id="{{id}}" class="AXButton {{css}}" style={{style}}>{{text}}</button>{{/isButton}}{{#isAnchor}}<a href="#{{id}}" id="{{id}}" class="AXButton {{css}}" style={{style}}>{{text}}</a>{{/isAnchor}}{{#isInput}}<input type="button" id="{{id}}" value="{{text}}" class="AXButton {{css}}" style={{style}} />{{/isInput}}]]></body>
-   </button>
-   <text>
-   	 <body><![CDATA[<input type="text" id="{{id}}" name="{{name}}" value="{{value}}" class="AXInput {{css}}" placeholder="{{placeholder}}" style={{style}} />]]></body>
-   </text>
-   <number>
-   	 <body><![CDATA[<input type="tel" id="{{id}}" name="{{name}}" value="{{value}}" class="AXInput ez-number {{css}}" style={{style}} jsonconfig={{jsonconfig}} />]]></body>
-   </number>
-   <switch>
-   	 <body><![CDATA[{{#label}}<label class="AXInputLabel">{{label}}</label>{{/label}}<input type="text" id="{{id}}" name="{{name}}" value="{{value}}" class="ez-switch" style={{style}} jsonconfig={{jsonconfig}} />]]></body>
-   </switch>
-   <segment>
-   	 <body><![CDATA[<input type="text" id={{id}} name="{{name}}" class="AXInput ez-segment {{css}}" style="{{style}}" jsonconfig={{jsonconfig}} />]]></body>
-   </segment>
-   <slider>
-   	 <body><![CDATA[<input type="text" id="{{id}}" name="{{name}}" value="{{value}}" class="AXInput ez-slider {{css}}" style="{{style}}" jsonconfig={{jsonconfig}} />]]></body>
-   </slider>
-   <selector>
-   	 <body><![CDATA[<input type="text" id="{{id}}" name="{{name}}" value="{{value}}" class="AXInput ez-selector {{css}}" style="{{style}}" jsonconfig={{jsonconfig}} />]]></body>
-   </selector>
-   <date>
-   	 <body><![CDATA[<input type="text" id="{{id}}" name="{{name}}" value="{{value}}" class="AXInput ez-date {{css}}" style="{{style}}" jsonconfig={{jsonconfig}} />]]></body>
-   </date>
-   <pattern>
-   	 <body><![CDATA[<input type="text" id="{{id}}" name="{{name}}" value="{{value}}" class="AXInput ez-patter {{css}}" style="{{style}}" jsonconfig={{jsonconfig}} />]]></body>
-   </pattern>
-   <select>
-   	 <body><![CDATA[<select id="{{id}}" name="{{name}}" class="AXSelect ez-select {{css}}" style="{{style}}" jsonconfig={{jsonconfig}}>{{#options}}<option value="{{value}}">{{text}}</option>{{/options}}</select>]]></body>
-   </select>
-   <tab>
-   	 <body><![CDATA[<div id="{{id}}" class="ez-tab {{css}}" style="{{style}}" jsonconfig={{jsonconfig}}></div>]]></body>
-   </tab>
-   <modal>
-   	 <body><![CDATA[<div id="{{id}}" class="ez-modal {{css}}" style="{{style}}" jsonconfig={{jsonconfig}}>{{doBody}}</div>]]></body>
-   </modal>
-   <grid>
-   	 <body><![CDATA[<div id="{{id}}" class="ez-grid {{css}}" style="{{style}}" jsonconfig={{jsonconfig}}>{{doBody}}</div>]]></body>
-   </grid>
-   <tree>
-   	 <body><![CDATA[<div id="{{id}}" class="ez-tree {{css}}" style="{{style}}" jsonconfig={{jsonconfig}}>{{doBody}}</div>]]></body>
-   </tree>
-   <editor>
-   	 <body><![CDATA[<div id="{{id}}" class="ez-editor {{css}}" style="{{style}}" jsonconfig={{jsonconfig}}>{{doBody}}</div>]]></body>
-   </editor>
-   <search>
-   	 <body><![CDATA[<div id="{{id}}" class="ez-search {{css}}" style="{{style}}" jsonconfig={{jsonconfig}}>{{doBody}}</div>]]></body>
-   </search>
-   <upload5>
-   	 <body><![CDATA[<div id="{{id}}" class="ez-upload5 {{css}}" style="{{style}}" jsonconfig={{jsonconfig}}>{{doBody}}</div>]]></body>
-   </upload5>
+	<button>
+		<body><![CDATA[{{#isButton}}<button type="button" id="{{id}}" class="AXButton {{css}}" style={{style}}>{{text}}</button>{{/isButton}}{{#isAnchor}}<a href="#{{id}}" id="{{id}}" class="AXButton {{css}}" style={{style}}>{{text}}</a>{{/isAnchor}}{{#isInput}}<input type="button" id="{{id}}" value="{{text}}" class="AXButton {{css}}" style={{style}} />{{/isInput}}]]></body>
+	</button>
+	<text>
+		<body><![CDATA[<input type="text" id="{{id}}" name="{{name}}" value="{{value}}" class="AXInput {{css}}" placeholder="{{placeholder}}" style={{style}} />]]></body>
+	</text>
+	<number>
+		<body><![CDATA[<input type="tel" id="{{id}}" name="{{name}}" value="{{value}}" class="AXInput ez-number {{css}}" style={{style}} jsonconfig={{jsonconfig}} />]]></body>
+	</number>
+	<switch>
+		<body><![CDATA[{{#label}}<label class="AXInputLabel">{{label}}</label>{{/label}}<input type="text" id="{{id}}" name="{{name}}" value="{{value}}" class="ez-switch" style={{style}} jsonconfig={{jsonconfig}} />]]></body>
+	</switch>
+	<segment>
+		<body><![CDATA[<input type="text" id={{id}} name="{{name}}" class="AXInput ez-segment {{css}}" style="{{style}}" jsonconfig={{jsonconfig}} />]]></body>
+	</segment>
+	<slider>
+		<body><![CDATA[<input type="text" id="{{id}}" name="{{name}}" value="{{value}}" class="AXInput ez-slider {{css}}" style="{{style}}" jsonconfig={{jsonconfig}} />]]></body>
+	</slider>
+	<selector>
+		<body><![CDATA[<input type="text" id="{{id}}" name="{{name}}" value="{{value}}" class="AXInput ez-selector {{css}}" style="{{style}}" jsonconfig={{jsonconfig}} />]]></body>
+	</selector>
+	<date>
+		<body><![CDATA[<input type="text" id="{{id}}" name="{{name}}" value="{{value}}" class="AXInput ez-date {{css}}" style="{{style}}" jsonconfig={{jsonconfig}} />]]></body>
+	</date>
+	<pattern>
+		<body><![CDATA[<input type="text" id="{{id}}" name="{{name}}" value="{{value}}" class="AXInput ez-patter {{css}}" style="{{style}}" jsonconfig={{jsonconfig}} />]]></body>
+	</pattern>
+	<select>
+		<body><![CDATA[<select id="{{id}}" name="{{name}}" class="AXSelect ez-select {{css}}" style="{{style}}" jsonconfig={{jsonconfig}}>{{#options}}<option value="{{value}}">{{text}}</option>{{/options}}</select>]]></body>
+	</select>
+	<tab>
+		<body><![CDATA[<div id="{{id}}" class="ez-tab {{css}}" style="{{style}}" jsonconfig={{jsonconfig}}></div>]]></body>
+	</tab>
+	<modal>
+		<body><![CDATA[<div id="{{id}}" class="ez-modal {{css}}" style="{{style}}" jsonconfig={{jsonconfig}}>{{doBody}}</div>]]></body>
+	</modal>
+	<grid>
+		<body><![CDATA[<div id="{{id}}" class="ez-grid {{css}}" style="{{style}}" jsonconfig={{jsonconfig}}>{{doBody}}</div>]]></body>
+	</grid>
+	<tree>
+		<body><![CDATA[<div id="{{id}}" class="ez-tree {{css}}" style="{{style}}" jsonconfig={{jsonconfig}}>{{doBody}}</div>]]></body>
+	</tree>
+	<editor>
+		<body><![CDATA[<div id="{{id}}" class="ez-editor {{css}}" style="{{style}}" jsonconfig={{jsonconfig}}>{{doBody}}</div>]]></body>
+	</editor>
+	<search>
+		<body><![CDATA[<div id="{{id}}" class="ez-search {{css}}" style="{{style}}" jsonconfig={{jsonconfig}}>{{doBody}}</div>]]></body>
+	</search>
+	<upload5>
+		<body><![CDATA[<div id="{{id}}" class="ez-upload5 {{css}}" style="{{style}}" jsonconfig={{jsonconfig}}>{{doBody}}</div>]]></body>
+	</upload5>
+	<row>
+		<wrap>
+<![CDATA[
+<div id="{{id}}" class="ax-layer {{css}}" style="{{style}}">
+	{{{doBody}}}
+</div>
+]]>
+		</wrap>
+	</row>
+	<col>
+		<wrap>
+<![CDATA[
+<div id="{{id}}" class="ax-col-{{size}}">
+	<div class="ax-unit">
+		<div class="ax-box {{css}}" style="{{style}}">
+			{{{doBody}}}
+		</div>
+		<div class="ax-clear"></div>
+		<div class="H20"></div>
+	</div>
+</div>
+]]>
+		</wrap>
+	</col>
+	<form>
+		<wrap>
+<![CDATA[
+<form id="{{id}}" name="{{name}}" method="{{method}}" class="{{css}}" style="{{style}}">
+	<div class="ax-rwd-table">
+		{{{doBody}}}
+	</div>
+</form>
+]]>
+		</wrap>
+	</form>
+	<fields>
+		<wrap>
+<![CDATA[
+<div id="{{id}}" class="item-group {{css}}" style="{{style}}">
+	{{{doBody}}}
+	<div class="group-clear"></div>
+</div>
+]]>
+		</wrap>
+	</fields>
+	<field>
+		<wrap>
+<![CDATA[
+<div id="{{id}}" class="item">
+	<div class="item-lable">
+		<span class="th">{{label}}</span>
+		<span class="td inputText {{css}}" style="{{style}}" title="{{title}}">
+			{{{doBody}}}
+		</span>
+	</div>
+</div>
+<div class="item-clear"></div>
+]]>
+		</wrap>
+	</field>
 </axu4j>
