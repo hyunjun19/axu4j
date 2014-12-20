@@ -13,6 +13,9 @@ import javax.servlet.jsp.tagext.SimpleTagSupport;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.axisj.axu4j.config.AXUConfig;
+import com.axisj.axu4j.config.ConfigReader;
+
 /**
  * 상속할 레이아웃을 지정하는 태그
  * <p/>
@@ -22,8 +25,6 @@ import org.slf4j.LoggerFactory;
 public class ExtendsTag extends SimpleTagSupport {
 	Logger logger = LoggerFactory.getLogger(ExtendsTag.class);
 	
-    public static final String PREFIX_ATTR_NAME = "__AXU4J_LAYOUT_PREFIX__";
-    public static final String SUFFIX_ATTR_NAME = "__AXU4J_LAYOUT_SUFFIX__";
     /**
      * Parent Template name(relative path) *
      */
@@ -55,8 +56,9 @@ public class ExtendsTag extends SimpleTagSupport {
 
     protected String getRefinedName() throws JspException {
         ServletContext servletContext = ((PageContext) getJspContext()).getServletContext();
-        String prefix = servletContext.getInitParameter(PREFIX_ATTR_NAME);
-        String suffix = servletContext.getInitParameter(SUFFIX_ATTR_NAME);
+        AXUConfig config = ConfigReader.getConfig();
+        String prefix = config.getLayoutPrefix();
+        String suffix = config.getLayoutSuffix();
 
         if (prefix == null) {
             prefix = "";
