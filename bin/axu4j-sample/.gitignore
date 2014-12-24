@@ -1,7 +1,0 @@
-/target/
-
-.project
-.classpath
-.settings
-target
-src/main/resources/rebel.xml
