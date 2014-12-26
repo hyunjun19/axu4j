@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.axisj</groupId>
 	<artifactId>axu4j</artifactId>
-	<version>0.1.0-SNAPSHOT</version>
+	<version>0.1.0-RELEASE</version>
 	<packaging>jar</packaging>
 	<name>axu4j Taglib</name>
 	<url>https://github.com/axisj-com/axu4j</url>
@@ -15,11 +15,23 @@
 			<email>hyunjun19@gmail.com</email>
 		</developer>
 	</developers>
-	
+
+	<licenses>
+		<license>
+			<name>The Apache Software License, Version 2.0</name>
+			<url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+		</license>
+	</licenses>
+
+	<scm>
+		<url>https://github.com/hyunjun19/axu4j</url>
+		<connection>https://github.com/hyunjun19/axu4j.git</connection>
+	</scm>
+
 	<properties>
 		<jdk.version>1.5</jdk.version>
 	</properties>
-	
+
 	<dependencies>
 		<dependency>
 			<groupId>junit</groupId>
@@ -65,20 +77,18 @@
 			<version>0.8.17</version>
 		</dependency>
 	</dependencies>
-	
+
 	<build>
 		<finalName>axu4j</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
-				<version>2.3.2</version>
 				<configuration>
 					<source>${jdk.version}</source>
 					<target>${jdk.version}</target>
 				</configuration>
 			</plugin>
- 
 			<!-- Make this jar executable -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -86,14 +96,15 @@
 				<configuration>
 					<finalName>axu4j-${version}</finalName>
 					<archive>
-						<addMavenDescriptor>false</addMavenDescriptor><!-- exclude maven files(pom.properties, pom.xml) -->
+						<!-- exclude maven files(pom.properties, pom.xml) -->
+						<addMavenDescriptor>false</addMavenDescriptor>
 					</archive>
 					<excludes>
 						<exclude>**/axu4j.xml</exclude>
 					</excludes>
 				</configuration>
 			</plugin>
- 
 		</plugins>
 	</build>
+
 </project>

@@ -27,9 +27,6 @@
 	<ax:put block="scripts">
 	    <script type="text/javascript">
 	    var page_menu_id = "m020201";
-	    </script>
-	    <script type="text/javascript" src="./axu/theme/Barracks/admin/resource/admin.js"></script>
-	    <script type="text/javascript">
 	    var fnObj = {
 	        pageStart: function(){
 	            this.search.bind();
