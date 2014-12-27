@@ -6,7 +6,7 @@ AXU(https://github.com/axisj-com/axu) for java
 template/tag engine
 악수(AXU)는 액시스제이에서 제공하는 '반응형 웹 애플리케이션 템플릿 패키지' 입니다.
 axu4j는 악수를 좀 더 쉽게 사용할 수 있게 해주는 Java 개발 라이브러리 입니다.
-axu4j는 템플릿 엔진(https://github.com/kwon37xi/jsp-template-inheritance)을 내장하여 반복되는 레이아웃을 간단하게 정리하고 적용 가능하게 해줍니다.
+axu4j는 템플릿 엔진[jsp-template-inheritance](https://github.com/kwon37xi/jsp-template-inheritance)을 내장하여 반복되는 레이아웃을 간단하게 정리하고 적용 가능하게 해줍니다.
 또한 악수의 그리드시스템과 폼을 Tag로 만들어 사용함으로서 좀 더 적고 간결한 소스 작성이 가능하며 재사용성과 유지보수성에 있어서 기존 순수 HTML 작성보다 압도적인 이점을 제공합니다.
 
 1. layout
