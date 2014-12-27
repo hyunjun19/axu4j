@@ -46,7 +46,7 @@
         </attribute>
         <attribute>
             <name>type</name>
-            <description>PutType APPEND,PREPEND,REPLACE</description>
+            <description>PutType APPEND(default),PREPEND,REPLACE</description>
             <required>false</required>
             <rtexprvalue>true</rtexprvalue>
         </attribute>
@@ -115,6 +115,7 @@
     	</attribute>
     	<attribute>
     		<name>method</name>
+    		<description>GET or POST(default)</description>
     		<rtexprvalue>true</rtexprvalue>
     	</attribute>
     	<attribute>

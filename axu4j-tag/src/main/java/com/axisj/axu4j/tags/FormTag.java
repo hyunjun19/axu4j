@@ -42,7 +42,7 @@ public class FormTag extends AXUTagSupport {
 		this.action = action;
 	}
 	public String getMethod() {
-		return method;
+		return StringUtils.defaultIfEmpty(method, "POST");
 	}
 	public void setMethod(String method) {
 		this.method = method;

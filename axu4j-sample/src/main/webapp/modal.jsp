@@ -6,7 +6,7 @@
 		<h1>컨텐츠 제목</h1>
 	</ax:put>
 	<ax:put block="contents">
-		<ax:form name="table-form" method="get">
+		<ax:form name="table-form">
 			<ax:fields>
 				<ax:field label="번호">
 					<input type="text" name="user_key" title="" placeholder="" value="" class="AXInput" style="width:50px;" readonly="readonly" />

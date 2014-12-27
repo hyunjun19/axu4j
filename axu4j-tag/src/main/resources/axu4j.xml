@@ -6,7 +6,7 @@
 	<row>
 		<wrap>
 <![CDATA[
-<div id="{{id}}" class="ax-layer {{css}}" style="{{style}}">
+<div id="{{id}}" class="ax-layer{{#css}}{{#css}} {{css}}{{/css}}{{/css}}"{{#style}}{{#style}} style="{{style}}"{{/style}}{{/style}}>
 	{{{doBody}}}
 </div>
 ]]>
@@ -17,7 +17,7 @@
 <![CDATA[
 <div id="{{id}}" class="ax-col-{{size}}">
 	<div class="ax-unit">
-		<div class="ax-box {{css}}" style="{{style}}">
+		<div class="ax-box{{#css}} {{css}}{{/css}}"{{#style}} style="{{style}}"{{/style}}>
 			{{{doBody}}}
 		</div>
 		<div class="ax-clear"></div>
@@ -30,7 +30,7 @@
 	<form>
 		<wrap>
 <![CDATA[
-<form id="{{id}}" name="{{name}}" method="{{method}}" class="{{css}}" style="{{style}}">
+<form id="{{id}}" name="{{name}}" method="{{method}}"{{#css}} class="{{css}}"{{/css}}{{#style}} style="{{style}}"{{/style}}>
 	<div class="ax-rwd-table">
 		{{{doBody}}}
 	</div>
@@ -41,7 +41,7 @@
 	<fields>
 		<wrap>
 <![CDATA[
-<div id="{{id}}" class="item-group {{css}}" style="{{style}}">
+<div id="{{id}}" class="item-group{{#css}} {{css}}{{/css}}"{{#style}} style="{{style}}"{{/style}}>
 	{{{doBody}}}
 	<div class="group-clear"></div>
 </div>
@@ -54,7 +54,7 @@
 <div id="{{id}}" class="item">
 	<div class="item-lable">
 		<span class="th">{{label}}</span>
-		<span class="td inputText {{css}}" style="{{style}}" title="{{title}}">
+		<span class="td inputText{{#css}} {{css}}{{/css}}"{{#style}} style="{{style}}"{{/style}}{{#title}} title="{{title}}"{{/title}}>
 			{{{doBody}}}
 		</span>
 	</div>
