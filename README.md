@@ -50,4 +50,6 @@ JSP Custom Tag Library
 
 ## TODO
 1. Maven Central Repository 등록
+https://github.com/hyunjun19/axu4j/issues/2
 2. AXU 테마별 지원. 현재 Barracks(cocker)만 지원
+https://github.com/hyunjun19/axu4j/issues/3
