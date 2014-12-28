@@ -24,8 +24,8 @@
 
 	<scm>
 		<connection>scm:git:git://github.com/axisj-com/axu4j.git</connection>
-		<developerConnection>scm:git:git://github.com/axisj-com/axu4j.git</developerConnection>
-		<url>http://github.com/axisj-com/axu4j</url>
+		<developerConnection>scm:git:git@github.com:axisj-com/axu4j.git</developerConnection>
+		<url>https://github.com/axisj-com/axu4j</url>
 	</scm>
 
 	<properties>
