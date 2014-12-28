@@ -1,4 +1,7 @@
-// barracks-cocker v0.1
+/*
+ * barracks-cocker v0.2
+ * 2014.12.26 tom : mobile > ax-scroll-top 추가
+ */
 
 @import "../AXUtils";
 
@@ -145,12 +148,30 @@ a{
 
 		.ax-logo{
 			position: absolute;
-			line-height:45px;margin-top:0px;
+			line-height:45px;margin-top:8px;
+			a.logo-icon{
+				color: @color-b;
+				text-decoration: none;
+				font-size:45px;
+				i.axi{
+					padding:5px;
+					font-size:35px;
+				}
+			}
+			img{
+				vertical-align: middle;
+				border:0px none;
+			}
+			a{
+				color:@color;
+				vertical-align: middle;
+				text-decoration: underline;
+			}
 		}
 
 		.ax-top-menu{
-			padding-left:100px;
-			height: 60px;width: 500px;
+			padding-left:200px;
+			height: 60px;width: 600px;
 			ul{
 				list-style: none;
 				margin:0px; padding:0px;
@@ -328,8 +349,8 @@ a{
 				.right{float: right;}
 			}
 			/* 페이지 그리드 */
-			.ax-grid{
-				margin: 10px;
+			.ax-grid, .ax-tree, .ax-form, .ax-section{
+				margin: 10px;padding:0px;
 			}
 
 		}
@@ -477,6 +498,7 @@ a{
 				display:block;height: 30px;line-height:30px;float: none;
 				font-size:24px; font-weight: normal; color:@color-a; text-align: center;
 				margin:0px; padding:0px;
+				color:@color-b;
 			}
 			.desc{
 				display:block;height: 30px;line-height:30px;float: none;
@@ -583,6 +605,8 @@ a{
 		}
 	}
 }
+// 맨위로 핸들
+.ax-scroll-top{display:none;}
 
 // 반응형 폼 서식
 .ax-rwd-table {
@@ -863,7 +887,6 @@ table.ax-layout{
 @media @mobile {
 
 	#AXPage{
-
 		.ax-wrap 	{margin:0px auto;}
 		.ax-clear	{clear:both;}
 		.ax-unit	{margin:0px 3px;}
@@ -885,6 +908,8 @@ table.ax-layout{
 		div[class*="mx-"] {display:block;}
 
 		.ax-header{
+			position: absolute;
+			opacity: 1;
 			.ax-col-8{width:50%;}
 			.ax-col-4{width:50%;}
 			.ax-logo{
@@ -962,7 +987,7 @@ table.ax-layout{
 					margin: 10px 3px;
 				}
 				/* 페이지 그리드 */
-				.ax-grid {
+				.ax-grid, .ax-tree, .ax-form, .ax-section {
 					margin: 10px 3px 3px 3px;
 				}
 			}
@@ -1042,7 +1067,34 @@ table.ax-layout{
 			}
 		}
 	}
+	.ax-scroll-top{
+		position:fixed;
+		z-index:2;
+		top:-60px;
+		left:0px;width:100%;
 
+		/* For Safari 3.1 to 6.0 */
+		-webkit-transition-property: all;
+		-webkit-transition-duration: 0.5s;
+		-webkit-transition-timing-function: linear;
+		-webkit-transition-delay: 0.3s;
+		/* Standard syntax */
+		transition-property: all;
+		transition-duration: 0.5s;
+		transition-timing-function: linear;
+		transition-delay: 0.3s;
+
+		&.on{top:0px;}
+		a{
+			display: block;
+			background: #000;color:#fff;
+			padding: 7px 5px;
+			width: 70px;
+			margin:0px auto;
+			text-align: center;
+			.util-border-radius(0px,0px,10px,10px);
+		}
+	}
 }
 
 @media @formMobile {

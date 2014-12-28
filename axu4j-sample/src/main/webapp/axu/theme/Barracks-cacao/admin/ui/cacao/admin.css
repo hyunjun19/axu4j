@@ -985,6 +985,77 @@ a:hover {
   background: #e2e2e2;
   clear: both;
 }
+table.ax-layout {
+  border-collapse: collapse;
+  border: 0px none;
+  width: 100%;
+  table-layout: fixed;
+}
+table.ax-layout td,
+table.ax-layout th {
+  padding: 0px;
+}
+table.ax-layout td .tdRel,
+table.ax-layout th .tdRel {
+  position: relative;
+}
+table.ax-layout tbody td,
+table.ax-layout tbody th {
+  min-height: 25px;
+  overflow: visible;
+  border: 0px none;
+}
+table.ax-layout tbody tr.gray th,
+table.ax-layout tbody tr.gray td {
+  background-color: #F5F5F5;
+}
+table.ax-layout tbody tr.red th,
+table.ax-layout tbody tr.red td {
+  background-color: #FFE8E8;
+}
+table.ax-layout tbody tr.green th,
+table.ax-layout tbody tr.green td {
+  background-color: #F7FDEA;
+}
+table.ax-layout tbody tr.blue th,
+table.ax-layout tbody tr.blue td {
+  background-color: #EAF5FD;
+}
+table.ax-layout tbody tr.yellow th,
+table.ax-layout tbody tr.yellow td {
+  background-color: #FEFEE9;
+}
+table.ax-layout tbody tr td.gray {
+  background-color: #F5F5F5;
+}
+table.ax-layout tbody tr td.red {
+  background-color: #FFE8E8;
+}
+table.ax-layout tbody tr td.green {
+  background-color: #F7FDEA;
+}
+table.ax-layout tbody tr td.blue {
+  background-color: #EAF5FD;
+}
+table.ax-layout tbody tr td.yellow {
+  background-color: #FEFEE9;
+}
+table.ax-layout.padding10 {
+  border-spacing: 10px;
+  border-collapse: separate;
+}
+table.ax-layout.padding5 {
+  border-spacing: 5px;
+  border-collapse: separate;
+}
+table.ax-layout.padding15 {
+  border-spacing: 15px;
+  border-collapse: separate;
+}
+table.ax-layout.padding20 {
+  border-spacing: 20px;
+  border-collapse: separate;
+}
 @media only screen and (min-width: 767px) and (max-width: 1024px) {
   #AXPage .ax-wrap {
     margin: 0px auto;
@@ -1062,6 +1133,19 @@ a:hover {
   }
   #AXPage .ax-body .ax-content {
     padding-left: 0px;
+  }
+  #AXPage .ax-aside {
+    height: 0px;
+    padding-bottom: 0px;
+  }
+  #AXPage .ax-aside .ax-aside-box {
+    background: #fff;
+    padding: 10px 0px;
+    border: 1px solid #d9d9d9;
+    border-radius: 5px;
+    -webkit-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.25);
+    -moz-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.25);
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.25);
   }
 }
 @media (max-width: 767px) {
@@ -1223,6 +1307,11 @@ a:hover {
   }
   #AXPage .ax-aside.ax-aside-open .ax-aside-menu-box {
     display: none;
+  }
+  #AXPage .ax-aside .ax-aside-box {
+    background: #fff;
+    padding: 10px;
+    border-bottom: 1px solid #d9d9d9;
   }
   #AXPage .ax-footer {
     display: none;

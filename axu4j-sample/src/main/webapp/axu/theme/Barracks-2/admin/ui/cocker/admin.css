@@ -1,4 +1,8 @@
 @import url(//cdn.jsdelivr.net/font-nanum/1.0/nanumbarungothic/nanumbarungothic.css);
+/*
+ * barracks-cocker v0.2
+ * 2014.12.26 tom : mobile > ax-scroll-top 추가
+ */
 .none {
   display: none;
 }
@@ -217,12 +221,30 @@ a:hover {
 #AXPage .ax-header .ax-logo {
   position: absolute;
   line-height: 45px;
-  margin-top: 0px;
+  margin-top: 8px;
+}
+#AXPage .ax-header .ax-logo a.logo-icon {
+  color: #468ec8;
+  text-decoration: none;
+  font-size: 45px;
+}
+#AXPage .ax-header .ax-logo a.logo-icon i.axi {
+  padding: 5px;
+  font-size: 35px;
+}
+#AXPage .ax-header .ax-logo img {
+  vertical-align: middle;
+  border: 0px none;
+}
+#AXPage .ax-header .ax-logo a {
+  color: #a6a6a6;
+  vertical-align: middle;
+  text-decoration: underline;
 }
 #AXPage .ax-header .ax-top-menu {
-  padding-left: 100px;
+  padding-left: 200px;
   height: 60px;
-  width: 500px;
+  width: 600px;
 }
 #AXPage .ax-header .ax-top-menu ul {
   list-style: none;
@@ -485,8 +507,12 @@ a:hover {
 #AXPage .ax-body .ax-box .ax-button-group .right {
   float: right;
 }
-#AXPage .ax-body .ax-box .ax-grid {
+#AXPage .ax-body .ax-box .ax-grid,
+#AXPage .ax-body .ax-box .ax-tree,
+#AXPage .ax-body .ax-box .ax-form,
+#AXPage .ax-body .ax-box .ax-section {
   margin: 10px;
+  padding: 0px;
 }
 #AXPage .ax-body .ax-content {
   float: none;
@@ -669,6 +695,7 @@ a:hover {
   text-align: center;
   margin: 0px;
   padding: 0px;
+  color: #468ec8;
 }
 #AXPage.login .ax-title .desc {
   display: block;
@@ -823,6 +850,9 @@ a:hover {
 }
 #AXPage .ax-modal-footer .ax-unit.right {
   text-align: right;
+}
+.ax-scroll-top {
+  display: none;
 }
 .ax-rwd-table {
   position: relative;
@@ -1167,6 +1197,10 @@ table.ax-layout.padding20 {
   #AXPage div[class*="mx-"] {
     display: block;
   }
+  #AXPage .ax-header {
+    position: absolute;
+    opacity: 1;
+  }
   #AXPage .ax-header .ax-col-8 {
     width: 50%;
   }
@@ -1259,7 +1293,10 @@ table.ax-layout.padding20 {
   #AXPage .ax-body .ax-box .ax-button-group {
     margin: 10px 3px;
   }
-  #AXPage .ax-body .ax-box .ax-grid {
+  #AXPage .ax-body .ax-box .ax-grid,
+  #AXPage .ax-body .ax-box .ax-tree,
+  #AXPage .ax-body .ax-box .ax-form,
+  #AXPage .ax-body .ax-box .ax-section {
     margin: 10px 3px 3px 3px;
   }
   #AXPage .ax-aside {
@@ -1340,6 +1377,38 @@ table.ax-layout.padding20 {
   }
   #AXPage .ax-modal-footer .ax-unit.right {
     text-align: right;
+  }
+  .ax-scroll-top {
+    position: fixed;
+    z-index: 2;
+    top: -60px;
+    left: 0px;
+    width: 100%;
+    /* For Safari 3.1 to 6.0 */
+    -webkit-transition-property: all;
+    -webkit-transition-duration: 0.5s;
+    -webkit-transition-timing-function: linear;
+    -webkit-transition-delay: 0.3s;
+    /* Standard syntax */
+    transition-property: all;
+    transition-duration: 0.5s;
+    transition-timing-function: linear;
+    transition-delay: 0.3s;
+  }
+  .ax-scroll-top.on {
+    top: 0px;
+  }
+  .ax-scroll-top a {
+    display: block;
+    background: #000;
+    color: #fff;
+    padding: 7px 5px;
+    width: 70px;
+    margin: 0px auto;
+    text-align: center;
+    -webkit-border-radius: 0px 0px 10px 10px;
+    -moz-border-radius: 0px 0px 10px 10px;
+    border-radius: 0px 0px 10px 10px;
   }
 }
 @media (max-width: 500px) {

@@ -4,7 +4,6 @@
 	<groupId>com.axisj</groupId>
 	<artifactId>axu4j</artifactId>
 	<version>0.1.0-RELEASE</version>
-	<packaging>jar</packaging>
 	<name>axu4j Taglib</name>
 	<url>https://github.com/axisj-com/axu4j</url>
 	

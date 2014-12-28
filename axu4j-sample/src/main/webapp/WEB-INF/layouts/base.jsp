@@ -258,7 +258,7 @@
 					<!-- s.CXPage -->
 					<div id="CXPage">
 <!-- @@@@@@@@@@@@@@@@@@@@@@ contents begin @@@@@@@@@@@@@@@@@@@@@@ -->
-							<ax:block name="contents" />
+						<ax:block name="contents" />
 <!-- @@@@@@@@@@@@@@@@@@@@@@ contents end   @@@@@@@@@@@@@@@@@@@@@@ -->
 					</div>
 					<!-- e.CXPage -->

@@ -1,6 +1,13 @@
-// barracks-cacao v0.1
+/*
+ * barracks-cacao v0.2
+ * 2014.12.26 tom : mobile > ax-scroll-top 추가
+ */
 
-@import "AXUtils";
+
+@import "../AXUtils";
+
+@import url(//cdn.jsdelivr.net/font-nanum/1.0/nanumbarungothic/nanumbarungothic.css);
+
 
 // Global Preset //////////////////
 @color		:#a6a6a6; 		//Light Gray
@@ -26,8 +33,6 @@
 @mobile:	~"(max-width: 767px)";
 @formMobile: ~"(max-width: 500px)";
 
-@import url(/axcms/admin/ui/nanum/nanumbarungothic.css);
-
 .H10		{font-size:1px; height:10px;}
 .H20		{font-size:1px; height:20px;}
 .H30		{font-size:1px; height:30px;}
@@ -42,7 +47,7 @@
 .ax-align-center{text-align: center;}
 .ax-align-right{text-align: right;}
 html, body	{
-	background: @bgcolor-a; color:@color; height:100%; margin:0px; padding:0px;-webkit-text-size-adjust:none;
+	background: @bgcolor-a; height:100%; margin:0px; padding:0px;-webkit-text-size-adjust:none;
 	font-family	:"Nanum Barun Gothic", "Apple SD Gothic Neo", "Open sans", "Meiryo";
 	font-size	:12px;
 }
@@ -145,7 +150,7 @@ a{
 			position: absolute;
 			line-height:45px;margin-top:8px;
 			a.logo-icon{
-				color: #523636;
+				color: @color-b;
 				text-decoration: none;
 				font-size:45px;	
 				i.axi{
@@ -166,7 +171,7 @@ a{
 
 		.ax-top-menu{
             padding-left:200px;
-            height: 60px;width: 500px;
+            height: 60px;width: 600px;
             ul{
               list-style: none;
               margin:0px; padding:0px;
@@ -298,7 +303,20 @@ a{
 			.util-border-radius(6px, 6px, 6px, 6px);
 			.util-drop-shadow (0px, 0px, 2px, 0, 0.05);
 
-            h1{font-size:20px; color:@color-a; font-weight: normal; margin:10px 0px; padding:0px 0px;}
+            h1{
+              font-size:20px; color:@color-a; font-weight: normal; margin:10px 0px; padding:0px 0px;
+              .more		{
+                font-size: 14px;
+                float: right;
+              }
+            }
+            h2{
+              font-size:16px; color:@color-b; font-weight: normal; margin:15px 10px 10px 10px; padding:0px 0px;
+              .more		{
+                font-size: 14px;
+                float: right;
+              }
+            }
             p{font-size:12px; line-height:1.6em;color:@color-a; font-weight: normal; margin:10px 0px; padding:0px;}
 
             &.sample-01{
@@ -344,8 +362,8 @@ a{
               .right{float: right;}
             }
             /* 페이지 그리드 */
-            .ax-grid{
-              margin: 10px;
+            .ax-grid, .ax-tree, .ax-form, .ax-section{
+              margin: 10px;padding:0px;
             }
 
 		}
@@ -485,12 +503,17 @@ a{
 	//Login Page...
 	&.login{
         .ax-title{
-          height: 50px;overflow: hidden;
+          position: relative;
+          height: 50px;
+          overflow: hidden;
           padding:20px;
+          background: @bgcolor-a;
+          z-index: 100;
           h1{
             display:block;height: 30px;line-height:30px;float: none;
             font-size:24px; font-weight: normal; color:@color-a; text-align: center;
             margin:0px; padding:0px;
+            color:@color-b;
           }
           .desc{
             display:block;height: 30px;line-height:30px;float: none;
@@ -499,7 +522,7 @@ a{
         }
 		.ax-box{
 			width:300px;margin:0px auto;
-			h1	{text-align: center; color:@color-a; font-weight: normal;}
+			h1	{text-align: center; color:@color-b; font-weight: normal;}
 			p	{text-align: center; color:@color; margin:0px;}
 			.ax-input	{
 				display: block; 
@@ -521,9 +544,9 @@ a{
 			.ax-opts{
 				padding:20px;
 				border-top:@border-b;
+                text-align: center;
 				button{
-					padding:0px !important;
-					width: 100%;
+
 				}
 			}
 		}
@@ -596,6 +619,8 @@ a{
       }
     }
 }
+// 맨위로 핸들
+.ax-scroll-top{display:none;}
 
 // 반응형 폼 서식
 .ax-rwd-table {
@@ -790,6 +815,7 @@ table.ax-layout{
 	}
 }
 
+
 @media @wide {
 }
 
@@ -870,7 +896,7 @@ table.ax-layout{
 
 @media @mobile {
 
-	#AXPage{
+  #AXPage{
 
 		.ax-wrap 	{margin:0px auto;}
 		.ax-clear	{clear:both;}
@@ -893,6 +919,8 @@ table.ax-layout{
 		div[class*="mx-"] {display:block;}
 
 		.ax-header{
+            position: absolute;
+          opacity: 1;
 			.ax-col-8{width:50%;}
 			.ax-col-4{width:50%;}			
 			.ax-logo{
@@ -965,7 +993,7 @@ table.ax-layout{
                 margin: 10px 3px;
               }
               /* 페이지 그리드 */
-              .ax-grid {
+              .ax-grid, .ax-tree, .ax-form, .ax-section{
                 margin: 10px 3px 3px 3px;
               }
             }
@@ -1045,6 +1073,37 @@ table.ax-layout{
     }
 	}
 
+  .ax-scroll-top{
+    display: block;
+    position:fixed;
+    z-index:2;
+    top:-60px;
+    left:0px;width:100%;
+
+
+    /* For Safari 3.1 to 6.0 */
+    -webkit-transition-property: all;
+    -webkit-transition-duration: 0.5s;
+    -webkit-transition-timing-function: linear;
+    -webkit-transition-delay: 0.3s;
+    /* Standard syntax */
+    transition-property: all;
+    transition-duration: 0.5s;
+    transition-timing-function: linear;
+    transition-delay: 0.3s;
+
+    &.on{top:0px;}
+
+    a{
+      display: block;
+      background: @color-b;color:#fff;
+      padding: 7px 5px;
+      width: 70px;
+      margin:0px auto;
+      text-align: center;
+      .util-border-radius(0px,0px,10px,10px);
+    }
+  }
 }
 
 @media @formMobile {

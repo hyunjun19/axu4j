@@ -26,6 +26,10 @@
     <link rel="stylesheet" href="<c:url value='/axu/theme/Barracks/admin/ui/cocker/admin.css' />" />
     <link rel="stylesheet" href="<c:url value='/axu/theme/Barracks/admin/ui/custom.css' />" />
 
+<!-- @@@@@@@@@@@@@@@@@@@@@@ styles begin @@@@@@@@@@@@@@@@@@@@@@ -->
+	<ax:block name="styles" />
+<!-- @@@@@@@@@@@@@@@@@@@@@@ styles end   @@@@@@@@@@@@@@@@@@@@@@ -->
+
     <script type="text/javascript" src="http://dev.axisj.com/jquery/jquery.min.js"></script>
     <script type="text/javascript" src="http://dev.axisj.com/dist/AXJ.min.js"></script>
 </head>
@@ -45,11 +49,9 @@
         <div class="ax-wrap">
             <div class="ax-layer">
                 <div class="ax-col-12">
-
 <!-- @@@@@@@@@@@@@@@@@@@@@@ contents begin @@@@@@@@@@@@@@@@@@@@@@ -->
 					<ax:block name="contents" />
 <!-- @@@@@@@@@@@@@@@@@@@@@@ contents end   @@@@@@@@@@@@@@@@@@@@@@ -->
-
                 </div>
                 <div class="ax-clear"></div>
             </div>

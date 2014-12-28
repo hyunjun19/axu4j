@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <!-- META -->
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1" />
+
+    <title>Barracks-2</title>
+
+    <link rel="shortcut icon" href="http://dev.axisj.com/ui/axisj.ico" type="image/x-icon" />
+    <link rel="icon" href="http://dev.axisj.com/ui/axisj.ico" type="image/x-icon" />
+
+    <link rel="stylesheet" type="text/css" href="http://cdn.axisj.com/axicon/axicon.min.css" />
+    <link rel="stylesheet" type="text/css" href="http://cdn.axisj.com/axisj/ui/kakao/AXJ.min.css" id="axu-theme-axisj" />
+
+    <script type="text/javascript" src="http://cdn.axisj.com/axisj/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="http://cdn.axisj.com/axisj/dist/AXJ.min.js"></script>
+
+    <link rel="stylesheet" href="ui/cacao/admin.css" id="axu-theme-admin" />
+    <link rel="stylesheet" href="ui/custom.css" />
+
+
+    <script type="text/javascript" src="resource/admin.js"></script>
+    <script type="text/javascript" src="resource/Chart.min.js"></script>
+
+</head>
+
+<body>
+<div id="AXPage" class="login">
+
+    <div class="ax-body">
+        <div class="ax-wrap">
+
+            <div class="ax-layer ax-title">
+                <div class="ax-col-12">
+                    <h1><i class="axi axi-axu"></i></h1>
+                    <p class="desc">Application eXperience Universal Administrator</p>
+                </div>
+                <div class="ax-clear"></div>
+            </div>
+
+            <div class="ax-layer">
+                <div class="ax-col-12">
+                    <div class="ax-unit">
+
+                        <div class="ax-box">
+                            <h1>로그인</h1>
+                            <p>관리자 계정으로 로그인 해주세요.</p>
+                            <div class="H20"></div>
+                            <form name="login-form" method="get" action="index.html" onsubmit="">
+                                <div class="ax-input">
+                                    <span class="name">E-mail</span>
+                                    <input type="text" name="input" value="" class="AXInput" placeholder="e-mail">
+                                </div>
+                                <div class="ax-input">
+                                    <span class="name">Password</span>
+                                    <input type="password" name="input" value="" class="AXInput" placeholder="password">
+                                </div>
+
+                                <div class="ax-clear"></div>
+                                <div class="H20"></div>
+
+                                <div class="ax-funcs">
+                                    <label>
+                                        <span>&nbsp;아이디 기억하기</span>
+                                        <input type="text" name="" value="NO" id="AXInputSwitch" style="width:50px;height:23px;border:0px none;" />
+
+                                    </label>
+                                    <button type="submit" class="AXButtonLarge Blue">&nbsp;&nbsp;로그인&nbsp;&nbsp;</button>
+                                </div>
+                            </form>
+
+                            <div class="ax-clear"></div>
+                            <div class="H20"></div>
+
+                            <div class="ax-opts">
+                                <button type="button" class="AXButtonSmall Classic">관리자에게 계정 신청하기</button>
+                                <button type="button" class="AXButtonSmall Classic">비밀번호 찾기</button>
+                            </div>
+
+                            <p>
+                                IE8+, Chrome, Firefox, safari
+                            </p>
+                            <div class="H20"></div>
+
+                        </div>
+
+                    </div>
+                </div>
+                <div class="ax-clear"></div>
+            </div>
+
+
+        </div>
+    </div>
+
+    <!-- ax-footer : include -->
+    <div class="ax-footer">
+        <div class="ax-wrap">
+            <div class="ax-col-6">
+                <div class="ax-unit">
+                    <ul class="ax-version">
+                        <li>AXU - <a href="http://axu.axisj.com" target="_blank">Barracks</a></li>
+                        <li><i class="axi axi-check-circle-o"></i> 현재버전 <a href="#ax">0.2</a></li>
+                        <li><select id="theme-select"></select></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="ax-col-6">
+                <div class="ax-unit">
+                    <ul class="ax-funcs">
+                        <li><a href="https://www.axisj.com" target="_blank"><i class="axi axi-axisj"></i> AXISJ.com</a></li>
+                        <li><a href="https://github.com/axisj-com" target="_blank"><i class="axi axi-github-square"></i> AXISJ gitHub</a></li>
+                        <li><a href="https://www.facebook.com/axisj" target="_blank"><i class="axi axi-facebook-square"></i> Facebook</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="ax-clear"></div>
+        </div>
+    </div>
+    <!-- ax-footer : include -->
+</div>
+
+<script>
+    var fnObj = {
+        pageStart: function(){
+            $("#AXInputSwitch").bindSwitch({off:"NO", on:"YES", onChange:function(){
+                toast.push(Object.toJSON({targetID:this.targetID,
+                    on:this.on, off:this.off, value:this.value}));
+            }});
+            toast.push({type:"Caution", body:"본 페이지는 샘플페이지 입니다. 그냥 '로그인'버튼을 누르세요"});
+        }
+    };
+</script>
+</body>
+</html>
