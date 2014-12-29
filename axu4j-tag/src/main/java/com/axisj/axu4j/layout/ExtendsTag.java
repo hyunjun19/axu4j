@@ -18,7 +18,7 @@ import com.axisj.axu4j.config.ConfigReader;
 
 /**
  * 상속할 레이아웃을 지정하는 태그
- * <p/>
+ * 
  * @author KwonNam Son(kwon37xi@gmail.com)
  * @version axu4j-0.0.1: add JspException and debug message
  */

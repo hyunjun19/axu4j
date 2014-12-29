@@ -5,8 +5,9 @@
 	<artifactId>axu4j</artifactId>
 	<version>0.1.0-RELEASE</version>
 	<name>axu4j Taglib</name>
+	<description>AXU for Java</description>
 	<url>https://github.com/axisj-com/axu4j</url>
-	
+
 	<developers>
 		<developer>
 			<id>hyunjun19</id>
@@ -23,15 +24,16 @@
 	</licenses>
 
 	<scm>
-		<connection>scm:git:git://github.com/axisj-com/axu4j.git</connection>
+		<connection>scm:git:git@github.com:axisj-com/axu4j.git</connection>
 		<developerConnection>scm:git:git@github.com:axisj-com/axu4j.git</developerConnection>
-		<url>https://github.com/axisj-com/axu4j</url>
+		<url>git@github.com:axisj-com/axu4j.git</url>
 	</scm>
 
 	<properties>
 		<jdk.version>1.5</jdk.version>
+		<source.encoding>UTF-8</source.encoding>
 	</properties>
-	
+
 	<profiles>
 		<profile>
 			<id>release-sign-artifacts</id>
@@ -116,18 +118,29 @@
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-resources-plugin</artifactId>
+				<version>2.7</version>
+				<configuration>
+					<encoding>${source.encoding}</encoding>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.2</version>
 				<configuration>
 					<source>${jdk.version}</source>
 					<target>${jdk.version}</target>
+					<encoding>${source.encoding}</encoding>
 				</configuration>
 			</plugin>
 			<!-- Make this jar executable -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-jar-plugin</artifactId>
+				<version>2.5</version>
 				<configuration>
-					<finalName>axu4j-${version}</finalName>
+					<finalName>axu4j-${project.version}</finalName>
 					<archive>
 						<!-- exclude maven files(pom.properties, pom.xml) -->
 						<addMavenDescriptor>false</addMavenDescriptor>
@@ -139,24 +152,87 @@
 			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-source-plugin</artifactId>
+				<version>2.4</version>
+				<executions>
+					<execution>
+						<id>attach-sources</id>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<version>2.10.1</version>
+				<executions>
+					<execution>
+						<id>attach-javadocs</id>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<encoding>${source.encoding}</encoding>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-gpg-plugin</artifactId>
+				<version>1.5</version>
+				<executions>
+					<execution>
+						<id>sign-artifacts</id>
+						<phase>verify</phase>
+						<goals>
+							<goal>sign</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.sonatype.plugins</groupId>
+				<artifactId>nexus-staging-maven-plugin</artifactId>
+				<version>1.6.3</version>
+				<extensions>true</extensions>
+				<configuration>
+					<serverId>ossrh</serverId>
+					<nexusUrl>https://oss.sonatype.org/</nexusUrl>
+					<autoReleaseAfterClose>true</autoReleaseAfterClose>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-release-plugin</artifactId>
 				<version>2.2.2</version>
 				<configuration>
 					<arguments>-Dgpg.passphrase=${gpg.passphrase}</arguments>
 				</configuration>
 			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-site-plugin</artifactId>
+				<version>3.4</version>
+			</plugin>
 		</plugins>
 	</build>
 
+	<!-- <distributionManagement> <snapshotRepository> <id>sonatype-nexus-snapshots</id> 
+		<name>Sonatype Nexus snapshot repository</name> <url>https://oss.sonatype.org/content/repositories/snapshots</url> 
+		</snapshotRepository> <repository> <id>sonatype-nexus-staging</id> <name>Sonatype 
+		Nexus release repository</name> <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url> 
+		</repository> </distributionManagement> -->
+
 	<distributionManagement>
 		<snapshotRepository>
-			<id>sonatype-nexus-snapshots</id>
-			<name>Sonatype Nexus snapshot repository</name>
+			<id>ossrh</id>
 			<url>https://oss.sonatype.org/content/repositories/snapshots</url>
 		</snapshotRepository>
 		<repository>
-			<id>sonatype-nexus-staging</id>
-			<name>Sonatype Nexus release repository</name>
+			<id>ossrh</id>
 			<url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
 		</repository>
 	</distributionManagement>

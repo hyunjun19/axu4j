@@ -10,6 +10,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
+ * 설정(axu4j.xml)을 읽는 Singleton 객체 입니다.
+ * /WEB-INF/classes/axu4j.xml 
  * 
  * @author HJ Park
  */
@@ -38,8 +40,7 @@ public class ConfigReader {
 	/**
 	 * read config from confingPath
 	 * 
-	 * @param confingFilename
-	 * @throws Exception
+	 * @param confingFilename like axu4j.xml
 	 */
 	public static void load(String confingFilename) {
 		try {
@@ -69,7 +70,6 @@ public class ConfigReader {
 	/**
 	 * read config from axu4j.xml
 	 * 
-	 * @throws Exception
 	 */
 	public static void load() {
 		load(defaultConfigFilename);
@@ -87,19 +87,4 @@ public class ConfigReader {
 		save(defaultConfigFilename);
 	}
 	
-	
-	public static void main(String[] args) {
-		try {
-			logger.debug("AXUConfig test start");
-			
-			config = new AXUConfig();		
-			config.setRealadable(true);
-			
-			ConfigReader.save();
-			
-			logger.debug("AXUConfig test finish");
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
 }
