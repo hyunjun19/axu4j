@@ -74,7 +74,7 @@ public class ExtendsTag extends SimpleTagSupport {
         if (!realFile.exists()) {
         	throw new JspException(String.format("ExtendsTag JSP File Not Found: %s", refinedName));
         } else {
-        	logger.debug("layout extens {}", refinedName);
+        	logger.debug("layout extends {}", refinedName);
         }
 
         return refinedName;

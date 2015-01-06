@@ -1,8 +1,6 @@
 package com.axisj.axu4j.tags;
 
-import java.io.IOException;
-import java.io.StringReader;
-import java.io.StringWriter;
+import java.io.*;
 
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.tagext.SimpleTagSupport;
@@ -11,7 +9,6 @@ import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.axisj.axu4j.layout.BlockTagUtils;
 import com.github.mustachejava.DefaultMustacheFactory;
 import com.github.mustachejava.Mustache;
 import com.github.mustachejava.MustacheFactory;
@@ -22,9 +19,9 @@ public abstract class AXUTagSupport extends SimpleTagSupport {
 
 	protected Mustache mustacheHtml;
 	protected Logger   logger   = LoggerFactory.getLogger(getClass());
+	protected boolean  isDoBody = false;
 	protected String   tagBody  = StringUtils.EMPTY;
 	protected String   doBody   = StringUtils.EMPTY;
-	protected boolean  isDoBody = false;
 	
 
 	public AXUTagSupport() throws Exception {
@@ -55,9 +52,9 @@ public abstract class AXUTagSupport extends SimpleTagSupport {
 
 		try {
 			if (isDoBody) {
-				doBody = BlockTagUtils.getBodyResult(getJspBody());
+				doBody = TagUtils.toString(getJspBody());
 			}
-			
+
 			mustacheHtml = mustacheFactory.compile(new StringReader(tagBody), getClass().getCanonicalName());
 			mustacheHtml.execute(getJspContext().getOut(), this);
 		} catch (Exception e) {
