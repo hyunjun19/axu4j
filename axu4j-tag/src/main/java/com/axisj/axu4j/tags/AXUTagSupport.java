@@ -19,12 +19,12 @@ import com.github.mustachejava.MustacheFactory;
 public abstract class AXUTagSupport extends SimpleTagSupport {
 	protected static MustacheFactory mustacheFactory = new DefaultMustacheFactory();
 	protected static int tagIndex = 0;
-	
-	protected Logger   logger = LoggerFactory.getLogger(getClass());
+
 	protected Mustache mustacheHtml;
+	protected Logger   logger   = LoggerFactory.getLogger(getClass());
 	protected String   tagBody  = StringUtils.EMPTY;
 	protected String   doBody   = StringUtils.EMPTY;
-	protected boolean isDoBody = false;
+	protected boolean  isDoBody = false;
 	
 
 	public AXUTagSupport() throws Exception {
