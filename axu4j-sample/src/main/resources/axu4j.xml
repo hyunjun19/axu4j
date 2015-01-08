@@ -1,7 +1,8 @@
 <axu4j realadable="true">
 	<layout>
 		<prefix>/WEB-INF/layouts/</prefix>
-		<suffix>.jsp</suffix>
+		<suffix>.html</suffix>
+		<encoding>UTF-8</encoding>
 	</layout>
 	<row>
 		<wrap>

@@ -21,17 +21,13 @@ public class DivTag extends AXUTagSupport {
      */
     @Override
     public void doTag() throws JspException, IOException {
-        logger.debug("@@@@@@@@@@@@@ parent @@@@@@@@@@@@@");
-        logger.debug("{}", getParent());
-        logger.debug("@@@@@@@@@@@@@ parent @@@@@@@@@@@@@");
-
         LayoutTag layoutTag = (LayoutTag) findAncestorWithClass(this, LayoutTag.class);
         if (layoutTag == null) {
             throw new  IllegalStateException("div tag should be used in a layout tag inside.");
         }
 
         layoutTag.putDiv(name, TagUtils.toString(getJspBody()));
-        logger.debug("div#%s put to layout#%s ", name, layoutTag.getName());
+        logger.debug("div#{} put to layout#{}", name, layoutTag.getName());
     }
 
     public String getName() {

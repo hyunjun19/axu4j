@@ -19,6 +19,10 @@ public class AXUConfig {
 	@Element(name="suffix")
 	private String layoutSuffix;
 
+	@Path("layout[1]")
+	@Element(name="encoding")
+	private String layoutEncoding;
+
 	@Path("row[1]")
 	@Element(name = "wrap", data = true)
 	private String rowWrap;
@@ -64,6 +68,14 @@ public class AXUConfig {
 
 	public void setLayoutSuffix(String layoutSuffix) {
 		this.layoutSuffix = layoutSuffix;
+	}
+
+	public String getLayoutEncoding() {
+		return layoutEncoding;
+	}
+
+	public void setLayoutEncoding(String layoutEncoding) {
+		this.layoutEncoding = layoutEncoding;
 	}
 
 	public String getRowWrap() {
