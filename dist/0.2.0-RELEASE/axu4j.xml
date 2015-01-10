@@ -1,0 +1,67 @@
+<axu4j realadable="true">
+	<layout>
+		<prefix>/WEB-INF/layouts/</prefix>
+		<suffix>.html</suffix>
+		<encoding>UTF-8</encoding>
+	</layout>
+	<row>
+		<wrap>
+<![CDATA[
+<div id="{{id}}" class="ax-layer{{#css}}{{#css}} {{css}}{{/css}}{{/css}}"{{#style}}{{#style}} style="{{style}}"{{/style}}{{/style}}>
+	{{{doBody}}}
+</div>
+]]>
+		</wrap>
+	</row>
+	<col>
+		<wrap>
+<![CDATA[
+<div id="{{id}}" class="ax-col-{{size}}">
+	<div class="ax-unit">
+		<div class="ax-box{{#css}} {{css}}{{/css}}"{{#style}} style="{{style}}"{{/style}}>
+			{{{doBody}}}
+		</div>
+		<div class="ax-clear"></div>
+		<div class="H20"></div>
+	</div>
+</div>
+]]>
+		</wrap>
+	</col>
+	<form>
+		<wrap>
+<![CDATA[
+<form id="{{id}}" name="{{name}}" method="{{method}}"{{#css}} class="{{css}}"{{/css}}{{#style}} style="{{style}}"{{/style}}>
+	<div class="ax-rwd-table">
+		{{{doBody}}}
+	</div>
+</form>
+]]>
+		</wrap>
+	</form>
+	<fields>
+		<wrap>
+<![CDATA[
+<div id="{{id}}" class="item-group{{#css}} {{css}}{{/css}}"{{#style}} style="{{style}}"{{/style}}>
+	{{{doBody}}}
+	<div class="group-clear"></div>
+</div>
+]]>
+		</wrap>
+	</fields>
+	<field>
+		<wrap>
+<![CDATA[
+<div id="{{id}}" class="item">
+	<div class="item-lable">
+		<span class="th">{{label}}</span>
+		<span class="td inputText{{#css}} {{css}}{{/css}}"{{#style}} style="{{style}}"{{/style}}{{#title}} title="{{title}}"{{/title}}>
+			{{{doBody}}}
+		</span>
+	</div>
+</div>
+<div class="item-clear"></div>
+]]>
+		</wrap>
+	</field>
+</axu4j>
