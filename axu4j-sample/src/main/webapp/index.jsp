@@ -1,18 +1,18 @@
 <%@ page contentType="text/html; charset=UTF-8"
 %><%@ taglib prefix="c"  uri="http://java.sun.com/jsp/jstl/core"
 %><%@ taglib prefix="ax" uri="http://axis.com/axu4j"
-%><ax:extends name="base">
-	<ax:put block="styles">
+%><ax:layout name="base">
+	<ax:div name="styles">
 		<style type="text/css">
 			.AXGridTable td { white-space: normal; }
 			.AXGridTable a { text-decoration: underline; }
 		</style>
-	</ax:put>
-	<ax:put block="header">
+	</ax:div>
+	<ax:div name="header">
 		<h1>Hello AXU4j</h1>
 		<p class="desc">AXU4J를 소개합니다.</p>
-	</ax:put>
-	<ax:put block="contents">
+	</ax:div>
+	<ax:div name="contents">
 		<ax:row>
 			<ax:col size="12">
 				<div class="ax-box-wrap">
@@ -43,6 +43,7 @@
 							</tr>
 						</thead>
 						<tbody>
+<!-- 
 							<tr>
 								<td>block</td>
 								<td># name: block name으로 put tag에서 block attribute에 사용됩니다.</td>
@@ -54,10 +55,10 @@
 								<td># name: 확장자를 제외한 레이아웃 파일명입니다.</td>
 								<td>지정된(name) 레이아웃 파일을 적용합니다.</td>
 								<td>
-<pre>&lt;ax:extends name="base"&gt;
+<pre>&lt;ax:layout name="base"&gt;
 	// TODO 내용을 작성합니다.
 	...
-&lt;/ax:extends&gt;</pre>
+&lt;/ax:layout&gt;</pre>
 								</td>
 							</tr>
 							<tr>
@@ -68,12 +69,29 @@
 								</td>
 								<td>extends에서 지정된 레이아웃의 block 구역에 내용을 삽입합니다.</td>
 								<td>
-<pre>&lt;ax:extends name="base"&gt;
-	&lt;ax:put block="header" type="REPLACE"&gt;
+<pre>&lt;ax:layout name="base"&gt;
+	&lt;ax:div name="header" type="REPLACE"&gt;
 		// TODO 내용을 작성합니다.
 		...
-	&lt;/ax:put&gt;
-&lt;/ax:extends&gt;</pre>
+	&lt;/ax:div&gt;
+&lt;/ax:layout&gt;</pre>
+								</td>
+							</tr>
+ -->
+							<tr>
+								<td>layout</td>
+								<td>
+									# name: 페이지에 사용할 layout name입니다. axu4j.xml에 설정한 prefix(default: /WEB-INF/layouts/)와 suffix(default: .html)를 제외한 파일명을 그대로 사용하면 됩니다.
+								</td>
+								<td>
+									페이지에 사전에 정의한 레이아웃을 적용하는 tag입니다.<br/>
+									레이아웃 페이지는 HTML 파일로 작성을 하며 mustache 문법을 사용해서 원하는 부위에 내용을 위치할 수 있습니다.<br/>
+									레이아웃 페이지에 {{name}}(HTML escaped), {{{name}}}의 표현식을 사용하면 div tag의 내용이 해당 위치에 삽입됩니다.
+								</td>
+								<td>
+<pre>&lt;ax:layout name="base"&gt;
+	...
+&lt;/ax:layout&gt;</pre>
 								</td>
 							</tr>
 							<tr>
@@ -181,9 +199,9 @@
 				</div>
 			</ax:col>
 		</ax:row>
-	</ax:put>
-	<ax:put block="scripts">
+	</ax:div>
+	<ax:div name="scripts">
 		<script type="text/javascript">
 		</script>
-	</ax:put>
-</ax:extends>
+	</ax:div>
+</ax:layout>

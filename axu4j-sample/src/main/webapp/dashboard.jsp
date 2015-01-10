@@ -1,13 +1,13 @@
 <%@ page contentType="text/html; charset=UTF-8"
 %><%@ taglib prefix="c"  uri="http://java.sun.com/jsp/jstl/core"
 %><%@ taglib prefix="ax" uri="http://axis.com/axu4j"
-%><ax:extends name="base">
-	<ax:put block="title">대시보드</ax:put>
-	<ax:put block="header" type="REPLACE">
+%><ax:layout name="base">
+	<ax:div name="title">대시보드</ax:div>
+	<ax:div name="header">
 		<h1>대시보드</h1>
 		<p class="desc">웹 사이트의 전체적인 상황을 추척하고 보여줍니다.</p>
-	</ax:put>
-	<ax:put block="contents">
+	</ax:div>
+	<ax:div name="contents">
 		<ax:row>
 			<ax:col size="6">
 				<div class="ax-box-wrap">
@@ -144,8 +144,8 @@
 				</div>
 			</ax:col>
 		</ax:row>
-	</ax:put>
-	<ax:put block="scripts">
+	</ax:div>
+	<ax:div name="scripts">
 		<script type="text/javascript">
 		    var doughnutData = [
 		        {
@@ -292,5 +292,5 @@
 		    }
 		}
 		</script>
-	</ax:put>
-</ax:extends>
+	</ax:div>
+</ax:layout>

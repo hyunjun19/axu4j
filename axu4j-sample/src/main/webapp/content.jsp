@@ -1,12 +1,12 @@
 <%@ page contentType="text/html; charset=UTF-8"
 %><%@ taglib prefix="c"  uri="http://java.sun.com/jsp/jstl/core"
 %><%@ taglib prefix="ax" uri="http://axis.com/axu4j"
-%><ax:extends name="base">
-	<ax:put block="header" type="REPLACE">
+%><ax:layout name="base">
+	<ax:div name="header">
 		<h1>페이지 제목</h1>
 		<p class="desc">컨텐츠 상세 설명을 넣어주세요.</p>
-	</ax:put>
-	<ax:put block="contents">
+	</ax:div>
+	<ax:div name="contents">
 		<ax:row>
 			<ax:col size="12">
 				<div class="ax-search" id="page-search-box"></div>
@@ -23,8 +23,8 @@
 				<div class="ax-grid" id="page-grid-box"></div>
 			</ax:col>
 		</ax:row>
-	</ax:put>
-	<ax:put block="scripts">
+	</ax:div>
+	<ax:div name="scripts">
 	    <script type="text/javascript">
 	    var page_menu_id = "m020201";
 	    var fnObj = {
@@ -228,5 +228,5 @@
 	        }
 	    };
 	    </script>
-	</ax:put>
-</ax:extends>
+	</ax:div>
+</ax:layout>

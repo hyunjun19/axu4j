@@ -7,7 +7,7 @@
     <short-name>AXU4j</short-name>
     <uri>http://axis.com/axu4j</uri>
 
-    <!-- [layout] extends -->
+    <!-- [layout] extends
     <tag>
         <name>extends</name>
         <tag-class>com.axisj.axu4j.layout.ExtendsTag</tag-class>
@@ -19,8 +19,8 @@
             <rtexprvalue>true</rtexprvalue>
         </attribute>
     </tag>
-    
-	<!-- [layout] block -->
+     -->
+	<!-- [layout] block
     <tag>
         <name>block</name>
         <tag-class>com.axisj.axu4j.layout.BlockTag</tag-class>
@@ -32,8 +32,8 @@
             <rtexprvalue>true</rtexprvalue>
         </attribute>
     </tag>
-
-	<!-- [layout] put -->
+	 -->
+	<!-- [layout] put
     <tag>
         <name>put</name>
         <tag-class>com.axisj.axu4j.layout.PutTag</tag-class>
@@ -51,7 +51,7 @@
             <rtexprvalue>true</rtexprvalue>
         </attribute>
     </tag>
-
+	 -->
 	<!-- [axu] layout -->
 	<tag>
 		<name>layout</name>

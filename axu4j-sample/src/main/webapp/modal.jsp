@@ -1,11 +1,11 @@
 ﻿<%@ page contentType="text/html; charset=UTF-8"
 %><%@ taglib prefix="c"  uri="http://java.sun.com/jsp/jstl/core"
 %><%@ taglib prefix="ax" uri="http://axis.com/axu4j"
-%><ax:extends name="modal">
-	<ax:put block="header" type="REPLACE">
+%><ax:layout name="modal">
+	<ax:div name="header">
 		<h1>컨텐츠 제목</h1>
-	</ax:put>
-	<ax:put block="contents">
+	</ax:div>
+	<ax:div name="contents">
 		<ax:form name="table-form">
 			<ax:fields>
 				<ax:field label="번호">
@@ -50,12 +50,12 @@
 				</ax:field>
 			</ax:fields>
 		</ax:form>
-	</ax:put>
-	<ax:put block="buttons">
+	</ax:div>
+	<ax:div name="buttons">
 		<button type="button" class="AXButton" onclick="parent.myModal.close();">확인</button>
 		<button type="button" class="AXButton" onclick="parent.myModal.close();">취소</button>
-	</ax:put>
-	<ax:put block="scripts">
+	</ax:div>
+	<ax:div name="scripts">
 		<script type="text/javascript">
 		var fnObj = {
 			pageStart: function(){
@@ -102,5 +102,5 @@
 	    axdom(window).ready(fnObj.pageStart);
 	    axdom(window).resize(fnObj.pageResize);
 		</script>
-	</ax:put>
-</ax:extends>
+	</ax:div>
+</ax:layout>
