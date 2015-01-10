@@ -42,8 +42,8 @@ JSP Custom Tag Library
 <dependency>
 	<groupId>com.axisj</groupId>
 	<artifactId>axu4j</artifactId>
-	<version>0.1.0-RELEASE</version>
+	<version>0.2.0-RELEASE</version>
 </dependency>
 ```
 
-진행 상황은 ![issue](https://github.com/axisj-com/axu4j/issues)를 참조해 주세요.
+진행 상황은 [issue](https://github.com/axisj-com/axu4j/issues)를 참조해 주세요.
