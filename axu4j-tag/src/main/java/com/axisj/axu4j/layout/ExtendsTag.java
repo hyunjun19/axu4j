@@ -21,6 +21,8 @@ import com.axisj.axu4j.config.ConfigReader;
  * 
  * @author KwonNam Son(kwon37xi@gmail.com)
  * @version axu4j-0.0.1: add JspException and debug message
+ * 
+ * @deprecated see {@link com.axisj.axu4j.tags.LayoutTag}
  */
 public class ExtendsTag extends SimpleTagSupport {
 	Logger logger = LoggerFactory.getLogger(ExtendsTag.class);

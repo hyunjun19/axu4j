@@ -1,6 +1,9 @@
 package com.axisj.axu4j.tags;
 
+import javax.servlet.jsp.JspContext;
 import javax.servlet.jsp.JspException;
+import javax.servlet.jsp.tagext.JspFragment;
+
 import java.io.IOException;
 
 /**
@@ -37,4 +40,10 @@ public class DivTag extends AXUTagSupport {
     public void setName(String name) {
         this.name = name;
     }
+
+	@Override
+	public void beforeDoTag(JspContext context, JspFragment fragment) { }
+
+	@Override
+	public void afterDoTag(JspContext context, JspFragment fragment) { }
 }

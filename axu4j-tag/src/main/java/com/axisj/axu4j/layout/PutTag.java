@@ -17,6 +17,8 @@ import org.slf4j.LoggerFactory;
  * 레이아웃의 블럭으로 대체되어 들어갈 템플릿을 지정하는 태그.
  *
  * Author: KwonNam Son(kwon37xi@gmail.com)
+ * 
+ * @deprecated see {@link com.axisj.axu4j.tags.DivTag}
  */
 public class PutTag extends SimpleTagSupport {
 	private static Logger logger = LoggerFactory.getLogger(PutTag.class);

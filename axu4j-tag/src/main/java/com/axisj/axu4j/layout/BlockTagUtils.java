@@ -11,6 +11,8 @@ import java.io.StringWriter;
 
 /**
  * Author: KwonNam Son(kwon37xi@gmail.com)
+ * 
+ * @deprecated
  */
 public class BlockTagUtils {
 	public static Logger logger = LoggerFactory.getLogger(BlockTagUtils.class);

@@ -1,5 +1,8 @@
 package com.axisj.axu4j.tags;
 
+import javax.servlet.jsp.JspContext;
+import javax.servlet.jsp.tagext.JspFragment;
+
 import org.apache.commons.lang.StringUtils;
 
 import com.axisj.axu4j.config.ConfigReader;
@@ -8,8 +11,6 @@ public class FieldTag extends AXUTagSupport {
 
 	public FieldTag() throws Exception {
 		super();
-		this.tagBody  = ConfigReader.getConfig().getFieldWrap();
-		this.isDoBody = true;
 	}
 	
 	// =======================================================
@@ -52,5 +53,12 @@ public class FieldTag extends AXUTagSupport {
 	public void setTitle(String title) {
 		this.title = title;
 	}
+	@Override
+	public void beforeDoTag(JspContext context, JspFragment fragment) {
+		this.tagBody = ConfigReader.getConfig().getFieldWrap();
+		this.doBody  = TagUtils.toString(fragment);
+	}
+	@Override
+	public void afterDoTag(JspContext context, JspFragment fragment) { }
 	
 }

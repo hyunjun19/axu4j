@@ -1,5 +1,8 @@
 package com.axisj.axu4j.tags;
 
+import javax.servlet.jsp.JspContext;
+import javax.servlet.jsp.tagext.JspFragment;
+
 import org.apache.commons.lang.StringUtils;
 
 import com.axisj.axu4j.config.ConfigReader;
@@ -8,8 +11,6 @@ public class RowTag extends AXUTagSupport {
 
 	public RowTag() throws Exception {
 		super();
-		this.tagBody  = ConfigReader.getConfig().getRowWrap();
-		this.isDoBody = true;
 	}
 	
 	// =======================================================
@@ -38,5 +39,12 @@ public class RowTag extends AXUTagSupport {
 	public void setStyle(String style) {
 		this.style = style;
 	}
+	@Override
+	public void beforeDoTag(JspContext context, JspFragment fragment) {
+		this.tagBody = ConfigReader.getConfig().getRowWrap();
+		this.doBody  = TagUtils.toString(fragment);
+	}
+	@Override
+	public void afterDoTag(JspContext context, JspFragment fragment) { }
 	
 }

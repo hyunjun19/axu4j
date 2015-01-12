@@ -2,7 +2,9 @@ package com.axisj.axu4j.tags;
 
 import java.io.*;
 
+import javax.servlet.jsp.JspContext;
 import javax.servlet.jsp.JspException;
+import javax.servlet.jsp.tagext.JspFragment;
 import javax.servlet.jsp.tagext.SimpleTagSupport;
 
 import org.apache.commons.lang.StringUtils;
@@ -49,14 +51,18 @@ public abstract class AXUTagSupport extends SimpleTagSupport {
 	 */
 	@Override
 	public void doTag() throws JspException, IOException {
-
 		try {
-			if (isDoBody) {
-				doBody = TagUtils.toString(getJspBody());
-			}
+			
+			JspContext  context  = getJspContext();
+			JspFragment fragment = getJspBody();
+			
+			beforeDoTag(context, fragment);
 
 			mustacheHtml = mustacheFactory.compile(new StringReader(tagBody), getClass().getCanonicalName());
-			mustacheHtml.execute(getJspContext().getOut(), this);
+			mustacheHtml.execute(context.getOut(), this);
+			
+			afterDoTag(context, fragment);
+			
 		} catch (Exception e) {
 			logger.error(String.format("doTag is fail.\ntagBody: %s\nmustacheHtml: %s", tagBody, (mustacheHtml == null ? "null" : mustacheHtml.toString())), e);
 		}
@@ -78,4 +84,20 @@ public abstract class AXUTagSupport extends SimpleTagSupport {
 	/**********************************
 	 * override method region end *
 	 **********************************/
+	
+	/**
+	 * You can custom action before doTag
+	 * 
+	 * @param context JspContext
+	 * @param fragment JspFragment
+	 */
+	public abstract void beforeDoTag(JspContext context, JspFragment fragment);
+	
+	/**
+	 * You can custom action after doTag
+	 * 
+	 * @param context JspContext
+	 * @param fragment JspFragment
+	 */
+	public abstract void afterDoTag(JspContext context, JspFragment fragment);
 }

@@ -12,8 +12,10 @@ import java.util.Map;
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.jsp.JspContext;
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.PageContext;
+import javax.servlet.jsp.tagext.JspFragment;
 
 import com.axisj.axu4j.config.AXUConfig;
 import com.axisj.axu4j.config.ConfigReader;
@@ -25,86 +27,96 @@ import com.axisj.axu4j.config.ConfigReader;
  */
 public class LayoutTag extends AXUTagSupport {
 
-    public LayoutTag() throws Exception {
-	super();
-    }
+	public LayoutTag() throws Exception {
+		super();
+	}
 
-    private Map<String, String> divMap = new HashMap<String, String>();
-
-    private String name;
-    private String key;
-
-    /**
-     * override doTag method
-     */
-    @Override
-    public void doTag() throws JspException, IOException {
-	StringWriter dummy = new StringWriter();
-	getJspBody().invoke(dummy); // invoke body tags. like div, row, col...
+	private Map<String, String> divMap    = new HashMap<String, String>();
+	private Map<String, String> globalMap = new HashMap<String, String>();
 	
-	PageContext pageContext = (PageContext) getJspContext();
-	HttpServletRequest request = (HttpServletRequest) pageContext.getRequest();
-	String contextPath = request.getContextPath();
-	putDiv("__AXU4J_CONTEXT_PATH__", contextPath);
+	private String name;
+	private String key;
 
-	Reader layoutFileReader = null;
-	try {
-	    AXUConfig config = ConfigReader.getConfig();
-	    layoutFileReader = new BufferedReader(new InputStreamReader(new FileInputStream(this.getLayoutFile()), config.getLayoutEncoding()));
+	/**
+	 * override doTag method
+	 */
+	@Override
+	public void doTag() throws JspException, IOException {
+		StringWriter dummy = new StringWriter();
+		getJspBody().invoke(dummy); // invoke body tags. like div, row, col...
 
-	    mustacheHtml = mustacheFactory.compile(layoutFileReader, key);
-	    mustacheHtml.execute(getJspContext().getOut(), divMap);
+		PageContext        pageContext = (PageContext) getJspContext();
+		HttpServletRequest request     = (HttpServletRequest) pageContext.getRequest();
+		
+		// set global parameter
+		globalMap.put("__AXU4J_CONTEXT_PATH__", request.getContextPath());
 
-	} catch (Exception e) {
-	    logger.error(String.format("LayoutTag is fail.\nname: %s\ndivMap: %s", name, divMap), e);
-	} finally {
-	    if (layoutFileReader != null) {
-		layoutFileReader.close();
-	    }
+		Reader layoutFileReader = null;
+		try {
+			AXUConfig config = ConfigReader.getConfig();
+			layoutFileReader = new BufferedReader(new InputStreamReader(new FileInputStream(this.getLayoutFile()), config.getLayoutEncoding()));
+
+			mustacheHtml = mustacheFactory.compile(layoutFileReader, key);
+			
+			Object[] params = new Object[] { divMap, globalMap };
+			mustacheHtml.execute(getJspContext().getOut(), params);
+
+		} catch (Exception e) {
+			logger.error(String.format("LayoutTag is fail.\nname: %s\ndivMap: %s", name, divMap), e);
+		} finally {
+			if (layoutFileReader != null) {
+				layoutFileReader.close();
+			}
+		}
+
+		if (logger.isDebugEnabled()) {
+			logger.debug(this.toString());
+		}
 	}
 
-	if (logger.isDebugEnabled()) {
-	    logger.debug(this.toString());
-	}
-    }
+	private File getLayoutFile() throws JspException {
+		ServletContext servletContext = ((PageContext) getJspContext()).getServletContext();
+		AXUConfig config = ConfigReader.getConfig();
+		String prefix = config.getLayoutPrefix();
+		String suffix = config.getLayoutSuffix();
 
-    private File getLayoutFile() throws JspException {
-	ServletContext servletContext = ((PageContext) getJspContext()).getServletContext();
-	AXUConfig config = ConfigReader.getConfig();
-	String prefix = config.getLayoutPrefix();
-	String suffix = config.getLayoutSuffix();
+		if (prefix == null) {
+			prefix = "";
+		}
 
-	if (prefix == null) {
-	    prefix = "";
-	}
+		if (suffix == null) {
+			suffix = "";
+		}
 
-	if (suffix == null) {
-	    suffix = "";
-	}
+		String layoutFilename = prefix + name + suffix;
+		String realPath = servletContext.getRealPath(layoutFilename);
+		File realFile = new File(realPath);
+		if (!realFile.exists()) {
+			throw new JspException(String.format("LayoutTag File Not Found: %s", layoutFilename));
+		} else {
+			logger.debug("layout extends {}", layoutFilename);
+		}
 
-	String layoutFilename = prefix + name + suffix;
-	String realPath = servletContext.getRealPath(layoutFilename);
-	File realFile = new File(realPath);
-	if (!realFile.exists()) {
-	    throw new JspException(String.format("LayoutTag File Not Found: %s", layoutFilename));
-	} else {
-	    logger.debug("layout extends {}", layoutFilename);
+		return realFile;
 	}
 
-	return realFile;
-    }
+	public void putDiv(String key, String value) {
+		divMap.put(key, value);
+	}
 
-    public void putDiv(String key, String value) {
-	divMap.put(key, value);
-    }
+	public String getName() {
+		return name;
+	}
 
-    public String getName() {
-	return name;
-    }
+	public void setName(String name) {
+		this.name = name;
+		this.key = LayoutTag.class.getCanonicalName() + "." + name;
+	}
 
-    public void setName(String name) {
-	this.name = name;
-	this.key = LayoutTag.class.getCanonicalName() + "." + name;
-    }
+	@Override
+	public void beforeDoTag(JspContext context, JspFragment fragment) { }
+
+	@Override
+	public void afterDoTag(JspContext context, JspFragment fragment) { }
 
 }

@@ -15,6 +15,8 @@ import static com.axisj.axu4j.layout.BlockTagUtils.*;
  * 레이아웃에서 템플릿이 대체되어 들어갈 블럭을 지정하는 태그
  *
  * Author: KwonNam Son(kwon37xi@gmail.com)
+ * 
+ * @deprecated
  */
 public class BlockTag extends SimpleTagSupport {
 	private static Logger logger = LoggerFactory.getLogger(BlockTag.class);
