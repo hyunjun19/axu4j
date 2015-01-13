@@ -12,7 +12,7 @@
 		<developer>
 			<id>hyunjun19</id>
 			<name>HJ.Park</name>
-			<email>hyunjun19@gmail.com</email>
+			<email>hyunjun@axisj.com</email>
 		</developer>
 	</developers>
 
@@ -170,17 +170,6 @@
 					<serverId>ossrh</serverId>
 					<nexusUrl>https://oss.sonatype.org/</nexusUrl>
 					<autoReleaseAfterClose>true</autoReleaseAfterClose>
-				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-release-plugin</artifactId>
-				<version>2.5</version>
-				<configuration>
-					<autoVersionSubmodules>true</autoVersionSubmodules>
-					<useReleaseProfile>false</useReleaseProfile>
-					<releaseProfiles>release</releaseProfiles>
-					<goals>deploy</goals>
 				</configuration>
 			</plugin>
 		</plugins>
