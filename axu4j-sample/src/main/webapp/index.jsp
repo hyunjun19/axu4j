@@ -6,6 +6,7 @@
 		<style type="text/css">
 			.AXGridTable td { white-space: normal; }
 			.AXGridTable a { text-decoration: underline; }
+			.point { color: #FC3838; }
 		</style>
 	</ax:div>
 	<ax:div name="header">
@@ -28,56 +29,37 @@
 						</colgroup>
 						<thead>
 							<tr>
-								<td>
-									<div class="tdRel">tag</div>
-								</td>
-								<td>
-									<div class="tdRel">attributes</div>
-								</td>
-								<td>
-									<div class="tdRel">desc</div>
-								</td>
-								<td>
-									<div class="tdRel">example</div>
-								</td>
+								<td><div class="tdRel">tag</div></td>
+								<td><div class="tdRel">attributes</div></td>
+								<td><div class="tdRel">desc</div></td>
+								<td><div class="tdRel">example</div></td>
 							</tr>
 						</thead>
 						<tbody>
-<!-- 
 							<tr>
-								<td>block</td>
-								<td># name: block name으로 put tag에서 block attribute에 사용됩니다.</td>
-								<td>기본 레이아웃이 되는 페이지에서 특정 내용이 삽입 될 구역을 지정합니다.</td>
-								<td><pre>&lt;ax:block name="header" /&gt;</pre></td>
-							</tr>
-							<tr>
-								<td>extends</td>
-								<td># name: 확장자를 제외한 레이아웃 파일명입니다.</td>
-								<td>지정된(name) 레이아웃 파일을 적용합니다.</td>
+								<td>내장객체</td>
 								<td>
-<pre>&lt;ax:layout name="base"&gt;
-	// TODO 내용을 작성합니다.
-	...
-&lt;/ax:layout&gt;</pre>
+									param  : {{param}}<br/>
+									request: {{request}}<br/>
+									session: {{session}}<br/>
+									cookie : {{cookie}}
+								</td>
+								<td>
+									layout에서 사용 가능한 내장 객체<br/>
+									param   : 요청 매개변수의 기본 값을 이름으로 저장하는 Map<br/>
+									request : 요청 범위 애트리뷰트 이름과 값과 관련된 Map<br/>
+									session : 세션 범위 애트리뷰트 이름과 값과 관련된 Map<br/>
+									cookie  : 요청에 수반되는 쿠키들을 이름으로 저장하는 Map
+									<br/><br/>
+									<h3 class="point">※ layout으로 사용되는 HTML파일에서만 사용이 가능합니다.</h3>
+								</td>
+								<td>
+<pre>{{params.name}}
+{{request.name}}
+{{session.name}}
+{{cookie.name}}</pre>
 								</td>
 							</tr>
-							<tr>
-								<td>put</td>
-								<td>
-									# block: tag 내용을 삽입 할 block의 name입니다.<br/>
-									# type: 삽입 방식입니다. APPEND(default), PREPEND, REPLACE
-								</td>
-								<td>extends에서 지정된 레이아웃의 block 구역에 내용을 삽입합니다.</td>
-								<td>
-<pre>&lt;ax:layout name="base"&gt;
-	&lt;ax:div name="header" type="REPLACE"&gt;
-		// TODO 내용을 작성합니다.
-		...
-	&lt;/ax:div&gt;
-&lt;/ax:layout&gt;</pre>
-								</td>
-							</tr>
- -->
 							<tr>
 								<td>layout</td>
 								<td>

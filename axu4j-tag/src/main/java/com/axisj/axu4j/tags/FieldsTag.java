@@ -1,11 +1,10 @@
 package com.axisj.axu4j.tags;
 
-import javax.servlet.jsp.JspContext;
-import javax.servlet.jsp.tagext.JspFragment;
-
+import com.axisj.axu4j.config.ConfigReader;
 import org.apache.commons.lang.StringUtils;
 
-import com.axisj.axu4j.config.ConfigReader;
+import javax.servlet.jsp.JspContext;
+import javax.servlet.jsp.tagext.JspFragment;
 
 public class FieldsTag extends AXUTagSupport {
 

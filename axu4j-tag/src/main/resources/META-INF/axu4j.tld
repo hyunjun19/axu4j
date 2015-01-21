@@ -3,55 +3,10 @@
         xmlns="http://java.sun.com/xml/ns/javaee"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         version="2.1">
-    <tlib-version>0.2.0-SNAPSHOT</tlib-version>
+    <tlib-version>0.3.0-SNAPSHOT</tlib-version>
     <short-name>AXU4j</short-name>
     <uri>http://axis.com/axu4j</uri>
 
-    <!-- [layout] extends
-    <tag>
-        <name>extends</name>
-        <tag-class>com.axisj.axu4j.layout.ExtendsTag</tag-class>
-        <body-content>scriptless</body-content>
-        <attribute>
-            <name>name</name>
-            <description>layout name</description>
-            <required>true</required>
-            <rtexprvalue>true</rtexprvalue>
-        </attribute>
-    </tag>
-     -->
-	<!-- [layout] block
-    <tag>
-        <name>block</name>
-        <tag-class>com.axisj.axu4j.layout.BlockTag</tag-class>
-        <body-content>scriptless</body-content>
-        <attribute>
-            <name>name</name>
-            <description>block name</description>
-            <required>true</required>
-            <rtexprvalue>true</rtexprvalue>
-        </attribute>
-    </tag>
-	 -->
-	<!-- [layout] put
-    <tag>
-        <name>put</name>
-        <tag-class>com.axisj.axu4j.layout.PutTag</tag-class>
-        <body-content>scriptless</body-content>
-        <attribute>
-            <name>block</name>
-            <description>block name to put</description>
-            <required>true</required>
-            <rtexprvalue>true</rtexprvalue>
-        </attribute>
-        <attribute>
-            <name>type</name>
-            <description>PutType APPEND(default),PREPEND,REPLACE</description>
-            <required>false</required>
-            <rtexprvalue>true</rtexprvalue>
-        </attribute>
-    </tag>
-	 -->
 	<!-- [axu] layout -->
 	<tag>
 		<name>layout</name>
@@ -108,7 +63,6 @@
     	</attribute>
     	<attribute>
     		<name>size</name>
-    		<required>true</required>
     		<rtexprvalue>true</rtexprvalue>
     	</attribute>
     	<attribute>

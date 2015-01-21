@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="axu4j" type="axu4jType"/>
+  <xs:complexType name="rowType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="wrap"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="formType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="wrap"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="axu4jType">
+    <xs:sequence>
+      <xs:element type="layoutType" name="layout"/>
+      <xs:element type="rowType" name="row"/>
+      <xs:element type="colType" name="col"/>
+      <xs:element type="formType" name="form"/>
+      <xs:element type="fieldsType" name="fields"/>
+      <xs:element type="fieldType" name="field"/>
+    </xs:sequence>
+    <xs:attribute type="xs:string" name="realadable"/>
+  </xs:complexType>
+  <xs:complexType name="colType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="wrap"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="layoutType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="prefix"/>
+      <xs:element type="xs:string" name="suffix"/>
+      <xs:element type="xs:string" name="encoding"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="fieldType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="wrap"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="fieldsType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="wrap"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

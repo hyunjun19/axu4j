@@ -32,7 +32,7 @@ JSP Custom Tag Library
 2. 중복코드의 최소화
 3. 간단한 커스터 마이징
  - 단일 설정파일을 통해서 모듈 템플릿 수정 가능(axu4j.xml)
-4. 템플릿 엔진 추가(https://github.com/kwon37xi/jsp-template-inheritance)
+4. 템플릿 + 모듈 엔진
 5. XML 설정과 mustache 문법 적용(http://mustache.github.io/)
 
 ## 사용방법

@@ -1,24 +1,20 @@
 package com.axisj.axu4j.tags;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.Reader;
-import java.io.StringWriter;
-import java.util.HashMap;
-import java.util.Map;
+import com.axisj.axu4j.config.AXUConfig;
+import com.axisj.axu4j.config.ConfigReader;
 
 import javax.servlet.ServletContext;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import javax.servlet.jsp.JspContext;
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.PageContext;
 import javax.servlet.jsp.tagext.JspFragment;
-
-import com.axisj.axu4j.config.AXUConfig;
-import com.axisj.axu4j.config.ConfigReader;
+import java.io.*;
+import java.util.Enumeration;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * layout tag
@@ -32,7 +28,7 @@ public class LayoutTag extends AXUTagSupport {
 	}
 
 	private Map<String, String> divMap    = new HashMap<String, String>();
-	private Map<String, String> globalMap = new HashMap<String, String>();
+	private Map<String, Object> globalMap = new HashMap<String, Object>();
 	
 	private String name;
 	private String key;
@@ -50,6 +46,48 @@ public class LayoutTag extends AXUTagSupport {
 		
 		// set global parameter
 		globalMap.put("__AXU4J_CONTEXT_PATH__", request.getContextPath());
+
+		// param
+		String attrName;
+		Map<String, Object> requestParameterMap = new HashMap<String, Object>();
+		Enumeration reqParams = request.getParameterNames();
+		while(reqParams.hasMoreElements()) {
+			attrName = (String)reqParams.nextElement();
+			String[] values = request.getParameterValues(attrName);
+			if (values.length == 1) {
+				requestParameterMap.put(attrName, values[0]);
+			} else {
+				requestParameterMap.put(attrName, values);
+			}
+		}
+		globalMap.put("param", requestParameterMap);
+
+		// request
+		Map<String, Object> requestAttributeMap = new HashMap<String, Object>();
+		Enumeration reqAttrs = request.getAttributeNames();
+		while(reqAttrs.hasMoreElements()) {
+			attrName = (String)reqAttrs.nextElement();
+			requestAttributeMap.put(attrName, request.getAttribute(attrName));
+		}
+		globalMap.put("request", requestAttributeMap);
+
+		// session
+		Map<String, Object> sessionAttributeMap = new HashMap<String, Object>();
+		HttpSession session  =  request.getSession();
+		Enumeration sesAttrs = request.getSession().getAttributeNames();
+		while (sesAttrs.hasMoreElements()) {
+			attrName = (String)sesAttrs.nextElement();
+			sessionAttributeMap.put(attrName, session.getAttribute(attrName));
+		}
+		globalMap.put("session", sessionAttributeMap);
+
+		// cookie
+		Map<String, Object> cookieMap = new HashMap<String, Object>();
+		Cookie[] cookies = request.getCookies();
+		for (int ci = 0; ci < cookies.length; ci++) {
+			cookieMap.put(cookies[ci].getName(), cookies[ci].getValue());
+		}
+		globalMap.put("cookie", cookieMap);
 
 		Reader layoutFileReader = null;
 		try {
@@ -94,7 +132,7 @@ public class LayoutTag extends AXUTagSupport {
 		if (!realFile.exists()) {
 			throw new JspException(String.format("LayoutTag File Not Found: %s", layoutFilename));
 		} else {
-			logger.debug("layout extends {}", layoutFilename);
+			logger.debug("layout {}", layoutFilename);
 		}
 
 		return realFile;
