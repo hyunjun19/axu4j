@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:element name="axu4j" type="axu4jType"/>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.axisj.com/axu4j" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="axu4j" type="axu4:axu4jType" xmlns:axu4="http://www.axisj.com/axu4j"/>
   <xs:complexType name="rowType">
     <xs:sequence>
       <xs:element type="xs:string" name="wrap"/>
@@ -13,14 +13,14 @@
   </xs:complexType>
   <xs:complexType name="axu4jType">
     <xs:sequence>
-      <xs:element type="layoutType" name="layout"/>
-      <xs:element type="rowType" name="row"/>
-      <xs:element type="colType" name="col"/>
-      <xs:element type="formType" name="form"/>
-      <xs:element type="fieldsType" name="fields"/>
-      <xs:element type="fieldType" name="field"/>
+      <xs:element type="axu4:configType" name="config" xmlns:axu4="http://www.axisj.com/axu4j"/>
+      <xs:element type="axu4:layoutType" name="layout" xmlns:axu4="http://www.axisj.com/axu4j"/>
+      <xs:element type="axu4:rowType" name="row" xmlns:axu4="http://www.axisj.com/axu4j"/>
+      <xs:element type="axu4:colType" name="col" xmlns:axu4="http://www.axisj.com/axu4j"/>
+      <xs:element type="axu4:formType" name="form" xmlns:axu4="http://www.axisj.com/axu4j"/>
+      <xs:element type="axu4:fieldsType" name="fields" xmlns:axu4="http://www.axisj.com/axu4j"/>
+      <xs:element type="axu4:fieldType" name="field" xmlns:axu4="http://www.axisj.com/axu4j"/>
     </xs:sequence>
-    <xs:attribute type="xs:string" name="realadable"/>
   </xs:complexType>
   <xs:complexType name="colType">
     <xs:sequence>
@@ -32,6 +32,11 @@
       <xs:element type="xs:string" name="prefix"/>
       <xs:element type="xs:string" name="suffix"/>
       <xs:element type="xs:string" name="encoding"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="configType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="reloadtime"/>
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="fieldType">

@@ -1,4 +1,8 @@
-<axu4j realadable="true">
+<axu4j xmlns="http://www.axisj.com/axu4j" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+				xsi:schemaLocation="http://www.axisj.com/axu4j http://www.axisj.com/axu4j/axu4j-v0_3_0.xsd">
+	<config>
+		<reloadtime>60000</reloadtime>
+	</config>
 	<layout>
 		<prefix>/WEB-INF/layouts/</prefix>
 		<suffix>.html</suffix>

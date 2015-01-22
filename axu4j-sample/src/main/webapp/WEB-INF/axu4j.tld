@@ -3,7 +3,7 @@
         xmlns="http://java.sun.com/xml/ns/javaee"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         version="2.1">
-    <tlib-version>0.2.0-SNAPSHOT</tlib-version>
+    <tlib-version>0.3.0-SNAPSHOT</tlib-version>
     <short-name>AXU4j</short-name>
     <uri>http://axis.com/axu4j</uri>
 
@@ -63,7 +63,6 @@
     	</attribute>
     	<attribute>
     		<name>size</name>
-    		<required>true</required>
     		<rtexprvalue>true</rtexprvalue>
     	</attribute>
     	<attribute>
@@ -151,6 +150,27 @@
     	</attribute>
     	<attribute>
     		<name>style</name>
+    		<rtexprvalue>true</rtexprvalue>
+    	</attribute>
+    </tag>
+
+    <!-- [axu] set -->
+    <tag>
+    	<name>set</name>
+    	<tag-class>com.axisj.axu4j.tags.SetTag</tag-class>
+    	<body-content>empty</body-content>
+    	<attribute>
+    		<name>name</name>
+			<required>true</required>
+    		<rtexprvalue>true</rtexprvalue>
+    	</attribute>
+    	<attribute>
+    		<name>value</name>
+			<required>true</required>
+    		<rtexprvalue>true</rtexprvalue>
+    	</attribute>
+    	<attribute>
+    		<name>scope</name>
     		<rtexprvalue>true</rtexprvalue>
     	</attribute>
     </tag>

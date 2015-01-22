@@ -29,7 +29,11 @@ public class LayoutTag extends AXUTagSupport {
 
 	private Map<String, String> divMap    = new HashMap<String, String>();
 	private Map<String, Object> globalMap = new HashMap<String, Object>();
-	
+	private Map<String, Object> requestParameterMap = new HashMap<String, Object>();
+	private Map<String, Object> requestAttributeMap = new HashMap<String, Object>();
+	private Map<String, Object> sessionAttributeMap = new HashMap<String, Object>();
+	private Map<String, Object> cookieMap = new HashMap<String, Object>();
+
 	private String name;
 	private String key;
 
@@ -49,7 +53,6 @@ public class LayoutTag extends AXUTagSupport {
 
 		// param
 		String attrName;
-		Map<String, Object> requestParameterMap = new HashMap<String, Object>();
 		Enumeration reqParams = request.getParameterNames();
 		while(reqParams.hasMoreElements()) {
 			attrName = (String)reqParams.nextElement();
@@ -63,7 +66,6 @@ public class LayoutTag extends AXUTagSupport {
 		globalMap.put("param", requestParameterMap);
 
 		// request
-		Map<String, Object> requestAttributeMap = new HashMap<String, Object>();
 		Enumeration reqAttrs = request.getAttributeNames();
 		while(reqAttrs.hasMoreElements()) {
 			attrName = (String)reqAttrs.nextElement();
@@ -72,7 +74,6 @@ public class LayoutTag extends AXUTagSupport {
 		globalMap.put("request", requestAttributeMap);
 
 		// session
-		Map<String, Object> sessionAttributeMap = new HashMap<String, Object>();
 		HttpSession session  =  request.getSession();
 		Enumeration sesAttrs = request.getSession().getAttributeNames();
 		while (sesAttrs.hasMoreElements()) {
@@ -82,7 +83,6 @@ public class LayoutTag extends AXUTagSupport {
 		globalMap.put("session", sessionAttributeMap);
 
 		// cookie
-		Map<String, Object> cookieMap = new HashMap<String, Object>();
 		Cookie[] cookies = request.getCookies();
 		for (int ci = 0; ci < cookies.length; ci++) {
 			cookieMap.put(cookies[ci].getName(), cookies[ci].getValue());
@@ -149,6 +149,18 @@ public class LayoutTag extends AXUTagSupport {
 	public void setName(String name) {
 		this.name = name;
 		this.key = LayoutTag.class.getCanonicalName() + "." + name;
+	}
+
+	public void putRequestAttributeMap(String name, Object value) {
+		this.requestAttributeMap.put(name, value);
+	}
+
+	public void putSessionAttributeMap(String name, Object value) {
+		this.sessionAttributeMap.put(name, value);
+	}
+
+	public void putCookieMap(String name, Object value) {
+		this.cookieMap.put(name, value);
 	}
 
 	@Override

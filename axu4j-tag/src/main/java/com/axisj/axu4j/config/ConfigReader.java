@@ -1,13 +1,13 @@
 package com.axisj.axu4j.config;
 
-import java.io.File;
-import java.net.URL;
-import java.util.Date;
-
 import org.simpleframework.xml.Serializer;
 import org.simpleframework.xml.core.Persister;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.io.File;
+import java.net.URL;
+import java.util.Date;
 
 /**
  * 설정(axu4j.xml)을 읽는 Singleton 객체 입니다.
@@ -27,9 +27,9 @@ public class ConfigReader {
 	public static AXUConfig getConfig() {
 		if (config == null) {
 			load();
-		} else if (config.isRealadable()) {
+		} else if (config.getReloadTime() > 0L) {
 			long now = (new Date()).getTime();
-			if (now - reloadTime > 60000) {
+			if ((now - reloadTime) > config.getReloadTime()) {
 				load();
 			}
 		}

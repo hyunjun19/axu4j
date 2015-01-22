@@ -38,8 +38,14 @@ public class RowTag extends AXUTagSupport {
 	public void setStyle(String style) {
 		this.style = style;
 	}
+
 	@Override
 	public void beforeDoTag(JspContext context, JspFragment fragment) {
+		DivTag divTag = (DivTag) findAncestorWithClass(this, DivTag.class);
+		if (divTag == null) {
+			throw new  IllegalStateException("row tag should be used in a div tag inside.");
+		}
+
 		this.tagBody = ConfigReader.getConfig().getRowWrap();
 		this.doBody  = TagUtils.toString(fragment);
 	}

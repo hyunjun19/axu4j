@@ -153,4 +153,25 @@
     		<rtexprvalue>true</rtexprvalue>
     	</attribute>
     </tag>
+
+    <!-- [axu] set -->
+    <tag>
+    	<name>set</name>
+    	<tag-class>com.axisj.axu4j.tags.SetTag</tag-class>
+    	<body-content>empty</body-content>
+    	<attribute>
+    		<name>name</name>
+			<required>true</required>
+    		<rtexprvalue>true</rtexprvalue>
+    	</attribute>
+    	<attribute>
+    		<name>value</name>
+			<required>true</required>
+    		<rtexprvalue>true</rtexprvalue>
+    	</attribute>
+    	<attribute>
+    		<name>scope</name>
+    		<rtexprvalue>true</rtexprvalue>
+    	</attribute>
+    </tag>
 </taglib>

@@ -47,6 +47,11 @@ public class ColTag extends AXUTagSupport {
 	}
 	@Override
 	public void beforeDoTag(JspContext context, JspFragment fragment) {
+		RowTag rowTag = (RowTag) findAncestorWithClass(this, RowTag.class);
+		if (rowTag == null) {
+			throw new  IllegalStateException("col tag should be used in a row tag inside.");
+		}
+
 		this.tagBody = ConfigReader.getConfig().getColWrap();
 		this.doBody  = TagUtils.toString(fragment);
 	}

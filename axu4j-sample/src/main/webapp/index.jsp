@@ -181,6 +181,13 @@
 				</div>
 			</ax:col>
 		</ax:row>
+		<ax:row>
+			<ax:col>
+				<ax:set name="ax-request-param" value="ax-request-value" scope="request" />
+				<ax:set name="ax-session-param" value="ax-session-value" scope="session" />
+				<ax:set name="ax-cookie-param"  value="ax-cookie-value"  scope="cookie"  />
+			</ax:col>
+		</ax:row>
 	</ax:div>
 	<ax:div name="scripts">
 		<script type="text/javascript">

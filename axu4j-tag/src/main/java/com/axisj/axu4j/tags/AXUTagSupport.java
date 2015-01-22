@@ -20,10 +20,9 @@ public abstract class AXUTagSupport extends SimpleTagSupport {
 	protected static int tagIndex = 0;
 
 	protected Mustache mustacheHtml;
-	protected Logger   logger   = LoggerFactory.getLogger(getClass());
-	protected boolean  isDoBody = false;
-	protected String   tagBody  = StringUtils.EMPTY;
-	protected String   doBody   = StringUtils.EMPTY;
+	protected Logger   logger  = LoggerFactory.getLogger(getClass());
+	protected String   tagBody = StringUtils.EMPTY;
+	protected String   doBody  = StringUtils.EMPTY;
 	
 
 	public AXUTagSupport() throws Exception {
