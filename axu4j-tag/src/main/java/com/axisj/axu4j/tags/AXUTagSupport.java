@@ -14,6 +14,8 @@ import javax.servlet.jsp.tagext.SimpleTagSupport;
 import java.io.IOException;
 import java.io.StringReader;
 import java.io.StringWriter;
+import java.util.HashMap;
+import java.util.Map;
 
 public abstract class AXUTagSupport extends SimpleTagSupport {
 	protected static MustacheFactory mustacheFactory = new DefaultMustacheFactory();
@@ -51,24 +53,38 @@ public abstract class AXUTagSupport extends SimpleTagSupport {
 	@Override
 	public void doTag() throws JspException, IOException {
 		try {
-			
 			JspContext  context  = getJspContext();
 			JspFragment fragment = getJspBody();
 			
 			beforeDoTag(context, fragment);
 
 			mustacheHtml = mustacheFactory.compile(new StringReader(tagBody), getClass().getCanonicalName());
-			mustacheHtml.execute(context.getOut(), this);
-			
+
+			LayoutTag layoutTag = (LayoutTag) findAncestorWithClass(this, LayoutTag.class);
+			if (layoutTag == null) {
+				mustacheHtml.execute(context.getOut(), this);
+			} else {
+				// 내장객체 추가
+				Map<String, Object> innerInstance = new HashMap<String, Object>();
+				innerInstance.put("param",   layoutTag.getRequestParameterMap());
+				innerInstance.put("request", layoutTag.getRequestAttributeMap());
+				innerInstance.put("session", layoutTag.getSessionAttributeMap());
+				innerInstance.put("cookie",  layoutTag.getCookieMap());
+
+				Object[] params = new Object[] { this, innerInstance };
+				mustacheHtml.execute(getJspContext().getOut(), params);
+			}
+
+
 			afterDoTag(context, fragment);
 			
 		} catch (Exception e) {
 			logger.error(String.format("doTag is fail.\ntagBody: %s\nmustacheHtml: %s", tagBody, (mustacheHtml == null ? "null" : mustacheHtml.toString())), e);
 		}
 
-		if (logger.isDebugEnabled()) {
-			logger.debug(this.toString());
-		}
+//		if (logger.isDebugEnabled()) {
+//			logger.debug(this.toString());
+//		}
 	}
 
 	/**

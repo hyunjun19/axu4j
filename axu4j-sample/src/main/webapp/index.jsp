@@ -1,7 +1,15 @@
-<%@ page contentType="text/html; charset=UTF-8"
+<%@ page import="java.util.HashMap"
+%><%@ page import="java.util.Map"
+%><%@ page contentType="text/html; charset=UTF-8"
 %><%@ taglib prefix="c"  uri="http://java.sun.com/jsp/jstl/core"
 %><%@ taglib prefix="ax" uri="http://axis.com/axu4j"
+%><%
+	request.setAttribute("foo", "axu4j");
 %><ax:layout name="base">
+	<ax:set name="ax-request-param" value="${foo}" scope="request" />
+	<ax:set name="ax-session-param" value="${foo}" scope="session" />
+	<ax:set name="ax-cookie-param"  value="${foo}" scope="cookie"  />
+
 	<ax:div name="styles">
 		<style type="text/css">
 			.AXGridTable td { white-space: normal; }
@@ -39,25 +47,62 @@
 							<tr>
 								<td>내장객체</td>
 								<td>
-									param  : {{param}}<br/>
-									request: {{request}}<br/>
-									session: {{session}}<br/>
-									cookie : {{cookie}}
+									# param  : {{param}}<br/>
+									# request: {{request}}<br/>
+									# session: {{session}}<br/>
+									# cookie : {{cookie}}
 								</td>
 								<td>
-									layout에서 사용 가능한 내장 객체<br/>
+									layout 페이지, axu4j.xml, JSP에서 사용 가능한 내장 객체.<br/>
+									값으로 EL 사용이 가능합니다.
+									<br/>
+									<br/>
 									param   : 요청 매개변수의 기본 값을 이름으로 저장하는 Map<br/>
 									request : 요청 범위 애트리뷰트 이름과 값과 관련된 Map<br/>
 									session : 세션 범위 애트리뷰트 이름과 값과 관련된 Map<br/>
 									cookie  : 요청에 수반되는 쿠키들을 이름으로 저장하는 Map
-									<br/><br/>
-									<h3 class="point">※ layout으로 사용되는 HTML파일에서만 사용이 가능합니다.</h3>
 								</td>
 								<td>
 <pre>{{params.name}}
 {{request.name}}
 {{session.name}}
 {{cookie.name}}</pre>
+								</td>
+							</tr>
+							<tr>
+								<td>layout</td>
+								<td>
+									# name: 페이지에 사용할 layout name입니다. axu4j.xml에 설정한 prefix(default: /WEB-INF/layouts/)와 suffix(default: .html)를 제외한 파일명을 그대로 사용하면 됩니다.
+								</td>
+								<td>
+									페이지에 사전에 정의한 레이아웃을 적용하는 tag입니다.<br/>
+									레이아웃 페이지는 HTML 파일로 작성을 하며 mustache 문법을 사용해서 원하는 부위에 내용을 위치할 수 있습니다.<br/>
+									레이아웃 페이지에 {{name}}(HTML escaped), {{{name}}}의 표현식을 사용하면 div tag의 내용이 해당 위치에 삽입됩니다.
+								</td>
+								<td>
+<pre>&lt;ax:layout name="base"&gt;
+	...
+&lt;/ax:layout&gt;</pre>
+								</td>
+							</tr>
+							<tr>
+								<td>set</td>
+								<td>
+									# name : 변수 명<br/>
+									# value: 변수 값<br/>
+									# scope: 변수의 범위. request, session, cookie
+								</td>
+								<td>
+									layout 페이지, axu4j.xml, jsp에서 사용할 수 있는 내장객체 변수입니다.<br/>
+
+									<br/>
+									<br/>
+									<h3 class="point">※ set tag는 반드시 layout tag 내부에서 사용해야 합니다.</h3>
+								</td>
+								<td>
+<pre>&lt;ax:set name="foo" value="req-val" scope="request" /&gt; => {{request.foo}}
+&lt;ax:set name="foo" value="ses-val" scope="session" /&gt; => {{session.foo}}
+&lt;ax:set name="foo" value="coo-val" scope="cookie" /&gt; => {{cookie.foo}}</pre>
 								</td>
 							</tr>
 							<tr>
@@ -179,13 +224,6 @@
 						</tbody>
 					</table>
 				</div>
-			</ax:col>
-		</ax:row>
-		<ax:row>
-			<ax:col>
-				<ax:set name="ax-request-param" value="ax-request-value" scope="request" />
-				<ax:set name="ax-session-param" value="ax-session-value" scope="session" />
-				<ax:set name="ax-cookie-param"  value="ax-cookie-value"  scope="cookie"  />
 			</ax:col>
 		</ax:row>
 	</ax:div>

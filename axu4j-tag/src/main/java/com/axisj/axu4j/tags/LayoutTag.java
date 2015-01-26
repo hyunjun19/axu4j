@@ -2,15 +2,24 @@ package com.axisj.axu4j.tags;
 
 import com.axisj.axu4j.config.AXUConfig;
 import com.axisj.axu4j.config.ConfigReader;
+import com.github.mustachejava.DefaultMustacheFactory;
+import com.github.mustachejava.Mustache;
+import com.github.mustachejava.MustacheFactory;
+import org.apache.commons.lang.ArrayUtils;
+import org.apache.commons.lang.ObjectUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.servlet.jsp.JspContext;
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.PageContext;
 import javax.servlet.jsp.tagext.JspFragment;
+import javax.servlet.jsp.tagext.SimpleTagSupport;
 import java.io.*;
 import java.util.Enumeration;
 import java.util.HashMap;
@@ -21,7 +30,11 @@ import java.util.Map;
  *
  * Created by HJ.Park on 2015-01-06.
  */
-public class LayoutTag extends AXUTagSupport {
+public class LayoutTag extends SimpleTagSupport {
+	protected static MustacheFactory mustacheFactory = new DefaultMustacheFactory();
+
+	protected Mustache mustacheHtml;
+	protected Logger logger  = LoggerFactory.getLogger(getClass());
 
 	public LayoutTag() throws Exception {
 		super();
@@ -37,17 +50,20 @@ public class LayoutTag extends AXUTagSupport {
 	private String name;
 	private String key;
 
+	private HttpServletRequest  request;
+	private HttpServletResponse response;
+	private HttpSession         session;
+
 	/**
 	 * override doTag method
 	 */
 	@Override
 	public void doTag() throws JspException, IOException {
-		StringWriter dummy = new StringWriter();
-		getJspBody().invoke(dummy); // invoke body tags. like div, row, col...
+		PageContext pageContext = (PageContext) getJspContext();
+		request  = (HttpServletRequest) pageContext.getRequest();
+		response = (HttpServletResponse) pageContext.getResponse();
+		session  = request.getSession();
 
-		PageContext        pageContext = (PageContext) getJspContext();
-		HttpServletRequest request     = (HttpServletRequest) pageContext.getRequest();
-		
 		// set global parameter
 		globalMap.put("__AXU4J_CONTEXT_PATH__", request.getContextPath());
 
@@ -74,7 +90,6 @@ public class LayoutTag extends AXUTagSupport {
 		globalMap.put("request", requestAttributeMap);
 
 		// session
-		HttpSession session  =  request.getSession();
 		Enumeration sesAttrs = request.getSession().getAttributeNames();
 		while (sesAttrs.hasMoreElements()) {
 			attrName = (String)sesAttrs.nextElement();
@@ -88,6 +103,12 @@ public class LayoutTag extends AXUTagSupport {
 			cookieMap.put(cookies[ci].getName(), cookies[ci].getValue());
 		}
 		globalMap.put("cookie", cookieMap);
+
+
+		// invoke body tags. like div, row, col...
+		StringWriter dummy = new StringWriter();
+		getJspBody().invoke(dummy);
+
 
 		Reader layoutFileReader = null;
 		try {
@@ -107,9 +128,6 @@ public class LayoutTag extends AXUTagSupport {
 			}
 		}
 
-		if (logger.isDebugEnabled()) {
-			logger.debug(this.toString());
-		}
 	}
 
 	private File getLayoutFile() throws JspException {
@@ -151,22 +169,46 @@ public class LayoutTag extends AXUTagSupport {
 		this.key = LayoutTag.class.getCanonicalName() + "." + name;
 	}
 
-	public void putRequestAttributeMap(String name, Object value) {
-		this.requestAttributeMap.put(name, value);
+	public void putRequestAttribute(String name, Object value) {
+		if (request == null) {
+			throw new RuntimeException("request is not set.");
+		}
+
+		request.setAttribute(name, value);
 	}
 
-	public void putSessionAttributeMap(String name, Object value) {
-		this.sessionAttributeMap.put(name, value);
+	public void putSessionAttribute(String name, Object value) {
+		if (session == null) {
+			throw new RuntimeException("session is not set.");
+		}
+
+		session.setAttribute(name, value);
 	}
 
-	public void putCookieMap(String name, Object value) {
-		this.cookieMap.put(name, value);
+	public void putCookie(String name, Object value) {
+		if (response == null) {
+			throw new RuntimeException("response is not set.");
+		}
+
+		String val = ObjectUtils.toString(value);
+		cookieMap.put(name, val);
+		response.addCookie(new Cookie(name, val));
 	}
 
-	@Override
-	public void beforeDoTag(JspContext context, JspFragment fragment) { }
+	public Map<String, Object> getRequestParameterMap() {
+		return requestParameterMap;
+	}
 
-	@Override
-	public void afterDoTag(JspContext context, JspFragment fragment) { }
+	public Map<String, Object> getRequestAttributeMap() {
+		return requestAttributeMap;
+	}
+
+	public Map<String, Object> getSessionAttributeMap() {
+		return sessionAttributeMap;
+	}
+
+	public Map<String, Object> getCookieMap() {
+		return cookieMap;
+	}
 
 }
