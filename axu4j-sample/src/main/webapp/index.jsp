@@ -3,8 +3,6 @@
 %><%@ taglib prefix="c"  uri="http://java.sun.com/jsp/jstl/core"
 %><%@ taglib prefix="ax" uri="http://axis.com/axu4j"
 %><%
-	request.setAttribute("foo", "axu4j");
-
 	List options = new ArrayList();
 	HashMap<String, String> one = new HashMap<String, String>();
 	one.put("name", "A");
@@ -20,11 +18,12 @@
 	options.add(two);
 	options.add(three);
 
-	request.setAttribute("options", options);
+	request.setAttribute("options",     options);
+	request.setAttribute("projectName", "axu4j");
 %><ax:layout name="base">
-	<ax:set name="ax-request-param" value="${foo}" scope="request" />
-	<ax:set name="ax-session-param" value="${foo}" scope="session" />
-	<ax:set name="ax-cookie-param"  value="${foo}" scope="cookie"  />
+	<ax:set name="ax-request-param" value="${projectName}" scope="request" />
+	<ax:set name="ax-session-param" value="${projectName}" scope="session" />
+	<ax:set name="ax-cookie-param"  value="${projectName}" scope="cookie"  />
 
 	<ax:div name="styles">
 		<style type="text/css">
@@ -117,9 +116,9 @@
 									<h3 class="point">※ set tag는 반드시 layout tag 내부에서 사용해야 합니다.</h3>
 								</td>
 								<td>
-<pre>&lt;ax:set name="foo" value="req-val" scope="request" /&gt; => {{request.foo}}
-&lt;ax:set name="foo" value="ses-val" scope="session" /&gt; => {{session.foo}}
-&lt;ax:set name="foo" value="coo-val" scope="cookie" /&gt; => {{cookie.foo}}</pre>
+<pre>&lt;ax:set name="projectName" value="req-val" scope="request" /&gt; => {{request.projectName}}
+&lt;ax:set name="projectName" value="ses-val" scope="session" /&gt; => {{session.projectName}}
+&lt;ax:set name="projectName" value="coo-val" scope="cookie" /&gt; => {{cookie.projectName}}</pre>
 								</td>
 							</tr>
 							<tr>
