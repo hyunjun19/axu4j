@@ -1,24 +1,24 @@
 <axu4j>
-	<config>
-		<reloadtime>60000</reloadtime>
-	</config>
-	<layout>
-		<prefix>/WEB-INF/layouts/</prefix>
-		<suffix>.html</suffix>
-		<encoding>UTF-8</encoding>
-	</layout>
-	<row>
-		<wrap>
-			<![CDATA[
+    <config>
+        <reloadtime>60000</reloadtime>
+    </config>
+    <layout>
+        <prefix>/WEB-INF/layouts/</prefix>
+        <suffix>.html</suffix>
+        <encoding>UTF-8</encoding>
+    </layout>
+    <row>
+        <wrap>
+            <![CDATA[
 <div id="{{id}}" class="ax-layer {{css}}" style="{{style}}">
 	{{{doBody}}}
 </div>
 ]]>
-		</wrap>
-	</row>
-	<col>
-		<wrap>
-			<![CDATA[
+        </wrap>
+    </row>
+    <col>
+        <wrap>
+            <![CDATA[
 <div id="{{id}}" class="ax-col-{{size}}">
 	<div class="ax-unit">
 		<div class="ax-box {{css}}" style="{{style}}">
@@ -29,32 +29,32 @@
 	</div>
 </div>
 ]]>
-		</wrap>
-	</col>
-	<form>
-		<wrap>
-			<![CDATA[
+        </wrap>
+    </col>
+    <form>
+        <wrap>
+            <![CDATA[
 <form id="{{id}}" name="{{name}}" method="{{method}}" class="{{css}}" style="{{style}}">
 	<div class="ax-rwd-table">
 		{{{doBody}}}
 	</div>
 </form>
 ]]>
-		</wrap>
-	</form>
-	<fields>
-		<wrap>
-			<![CDATA[
+        </wrap>
+    </form>
+    <fields>
+        <wrap>
+            <![CDATA[
 <div id="{{id}}" class="item-group {{css}}" style="{{style}}">
 	{{{doBody}}}
 	<div class="group-clear"></div>
 </div>
 ]]>
-		</wrap>
-	</fields>
-	<field>
-		<wrap>
-			<![CDATA[
+        </wrap>
+    </fields>
+    <field>
+        <wrap>
+            <![CDATA[
 <div id="{{id}}" class="item">
 	<div class="item-lable">
 		<span class="th">{{label}}</span>
@@ -65,11 +65,11 @@
 </div>
 <div class="item-clear"></div>
 ]]>
-		</wrap>
-	</field>
-	<customs>
-		<custom id="select">
-			<![CDATA[
+        </wrap>
+    </field>
+    <customs>
+        <custom id="select">
+            <![CDATA[
 <select name="{{name}}">
 {{#emptyName}}
 	<option value="">{{emptyName}}</option>
@@ -79,13 +79,13 @@
 {{/options}}
 </select>
 ]]>
-		</custom>
-		<custom id="form">
-			<![CDATA[
+        </custom>
+        <custom id="form">
+            <![CDATA[
 <form name={{name}} action="{{action}}" method="{{method}}">
 	{{doBody}}
 </form>
 ]]>
-		</custom>
-	</customs>
+        </custom>
+    </customs>
 </axu4j>

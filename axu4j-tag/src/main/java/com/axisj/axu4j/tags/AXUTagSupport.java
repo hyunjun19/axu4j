@@ -25,7 +25,9 @@ public abstract class AXUTagSupport extends SimpleTagSupport {
 	protected Logger   logger  = LoggerFactory.getLogger(getClass());
 	protected String   tagBody = StringUtils.EMPTY;
 	protected String   doBody  = StringUtils.EMPTY;
-	
+	protected Map<String, Object> innerInstance = new HashMap<String, Object>();
+
+
 
 	public AXUTagSupport() throws Exception {
 		super();
@@ -65,7 +67,6 @@ public abstract class AXUTagSupport extends SimpleTagSupport {
 				mustacheHtml.execute(context.getOut(), this);
 			} else {
 				// 내장객체 추가
-				Map<String, Object> innerInstance = new HashMap<String, Object>();
 				innerInstance.put("param",   layoutTag.getRequestParameterMap());
 				innerInstance.put("request", layoutTag.getRequestAttributeMap());
 				innerInstance.put("session", layoutTag.getSessionAttributeMap());

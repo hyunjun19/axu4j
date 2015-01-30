@@ -1,10 +1,26 @@
-<%@ page import="java.util.HashMap"
-%><%@ page import="java.util.Map"
+<%@ page import="java.util.*"
 %><%@ page contentType="text/html; charset=UTF-8"
 %><%@ taglib prefix="c"  uri="http://java.sun.com/jsp/jstl/core"
 %><%@ taglib prefix="ax" uri="http://axis.com/axu4j"
 %><%
 	request.setAttribute("foo", "axu4j");
+
+	List options = new ArrayList();
+	HashMap<String, String> one = new HashMap<String, String>();
+	one.put("name", "A");
+	one.put("value", "one");
+	HashMap<String, String> two = new HashMap<String, String>();
+	two.put("name", "B");
+	two.put("value", "two");
+	HashMap<String, String> three = new HashMap<String, String>();
+	three.put("name", "C");
+	three.put("value", "three");
+
+	options.add(one);
+	options.add(two);
+	options.add(three);
+
+	request.setAttribute("options", options);
 %><ax:layout name="base">
 	<ax:set name="ax-request-param" value="${foo}" scope="request" />
 	<ax:set name="ax-session-param" value="${foo}" scope="session" />
@@ -27,6 +43,7 @@
 				<div class="ax-box-wrap">
 					<h2>
 						AXU4J는 AXU(https://github.com/axisj-com/axu)를 Java에서 보다 쉽게 사용하기 위해서 만든 템플릿/태그 엔진입니다.
+						<ax:custom customid="select" name="test-select" options="${options}" />
 					</h2>
 					<table cellpadding="0" cellspacing="0" class="AXGridTable">
 						<colgroup>
