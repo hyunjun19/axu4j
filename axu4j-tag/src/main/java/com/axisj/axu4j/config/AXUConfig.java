@@ -1,8 +1,11 @@
 package com.axisj.axu4j.config;
 
 import org.simpleframework.xml.Element;
+import org.simpleframework.xml.ElementMap;
 import org.simpleframework.xml.Path;
 import org.simpleframework.xml.Root;
+
+import java.util.Map;
 
 @Root(name = "axu4j")
 public class AXUConfig {
@@ -42,6 +45,10 @@ public class AXUConfig {
     @Path("field[1]")
     @Element(name = "wrap", data = true)
     private String fieldWrap;
+
+    @Path("customs[1]")
+    @ElementMap(entry="custom", key="id", attribute = true, inline = true, data = true)
+    private Map<String, String> customMap;
 
 
     // =======================================================
@@ -119,4 +126,30 @@ public class AXUConfig {
         this.fieldsWrap = fieldsWrap;
     }
 
+    public Map<String, String> getCustomMap() {
+        return customMap;
+    }
+
+    public void setCustomMap(Map<String, String> customMap) {
+        this.customMap = customMap;
+    }
+
+    // =======================================================
+
+
+    @Override
+    public String toString() {
+        return "AXUConfig{" +
+                "reloadTime=" + reloadTime +
+                ", layoutPrefix='" + layoutPrefix + '\'' +
+                ", layoutSuffix='" + layoutSuffix + '\'' +
+                ", layoutEncoding='" + layoutEncoding + '\'' +
+                ", rowWrap='" + rowWrap + '\'' +
+                ", colWrap='" + colWrap + '\'' +
+                ", formWrap='" + formWrap + '\'' +
+                ", fieldsWrap='" + fieldsWrap + '\'' +
+                ", fieldWrap='" + fieldWrap + '\'' +
+                ", customMap=" + customMap +
+                '}';
+    }
 }

@@ -9,7 +9,7 @@
 	</layout>
 	<row>
 		<wrap>
-<![CDATA[
+			<![CDATA[
 <div id="{{id}}" class="ax-layer {{css}}" style="{{style}}">
 	{{{doBody}}}
 </div>
@@ -18,7 +18,7 @@
 	</row>
 	<col>
 		<wrap>
-<![CDATA[
+			<![CDATA[
 <div id="{{id}}" class="ax-col-{{size}}">
 	<div class="ax-unit">
 		<div class="ax-box {{css}}" style="{{style}}">
@@ -33,7 +33,7 @@
 	</col>
 	<form>
 		<wrap>
-<![CDATA[
+			<![CDATA[
 <form id="{{id}}" name="{{name}}" method="{{method}}" class="{{css}}" style="{{style}}">
 	<div class="ax-rwd-table">
 		{{{doBody}}}
@@ -44,7 +44,7 @@
 	</form>
 	<fields>
 		<wrap>
-<![CDATA[
+			<![CDATA[
 <div id="{{id}}" class="item-group {{css}}" style="{{style}}">
 	{{{doBody}}}
 	<div class="group-clear"></div>
@@ -54,7 +54,7 @@
 	</fields>
 	<field>
 		<wrap>
-<![CDATA[
+			<![CDATA[
 <div id="{{id}}" class="item">
 	<div class="item-lable">
 		<span class="th">{{label}}</span>
@@ -67,4 +67,25 @@
 ]]>
 		</wrap>
 	</field>
+	<customs>
+		<custom id="select">
+			<![CDATA[
+<select name="{{name}}">
+{{#emptyName}}
+	<option value="">{{emptyName}}</option>
+{{/emptyName}}
+{{#options}}
+	<option value="{{value}}">{{name}}</option>
+{{/options}}
+</select>
+]]>
+		</custom>
+		<custom id="form">
+			<![CDATA[
+<form name={{name}} action="{{action}}" method="{{method}}">
+	{{doBody}}
+</form>
+]]>
+		</custom>
+	</customs>
 </axu4j>

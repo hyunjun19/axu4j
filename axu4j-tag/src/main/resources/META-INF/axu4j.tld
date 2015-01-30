@@ -174,4 +174,16 @@
     		<rtexprvalue>true</rtexprvalue>
     	</attribute>
     </tag>
+    <!-- [axu] custom -->
+    <tag>
+    	<name>custom</name>
+    	<tag-class>com.axisj.axu4j.tags.CustomTag</tag-class>
+    	<body-content>scriptless</body-content>
+    	<attribute>
+    		<name>customid</name>
+			<required>true</required>
+    		<rtexprvalue>true</rtexprvalue>
+    	</attribute>
+    	<dynamic-attributes>true</dynamic-attributes>
+    </tag>
 </taglib>

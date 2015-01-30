@@ -61,6 +61,7 @@ public class ConfigReader {
 			reloadTime = (new Date()).getTime();
 			if (logger.isDebugEnabled()) {
 				logger.debug("load config from {}", configFile.getAbsolutePath());
+				logger.debug("axu4j.xml\n{}", config);
 			}
 		} catch(Exception e) {
 			logger.error("Fail to load axu4j.xml", e);

@@ -1,5 +1,6 @@
 axu4j-*/.idea/*
 axu4j-*/target/*
+/lab/
 *.iml
 .*
 *.bak

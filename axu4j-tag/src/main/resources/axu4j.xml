@@ -1,5 +1,4 @@
-<axu4j xmlns="http://www.axisj.com/axu4j" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-				xsi:schemaLocation="http://www.axisj.com/axu4j http://www.axisj.com/axu4j/axu4j-v0_3_0.xsd">
+<axu4j>
 	<config>
 		<reloadtime>60000</reloadtime>
 	</config>
@@ -68,4 +67,25 @@
 ]]>
 		</wrap>
 	</field>
+	<customs>
+		<custom id="select">
+			<![CDATA[
+<select name="{{name}}">
+{{#emptyName}}
+	<option value="">{{emptyName}}</option>
+{{/emptyName}}
+{{#options}}
+	<option value="{{value}}">{{name}}</option>
+{{/options}}
+</select>
+]]>
+		</custom>
+		<custom id="form">
+			<![CDATA[
+<form name={{name}} action="{{action}}" method="{{method}}">
+	{{doBody}}
+</form>
+]]>
+		</custom>
+	</customs>
 </axu4j>
