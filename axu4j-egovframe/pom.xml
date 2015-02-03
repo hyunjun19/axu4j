@@ -2,8 +2,8 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>egovframework.template.web</groupId>
-	<artifactId>Simple_Homepage</artifactId>
+	<groupId>com.axisj</groupId>
+	<artifactId>axu4j-egovframe</artifactId>
 	<packaging>war</packaging>
 	<version>3.2.0</version>
 	<name>Template-Web-Simple_Homepage</name>
@@ -369,4 +369,8 @@
             </plugin>
         </plugins>
     </reporting>
+    <description>표준프레임워크의 템플릿 프로젝트의 일부를 액시스제이를 적용해서 변환한 예제 프로젝트입니다.
+
+http://www.axisj.com
+https://github.com/axisj-com/axu4j</description>
 </project>
