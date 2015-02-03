@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd">
+	
+    <!-- Integrated Apache Commons Validator by Spring Modules -->              
+    <bean id="beanValidator" class="org.springmodules.validation.commons.DefaultBeanValidator">
+        <property name="validatorFactory" ref="validatorFactory"/>
+    </bean>
+
+    <bean id="validatorFactory" class="org.springmodules.validation.commons.DefaultValidatorFactory">
+        <property name="validationConfigLocations">
+            <list>
+                <!-- 경량환경 템플릿 밸리데이터 설정 -->
+	            <value>classpath:/egovframework/validator/validator-rules-let.xml</value>
+	            <value>classpath:/egovframework/validator/let/**/*.xml</value>
+            </list>
+        </property>
+    </bean>
+   
+</beans>
