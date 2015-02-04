@@ -99,7 +99,7 @@
 			  #ntcrId#, #ntcrNm#, #password#, #inqireCo#, 
 			  #ntceBgnde#, #ntceEndde#, #replyAt#, 
 			  #parnts#, 1, #replyLc#, #atchFileId#,
-			  #frstRegisterId#, NOW(), 'Y'
+			  #frstRegisterId#, DATETIME('NOW'), 'Y'
 			 )			
 		]]>
 	</insert>
@@ -122,7 +122,7 @@
 			  #ntcrId#, #ntcrNm#, #password#, #inqireCo#, 
 			  #ntceBgnde#, #ntceEndde#, #replyAt#, 
 			  #parnts#, 1, #replyLc#, #atchFileId#,
-			  #frstRegisterId#, NOW(), 'Y'
+			  #frstRegisterId#, DATETIME('NOW'), 'Y'
 			 )			
 		]]>
 	</insert>	
@@ -233,7 +233,7 @@
 				NTCE_ENDDE = #ntceEndde#,
 				LAST_UPDUSR_ID = #lastUpdusrId#,
 				ATCH_FILE_ID = #atchFileId#,
-				LAST_UPDT_PNTTM = NOW()
+				LAST_UPDT_PNTTM = DATETIME('NOW')
 			WHERE BBS_ID = #bbsId#
 			AND NTT_ID = #nttId#
  		]]>
@@ -245,7 +245,7 @@
 				NTT_SJ = #nttSj#,
 				USE_AT = 'N',
 				LAST_UPDUSR_ID = #lastUpdusrId#,
-				LAST_UPDT_PNTTM = NOW()
+				LAST_UPDT_PNTTM = DATETIME('NOW')
 			WHERE BBS_ID = #bbsId#
 			AND NTT_ID = #nttId#
  		]]>
@@ -279,7 +279,7 @@
 			UPDATE LETTNBBS SET 
 				RDCNT = #inqireCo#,
 				LAST_UPDUSR_ID = #lastUpdusrId#,
-				LAST_UPDT_PNTTM = NOW()
+				LAST_UPDT_PNTTM = DATETIME('NOW')
 			WHERE BBS_ID = #bbsId#
 			AND NTT_ID = #nttId#
  		]]>

@@ -100,7 +100,7 @@
 	 
 		 <isNotEmpty property="searchMonth">
 		 	<isNotEqual property="searchMonth" compareValue="">
-		 	 AND (#searchMonth# BETWEEN SUBSTR(TO_CHAR(A.SCHDUL_BEGINDE, 'YYYYMMDD'), 1, 6)  AND SUBSTR(TO_CHAR(A.SCHDUL_ENDDE, 'YYYYMMDD'), 1, 6) ) 
+		 	 AND (#searchMonth# BETWEEN SUBSTR(A.SCHDUL_BEGINDE, 1, 6)  AND SUBSTR(A.SCHDUL_ENDDE, 1, 6) )
 		 	</isNotEqual>
 		 </isNotEmpty>
 	 
@@ -108,15 +108,15 @@
 	 <isEqual property="searchMode" compareValue="WEEK">
 	 <![CDATA[ 		 
 		AND ( 
-		 ( SUBSTR(TO_CHAR(A.SCHDUL_BEGINDE, 'YYYYMMDD'),1,8) > #schdulBgnde# AND SUBSTR(TO_CHAR(A.SCHDUL_BEGINDE, 'YYYYMMDD'),1,8) <= #schdulEndde#)
+		 ( SUBSTR(A.SCHDUL_BEGINDE,1,8) > #schdulBgnde# AND SUBSTR(A.SCHDUL_BEGINDE,1,8) <= #schdulEndde#)
 		OR
-		 ( SUBSTR(TO_CHAR(A.SCHDUL_ENDDE, 'YYYYMMDD'),1,8) > #schdulBgnde# AND SUBSTR(TO_CHAR(A.SCHDUL_BEGINDE, 'YYYYMMDD'),1,8) <= #schdulEndde#)
+		 ( SUBSTR(A.SCHDUL_ENDDE,1,8) > #schdulBgnde# AND SUBSTR(A.SCHDUL_BEGINDE,1,8) <= #schdulEndde#)
 		) 
 	]]>
 	 </isEqual>
 	 <isEqual property="searchMode" compareValue="DAILY">
 	 <![CDATA[
-	 	 AND (#searchDay# BETWEEN SUBSTR(TO_CHAR(A.SCHDUL_BEGINDE, 'YYYYMMDD'), 1, 8)  AND SUBSTR(TO_CHAR(A.SCHDUL_ENDDE, 'YYYYMMDD'), 1, 8) )
+	 	 AND (#searchDay# BETWEEN SUBSTR(A.SCHDUL_BEGINDE, 1, 8)  AND SUBSTR(A.SCHDUL_ENDDE, 1, 8) )
 	  ]]> 
 	 </isEqual>
 	 </isNotEmpty>
@@ -139,8 +139,8 @@
 			A.SCHDUL_DEPT_ID,
 			(SELECT ORGNZT_NM FROM LETTNORGNZTINFO WHERE ORGNZT_ID = A.SCHDUL_DEPT_ID) SCHDUL_DEPT_NAME,
 			A.SCHDUL_KND_CODE,
-			TO_CHAR(A.SCHDUL_BEGINDE, 'YYYYMMDDHH24MI')SCHDUL_BGNDE,
-            TO_CHAR(A.SCHDUL_ENDDE, 'YYYYMMDDHH24MI')SCHDUL_ENDDE,
+			A.SCHDUL_BEGINDE,
+            A.SCHDUL_ENDDE,
 			A.SCHDUL_NM,
 			A.SCHDUL_CN,
 			A.SCHDUL_PLACE,
@@ -166,8 +166,8 @@
 			A.SCHDUL_SE,
 			A.SCHDUL_DEPT_ID,
 			A.SCHDUL_KND_CODE,
-			TO_CHAR(A.SCHDUL_BEGINDE, 'YYYYMMDDHH24MI')SCHDUL_BGNDE,
-            TO_CHAR(A.SCHDUL_ENDDE, 'YYYYMMDDHH24MI')SCHDUL_ENDDE,
+			A.SCHDUL_BEGINDE,
+            A.SCHDUL_ENDDE,
 			A.SCHDUL_NM,
 			A.SCHDUL_CN,
 			A.SCHDUL_PLACE,
@@ -236,7 +236,7 @@
 			SCHDUL_CHARGER_ID=#schdulChargerId#,
 			ATCH_FILE_ID=#atchFileId#,
 			REPTIT_SE_CODE=#reptitSeCode#,
-			LAST_UPDT_PNTTM = NOW(),
+			LAST_UPDT_PNTTM = DATETIME('NOW'),
 			LAST_UPDUSR_ID = #lastUpdusrId#
 		WHERE SCHDUL_ID = #schdulId#
 	</update>
@@ -249,8 +249,8 @@
 			A.SCHDUL_DEPT_ID,
 			(SELECT ORGNZT_NM FROM LETTNORGNZTINFO WHERE ORGNZT_ID = A.SCHDUL_DEPT_ID) SCHDUL_DEPT_NAME,
 			A.SCHDUL_KND_CODE,
-			TO_CHAR(A.SCHDUL_BEGINDE, 'YYYYMMDDHH24MI')SCHDUL_BGNDE,
-            TO_CHAR(A.SCHDUL_ENDDE, 'YYYYMMDDHH24MI')SCHDUL_ENDDE,
+			A.SCHDUL_BEGINDE,
+            A.SCHDUL_ENDDE,
 			A.SCHDUL_NM,
 			A.SCHDUL_CN,
 			A.SCHDUL_PLACE,
@@ -304,9 +304,9 @@
 			#schdulChargerId#,
 			#atchFileId#,
 			#reptitSeCode#,    
-			NOW(),
+			DATETIME('NOW'),
 			#frstRegisterId#,
-			NOW(),
+			DATETIME('NOW'),
 			#lastUpdusrId# 
 		)
 

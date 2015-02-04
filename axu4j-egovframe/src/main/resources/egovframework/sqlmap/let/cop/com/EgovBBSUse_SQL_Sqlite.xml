@@ -44,7 +44,7 @@
 			UPDATE LETTNBBSUSE SET 
 				USE_AT = 'N',
 				LAST_UPDUSR_ID = #lastUpdusrId#,
-				LAST_UPDT_PNTTM = NOW()
+				LAST_UPDT_PNTTM = DATETIME('NOW')
 			WHERE BBS_ID = #bbsId#
 			AND TRGET_ID = #trgetId#	
 		]]>
@@ -69,7 +69,7 @@
 			UPDATE LETTNBBSUSE SET 
 				USE_AT = 'N',
 				LAST_UPDUSR_ID = #lastUpdusrId#,
-				LAST_UPDT_PNTTM = NOW()
+				LAST_UPDT_PNTTM = DATETIME('NOW')
 			WHERE BBS_ID IN 
 				(SELECT BBS_ID FROM LETTNBBSUSE
 					WHERE TRGET_ID = #cmmntyId# )
@@ -78,7 +78,7 @@
 			UPDATE LETTNBBSUSE SET 
 				USE_AT = 'N',
 				LAST_UPDUSR_ID = #lastUpdusrId#,
-				LAST_UPDT_PNTTM = NOW()
+				LAST_UPDT_PNTTM = DATETIME('NOW')
 			WHERE TRGET_ID = #cmmntyId#
 		]]>
 	</update>
@@ -88,7 +88,7 @@
 			UPDATE LETTNBBSUSE SET 
 				USE_AT = 'N',
 				LAST_UPDUSR_ID = #lastUpdusrId#,
-				LAST_UPDT_PNTTM = NOW()
+				LAST_UPDT_PNTTM = DATETIME('NOW')
 			WHERE BBS_ID IN 
 				(SELECT BBS_ID FROM LETTNBBSUSE
 					WHERE TRGET_ID = #clbId# )
@@ -97,7 +97,7 @@
 			UPDATE LETTNBBSUSE SET 
 				USE_AT = 'N',
 				LAST_UPDUSR_ID = #lastUpdusrId#,
-				LAST_UPDT_PNTTM = NOW()
+				LAST_UPDT_PNTTM = DATETIME('NOW')
 			WHERE TRGET_ID = #clbId#
 		]]>
 	</update>
@@ -108,7 +108,7 @@
 			(BBS_ID, TRGET_ID, REGIST_SE_CODE, USE_AT, 
 			 FRST_REGISTER_ID, FRST_REGIST_PNTTM )
 			VALUES
-			(#bbsId#, #trgetId#, #registSeCode#, #useAt#, #frstRegisterId#, NOW())
+			(#bbsId#, #trgetId#, #registSeCode#, #useAt#, #frstRegisterId#, DATETIME('NOW'))
 		]]>
 	</insert>
 
@@ -184,7 +184,7 @@
 			UPDATE LETTNBBSUSE SET 
 				USE_AT = #useAt#,
 				LAST_UPDUSR_ID = #lastUpdusrId#,
-				LAST_UPDT_PNTTM = NOW()
+				LAST_UPDT_PNTTM = DATETIME('NOW')
 			WHERE BBS_ID = #bbsId#
  		]]>
  	</update>
@@ -194,7 +194,7 @@
 			UPDATE LETTNBBSUSE SET 
 				USE_AT = 'N',
 				LAST_UPDUSR_ID = #lastUpdusrId#,
-				LAST_UPDT_PNTTM = NOW()
+				LAST_UPDT_PNTTM = DATETIME('NOW')
 			WHERE BBS_ID = #bbsId#
 		]]>
 	</update>
@@ -347,7 +347,7 @@
 			UPDATE LETTNBBSUSE SET 
 				USE_AT = #useAt#,
 				LAST_UPDUSR_ID = #lastUpdusrId#,
-				LAST_UPDT_PNTTM = NOW()
+				LAST_UPDT_PNTTM = DATETIME('NOW')
 			WHERE BBS_ID = #bbsId#
 			AND TRGET_ID = #trgetId#	
 		]]>

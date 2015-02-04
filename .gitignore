@@ -4,3 +4,4 @@ axu4j-*/target/*
 *.iml
 .*
 *.bak
+rebel.xml

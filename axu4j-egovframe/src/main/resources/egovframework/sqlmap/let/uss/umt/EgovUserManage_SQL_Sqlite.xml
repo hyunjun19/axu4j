@@ -126,7 +126,7 @@ FROM(
                     #orgnztId#          ,
                     #insttCode#         ,
                     #emplyrSttusCode#   ,
-                    NOW()           ,
+                    DATETIME('NOW')           ,
                     #subDn#             )
         ]]>
     </insert>
@@ -248,7 +248,7 @@ FROM(
                     INSTT_CODE          ,
                     EMPLYR_STTUS_CODE   ,
                     ESNTL_ID             ,
-                    now()
+                    DATETIME('NOW')
             FROM LETTNEMPLYRINFO
             WHERE ESNTL_ID = #uniqId#
         ]]>

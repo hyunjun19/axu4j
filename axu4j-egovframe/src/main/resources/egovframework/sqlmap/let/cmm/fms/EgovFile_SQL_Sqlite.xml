@@ -52,7 +52,7 @@
 			INSERT INTO LETTNFILE
 			(ATCH_FILE_ID, CREAT_DT, USE_AT)
 			VALUES
-			( #atchFileId#, NOW(), 'Y')			
+			( #atchFileId#, DATETIME('NOW'), 'Y')
 		]]>
 	</insert>
 	
