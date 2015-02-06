@@ -2,8 +2,13 @@ package com.axisj.axu4j.tags;
 
 import org.apache.commons.lang.StringUtils;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.servlet.jsp.JspContext;
 import javax.servlet.jsp.JspException;
+import javax.servlet.jsp.PageContext;
 import javax.servlet.jsp.tagext.JspFragment;
 import java.io.IOException;
 
@@ -53,10 +58,11 @@ public class SetTag extends AXUTagSupport {
      */
     @Override
     public void doTag() throws JspException, IOException {
-        LayoutTag layoutTag = (LayoutTag) findAncestorWithClass(this, LayoutTag.class);
-        if (layoutTag == null) {
-            throw new IllegalStateException("set tag should be used in a layout tag inside.");
-        }
+        PageContext         pageContext = (PageContext) getJspContext();
+        HttpServletRequest  request     = (HttpServletRequest) pageContext.getRequest();
+        HttpServletResponse response    = (HttpServletResponse) pageContext.getResponse();
+        HttpSession         session     = request.getSession();
+
 
         if (TagUtils.isELValue(getValue())) {
             Object var = TagUtils.getElValue(getJspContext(), TagUtils.getElName(getValue()));
@@ -66,11 +72,11 @@ public class SetTag extends AXUTagSupport {
         }
 
         if (StringUtils.equalsIgnoreCase(getScope(), "request")) {
-            layoutTag.putRequestAttribute(getName(), getValue());
+            request.setAttribute(getName(), getValue());
         } else if (StringUtils.equalsIgnoreCase(getScope(), "session")) {
-            layoutTag.putSessionAttribute(getName(), getValue());
+            session.setAttribute(getName(), getValue());
         } else if (StringUtils.equalsIgnoreCase(getScope(), "cookie")) {
-            layoutTag.putCookie(getName(), getValue());
+            response.addCookie(new Cookie(getName(), TagUtils.getCookieValue(getValue())));
         } else {
             throw new IllegalArgumentException(String.format("[%s] is undefined scope value", this.getScope()));
         }
