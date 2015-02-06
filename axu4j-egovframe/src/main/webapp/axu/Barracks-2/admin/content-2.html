@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1" />
+
+    <title>Barracks-2</title>
+
+    <link rel="shortcut icon" href="http://dev.axisj.com/ui/axisj.ico" type="image/x-icon" />
+    <link rel="icon" href="http://dev.axisj.com/ui/axisj.ico" type="image/x-icon" />
+
+    <link rel="stylesheet" type="text/css" href="http://cdn.axisj.com/axicon/axicon.min.css" />
+    <link rel="stylesheet" type="text/css" href="http://cdn.axisj.com/axisj/ui/kakao/AXJ.min.css" id="axu-theme-axisj" />
+
+    <script type="text/javascript" src="http://cdn.axisj.com/axisj/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="http://cdn.axisj.com/axisj/dist/AXJ.min.js"></script>
+
+    <link rel="stylesheet" href="ui/cacao/admin.css" id="axu-theme-admin" />
+    <link rel="stylesheet" href="ui/custom.css" />
+
+    <script type="text/javascript" src="resource/admin.js"></script>
+    <script type="text/javascript" src="resource/Chart.min.js"></script>
+</head>
+<body>
+<div id="AXPage">
+    <div class="ax-header">
+        <div class="ax-wrap">
+            <div class="ax-layer">
+                <div class="ax-col-12">
+                    <div class="ax-unit">
+                        <div class="ax-logo">
+                            <a class="logo-icon" href="index.html"><i class="axi axi-axisj"></i></a>
+                            <a href="http://axu.axisj.com" target="_blank">axu.axisj.com</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="ax-layer">
+                <div class="ax-col-8">
+                    <div class="ax-unit">
+                        <!-- 상단 top-down-menu 표시 영역 : s-->
+                        <div id="ax-top-menu" class="ax-top-menu AXMenuBox"></div>
+                        <!-- e : 상단 top-down-menu 표시 영역 -->
+                        <div class="mx-top-menu"><a id="mx-top-menu-handle" class="mx-menu-button"><i class="axi axi-th"></i></a></div>
+                    </div>
+                </div>
+                <div class="ax-col-4">
+                    <div class="ax-unit">
+                        <ul class="ax-loginfo" id="ax-loginfo">
+                            <li class="profile"><div class="photo"></div></li>
+                            <li class="account"><a href="#ax">aliswel@aliswel.com</a></li>
+                            <li class="btns"><a href="#ax" class="AXButton" onclick="location.href = 'login.html';"><i class="axi axi-power-off"></i> 로그아웃</a></li>
+                            <!--li class="lang"><a href="#ax"><i class="axi axi-keyboard-o"></i> 한국어</a></li-->
+                        </ul>
+                        <div class="mx-loginfo"><a id="mx-loginfo-handle" class="mx-menu-button"><i class="axi axi-bars"></i></a></div>
+                    </div>
+                </div>
+                <div class="ax-clear"></div>
+            </div>
+        </div>
+    </div>
+    <div class="H60"></div>
+    <!-- e ax-header -->
+
+	<div class="ax-body">
+		<div class="ax-wrap">
+			<div class="ax-layer ax-title">
+				<div class="ax-col-12 ax-content">
+					<h1>정산관리</h1>
+					<p class="desc">상품등록</p>
+				</div>
+                <div class="ax-clear"></div>
+			</div>
+			<div class="ax-layer">
+				<div class="ax-col-12 ax-content">
+						
+					<!-- s.CXPage -->
+					<div id="CXPage">
+                        <div class="ax-unit">
+                            <div class="ax-box">
+                                <!-- s.본문 시작 -->
+
+                                <div class="ax-section"> <!-- ax-grid, ax-tree, ax-section, ax-form -->
+                                    <h2>
+                                        <i class="axi axi-bmg-product"></i>
+                                        상품 기본정보
+                                    </h2>
+                                    <p>
+                                        상품의 기본정보를 등록하고 등록합니다. 기타 설명해야할 문구를 적어주세요
+                                    </p>
+                                    <table cellpadding="0" cellspacing="0" class="AXFormTable">
+                                        <colgroup>
+                                            <col width="100" />
+                                            <col />
+                                            <col width="100" />
+                                            <col />
+                                        </colgroup>
+                                        <tbody>
+                                            <tr>
+                                                <th>
+                                                    <div class="tdRel">
+                                                        상품유형
+                                                    </div>
+                                                </th>
+                                                <td colspan="3">
+                                                    <div class="tdRel">
+                                                        <label>
+                                                            <input type="radio" name="" value="" /> 일반상품
+                                                        </label>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th>
+                                                    <div class="tdRel">
+                                                        표준 카테고리
+                                                    </div>
+                                                </th>
+                                                <td colspan="3">
+                                                    <div class="tdRel">
+                                                        <label class="AXInputLabel">
+                                                            <select name="" class="AXSelect" id="AXSelect_m0" style="width:200px;"></select>
+                                                        </label>
+                                                        <label class="AXInputLabel">
+                                                            <select name="" class="AXSelect" id="AXSelect_m1" style="width:200px;"></select>
+                                                        </label>
+                                                        <label class="AXInputLabel">
+                                                            <select name="" class="AXSelect" id="AXSelect_m2" style="width:200px;"></select>
+                                                        </label>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th>
+                                                    <div class="tdRel">
+                                                        상품명
+                                                    </div>
+                                                </th>
+                                                <td colspan="3">
+                                                    <div class="tdRel">
+                                                        <label class="AXInputLabel fullWidth">
+                                                            <input type="text" name="" value="" placeholder="" class="AXInput" />
+                                                            <span>
+                                                                - 권장 글자수 공백포함 15자 이내(한글기준)<br/>
+                                                                - 브랜드명 기재 불가<br/>
+                                                                - 모델명 기재 불가<br/>
+                                                                - 특정 지역명 기재 불가
+                                                            </span>
+                                                        </label>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th>
+                                                    <div class="tdRel">
+                                                        모델명
+                                                    </div>
+                                                </th>
+                                                <td>
+                                                    <div class="tdRel">
+                                                        <label class="AXInputLabel">
+                                                            <input type="text" name="" value="" placeholder="" class="AXInput" />
+                                                            <span>모델명 입력시 상품명 옆에 노출됩니다.</span>
+                                                        </label>
+                                                    </div>
+                                                </td>
+                                                <th>
+                                                    <div class="tdRel">
+                                                        판매자 상품번호
+                                                    </div>
+                                                </th>
+                                                <td>
+                                                    <div class="tdRel">
+                                                        <label class="AXInputLabel">
+                                                            <input type="text" name="" value="" placeholder="" class="AXInput" />
+                                                            <span>판매자 상품코드 (SP0011-20292)</span>
+                                                        </label>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th>
+                                                    <div class="tdRel">
+                                                        브랜드
+                                                    </div>
+                                                </th>
+                                                <td>
+                                                    <div class="tdRel">
+                                                        <label class="AXInputLabel">
+                                                            <input type="text" name="" value="" placeholder="" id="selector-0" class="AXInput W250" />
+                                                        </label>
+                                                    </div>
+                                                </td>
+                                                <th>
+                                                    <div class="tdRel">
+                                                        원산지
+                                                    </div>
+                                                </th>
+                                                <td>
+                                                    <div class="tdRel">
+                                                        <label class="AXInputLabel">
+                                                            <input type="text" name="" value="" placeholder="" id="selector-1" class="AXInput W250" />
+                                                        </label>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <div class="H10"></div>
+
+                                    <h2>
+                                        <i class="axi axi-store-mall-directory"></i>
+                                        상품 판매정보
+                                    </h2>
+                                    <table cellpadding="0" cellspacing="0" class="AXFormTable">
+                                        <colgroup>
+                                            <col width="100" />
+                                            <col />
+                                            <col width="100" />
+                                            <col />
+                                        </colgroup>
+                                        <tbody>
+                                        <tr>
+                                            <th>
+                                                <div class="tdRel">
+                                                    상품유형
+                                                </div>
+                                            </th>
+                                            <td colspan="3">
+                                                <div class="tdRel">
+                                                    <label>
+                                                        <input type="radio" name="" value="" /> 일반상품
+                                                    </label>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>
+                                                <div class="tdRel">
+                                                    상품명
+                                                </div>
+                                            </th>
+                                            <td colspan="3">
+                                                <div class="tdRel">
+                                                    <label class="AXInputLabel fullWidth">
+                                                        <input type="text" name="" value="" placeholder="" class="AXInput" />
+                                                            <span>
+                                                                - 권장 글자수 공백포함 15자 이내(한글기준)<br/>
+                                                                - 브랜드명 기재 불가<br/>
+                                                                - 모델명 기재 불가<br/>
+                                                                - 특정 지역명 기재 불가
+                                                            </span>
+                                                    </label>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>
+                                                <div class="tdRel">
+                                                    모델명
+                                                </div>
+                                            </th>
+                                            <td>
+                                                <div class="tdRel">
+                                                    <label class="AXInputLabel">
+                                                        <input type="text" name="" value="" placeholder="" class="AXInput" />
+                                                        <span>모델명 입력시 상품명 옆에 노출됩니다.</span>
+                                                    </label>
+                                                </div>
+                                            </td>
+                                            <th>
+                                                <div class="tdRel">
+                                                    판매자 상품번호
+                                                </div>
+                                            </th>
+                                            <td>
+                                                <div class="tdRel">
+                                                    <label class="AXInputLabel">
+                                                        <input type="text" name="" value="" placeholder="" class="AXInput" />
+                                                        <span>판매자 상품코드 (SP0011-20292)</span>
+                                                    </label>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                                <div class="ax-button-group">
+                                    <div class="ax-align-center">
+                                        <button type="button" class="AXButton W50 Blue" id="ax-grid-btn-regist">
+                                            <i class="axi axi-plus-circle"></i> 등록
+                                        </button>
+                                        <button type="button" class="AXButton W50" id="ax-grid-btn-remove">
+                                            <i class="axi axi-minus-circle"></i>
+                                            삭제
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <!-- e.본문 -->
+                            </div>
+                        </div>
+					</div>
+					<!-- e.CXPage -->					
+						
+				</div>
+				<div class="ax-clear"></div>
+			</div>
+		</div>
+	</div>
+    <!-- e ax-body -->
+
+    <!-- 좌측 퀵 메뉴 : s-->
+    <div class="ax-aside">
+        <div class="ax-layer ax-aside-menu-box">
+            <a class="ax-aside-menu"><i class="axi axi-angle-double-right fa-lg"></i><i class="axi axi-angle-double-left fa-lg"></i></a>
+        </div>
+        <div class="ax-layer ax-aside-box">
+            <div class="ax-unit">
+                <div class="ax-box">
+                    <h3>사이드 메뉴</h3>
+                    <ul class="ax-aside-ul" id="ax-aside-ul"></ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- e : 좌측 퀵 메뉴-->
+
+    <!-- ax-footer : include -->
+    <div class="ax-footer">
+        <div class="ax-wrap">
+            <div class="ax-col-6">
+                <div class="ax-unit">
+                    <ul class="ax-version">
+                        <li>AXU - <a href="http://axu.axisj.com" target="_blank">Barracks</a></li>
+                        <li><i class="axi axi-check-circle-o"></i> 현재버전 <a href="#ax">0.2</a></li>
+                        <li><select id="theme-select"></select></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="ax-col-6">
+                <div class="ax-unit">
+                    <ul class="ax-funcs">
+                        <li><a href="https://www.axisj.com" target="_blank"><i class="axi axi-axisj"></i> AXISJ.com</a></li>
+                        <li><a href="https://github.com/axisj-com" target="_blank"><i class="axi axi-github-square"></i> AXISJ gitHub</a></li>
+                        <li><a href="https://www.facebook.com/axisj" target="_blank"><i class="axi axi-facebook-square"></i> Facebook</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="ax-clear"></div>
+        </div>
+    </div>
+    <!-- ax-footer : include -->
+</div>
+<script type="text/javascript">
+    var page_menu_id = "m04"; // admin.js > topMenu_data 에 정의된 id
+</script>
+<script type="text/javascript">
+    var fnObj = {
+        pageStart: function(){
+
+            this.bindEvent();
+        },
+        bindEvent: function(){
+            var _this = this;
+
+            $("#AXSelect_m0").bindSelect({
+                ajaxUrl: "data/selectData.php", ajaxPars: "", ajaxAsync:false,
+                isspace: true, isspaceTitle: "선택하세요",
+                setValue:"",
+                alwaysOnChange: true,
+                onchange: function(){
+                    //toast.push(Object.toJSON(this));
+
+                    $("#AXSelect_m1").bindSelect({
+                        ajaxUrl: "data/selectData.php", ajaxPars: "", ajaxAsync:false,
+                        isspace: true, isspaceTitle: "선택하세요",
+                        setValue:this.optionValue,
+                        alwaysOnChange: true,
+                        onchange: function(){
+                            //toast.push(Object.toJSON(this));
+
+                            $("#AXSelect_m2").bindSelect({
+                                ajaxUrl: "data/selectData.php", ajaxPars: "", ajaxAsync:false,
+                                isspace: true, isspaceTitle: "선택하세요",
+                                setValue:this.optionValue,
+                                alwaysOnChange: true,
+                                onchange: function(){
+                                    //toast.push(Object.toJSON(this));
+                                }
+                            });
+                        }
+                    });
+                }
+            });
+
+            $("#selector-0").bindSelector({
+                appendable:false,
+                options:[
+                    {optionValue:1, optionText:"Seoul"},
+                    {optionValue:2, optionText:"대구"},
+                    {optionValue:3, optionText:"대전"},
+                    {optionValue:4, optionText:"창원"},
+                    {optionValue:5, optionText:"마산"},
+                    {optionValue:6, optionText:"구례"},
+                    {optionValue:7, optionText:"제주도"},
+                    {optionValue:8, optionText:"전주"},
+                    {optionValue:4, optionText:"창원"},
+                    {optionValue:5, optionText:"마산"},
+                    {optionValue:6, optionText:"구례"},
+                    {optionValue:7, optionText:"제주도"},
+                    {optionValue:8, optionText:"전주"},
+                    {optionValue:9, optionText:"Gwangju"}
+                ],
+                finder:{
+                    onclick: function(){
+                        AXUtil.alert(this);
+                    }
+                }
+            });
+            $("#selector-1").bindSelector({
+                appendable:false,
+                options:[
+                    {optionValue:1, optionText:"Seoul"},
+                    {optionValue:2, optionText:"대구"},
+                    {optionValue:3, optionText:"대전"},
+                    {optionValue:4, optionText:"창원"},
+                    {optionValue:5, optionText:"마산"},
+                    {optionValue:6, optionText:"구례"},
+                    {optionValue:7, optionText:"제주도"},
+                    {optionValue:8, optionText:"전주"},
+                    {optionValue:4, optionText:"창원"},
+                    {optionValue:5, optionText:"마산"},
+                    {optionValue:6, optionText:"구례"},
+                    {optionValue:7, optionText:"제주도"},
+                    {optionValue:8, optionText:"전주"},
+                    {optionValue:9, optionText:"Gwangju"}
+                ],
+                finder:{
+                    onclick: function(){
+                        AXUtil.alert(this);
+                    }
+                }
+            });
+        }
+    };
+</script>
+</body>
+</html>
