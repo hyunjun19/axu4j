@@ -107,7 +107,7 @@ public abstract class AXUTagSupport extends SimpleTagSupport {
 	 * @param context JspContext
 	 * @param fragment JspFragment
 	 */
-	public abstract void beforeDoTag(JspContext context, JspFragment fragment);
+	public abstract void beforeDoTag(JspContext context, JspFragment fragment) throws IOException;
 	
 	/**
 	 * You can custom action after doTag

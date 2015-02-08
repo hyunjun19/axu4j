@@ -33,6 +33,18 @@
 		</attribute>
 	</tag>
 
+    <!-- [axu] write -->
+    <tag>
+        <name>write</name>
+        <tag-class>com.axisj.axu4j.tags.WriteTag</tag-class>
+        <body-content>empty</body-content>
+        <attribute>
+            <name>divname</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+
     <!-- [axu] row -->
     <tag>
     	<name>row</name>

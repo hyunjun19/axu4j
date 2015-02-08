@@ -1,20 +1,16 @@
-<!DOCTYPE html>
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8" %><%@
+    taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %><%@
+    taglib prefix="ax" uri="http://axis.com/axu4j"
+%><!DOCTYPE html>
 <html>
 <head>
-	<!--
-		layout에서 사용 가능한 내장 객체
-		param  : {{param}}
-		request: {{request}}
-		session: {{session}}
-		cookie : {{cookie}}
-	-->
     <!-- META -->
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1" />
     <meta name="apple-mobile-web-app-capable" content="yes">
     <!-- TITLE -->
-    <title>[AXU4J] {{request.title}}</title>
+    <title>[AXU4J] ${title}</title>
 
     <link rel="shortcut icon" href="http://dev.axisj.com/ui/axisj.ico" type="image/x-icon" />
     <link rel="icon" href="http://dev.axisj.com/ui/axisj.ico" type="image/x-icon" />
@@ -26,17 +22,17 @@
 
     <link rel="stylesheet" type="text/css" href="http://cdn.axisj.com/axicon/axicon.min.css" />
     <link rel="stylesheet" type="text/css" href="http://dev.axisj.com/ui/cocker/AXJ.min.css" />
-    <link rel="stylesheet" href="{{__AXU4J_CONTEXT_PATH__}}/axu/Barracks/admin/ui/cocker/admin.css" />
-    <link rel="stylesheet" href="{{__AXU4J_CONTEXT_PATH__}}/axu/Barracks/admin/ui/custom.css" />
+    <link rel="stylesheet" href="/axu/Barracks/admin/ui/cocker/admin.css" />
+    <link rel="stylesheet" href="/axu/Barracks/admin/ui/custom.css" />
 <!-- @@@@@@@@@@@@@@@@@@@@@@ css begin @@@@@@@@@@@@@@@@@@@@@@ -->
-	{{{css}}}
+	<ax:write divname="css" />
 <!-- @@@@@@@@@@@@@@@@@@@@@@ css end   @@@@@@@@@@@@@@@@@@@@@@ -->
 
     <script type="text/javascript" src="http://dev.axisj.com/jquery/jquery.min.js"></script>
     <script type="text/javascript" src="http://dev.axisj.com/dist/AXJ.min.js"></script>
-    <script type="text/javascript" src="{{__AXU4J_CONTEXT_PATH__}}/axu/Barracks/admin/resource/Chart.min.js"></script>
+    <script type="text/javascript" src="/axu/Barracks/admin/resource/Chart.min.js"></script>
 <!-- @@@@@@@@@@@@@@@@@@@@@@ js begin @@@@@@@@@@@@@@@@@@@@@@ -->
-    {{{js}}}
+    <ax:write divname="js" />
 <!-- @@@@@@@@@@@@@@@@@@@@@@ js end   @@@@@@@@@@@@@@@@@@@@@@ -->
 	<script type="text/javascript">
 	var topMenu_data = [
@@ -227,7 +223,7 @@
 					<div class="ax-unit">
 						<ul class="ax-loginfo" id="ax-loginfo">
 							<li class="profile"><div class="photo"></div></li>
-							<li class="account"><a href="#ax">{{session.LoginVO.name}}</a></li>
+							<li class="account"><a href="#ax">로그인사용자</a></li>
 							<li class="btns"><a href="#ax" class="AXButton" onclick="location.href = 'login.html';"><i class="axi axi-power-off"></i> 로그아웃</a></li>
 							<!--li class="lang"><a href="#ax"><i class="axi axi-keyboard-o"></i> 한국어</a></li-->
 						</ul>
@@ -247,7 +243,7 @@
 			<div class="ax-layer ax-title">
 				<div class="ax-col-12 ax-content">
 <!-- @@@@@@@@@@@@@@@@@@@@@@ header begin @@@@@@@@@@@@@@@@@@@@@@ -->
-					{{{header}}}
+                    <ax:write divname="header" />
 <!-- @@@@@@@@@@@@@@@@@@@@@@ header end   @@@@@@@@@@@@@@@@@@@@@@ -->
 				</div>
                 <div class="ax-clear"></div>
@@ -258,7 +254,7 @@
 					<!-- s.CXPage -->
 					<div id="CXPage">
 <!-- @@@@@@@@@@@@@@@@@@@@@@ contents begin @@@@@@@@@@@@@@@@@@@@@@ -->
-						{{{contents}}}
+                        <ax:write divname="contents" />
 <!-- @@@@@@@@@@@@@@@@@@@@@@ contents end   @@@@@@@@@@@@@@@@@@@@@@ -->
 					</div>
 					<!-- e.CXPage -->
@@ -312,7 +308,7 @@
 	</div>
 </div>
 <!-- @@@@@@@@@@@@@@@@@@@@@@ scripts begin @@@@@@@@@@@@@@@@@@@@@@ -->
-{{{scripts}}}
+<ax:write divname="scripts" />
 <!-- @@@@@@@@@@@@@@@@@@@@@@ scripts end   @@@@@@@@@@@@@@@@@@@@@@ -->
 </body>
 </html>

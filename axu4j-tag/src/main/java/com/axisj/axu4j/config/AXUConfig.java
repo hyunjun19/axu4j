@@ -19,10 +19,6 @@ public class AXUConfig {
     private String layoutPrefix;
 
     @Path("layout[1]")
-    @Element(name = "suffix")
-    private String layoutSuffix;
-
-    @Path("layout[1]")
     @Element(name = "encoding")
     private String layoutEncoding;
 
@@ -68,14 +64,6 @@ public class AXUConfig {
 
     public void setLayoutPrefix(String layoutPrefix) {
         this.layoutPrefix = layoutPrefix;
-    }
-
-    public String getLayoutSuffix() {
-        return layoutSuffix;
-    }
-
-    public void setLayoutSuffix(String layoutSuffix) {
-        this.layoutSuffix = layoutSuffix;
     }
 
     public String getLayoutEncoding() {
@@ -142,7 +130,6 @@ public class AXUConfig {
         return "AXUConfig{" +
                 "reloadTime=" + reloadTime +
                 ", layoutPrefix='" + layoutPrefix + '\'' +
-                ", layoutSuffix='" + layoutSuffix + '\'' +
                 ", layoutEncoding='" + layoutEncoding + '\'' +
                 ", rowWrap='" + rowWrap + '\'' +
                 ", colWrap='" + colWrap + '\'' +

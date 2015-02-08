@@ -5,6 +5,7 @@ import com.axisj.axu4j.config.ConfigReader;
 import com.github.mustachejava.DefaultMustacheFactory;
 import com.github.mustachejava.Mustache;
 import com.github.mustachejava.MustacheFactory;
+import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -30,7 +31,7 @@ public class LayoutTag extends SimpleTagSupport {
 	protected static MustacheFactory mustacheFactory = new DefaultMustacheFactory();
 
 	protected Mustache mustacheHtml;
-	protected Logger logger  = LoggerFactory.getLogger(getClass());
+	protected Logger logger = LoggerFactory.getLogger(getClass());
 
 	public LayoutTag() throws Exception {
 		super();
@@ -105,42 +106,62 @@ public class LayoutTag extends SimpleTagSupport {
 		StringWriter dummy = new StringWriter();
 		getJspBody().invoke(dummy);
 
+        AXUConfig config = ConfigReader.getConfig();
+        String layoutFilename = getLayoutFilename();
 
-		Reader layoutFileReader = null;
-		try {
-			AXUConfig config = ConfigReader.getConfig();
-			layoutFileReader = new BufferedReader(new InputStreamReader(new FileInputStream(this.getLayoutFile()), config.getLayoutEncoding()));
+        Reader layoutFileReader = null;
+        try {
+            // JSP
+            if (StringUtils.endsWithIgnoreCase(layoutFilename, "jsp")) {
 
-			mustacheHtml = mustacheFactory.compile(layoutFileReader, key);
-			
-			Object[] params = new Object[] { divMap, globalMap };
-			mustacheHtml.execute(getJspContext().getOut(), params);
+                pageContext.getServletContext().setAttribute("divMap", divMap);
+                pageContext.forward(layoutFilename);
 
-		} catch (Exception e) {
-			logger.error(String.format("LayoutTag is fail.\nname: %s\ndivMap: %s", name, divMap), e);
-		} finally {
-			if (layoutFileReader != null) {
-				layoutFileReader.close();
-			}
-		}
+            // HTML, else
+            } else {
+                layoutFileReader = new BufferedReader(new InputStreamReader(
+                        new FileInputStream(getLayoutFile(layoutFilename)), config.getLayoutEncoding()));
 
-	}
+                mustacheHtml = mustacheFactory.compile(layoutFileReader, key);
 
-	private File getLayoutFile() throws JspException {
+                Object[] params = new Object[] { divMap, globalMap };
+                mustacheHtml.execute(getJspContext().getOut(), params);
+
+            }
+        } catch (Exception e) {
+            logger.error(String.format("LayoutTag is fail.\nname: %s\ndivMap: %s", name, divMap), e);
+            throw new JspException(e);
+        } finally {
+            if (layoutFileReader != null) {
+                layoutFileReader.close();
+            }
+        }
+    }
+
+    private String getLayoutFilename() throws JspException {
+        ServletContext servletContext = ((PageContext) getJspContext()).getServletContext();
+        AXUConfig config = ConfigReader.getConfig();
+        String prefix = config.getLayoutPrefix();
+
+        if (prefix == null) {
+            prefix = "";
+        }
+
+        String layoutFilename = prefix + name;
+        String realPath = servletContext.getRealPath(layoutFilename);
+        File realFile = new File(realPath);
+        if (!realFile.exists()) {
+            throw new JspException(String.format("LayoutTag JSP File Not Found: %s", layoutFilename));
+        } else {
+            logger.debug("layout extends {}", layoutFilename);
+        }
+
+        return layoutFilename;
+    }
+
+	private File getLayoutFile(String layoutFilename) throws JspException {
 		ServletContext servletContext = ((PageContext) getJspContext()).getServletContext();
-		AXUConfig config = ConfigReader.getConfig();
-		String prefix = config.getLayoutPrefix();
-		String suffix = config.getLayoutSuffix();
 
-		if (prefix == null) {
-			prefix = "";
-		}
-
-		if (suffix == null) {
-			suffix = "";
-		}
-
-		String layoutFilename = prefix + name + suffix;
 		String realPath = servletContext.getRealPath(layoutFilename);
 		File realFile = new File(realPath);
 		if (!realFile.exists()) {
@@ -152,7 +173,11 @@ public class LayoutTag extends SimpleTagSupport {
 		return realFile;
 	}
 
-	public void putDiv(String key, String value) {
+    public String getDiv(String key) {
+        return divMap.get(key);
+    }
+
+    public void putDiv(String key, String value) {
 		divMap.put(key, value);
 	}
 
