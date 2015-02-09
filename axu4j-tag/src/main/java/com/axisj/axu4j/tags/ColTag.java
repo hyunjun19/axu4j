@@ -1,6 +1,7 @@
 package com.axisj.axu4j.tags;
 
 import com.axisj.axu4j.config.ConfigReader;
+import org.apache.commons.lang.BooleanUtils;
 import org.apache.commons.lang.StringUtils;
 
 import javax.servlet.jsp.JspContext;
@@ -18,6 +19,7 @@ public class ColTag extends AXUTagSupport {
 	private String size;
 	private String css;
 	private String style;
+    private String wrap;
 
 	// =======================================================
 	
@@ -45,7 +47,14 @@ public class ColTag extends AXUTagSupport {
 	public void setStyle(String style) {
 		this.style = style;
 	}
-	@Override
+    public String getWrap() {
+        return BooleanUtils.toBoolean(StringUtils.defaultIfBlank(wrap, "true")) ? "true" : StringUtils.EMPTY;
+    }
+    public void setWrap(String wrap) {
+        this.wrap = wrap;
+    }
+
+    @Override
 	public void beforeDoTag(JspContext context, JspFragment fragment) {
 		RowTag rowTag = (RowTag) findAncestorWithClass(this, RowTag.class);
 		if (rowTag == null) {

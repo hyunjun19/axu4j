@@ -1,7 +1,7 @@
 ﻿<%@ page contentType="text/html; charset=UTF-8"
 %><%@ taglib prefix="c"  uri="http://java.sun.com/jsp/jstl/core"
 %><%@ taglib prefix="ax" uri="http://axis.com/axu4j"
-%><ax:layout name="modal">
+%><ax:layout name="modal.html">
 	<ax:div name="header">
 		<h1>컨텐츠 제목</h1>
 	</ax:div>

@@ -1,7 +1,7 @@
 <%@ page contentType="text/html; charset=UTF-8"
 %><%@ taglib prefix="c"  uri="http://java.sun.com/jsp/jstl/core"
 %><%@ taglib prefix="ax" uri="http://axis.com/axu4j"
-%><ax:layout name="base">
+%><ax:layout name="base.html">
 	<ax:div name="title">대시보드</ax:div>
 	<ax:div name="header">
 		<h1>대시보드</h1>
@@ -10,138 +10,130 @@
 	<ax:div name="contents">
 		<ax:row>
 			<ax:col size="6">
-				<div class="ax-box-wrap">
-					<h1>
-						Inline 테이블
-						<a href="#" class="more">more <i class="axi axi-external-link-square"></i></a>
-					</h1>
-					<p>
-						테이블의 기본 형을 정의 합니다.<br />
-					</p>
-					<table cellpadding="0" cellspacing="0" class="AXGridTable">
-						<colgroup>
-							<col width="60" />
-							<col />
-							<col width="50" />
-							<col />
-							<col width="50" />
-							<col />
-						</colgroup>
-						<thead>
-						<tr>
-							<td>
-								<div class="tdRel">
-									&nbsp;
-								</div>
-							</td>
-							<td colspan="2">
-								<div class="tdRel">
-									발생건수
-								</div>
-							</td>
-							<td colspan="2">
-								<div class="tdRel">
-									누계건수
-								</div>
-							</td>
-							<td colspan="2">
-								<div class="tdRel">
-									전년대비(누계)
-								</div>
-							</td>
-						</tr>
-						</thead>
-						<tbody>
-						<tr>
-							<td>사고</td>
-							<td>55건</td>
-							<td>99</td>
-							<td>1,022건</td>
-							<td>0</td>
-							<td>1,022건</td>
-							<td>1</td>
-						</tr>
-						<tr>
-							<td>사고</td>
-							<td>55건</td>
-							<td>99</td>
-							<td>1,022건</td>
-							<td>0</td>
-							<td>1,022건</td>
-							<td>1</td>
-						</tr>
-						<tr class="gray">
-							<td>사고</td>
-							<td>55건</td>
-							<td>99</td>
-							<td>1,022건</td>
-							<td>0</td>
-							<td>1,022건</td>
-							<td>1</td>
-						</tr>
-						<tr class="red">
-							<td>사고</td>
-							<td>55건</td>
-							<td>99</td>
-							<td>1,022건</td>
-							<td>0</td>
-							<td>1,022건</td>
-							<td>1</td>
-						</tr>
-						<tr class="green">
-							<td>사고</td>
-							<td>55건</td>
-							<td>99</td>
-							<td>1,022건</td>
-							<td>0</td>
-							<td>1,022건</td>
-							<td>1</td>
-						</tr>
-						<tr class="blue">
-							<td>사고</td>
-							<td>55건</td>
-							<td>99</td>
-							<td>1,022건</td>
-							<td>0</td>
-							<td>1,022건</td>
-							<td>1</td>
-						</tr>
-						</tbody>
-					</table>
-				</div>
+                <h1>
+                    Inline 테이블
+                    <a href="#" class="more">more <i class="axi axi-external-link-square"></i></a>
+                </h1>
+                <p>
+                    테이블의 기본 형을 정의 합니다.<br />
+                </p>
+                <table cellpadding="0" cellspacing="0" class="AXGridTable">
+                    <colgroup>
+                        <col width="60" />
+                        <col />
+                        <col width="50" />
+                        <col />
+                        <col width="50" />
+                        <col />
+                    </colgroup>
+                    <thead>
+                    <tr>
+                        <td>
+                            <div class="tdRel">
+                                &nbsp;
+                            </div>
+                        </td>
+                        <td colspan="2">
+                            <div class="tdRel">
+                                발생건수
+                            </div>
+                        </td>
+                        <td colspan="2">
+                            <div class="tdRel">
+                                누계건수
+                            </div>
+                        </td>
+                        <td colspan="2">
+                            <div class="tdRel">
+                                전년대비(누계)
+                            </div>
+                        </td>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>사고</td>
+                        <td>55건</td>
+                        <td>99</td>
+                        <td>1,022건</td>
+                        <td>0</td>
+                        <td>1,022건</td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <td>사고</td>
+                        <td>55건</td>
+                        <td>99</td>
+                        <td>1,022건</td>
+                        <td>0</td>
+                        <td>1,022건</td>
+                        <td>1</td>
+                    </tr>
+                    <tr class="gray">
+                        <td>사고</td>
+                        <td>55건</td>
+                        <td>99</td>
+                        <td>1,022건</td>
+                        <td>0</td>
+                        <td>1,022건</td>
+                        <td>1</td>
+                    </tr>
+                    <tr class="red">
+                        <td>사고</td>
+                        <td>55건</td>
+                        <td>99</td>
+                        <td>1,022건</td>
+                        <td>0</td>
+                        <td>1,022건</td>
+                        <td>1</td>
+                    </tr>
+                    <tr class="green">
+                        <td>사고</td>
+                        <td>55건</td>
+                        <td>99</td>
+                        <td>1,022건</td>
+                        <td>0</td>
+                        <td>1,022건</td>
+                        <td>1</td>
+                    </tr>
+                    <tr class="blue">
+                        <td>사고</td>
+                        <td>55건</td>
+                        <td>99</td>
+                        <td>1,022건</td>
+                        <td>0</td>
+                        <td>1,022건</td>
+                        <td>1</td>
+                    </tr>
+                    </tbody>
+                </table>
 			</ax:col>
 			<ax:col size="6">
-				<div class="ax-box-wrap">
-					<h1>
-						AXGrid 출력
-						<a href="#" class="more">more <i class="axi axi-external-link-square"></i></a>
-					</h1>
-					<p>그리드를 이용한 목록 출력</p>
-					<div id="page-grid-box"></div>
-				</div>
+                <h1>
+                    AXGrid 출력
+                    <a href="#" class="more">more <i class="axi axi-external-link-square"></i></a>
+                </h1>
+                <p>그리드를 이용한 목록 출력</p>
+                <div id="page-grid-box"></div>
 			</ax:col>
 		</ax:row>
 		
 		<ax:row>
 			<ax:col size="6">
-				<div class="ax-box-wrap">
-					<h1>
-						Chart Doughnut
-						<a href="#" class="more">more <i class="axi axi-external-link-square"></i></a>
-					</h1>
-					<p>Chart.js를 이용한 차트 Canvas태그를 사용가능해야 합니다.</p>
-					<canvas id="chart-canvas-doughnut" height="200" style="min-height: 256px;"></canvas>
-				</div>
+                <h1>
+                    Chart Doughnut
+                    <a href="#" class="more">more <i class="axi axi-external-link-square"></i></a>
+                </h1>
+                <p>Chart.js를 이용한 차트 Canvas태그를 사용가능해야 합니다.</p>
+                <canvas id="chart-canvas-doughnut" height="200" style="min-height: 256px;"></canvas>
 			</ax:col>
 			<ax:col size="6">
-				<div class="ax-box-wrap">
-					<h1>
-						Chart Line
-						<a href="#" class="more">more <i class="axi axi-external-link-square"></i></a>
-					</h1>
-					<p>Chart.js를 이용한 차트 Canvas태그를 사용가능해야 합니다.</p>
-					<canvas id="chart-canvas-line" height="200" style="min-height: 256px;"></canvas>
-				</div>
+                <h1>
+                    Chart Line
+                    <a href="#" class="more">more <i class="axi axi-external-link-square"></i></a>
+                </h1>
+                <p>Chart.js를 이용한 차트 Canvas태그를 사용가능해야 합니다.</p>
+                <canvas id="chart-canvas-line" height="200" style="min-height: 256px;"></canvas>
 			</ax:col>
 		</ax:row>
 	</ax:div>

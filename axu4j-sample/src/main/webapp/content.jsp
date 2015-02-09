@@ -1,14 +1,14 @@
 <%@ page contentType="text/html; charset=UTF-8"
 %><%@ taglib prefix="c"  uri="http://java.sun.com/jsp/jstl/core"
 %><%@ taglib prefix="ax" uri="http://axis.com/axu4j"
-%><ax:layout name="base">
+%><ax:layout name="base.html">
 	<ax:div name="header">
 		<h1>페이지 제목</h1>
 		<p class="desc">컨텐츠 상세 설명을 넣어주세요.</p>
 	</ax:div>
 	<ax:div name="contents">
 		<ax:row>
-			<ax:col size="12">
+			<ax:col size="12" wrap="false">
 				<div class="ax-search" id="page-search-box"></div>
 				<div class="ax-button-group">
 				    <div class="left">

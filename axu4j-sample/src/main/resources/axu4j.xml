@@ -4,7 +4,6 @@
     </config>
     <layout>
         <prefix>/WEB-INF/layouts/</prefix>
-        <suffix>.html</suffix>
         <encoding>UTF-8</encoding>
     </layout>
     <row>
@@ -22,7 +21,9 @@
 <div id="{{id}}" class="ax-col-{{size}}">
 	<div class="ax-unit">
 		<div class="ax-box {{css}}" style="{{style}}">
-			{{{doBody}}}
+            {{#wrap}}<div class="ax-box-wrap">{{/wrap}}
+                {{{doBody}}}
+			{{#wrap}}</div>{{/wrap}}
 		</div>
 		<div class="ax-clear"></div>
 		<div class="H20"></div>

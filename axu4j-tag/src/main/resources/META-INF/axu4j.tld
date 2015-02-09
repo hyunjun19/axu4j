@@ -85,6 +85,10 @@
     		<name>style</name>
     		<rtexprvalue>true</rtexprvalue>
     	</attribute>
+        <attribute>
+            <name>wrap</name>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
     </tag>
     
     <!-- [axu] form -->
