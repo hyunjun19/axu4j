@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8" %><%@
-    taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %><%@
+    taglib prefix="c"  uri="http://java.sun.com/jsp/jstl/core" %><%@
     taglib prefix="ax" uri="http://axis.com/axu4j"
 %><!DOCTYPE html>
 <html>
@@ -20,17 +20,17 @@
     <meta property="og:site_name" content="Axis of Javascript - axisj.com" />
     <meta property="og:description" id="meta_description" content="Javascript UI Library based on JQuery" />
 
-    <link rel="stylesheet" type="text/css" href="http://cdn.axisj.com/axicon/axicon.min.css" />
-    <link rel="stylesheet" type="text/css" href="http://dev.axisj.com/ui/cocker/AXJ.min.css" />
-    <link rel="stylesheet" href="/axu/Barracks/admin/ui/cocker/admin.css" />
-    <link rel="stylesheet" href="/axu/Barracks/admin/ui/custom.css" />
+    <link rel="stylesheet" type="text/css" href="<c:url value='/plugins/axicon/axicon.min.css' />" />
+    <link rel="stylesheet" type="text/css" href="<c:url value='/plugins/axisj/ui/cocker/AXJ.min.css' />" />
+    <link rel="stylesheet" type="text/css" href="<c:url value='/ui/Barracks/admin/ui/cocker/admin.css' />" />
+    <link rel="stylesheet" type="text/css" href="<c:url value='/ui/Barracks/admin/ui/custom.css' />" />
 <!-- @@@@@@@@@@@@@@@@@@@@@@ css begin @@@@@@@@@@@@@@@@@@@@@@ -->
 	<ax:write divname="css" />
 <!-- @@@@@@@@@@@@@@@@@@@@@@ css end   @@@@@@@@@@@@@@@@@@@@@@ -->
 
-    <script type="text/javascript" src="http://dev.axisj.com/jquery/jquery.min.js"></script>
-    <script type="text/javascript" src="http://dev.axisj.com/dist/AXJ.min.js"></script>
-    <script type="text/javascript" src="/axu/Barracks/admin/resource/Chart.min.js"></script>
+    <script type="text/javascript" src="<c:url value='/plugins/jquery/jquery.min.js' />"></script>
+    <script type="text/javascript" src="<c:url value='/plugins/axisj/dist/AXJ.min.js' />"></script>
+    <script type="text/javascript" src="<c:url value='/ui/Barracks/admin/resource/Chart.min.js' />"></script>
 <!-- @@@@@@@@@@@@@@@@@@@@@@ js begin @@@@@@@@@@@@@@@@@@@@@@ -->
     <ax:write divname="js" />
 <!-- @@@@@@@@@@@@@@@@@@@@@@ js end   @@@@@@@@@@@@@@@@@@@@@@ -->
@@ -205,7 +205,7 @@
 				<div class="ax-col-12">
 					<div class="ax-unit">
 						<div class="ax-logo">
-                            <a href="index.jsp"><img src="/axu/Barracks/admin/ui/cocker/images/logo.png" width="60" /></a>
+                            <a href="index.jsp"><img src="<c:url value='/ui/Barracks/admin/ui/cocker/images/logo.png' />" width="60" /></a>
 						</div>
 					</div>
 				</div>

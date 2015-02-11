@@ -27,6 +27,41 @@
         </property>
     </bean>
 
+    <bean id="contentNegotiationManager" class="org.springframework.web.accept.ContentNegotiationManagerFactoryBean">
+        <property name="favorPathExtension" value="true" />
+        <property name="defaultContentType" value="text/html" />
+        <property name="mediaTypes">
+            <map>
+                <entry key="do"   value="text/html" />
+                <entry key="json" value="application/json" />
+                <entry key="file" value="application/octet-stream" />
+            </map>
+        </property>
+    </bean>
+
+    <bean class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
+        <property name="contentNegotiationManager" ref="contentNegotiationManager" />
+        <property name="viewResolvers">
+            <list>
+                <bean class="org.springframework.web.servlet.view.BeanNameViewResolver" />
+                <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+                    <property name="contentType" value="text/html; charset=UTF-8" />
+                    <property name="prefix" value="/WEB-INF/jsp/" />
+                    <property name="suffix" value=".jsp" />
+                    <property name="viewClass" value="org.springframework.web.servlet.view.JstlView" />
+                </bean>
+            </list>
+        </property>
+        <property name="defaultViews">
+            <list>
+                <bean class="org.springframework.web.servlet.view.json.MappingJacksonJsonView" />
+            </list>
+        </property>
+    </bean>
+
+    <bean name="cgr/egovCategoryList"
+      class="org.springframework.web.servlet.view.json.MappingJacksonJsonView" />
+
     <!-- 화면처리용 JSP 파일명의  prefix, suffix 처리에 대한 mvc 설정  -->
     <bean class="org.springframework.web.servlet.view.UrlBasedViewResolver" p:order="1"
 	    p:viewClass="org.springframework.web.servlet.view.JstlView"

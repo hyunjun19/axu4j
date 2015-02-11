@@ -16,6 +16,10 @@
         <filter-name>encodingFilter</filter-name>
         <url-pattern>*.do</url-pattern>
     </filter-mapping>
+    <filter-mapping>
+        <filter-name>encodingFilter</filter-name>
+        <url-pattern>*.json</url-pattern>
+    </filter-mapping>
     <!-- 템플릿 소스에서는 아래의 필터사용 대신 JSP 출력시 <c:out> 태그를 사용하는 것을 기본정책으로 한다  -->
     <!-- egovframework.rte.ptl.mvc.filter.HTMLTagFilter egovframework.com.cmm.filter.HTMLTagFilter-->    
     <!--
@@ -51,6 +55,10 @@
 	<servlet-mapping>
 		<servlet-name>action</servlet-name>
 		<url-pattern>*.do</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>action</servlet-name>
+		<url-pattern>*.json</url-pattern>
 	</servlet-mapping>
 	
 	<welcome-file-list>

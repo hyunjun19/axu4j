@@ -252,7 +252,7 @@
                 <!-- 페이지 네비게이션 시작 -->
                 <div id="paging_div">
                     <ul class="paging_align">
-                        <ui:pagination paginationInfo="${paginationInfo}" type="image" jsFunction="fn_egov_select_noticeList" />    
+                        <%--<ui:pagination paginationInfo="${paginationInfo}" type="image" jsFunction="fn_egov_select_noticeList" />    --%>
                     </ul>
                 </div>
                 <!-- //페이지 네비게이션 끝 -->  

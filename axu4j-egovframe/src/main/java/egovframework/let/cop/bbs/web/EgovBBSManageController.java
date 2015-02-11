@@ -1,7 +1,4 @@
 package egovframework.let.cop.bbs.web;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 
 import egovframework.com.cmm.EgovMessageSource;
 import egovframework.com.cmm.LoginVO;
@@ -9,18 +6,9 @@ import egovframework.com.cmm.service.EgovFileMngService;
 import egovframework.com.cmm.service.EgovFileMngUtil;
 import egovframework.com.cmm.service.FileVO;
 import egovframework.com.cmm.util.EgovUserDetailsHelper;
-import egovframework.let.cop.bbs.service.Board;
-import egovframework.let.cop.bbs.service.BoardMaster;
-import egovframework.let.cop.bbs.service.BoardMasterVO;
-import egovframework.let.cop.bbs.service.BoardVO;
-import egovframework.let.cop.bbs.service.EgovBBSAttributeManageService;
-import egovframework.let.cop.bbs.service.EgovBBSManageService;
-
+import egovframework.let.cop.bbs.service.*;
 import egovframework.rte.fdl.property.EgovPropertyService;
 import egovframework.rte.ptl.mvc.tags.ui.pagination.PaginationInfo;
-
-import javax.annotation.Resource;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -31,6 +19,12 @@ import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springmodules.validation.commons.DefaultBeanValidator;
+
+import javax.annotation.Resource;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * 게시물 관리를 위한 컨트롤러 클래스
@@ -182,6 +176,47 @@ public class EgovBBSManageController {
 	model.addAttribute("paginationInfo", paginationInfo);
 
 	return "cop/bbs/EgovNoticeList";
+    }
+
+    @RequestMapping("/cop/bbs/selectBoardList.json")
+    public void selectBoardArticlesJson(@ModelAttribute("searchVO") BoardVO boardVO, ModelMap model) throws Exception {
+        LoginVO user = (LoginVO)EgovUserDetailsHelper.getAuthenticatedUser();
+
+        boardVO.setBbsId(boardVO.getBbsId());
+        boardVO.setBbsNm(boardVO.getBbsNm());
+
+        BoardMasterVO vo = new BoardMasterVO();
+
+        vo.setBbsId(boardVO.getBbsId());
+        vo.setUniqId(user.getUniqId());
+
+        BoardMasterVO master = bbsAttrbService.selectBBSMasterInf(vo);
+
+        boardVO.setPageUnit(propertyService.getInt("pageUnit"));
+        boardVO.setPageSize(propertyService.getInt("pageSize"));
+
+        PaginationInfo paginationInfo = new PaginationInfo();
+
+        paginationInfo.setCurrentPageNo(boardVO.getPageIndex());
+        paginationInfo.setRecordCountPerPage(boardVO.getPageUnit());
+        paginationInfo.setPageSize(boardVO.getPageSize());
+
+        boardVO.setFirstIndex(paginationInfo.getFirstRecordIndex());
+        boardVO.setLastIndex(paginationInfo.getLastRecordIndex());
+        boardVO.setRecordCountPerPage(paginationInfo.getRecordCountPerPage());
+
+        Map<String, Object> map = bbsMngService.selectBoardArticles(boardVO, vo.getBbsAttrbCode());
+        int totCnt = Integer.parseInt((String)map.get("resultCnt"));
+
+        paginationInfo.setTotalRecordCount(totCnt);
+
+        Map<String, Object> page = new HashMap<String, Object>();
+        page.put("pageNo",    paginationInfo.getCurrentPageNo());
+        page.put("pageCount", paginationInfo.getPageSize());
+        page.put("listCount", map.get("resultCnt"));
+
+        model.addAttribute("list", map.get("resultList"));
+        model.addAttribute("page", page);
     }
 
     /**
@@ -373,6 +408,55 @@ public class EgovBBSManageController {
 	return "forward:/cop/bbs/selectBoardList.do";
     }
 
+    @RequestMapping("/cop/bbs/insertBoardArticle.json")
+    public void insertBoardArticleJson(@ModelAttribute("searchVO") BoardVO boardVO,
+                                     @ModelAttribute("bdMstr") BoardMaster bdMstr, @ModelAttribute("board") Board board, BindingResult bindingResult, SessionStatus status,
+                                     ModelMap model) throws Exception {
+        Map<String, Object> rmap = new HashMap<String, Object>();
+        rmap.put("isOK", false);
+        model.put("result", rmap);
+
+        // 사용자권한 처리
+        if(!EgovUserDetailsHelper.isAuthenticated()) {
+            rmap.put("message", egovMessageSource.getMessage("fail.common.login"));
+            return;
+        }
+
+        LoginVO user = (LoginVO)EgovUserDetailsHelper.getAuthenticatedUser();
+        Boolean isAuthenticated = EgovUserDetailsHelper.isAuthenticated();
+
+        beanValidator.validate(board, bindingResult);
+        if (bindingResult.hasErrors()) {
+
+            BoardMasterVO master = new BoardMasterVO();
+            BoardMasterVO vo = new BoardMasterVO();
+
+            vo.setBbsId(boardVO.getBbsId());
+            vo.setUniqId(user.getUniqId());
+
+            master = bbsAttrbService.selectBBSMasterInf(vo);
+
+            model.addAttribute("bdMstr", master);
+            model.addAttribute("brdMstrVO", master);
+            ////-----------------------------
+
+            return;
+        }
+
+        if (isAuthenticated) {
+            board.setFrstRegisterId(user.getUniqId());
+            board.setBbsId(board.getBbsId());
+
+            board.setNtcrNm("");	// dummy 오류 수정 (익명이 아닌 경우 validator 처리를 위해 dummy로 지정됨)
+            board.setPassword("");	// dummy 오류 수정 (익명이 아닌 경우 validator 처리를 위해 dummy로 지정됨)
+            //board.setNttCn(unscript(board.getNttCn()));	// XSS 방지
+
+            bbsMngService.insertBoardArticle(board);
+
+            rmap.put("isOK", true);
+        }
+    }
+
     /**
      * 게시물에 대한 답변 등록을 위한 등록페이지로 이동한다.
      *
@@ -549,6 +633,48 @@ public class EgovBBSManageController {
 	return "cop/bbs/EgovNoticeUpdt";
     }
 
+    @RequestMapping("/cop/bbs/forUpdateBoardArticle.json")
+    public void selectBoardArticleForUpdtJson(@ModelAttribute("searchVO") BoardVO boardVO, @ModelAttribute("board") BoardVO vo, ModelMap model)
+            throws Exception {
+
+        Map<String, Object> rmap = new HashMap<String, Object>();
+        rmap.put("isOK", false);
+        model.put("result", rmap);
+
+        // 사용자권한 처리 (자유게시판에 대한 요청이 아닌 경우는 로긴화면으로 이동)
+        if(!boardVO.getBbsId().equals("BBSMSTR_BBBBBBBBBBBB") && !EgovUserDetailsHelper.isAuthenticated()) {
+            model.addAttribute("message", egovMessageSource.getMessage("fail.common.login"));
+            return;
+        }
+
+        LoginVO user = (LoginVO)EgovUserDetailsHelper.getAuthenticatedUser();
+        Boolean isAuthenticated = EgovUserDetailsHelper.isAuthenticated();
+
+        boardVO.setFrstRegisterId(user.getUniqId());
+
+        BoardMaster master = new BoardMaster();
+        BoardMasterVO bmvo = new BoardMasterVO();
+        BoardVO bdvo = new BoardVO();
+
+        vo.setBbsId(boardVO.getBbsId());
+
+        master.setBbsId(boardVO.getBbsId());
+        master.setUniqId(user.getUniqId());
+
+        if (isAuthenticated) {
+            bmvo = bbsAttrbService.selectBBSMasterInf(master);
+            bdvo = bbsMngService.selectBoardArticle(boardVO);
+        }
+
+        model.addAttribute("bdvo", bdvo);
+        model.addAttribute("bdMstr", bmvo);
+
+        model.addAttribute("brdMstrVO", bmvo);
+        ////-----------------------------
+
+        rmap.put("isOK", true);
+    }
+
     /**
      * 게시물에 대한 내용을 수정한다.
      *
@@ -654,6 +780,31 @@ public class EgovBBSManageController {
 	}
 
 	return "forward:/cop/bbs/selectBoardList.do";
+    }
+
+    @RequestMapping("/cop/bbs/deleteBoardArticle.json")
+    public void deleteBoardArticleJson(@ModelAttribute("searchVO") BoardVO boardVO, @ModelAttribute("board") Board board,
+                                     @ModelAttribute("bdMstr") BoardMaster bdMstr, ModelMap model) throws Exception {
+        Map<String, Object> rmap = new HashMap<String, Object>();
+        rmap.put("isOK", false);
+        model.put("result", rmap);
+
+        // 사용자권한 처리
+        if(!EgovUserDetailsHelper.isAuthenticated()) {
+            rmap.put("message", egovMessageSource.getMessage("fail.common.login"));
+            return;
+        }
+
+        LoginVO user = (LoginVO)EgovUserDetailsHelper.getAuthenticatedUser();
+        Boolean isAuthenticated = EgovUserDetailsHelper.isAuthenticated();
+
+        if (isAuthenticated) {
+            board.setLastUpdusrId(user.getUniqId());
+
+            bbsMngService.deleteBoardArticle(board);
+
+            rmap.put("isOK", true);
+        }
     }
 
     /**
