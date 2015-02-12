@@ -25,7 +25,7 @@
 <base target="_self">
 <link type="text/css" rel="stylesheet" href="<c:url value="/css/cal.css"/>" />
 <link href="<c:url value='/'/>css/common.css" rel="stylesheet" type="text/css" >
-<script type="text/javascript" src="<c:url value='/js/showModalDialogCallee.js'/>" ></script>
+<script type="text/javascript" src="<c:url value='/js/common/showModalDialogCallee.js'/>" ></script>
 <script type="text/javaScript" language="javascript">
 <!--
 

@@ -22,15 +22,14 @@
 
     <link rel="stylesheet" type="text/css" href="<c:url value='/plugins/axicon/axicon.min.css' />" />
     <link rel="stylesheet" type="text/css" href="<c:url value='/plugins/axisj/ui/cocker/AXJ.min.css' />" />
-    <link rel="stylesheet" type="text/css" href="<c:url value='/ui/Barracks/admin/ui/cocker/admin.css' />" />
-    <link rel="stylesheet" type="text/css" href="<c:url value='/ui/Barracks/admin/ui/custom.css' />" />
+    <link rel="stylesheet" type="text/css" href="<c:url value='/ui/cocker/admin.css' />" />
+    <link rel="stylesheet" type="text/css" href="<c:url value='/ui/custom.css' />" />
 <!-- @@@@@@@@@@@@@@@@@@@@@@ css begin @@@@@@@@@@@@@@@@@@@@@@ -->
     <ax:write divname="css" />
 <!-- @@@@@@@@@@@@@@@@@@@@@@ css end   @@@@@@@@@@@@@@@@@@@@@@ -->
 
     <script type="text/javascript" src="<c:url value='/plugins/jquery/jquery.min.js' />"></script>
     <script type="text/javascript" src="<c:url value='/plugins/axisj/dist/AXJ.min.js' />"></script>
-    <script type="text/javascript" src="<c:url value='/ui/Barracks/admin/resource/Chart.min.js' />"></script>
 <!-- @@@@@@@@@@@@@@@@@@@@@@ js begin @@@@@@@@@@@@@@@@@@@@@@ -->
     <ax:write divname="js" />
 <!-- @@@@@@@@@@@@@@@@@@@@@@ js end   @@@@@@@@@@@@@@@@@@@@@@ -->

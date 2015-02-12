@@ -26,7 +26,7 @@
 <title>게시판 사용등록</title>
 <script type="text/javascript" src="<c:url value="/validator.do"/>"></script>
 <validator:javascript formName="boardUseInf" staticJavascript="false" xhtml="true" cdata="false"/>
-<script type="text/javascript" src="<c:url value='/js/showModalDialog.js'/>" ></script>
+<script type="text/javascript" src="<c:url value='/js/common/showModalDialog.js'/>" ></script>
 <script type="text/javascript">
     function fn_egov_select_bbsUseInfs(){
         document.boardUseInf.action = "<c:url value='/cop/com/selectBBSUseInfs.do'/>?searchCondition=1";

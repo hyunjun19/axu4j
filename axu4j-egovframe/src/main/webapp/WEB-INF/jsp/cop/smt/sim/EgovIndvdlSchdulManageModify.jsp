@@ -33,8 +33,8 @@
     caption {visibility:hidden; font-size:0; height:0; margin:0; padding:0; line-height:0;}
 </style>
 
-<script type="text/javascript" src="<c:url value='/js/EgovCalPopup.js' />"></script>
-<script type="text/javascript" src="<c:url value='/js/EgovMultiFile.js'/>" ></script>
+<script type="text/javascript" src="<c:url value='/js/common/EgovCalPopup.js' />"></script>
+<script type="text/javascript" src="<c:url value='/js/common/EgovMultiFile.js'/>" ></script>
 
 <script type="text/javascript" src="<c:url value="/validator.do"/>"></script>
 <validator:javascript formName="indvdlSchdulManageVO" staticJavascript="false" xhtml="true" cdata="false"/>

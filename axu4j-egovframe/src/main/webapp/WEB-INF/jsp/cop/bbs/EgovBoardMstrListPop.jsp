@@ -22,7 +22,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" >
 <meta http-equiv="content-language" content="ko">
 <link href="<c:url value='/'/>css/common.css" rel="stylesheet" type="text/css" >
-<script type="text/javascript" src="<c:url value='/js/EgovBBSMng.js' />"></script>
+<script type="text/javascript" src="<c:url value='/js/common/EgovBBSMng.js' />"></script>
 <script type="text/javascript">
     function press(event) {
         if (event.keyCode==13) {

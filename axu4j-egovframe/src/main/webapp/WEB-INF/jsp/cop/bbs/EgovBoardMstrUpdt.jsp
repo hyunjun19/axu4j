@@ -26,7 +26,7 @@
 <title>게시판 정보수정</title>
 <link href="<c:url value='/'/>css/common.css" rel="stylesheet" type="text/css" >
 
-<script type="text/javascript" src="<c:url value="/js/EgovBBSMng.js" />" ></script>
+<script type="text/javascript" src="<c:url value="/js/common/EgovBBSMng.js" />" ></script>
 <script type="text/javascript" src="<c:url value="/validator.do"/>"></script>
 <validator:javascript formName="boardMaster" staticJavascript="false" xhtml="true" cdata="false"/>
 <script type="text/javascript">

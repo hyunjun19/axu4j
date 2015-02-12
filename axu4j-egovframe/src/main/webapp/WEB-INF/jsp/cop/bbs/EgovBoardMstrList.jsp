@@ -23,7 +23,7 @@
 <title>게시판 목록</title>
 <link href="<c:url value='/'/>css/common.css" rel="stylesheet" type="text/css" >
 
-<script type="text/javascript" src="<c:url value='/js/EgovBBSMng.js' />"></script>
+<script type="text/javascript" src="<c:url value='/js/common/EgovBBSMng.js' />"></script>
 <script type="text/javascript">
 	function press(event) {
 		if (event.keyCode==13) {

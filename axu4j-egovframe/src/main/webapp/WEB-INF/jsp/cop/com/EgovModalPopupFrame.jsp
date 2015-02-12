@@ -21,7 +21,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" >
 <meta http-equiv="content-language" content="ko">
-<script type="text/javascript" src="<c:url value='/js/showModalDialogCallee.js'/>" ></script>
+<script type="text/javascript" src="<c:url value='/js/common/showModalDialogCallee.js'/>" ></script>
 <script type="text/javascript">
 	function fn_egov_returnValue(retVal){
 		
