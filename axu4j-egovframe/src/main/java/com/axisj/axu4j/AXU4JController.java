@@ -41,6 +41,9 @@ public class AXU4JController {
     @RequestMapping("/list.do")
     public void list() { }
 
+    @RequestMapping("/list-2.do")
+    public void list2() { }
+
     @RequestMapping("/list.json")
     public void listJson() { }
 
