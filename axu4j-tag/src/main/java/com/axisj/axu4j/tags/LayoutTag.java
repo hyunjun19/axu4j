@@ -96,9 +96,11 @@ public class LayoutTag extends SimpleTagSupport {
 
 		// cookie
 		Cookie[] cookies = request.getCookies();
-		for (int ci = 0; ci < cookies.length; ci++) {
-			cookieMap.put(cookies[ci].getName(), cookies[ci].getValue());
-		}
+        if (cookies != null) {
+            for (int ci = 0; ci < cookies.length; ci++) {
+                cookieMap.put(cookies[ci].getName(), cookies[ci].getValue());
+            }
+        }
 		globalMap.put("cookie", cookieMap);
 
 
