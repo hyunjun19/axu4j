@@ -1,16 +1,18 @@
-## ÀÌ ÇÁ·ÎÁ§Æ®´Â axu4j¿Í [ÀüÀÚÁ¤ºÎ Ç¥ÁØÇÁ·¹ÀÓ¿öÅ©] ¸¦ »ç¿ëÇÏ´Â ¿¹Á¦ÀÔ´Ï´Ù.
+## ì´ í”„ë¡œì íŠ¸ëŠ” axu4jì™€ [ì „ìì •ë¶€ í‘œì¤€í”„ë ˆì„ì›Œí¬] ë¥¼ ì‚¬ìš©í•˜ëŠ” ì˜ˆì œì…ë‹ˆë‹¤.
 
-### ½ÇÇà¹æ¹ı
+### ì‹¤í–‰ë°©ë²•
 
-1. [eclipse](http://eclipse.org/downloads/packages/eclipse-ide-java-ee-developers/lunasr1a) ½ÇÇà
+1. [eclipse](http://eclipse.org/downloads/packages/eclipse-ide-java-ee-developers/lunasr1a) ì‹¤í–‰
 2. File > Import
 3. Existing Maven Projects > Next
-4. Root Directory: axu4j-egovframe root Æú´õ ¼±ÅÃ > Finish
-5. ÇÁ·ÎÁ§Æ® Import°¡ ¿Ï·áµÉ ¶§ ±îÁö ´ë±â
+4. Root Directory: axu4j-egovframe root í´ë” ì„ íƒ > Finish
+5. í”„ë¡œì íŠ¸ Importê°€ ì™„ë£Œë  ë•Œ ê¹Œì§€ ëŒ€ê¸°
 6. Run > Run Configurations...
 7. Maven Build > New
 8. Name: `egov-egovframe ## run ##`
 9. Base Directory: `${workspace_loc:/axu4j-egovframe}`
 10. Goals: `tomcat7:run`
-11. Run Å¬¸¯
-12. http://localhost:6442 Á¢¼Ó
+11. Run í´ë¦­
+12. http://localhost:6442 ì ‘ì†
+ 
+**DBëŠ” ì›í™œí•œ ì…‹íŒ…ì„ ìœ„í•´ì„œ SQLite(egovfrm.sqlite)ë¡œ ë¯¸ë¦¬ ë§Œë“¤ì–´ ë†“ì•˜ìŠµë‹ˆë‹¤.**
