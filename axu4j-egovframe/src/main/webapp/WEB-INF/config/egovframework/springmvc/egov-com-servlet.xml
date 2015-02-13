@@ -73,8 +73,8 @@
             <mvc:mapping path="/cop/com/*.do"/>
             <mvc:mapping path="/cop/bbs/*Master*.do"/>
             <mvc:mapping path="/uat/uia/*.do"/>
-            <mvc:exclude-mapping path="/uat/uia/actionLogin.do"/>
-            <mvc:exclude-mapping path="/uat/uia/egovLoginUsr.do"/>
+            <mvc:exclude-mapping path="/login.do"/>
+            <mvc:exclude-mapping path="/actionLogin.do"/>
 		    <bean class="egovframework.com.cmm.interceptor.AuthenticInterceptor" />
         </mvc:interceptor>
     </mvc:interceptors>
