@@ -30,6 +30,9 @@ public class AXU4JController {
     @Resource(name = "EgovBBSManageService")
     private EgovBBSManageService bbsMngService;
 
+    @Resource(name = "EgovBBSAttributeManageService")
+    private EgovBBSAttributeManageService bbsAttrbService;
+
     /** EgovLoginService */
     @Resource(name = "loginService")
     private EgovLoginService loginService;
@@ -92,7 +95,39 @@ public class AXU4JController {
     public void view() { }
 
     @RequestMapping("/edit.do")
-    public void edit() { }
+    public void edit(@ModelAttribute("searchVO") BoardVO boardVO, @ModelAttribute("board") BoardVO vo, ModelMap model)
+        throws Exception {
+
+        // 사용자권한 처리 (자유게시판에 대한 요청이 아닌 경우는 로긴화면으로 이동)
+        if(!boardVO.getBbsId().equals("BBSMSTR_BBBBBBBBBBBB") && !EgovUserDetailsHelper.isAuthenticated()) {
+            model.addAttribute("message", egovMessageSource.getMessage("fail.common.login"));
+            return;
+        }
+
+        LoginVO user = (LoginVO)EgovUserDetailsHelper.getAuthenticatedUser();
+        Boolean isAuthenticated = EgovUserDetailsHelper.isAuthenticated();
+
+        boardVO.setFrstRegisterId(user.getUniqId());
+
+        BoardMaster master = new BoardMaster();
+        BoardMasterVO bmvo = new BoardMasterVO();
+        BoardVO bdvo = new BoardVO();
+
+        vo.setBbsId(boardVO.getBbsId());
+
+        master.setBbsId(boardVO.getBbsId());
+        master.setUniqId(user.getUniqId());
+
+        if (isAuthenticated) {
+            bmvo = bbsAttrbService.selectBBSMasterInf(master);
+            bdvo = bbsMngService.selectBoardArticle(boardVO);
+        }
+
+        model.addAttribute("result", bdvo);
+        model.addAttribute("bdMstr", bmvo);
+        model.addAttribute("brdMstrVO", bmvo);
+        ////-----------------------------
+    }
 
     @RequestMapping("/edit.json")
     public void editJson(@ModelAttribute("searchVO") BoardVO boardVO
