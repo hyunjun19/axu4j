@@ -250,7 +250,5 @@ public class AXU4JController {
      */
     @RequestMapping(value="/help.do")
     public void page_help() { }
-    
-    @RequestMapping(value="/modal.do")
-    public void modal_open() { }
+
 }

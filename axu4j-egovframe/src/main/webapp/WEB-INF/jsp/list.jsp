@@ -40,7 +40,7 @@
 	            var _this = this;
                 $("#ax-grid-btn-regist").bind("click", function(){
                     fnObj.modal.open("gridView", {
-                        url:"modal.do", pars:""
+                        url:"edit.do", pars:""
                     });
                 });
 	            $("#ax-search-btn-search").bind("click", function(){
