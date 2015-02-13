@@ -216,8 +216,45 @@
                         alert("삭제할 목록을 선택하세요");
                         return false;
                     }
-                    
-                    trace(select);
+
+                    var myProgress = new AXProgress();
+                    myProgress.setConfig({
+                        theme:"AXlineProgress"
+                    });
+
+                    mask.open();
+                    myProgress.start(function(){
+                        //trace(this);
+                        if(this.isEnd){
+                            myProgress.close();
+                            mask.close();
+                            toast.push("삭제처리 완료 되었습니다.");
+                            fnObj.search.submit();
+                        }else{
+                            // 무언가 처리를 해줍니다.	대부분 비동기 AJAX 통신 처리 구문을 수행합니다.
+
+                            var item = select.shift();
+                            if(item) {
+                                var url = "/delete.json";
+                                var pars = "nttId=" + item.nttId;
+                                new AXReq(url, {
+                                    pars    : pars, onsucc: function (res) {
+                                        myProgress.update(); // 프로그레스의 다음 카운트를 시작합니다.
+                                    }, onerr: null
+                                });
+                            }else{
+                                myProgress.close();
+                                mask.close();
+                                toast.push("삭제처리 완료 되었습니다.");
+                                fnObj.search.submit();
+                            }                            
+                        }
+                    },{
+                        totalCount:select.length,
+                        top:200,
+                        title:"게시물 삭제처리"
+                    });
+
                 }
 	        },
 	        modal: {

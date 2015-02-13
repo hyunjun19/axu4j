@@ -25,7 +25,7 @@
             
             <ax:fields>
                 <ax:field label="번호">
-                    <input type="text" name="nttId" title="" placeholder="" value="<c:out value='${result.nttId == "" ? result.nttId : -1}'/>" class="AXInput" style="width:50px;" readonly="readonly" />
+                    <input type="text" name="nttId" title="" placeholder="" value="<c:out value='${result.nttId != "" ? result.nttId : -1}'/>" class="AXInput" style="width:50px;" readonly="readonly" />
                 </ax:field>
             </ax:fields>
             <ax:fields>
