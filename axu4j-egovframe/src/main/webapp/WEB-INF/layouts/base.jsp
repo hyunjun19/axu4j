@@ -21,8 +21,8 @@
     <meta property="og:description" id="meta_description" content="Javascript UI Library based on JQuery" />
 
     <link rel="stylesheet" type="text/css" href="<c:url value='/plugins/axicon/axicon.min.css' />" />
-    <link rel="stylesheet" type="text/css" href="<c:url value='/plugins/axisj/ui/cocker/AXJ.min.css' />" />
-    <link rel="stylesheet" type="text/css" href="<c:url value='/ui/cocker/admin.css' />" />
+    <link rel="stylesheet" type="text/css" href="<c:url value='/plugins/axisj/ui/cocker/AXJ.min.css' />" id="axu-theme-axisj" />
+    <link rel="stylesheet" type="text/css" href="<c:url value='/ui/cocker/admin.css' />" id="axu-theme-admin" />
     <link rel="stylesheet" type="text/css" href="<c:url value='/ui/custom.css' />" />
 <!-- @@@@@@@@@@@@@@@@@@@@@@ css begin @@@@@@@@@@@@@@@@@@@@@@ -->
 	<ax:write divname="css" />
@@ -43,9 +43,10 @@
 			<div class="ax-layer">
 				<div class="ax-col-12">
 					<div class="ax-unit">
-						<div class="ax-logo">
-                            <a href="index.jsp"><img src="<c:url value='/ui/Barracks/admin/ui/cocker/images/logo.png' />" width="60" /></a>
-						</div>
+                        <div class="ax-logo">
+                            <a class="logo-icon" href="/"><i class="axi axi-axisj"></i></a>
+                            <a href="http://axu.axisj.com" target="_blank">axu.axisj.com</a>
+                        </div>
 					</div>
 				</div>
 			</div>

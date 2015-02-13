@@ -3,17 +3,20 @@ var mobileMenu = new AXMobileMenu();
 var loginInfoModal = new AXMobileModal();
 var fcObj = {
 	pageStart: function(){
-		fcObj.bindEvent();
-		
-		if(window.topMenu_data) {
+		// ax-header가 존재 하는 경우
+		if(jQuery(".ax-header").get(0)) {
+			fcObj.bindEvent();
 			fcObj.bindTopMenu();
 			fcObj.bindSideMenu();
 		}
+
 		try {
 			fnObj.pageStart();
 		}catch(e){
 
 		}
+		
+		this.theme.init();
 	},
 	pageResize: function(){
 		fcObj.setAsideMenu();
@@ -23,7 +26,7 @@ var fcObj = {
 			if(axf.clientWidth() <= 1024 && axf.clientWidth() >= 767){
 				jQuery(".ax-aside-menu").addClass("on");
 				jQuery(".ax-aside-box").hide();
-			}else if(axf.clientWidth() > 1024){
+			}else if(axf.clientWidth() >= 1024){
 				jQuery(".ax-aside-menu").removeClass("on");
 				jQuery(".ax-aside-box").show();
 			}
@@ -135,7 +138,55 @@ var fcObj = {
 		}
 		_target.empty();
 		_target.append(po.join(''));
+	},
+	
+	theme: {
+		sel: null,
+		init: function(){
+			var themes = ["cocker","cacao"];
+			var po = [];
+			$.each(themes, function(){
+				po.push('<option value="', this,'">', this,'</option>');
+			});
+			fcObj.theme.sel = jQuery("#theme-select");
+			fcObj.theme.sel.html( po.join('') );
+			
+			var _theme;
+			if((_theme = axf.getCookie("axutheme"))){
+				fcObj.theme.sel.val(_theme);
+				fcObj.theme.change(_theme);
+			}
+			fcObj.theme.sel.bind("change", function(e) {
+				fcObj.theme.change(e.target.value);
+			});
+		},
+		change: function(theme){
+			jQuery("#axu-theme-admin").attr("href", "ui/"+theme+"/admin.css");
+			jQuery("#axu-theme-axisj").attr("href", "/plugins/axisj/ui/"+ theme.replace("cacao", "kakao") +"/AXJ.min.css?v="+axf.timekey());
+			axf.setCookie("axutheme", theme);
+		}
 	}
 };
-jQuery(document).ready(fcObj.pageStart.delay(0.1));
-jQuery(window).resize(fcObj.pageResize);
+
+jQuery(document.body).ready(function() {
+	fcObj.pageStart()
+});
+jQuery(window).resize(function() {
+	fcObj.pageResize();
+});
+
+
+
+// 2014-12-26 AXU, admin.js add script
+jQuery(document.body).ready(function() {
+	jQuery(document.body).append('<div class="ax-scroll-top"><a href="javascript:window.scroll(0, 0);"><i class="axi axi-ion-arrow-up-c"></i> TOP</a></div>');
+	window.scroll_top_handle = jQuery(".ax-scroll-top");
+});
+
+jQuery(window).bind("scroll", function() {
+	if(jQuery(document.body).scrollTop() > 60){
+		window.scroll_top_handle.addClass("on");
+	}else{
+		window.scroll_top_handle.removeClass("on");
+	}
+});
