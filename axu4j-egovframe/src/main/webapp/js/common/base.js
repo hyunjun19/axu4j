@@ -4,8 +4,11 @@ var loginInfoModal = new AXMobileModal();
 var fcObj = {
 	pageStart: function(){
 		fcObj.bindEvent();
-		fcObj.bindTopMenu();
-		fcObj.bindSideMenu();
+		
+		if(window.topMenu_data) {
+			fcObj.bindTopMenu();
+			fcObj.bindSideMenu();
+		}
 		try {
 			fnObj.pageStart();
 		}catch(e){
@@ -51,6 +54,7 @@ var fcObj = {
 		});
 	},
 	bindTopMenu: function(){
+		
 		topMenu.setConfig({
 			targetID:"ax-top-menu",
 			parentMenu:{
