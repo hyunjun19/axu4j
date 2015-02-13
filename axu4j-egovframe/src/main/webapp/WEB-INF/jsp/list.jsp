@@ -15,7 +15,7 @@
 				<div class="ax-button-group">
 				    <div class="left">
 				        <button type="button" class="AXButton Blue" id="ax-grid-btn-regist"><i class="axi axi-plus-circle"></i> 등록</button>
-				        <button type="button" class="AXButton" id="ax-grid-btn-remove"><i class="axi axi-minus-circle"></i> 삭제</button>
+				        <!--<button type="button" class="AXButton" id="ax-grid-btn-remove"><i class="axi axi-minus-circle"></i> 삭제</button>-->
 				    </div>
 				    <div class="right">
 				        <button type="button" class="AXButton Blue" id="ax-search-btn-search"><i class="axi axi-ion-android-search"></i> 검색</button>
@@ -81,8 +81,8 @@
 	                            }
 	                        ]},
 	                        {display:true, addClass:"", style:"", list:[
-	                            {label:"사원명", labelWidth:"100", type:"selectBox", width:"", key:"selectbox", addClass:"", valueBoxStyle:"", value:"close",
-	                                options:[{optionValue:"all", optionText:"전체보기"}, {optionValue:"open", optionText:"공개"}, {optionValue:"close", optionText:"비공개"}],
+	                            {label:"검색어", labelWidth:"100", type:"selectBox", width:"", key:"selectbox", addClass:"", valueBoxStyle:"", value:"close",
+	                                options:[{optionValue:"all", optionText:"제목+내용"}, {optionValue:"open", optionText:"제목"}, {optionValue:"close", optionText:"내용"}],
 	                                AXBind:{
 	                                    type:"select", config:{
 	                                        onChange:function(){
@@ -97,15 +97,6 @@
 	                                    //아래 2개의 값을 사용 하실 수 있습니다.
 	                                    toast.push(Object.toJSON(this));
 	                                    //dialog.push(changedValue);
-	                                }
-	                            },
-	                            {label:"", type:"button", width:"40", key:"button", addClass:"Green", valueBoxStyle:"padding-left:0px;", value:"찾기",
-	                                onclick: function(){
-	                                    // 찾기 모달 열기
-	                                    fnObj.modal.open("memberFinder", {
-	                                        url:"modal-tree.php", pars:"",
-	                                        width:400
-	                                    });
 	                                }
 	                            }
 	                        ]},
@@ -144,8 +135,14 @@
 	            },
 	            submit: function(){
 	                var pars = this.target.getParam();
-	                toast.push("콘솔창에 파라미터 정보를 출력하였습니다.");
-	                trace(pars);
+	                //toast.push("콘솔창에 파라미터 정보를 출력하였습니다.");
+	                //trace(pars);
+
+                    fnObj.grid.target.setList({
+                        ajaxUrl:"<c:url value='/list.json' />", ajaxPars:pars, onLoad:function(){
+                            //trace(this);
+                        }
+                    });
 	            }
 	        },
 	        grid: {
@@ -160,11 +157,11 @@
 	                        mx:{min:0, max:767}, dx:{min:767}
 	                    },
 	                    colGroup : [
-	                        {key:"no", label:"번호", width:"40", align:"center", formatter:"money"},
-	                        {key:"title", label:"제목", width:"200"},
-	                        {key:"writer", label:"작성자", width:"90", align:"center"},
-	                        {key:"regDate", label:"작성일", width:"90", align:"center"},
-	                        {key:"desc", label:"비고", width:"*"}
+	                        {key:"nttId", label:"번호", width:"40", align:"center", formatter:"money"},
+	                        {key:"nttSj", label:"제목", width:"200"},
+	                        {key:"frstRegisterNm", label:"작성자", width:"90", align:"center"},
+	                        {key:"frstRegisterPnttm", label:"작성일", width:"90", align:"center"},
+	                        {key:"nttCn", label:"비고", width:"*"}
 	                    ],
 	                    view: {
 	                        label:true,
@@ -191,7 +188,7 @@
 	                            //alert(this.list);
 	                            //alert(this.page);
 	                            fnObj.modal.open("gridView", {
-	                                url:"modal.do", pars:"no=" + this.item.no
+	                                url:"edit.do", pars:"nttId=" + this.item.nttId
 	                            });
 	                        }
 	                    },
@@ -205,7 +202,7 @@
 	
 	                this.target.setList({
 	                    ajaxUrl:"<c:url value='/list.json' />", ajaxPars:"param1=1&param2=2", onLoad:function(){
-	                        //trace(this);
+	                        trace(this);
 	                    }
 	                });
 	            }

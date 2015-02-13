@@ -3,56 +3,51 @@
         %><%@ taglib prefix="ax" uri="http://axis.com/axu4j"
         %><ax:layout name="modal.jsp">
     <ax:div name="header">
-        <h1>컨텐츠 제목</h1>
+        <h1>게시물 관리</h1>
     </ax:div>
     <ax:div name="contents">
-        <ax:form name="table-form">
+        <ax:form name="board" method="post">
+            
+            <input type="hidden" name="pageIndex" value="<c:out value='${searchVO.pageIndex}'/>"/>
+            <input type="hidden" name="returnUrl" value="<c:url value='/edit.do'/>"/>
+
+            <input type="hidden" name="bbsId" value="<c:out value='${result.bbsId}'/>" />
+
+            <input type="hidden" name="bbsAttrbCode" value="<c:out value='${bdMstr.bbsAttrbCode}'/>" />
+            <input type="hidden" name="bbsTyCode" value="<c:out value='${bdMstr.bbsTyCode}'/>" />
+            <input type="hidden" name="replyPosblAt" value="<c:out value='${bdMstr.replyPosblAt}'/>" />
+            <input type="hidden" name="fileAtchPosblAt" value="<c:out value='${bdMstr.fileAtchPosblAt}'/>" />
+            <input type="hidden" name="posblAtchFileNumber" value="<c:out value='${bdMstr.posblAtchFileNumber}'/>" />
+            <input type="hidden" name="posblAtchFileSize" value="<c:out value='${bdMstr.posblAtchFileSize}'/>" />
+            <input type="hidden" name="tmplatId" value="<c:out value='${bdMstr.tmplatId}'/>" />
+            
+            <input type="hidden" name="cal_url" value="<c:url value='/edit.do'/>" />
+            
             <ax:fields>
                 <ax:field label="번호">
-                    <input type="text" name="user_key" title="" placeholder="" value="" class="AXInput" style="width:50px;" readonly="readonly" />
+                    <input type="text" name="nttId" title="" placeholder="" value="<c:out value='${result.nttId}'/>" class="AXInput" style="width:50px;" readonly="readonly" />
                 </ax:field>
             </ax:fields>
             <ax:fields>
-                <ax:field label="이메일">
-                    <input type="text" name="email_id" title="" placeholder="" value="" class="AXInput av-email av-required" />
+                <ax:field label="등록일">
+                    <input type="text" name="regDate" id="reg_dt" title="" placeholder="" value="" class="AXInput" style="width:100px;" readonly="readonly" />
                 </ax:field>
             </ax:fields>
             <ax:fields>
-                <ax:field label="비밀번호">
-                    <input type="password" name="passwd" title="" placeholder="" value="" class="AXInput av-required" style="width:150px;" />
+                <ax:field label="제목">
+                    <input name="nttSj" title="제목" class="AXInput av-required W300" type="text" value='${result.nttSj}' maxlength="60" />
                 </ax:field>
             </ax:fields>
-            <ax:fields>
-                <ax:field label="레벨">
-                    <select name="user_lvl" class="AXSelect" id="user_lvl">
-                        <option value="1">최고관리자</option>
-                        <option value="2">관리자</option>
-                    </select>
-                </ax:field>
-                <ax:field label="만든 날짜">
-                    <input type="text" name="reg_dt" id="reg_dt" title="" placeholder="" value="" class="AXInput" style="width:120px;" />
-                </ax:field>
-            </ax:fields>
-            <ax:fields>
-                <ax:field label="Number">
-                    <input type="number" class="AXInput" id="AXInput-number" />
-                </ax:field>
-                <ax:field label="Segment">
-                    <input type="text" class="AXInput" id="AXInput-segment" />
-                </ax:field>
-            </ax:fields>
-            <ax:fields>
-                <ax:field label="Slider">
-                    <input type="text" class="AXInput" id="AXInput-slider" value="200~700" style="width:250px;" />
-                </ax:field>
-                <ax:field label="Selector">
-                    <input type="text" class="AXInput" id="AXInput-selector" />
-                </ax:field>
-            </ax:fields>
+            
+            <div style="padding:5px">
+                <label class="AXInputLabel fullWidth">
+                    <textarea id="nttCn" name="nttCn"  cols="75" rows="20" class="AXTextarea av-required" title="내용"><c:out value="${result.nttCn}" escapeXml="false" /></textarea>
+                </label>
+            </div>
         </ax:form>
     </ax:div>
     <ax:div name="buttons">
-        <button type="button" class="AXButton" onclick="parent.myModal.close();">확인</button>
+        <button type="button" class="AXButton" onclick="fnObj.form.save();">확인</button>
         <button type="button" class="AXButton" onclick="parent.myModal.close();">취소</button>
     </ax:div>
     <ax:div name="scripts">
@@ -60,46 +55,67 @@
             var fnObj = {
                 pageStart: function(){
                     $("#reg_dt").bindDate();
-                    $("#AXInput-number").bindNumber();
-                    $("#AXInput-segment").bindSegment({
-                        options:[
-                            {optionValue:0, optionText:"왼쪽"},
-                            {optionValue:1, optionText:"가운데"},
-                            {optionValue:2, optionText:"오른쪽"}
-                        ],
-                        onChange:function(){
-                            //this.targetID, this.options, this.selectedIndex, this.selectedOption
-                            toast.push(Object.toJSON({targetID:this.targetID, options:this.options, selectedIndex:this.selectedIndex, selectedOption:this.selectedOption}));
-                        }
-                    });
-                    $("#AXInput-slider").bindTwinSlider({min:0, max:1000, separator:"~", unit:"E", snap:100});
-                    $("#AXInput-selector").bindSelector({
-                        direction:"bottom",
-                        appendable:true,
-                        options:[
-                            {optionValue:1, optionText:"Seoul"},
-                            {optionValue:2, optionText:"대구"},
-                            {optionValue:3, optionText:"대전"},
-                            {optionValue:4, optionText:"창원"},
-                            {optionValue:5, optionText:"마산"},
-                            {optionValue:6, optionText:"구례"},
-                            {optionValue:7, optionText:"제주도"},
-                            {optionValue:8, optionText:"전주"},
-                            {optionValue:4, optionText:"창원"},
-                            {optionValue:5, optionText:"마산"},
-                            {optionValue:6, optionText:"구례"},
-                            {optionValue:7, optionText:"제주도"},
-                            {optionValue:8, optionText:"전주"},
-                            {optionValue:9, optionText:"Gwangju"}
-                        ]
-                    });
-                    $(".AXSelect").bindSelect();
+                    this.form.init();
                 },
                 pageResize: function(){
                     parent.myModal.resize();
+                },
+                form:{
+                    validator: new AXValidator(),
+                    init: function(){
+                        this.validator.setConfig({
+                            targetFormName : "board"
+                        });
+                    },
+                    save: function(){
+
+                        var validateResult = this.validator.validate();
+                        if (!validateResult) {
+                            var msg = this.validator.getErrorMessage();
+                            axf.alert(msg);
+                            this.validator.getErrorElement().focus();
+                            return false;
+                        }else{
+                            // 통과
+                        }
+                        
+                        /* 위 구문으로 대체 할 수 있음.
+                        if(frm.nttSj.value.trim() == "") {
+                            alert("제목을 입력해주세요");
+                            frm.nttSj.focus();
+                            return false;
+                        }
+                        if(frm.nttSj.value.trim() == "") {
+                            alert("제목을 입력해주세요");
+                            frm.nttSj.focus();
+                            return false;
+                        }
+                        */
+
+                        var url = "/edit.json";
+                        var pars = $(document.board).serialize();
+                        
+                        new AXReq(url, 
+                            {
+                                pars:pars, 
+                                onsucc:function(res){
+                                    if(res.result.isOK){
+                                        parent.fnObj.search.submit();
+                                        parent.myModal.close();
+                                    }else{
+                                        axf.alert(res.result);
+                                        trace(res);
+                                    }
+                                },
+                                onerr:null
+                            }
+                        );
+                        
+                        return false;
+                    }                    
                 }
             };
-            axdom(window).ready(fnObj.pageStart);
+            axdom(document.body).ready(function(){fnObj.pageStart()});
             axdom(window).resize(fnObj.pageResize);
         </script>
     </ax:div>
