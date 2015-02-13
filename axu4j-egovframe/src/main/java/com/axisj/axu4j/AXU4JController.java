@@ -2,21 +2,22 @@ package com.axisj.axu4j;
 
 import egovframework.com.cmm.EgovMessageSource;
 import egovframework.com.cmm.LoginVO;
-import egovframework.com.cmm.service.EgovFileMngService;
-import egovframework.com.cmm.service.EgovFileMngUtil;
 import egovframework.com.cmm.util.EgovUserDetailsHelper;
 import egovframework.let.cop.bbs.service.*;
+import egovframework.let.uat.uia.service.EgovLoginService;
 import egovframework.rte.fdl.property.EgovPropertyService;
 import egovframework.rte.ptl.mvc.tags.ui.pagination.PaginationInfo;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.support.SessionStatus;
+import org.springframework.web.context.request.RequestAttributes;
+import org.springframework.web.context.request.RequestContextHolder;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -28,6 +29,10 @@ public class AXU4JController {
 
     @Resource(name = "EgovBBSManageService")
     private EgovBBSManageService bbsMngService;
+
+    /** EgovLoginService */
+    @Resource(name = "loginService")
+    private EgovLoginService loginService;
 
     @Resource(name = "propertiesService")
     protected EgovPropertyService propertyService;
@@ -154,6 +159,57 @@ public class AXU4JController {
 
             rmap.put("isOK", true);
         }
+    }
+
+
+    /**
+     * 로그인 화면으로 들어간다
+     */
+    @RequestMapping(value="/login.do")
+    public void loginUsrView() { }
+
+    /**
+     * 일반 로그인을 처리한다
+     * @param loginVO - 아이디, 비밀번호가 담긴 LoginVO
+     * @param request - 세션처리를 위한 HttpServletRequest
+     * @return result - 로그인결과(세션정보)
+     * @exception Exception
+     */
+    @RequestMapping(value="/actionLogin.do")
+    public String actionLogin(@ModelAttribute("loginVO") LoginVO loginVO,
+                              HttpServletRequest request,
+                              ModelMap model)
+            throws Exception {
+
+
+        // 1. 일반 로그인 처리
+        LoginVO resultVO = loginService.actionLogin(loginVO);
+
+        boolean loginPolicyYn = true;
+
+        if (resultVO != null && resultVO.getId() != null && !resultVO.getId().equals("") && loginPolicyYn) {
+
+            request.getSession().setAttribute("LoginVO", resultVO);
+            return "forward:/list.do";
+        } else {
+
+            model.addAttribute("message", egovMessageSource.getMessage("fail.common.login"));
+            return "login";
+        }
+
+    }
+
+    /**
+     * 로그아웃한다.
+     * @return String
+     * @exception Exception
+     */
+    @RequestMapping(value="/logout.do")
+    public String actionLogout(HttpServletRequest request, ModelMap model) throws Exception {
+
+        RequestContextHolder.getRequestAttributes().removeAttribute("LoginVO", RequestAttributes.SCOPE_SESSION);
+
+        return "forward:/login.do";
     }
 
 }
