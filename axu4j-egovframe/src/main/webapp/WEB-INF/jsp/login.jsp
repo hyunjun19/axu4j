@@ -14,14 +14,14 @@
                     <h1>로그인</h1>
                     <p>관리자 계정으로 로그인 해주세요.</p>
                     <div class="H20"></div>
-                    <form name="login-form" method="get" action="/" onsubmit="">
+                    <form name="login-form" method="post" action="/actionLogin.do" onsubmit="">
                         <div class="ax-input">
                             <span class="name">E-mail</span>
-                            <input type="text" name="input" value="" class="AXInput" placeholder="e-mail">
+                            <input type="text" name="id" value="" class="AXInput" placeholder="e-mail">
                         </div>
                         <div class="ax-input">
                             <span class="name">Password</span>
-                            <input type="password" name="input" value="" class="AXInput" placeholder="password">
+                            <input type="password" name="password" value="" class="AXInput" placeholder="password">
                         </div>
 
                         <div class="ax-clear"></div>
