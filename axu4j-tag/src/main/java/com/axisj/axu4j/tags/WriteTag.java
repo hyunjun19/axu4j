@@ -1,14 +1,12 @@
 package com.axisj.axu4j.tags;
 
-import com.axisj.axu4j.config.ConfigReader;
+import org.apache.commons.lang.ObjectUtils;
 import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import javax.servlet.jsp.JspContext;
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.PageContext;
-import javax.servlet.jsp.tagext.JspFragment;
 import javax.servlet.jsp.tagext.SimpleTagSupport;
 import java.io.IOException;
 import java.util.Map;
@@ -39,7 +37,7 @@ public class WriteTag extends SimpleTagSupport {
         PageContext pageContext = (PageContext) getJspContext();
         Map divMap = (Map) pageContext.getServletContext().getAttribute("divMap");
 
-        String divValue = (String) divMap.get(divname);
+        String divValue = ObjectUtils.toString(divMap.get(divname));
 
         if (StringUtils.isNotBlank(divValue)) {
             getJspContext().getOut().write(divValue);
