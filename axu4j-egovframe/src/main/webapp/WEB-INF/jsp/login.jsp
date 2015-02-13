@@ -15,6 +15,7 @@
                     <p>관리자 계정으로 로그인 해주세요.</p>
                     <div class="H20"></div>
                     <form name="login-form" method="post" action="/actionLogin.do" onsubmit="">
+                        <input type="hidden" name="userSe" value="USR" />
                         <div class="ax-input">
                             <span class="name">E-mail</span>
                             <input type="text" name="id" value="" class="AXInput" placeholder="e-mail">

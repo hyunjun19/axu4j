@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1" />
     <meta name="apple-mobile-web-app-capable" content="yes">
     <!-- TITLE -->
-    <title>[AXU4J] ${title}</title>
+    <title>AXU4J ::: ${title}</title>
 
     <link rel="shortcut icon" href="http://dev.axisj.com/ui/axisj.ico" type="image/x-icon" />
     <link rel="icon" href="http://dev.axisj.com/ui/axisj.ico" type="image/x-icon" />

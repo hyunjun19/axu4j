@@ -187,7 +187,7 @@ public class AXU4JController {
         if (resultVO != null && resultVO.getId() != null && !resultVO.getId().equals("") && loginPolicyYn) {
 
             request.getSession().setAttribute("LoginVO", resultVO);
-            return "redirect:/list.do";
+            return "redirect:/";
         } else {
 
             model.addAttribute("message", egovMessageSource.getMessage("fail.common.login"));
@@ -206,7 +206,16 @@ public class AXU4JController {
 
         RequestContextHolder.getRequestAttributes().removeAttribute("LoginVO", RequestAttributes.SCOPE_SESSION);
 
-        return "forward:/login.do";
+        return "redirect:/login.do";
     }
 
+
+    /**
+     * 페이지 정의 
+     */
+    @RequestMapping(value="/help.do")
+    public void page_help() { }
+    
+    @RequestMapping(value="/modal.do")
+    public void modal_open() { }
 }

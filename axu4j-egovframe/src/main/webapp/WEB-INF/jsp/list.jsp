@@ -2,9 +2,11 @@
 %><%@ taglib prefix="c"  uri="http://java.sun.com/jsp/jstl/core"
 %><%@ taglib prefix="ax" uri="http://axis.com/axu4j"
 %><ax:layout name="base.jsp">
+    <ax:set name="title" value="게시판" />
+    <ax:set name="page_desc" value="기본 게시판 샘플 코드" />
 	<ax:div name="header">
-		<h1>페이지 제목</h1>
-		<p class="desc">컨텐츠 상세 설명을 넣어주세요.</p>
+		<h1>${title}</h1>
+		<p class="desc">${page_desc}</p>
 	</ax:div>
 	<ax:div name="contents">
 		<ax:row>
@@ -26,7 +28,7 @@
 	</ax:div>
 	<ax:div name="scripts">
 	    <script type="text/javascript">
-	    var page_menu_id = "m020201";
+	    var page_menu_id = "m010301";
 	    var fnObj = {
 	        pageStart: function(){
 	            this.search.bind();
@@ -36,7 +38,12 @@
 	        },
 	        bindEvent: function(){
 	            var _this = this;
-	            axdom("#ax-search-btn-search").bind("click", function(){
+                $("#ax-grid-btn-regist").bind("click", function(){
+                    fnObj.modal.open("gridView", {
+                        url:"modal.do", pars:""
+                    });
+                });
+	            $("#ax-search-btn-search").bind("click", function(){
 	                _this.search.submit();
 	            });
 	        },
@@ -184,7 +191,7 @@
 	                            //alert(this.list);
 	                            //alert(this.page);
 	                            fnObj.modal.open("gridView", {
-	                                url:"modal.jsp", pars:"no=" + this.item.no
+	                                url:"modal.do", pars:"no=" + this.item.no
 	                            });
 	                        }
 	                    },
