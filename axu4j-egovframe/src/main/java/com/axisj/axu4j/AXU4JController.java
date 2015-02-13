@@ -194,7 +194,7 @@ public class AXU4JController {
 
             BoardVO vo = bbsMngService.selectBoardArticle(boardVO);
 
-            if (vo == null || StringUtils.isBlank(vo.getBbsId())) {
+            if (vo == null) {
                 bbsMngService.insertBoardArticle(board);
             } else {
                 bbsMngService.updateBoardArticle(board);
