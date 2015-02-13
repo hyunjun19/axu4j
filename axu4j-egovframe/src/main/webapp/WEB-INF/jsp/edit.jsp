@@ -17,7 +17,7 @@
             <input type="hidden" name="bbsTyCode" value="<c:out value='${bdMstr.bbsTyCode}'/>" />
             <input type="hidden" name="replyPosblAt" value="<c:out value='${bdMstr.replyPosblAt}'/>" />
             <input type="hidden" name="fileAtchPosblAt" value="<c:out value='${bdMstr.fileAtchPosblAt}'/>" />
-            <input type="hidden" name="posblAtchFileNumber" value="<c:out value='${bdMstr.posblAtchFileNumber}'/>" />
+            <input type="hidden" name="posblAtchFileNumber" value="<c:out value='${bdMstr.posblAtchFileNumber == "" ? bdMstr.posblAtchFileNumber : 0}'/>" />
             <input type="hidden" name="posblAtchFileSize" value="<c:out value='${bdMstr.posblAtchFileSize}'/>" />
             <input type="hidden" name="tmplatId" value="<c:out value='${bdMstr.tmplatId}'/>" />
             
@@ -25,7 +25,7 @@
             
             <ax:fields>
                 <ax:field label="번호">
-                    <input type="text" name="nttId" title="" placeholder="" value="<c:out value='${result.nttId}'/>" class="AXInput" style="width:50px;" readonly="readonly" />
+                    <input type="text" name="nttId" title="" placeholder="" value="<c:out value='${result.nttId == "" ? result.nttId : -1}'/>" class="AXInput" style="width:50px;" readonly="readonly" />
                 </ax:field>
             </ax:fields>
             <ax:fields>
@@ -52,6 +52,10 @@
     </ax:div>
     <ax:div name="scripts">
         <script type="text/javascript">
+            if ("${message}") {
+                dialog.push("${message}");
+            }
+
             var fnObj = {
                 pageStart: function(){
                     $("#reg_dt").bindDate();

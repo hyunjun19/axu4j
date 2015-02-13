@@ -49,7 +49,7 @@
 		<result property="bbsAttrbCode" column="BBS_ATTRB_CODE" columnIndex="21"/>
 		<result property="replyPosblAt" column="REPLY_POSBL_AT" columnIndex="22"/>
 		<result property="fileAtchPosblAt" column="FILE_ATCH_POSBL_AT" columnIndex="23"/>
-		<result property="posblAtchFileNumber" column="ATCH_POSBL_FILE_NUMBER" columnIndex="24"/>
+		<!--<result property="posblAtchFileNumber" column="ATCH_POSBL_FILE_NUMBER" columnIndex="24"/>-->
 		<result property="bbsNm" column="BBS_NM" columnIndex="25"/>
 	</resultMap>
 

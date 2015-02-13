@@ -92,7 +92,42 @@ public class AXU4JController {
     }
 
     @RequestMapping("/view.do")
-    public void view() { }
+    public void view(@ModelAttribute("searchVO") BoardVO boardVO, ModelMap model) throws Exception {
+        LoginVO user = new LoginVO();
+        if(EgovUserDetailsHelper.isAuthenticated()){
+            user = (LoginVO)EgovUserDetailsHelper.getAuthenticatedUser();
+        }
+
+        // 조회수 증가 여부 지정
+        boardVO.setPlusCount(true);
+
+        //---------------------------------
+        // 2009.06.29 : 2단계 기능 추가
+        //---------------------------------
+        if (!boardVO.getSubPageIndex().equals("")) {
+            boardVO.setPlusCount(false);
+        }
+        ////-------------------------------
+
+        boardVO.setLastUpdusrId(user.getUniqId());
+        BoardVO vo = bbsMngService.selectBoardArticle(boardVO);
+
+        model.addAttribute("result", vo);
+        //CommandMap의 형태로 개선????
+
+        model.addAttribute("sessionUniqId", user.getUniqId());
+
+        //----------------------------
+        // template 처리 (기본 BBS template 지정  포함)
+        //----------------------------
+        BoardMasterVO master = new BoardMasterVO();
+
+        master.setBbsId(boardVO.getBbsId());
+        master.setUniqId(user.getUniqId());
+
+        BoardMasterVO masterVo = bbsAttrbService.selectBBSMasterInf(master);
+        model.addAttribute("brdMstrVO", masterVo);
+    }
 
     @RequestMapping("/edit.do")
     public void edit(@ModelAttribute("searchVO") BoardVO boardVO, @ModelAttribute("board") BoardVO vo, ModelMap model)
@@ -130,7 +165,8 @@ public class AXU4JController {
     }
 
     @RequestMapping("/edit.json")
-    public void editJson(@ModelAttribute("searchVO") BoardVO boardVO
+    public void editJson(
+            @ModelAttribute("searchVO") BoardVO boardVO
             , @ModelAttribute("bdMstr") BoardMaster bdMstr
             , @ModelAttribute("board") Board board
             , ModelMap model) throws Exception {
