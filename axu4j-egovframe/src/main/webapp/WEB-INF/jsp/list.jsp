@@ -252,6 +252,7 @@
                     },{
                         totalCount:select.length,
                         top:200,
+                        width:400,
                         title:"게시물 삭제처리"
                     });
 
