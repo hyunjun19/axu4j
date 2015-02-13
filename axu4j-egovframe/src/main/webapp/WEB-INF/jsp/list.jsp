@@ -14,11 +14,11 @@
 				<div class="ax-search" id="page-search-box"></div>
 				<div class="ax-button-group">
 				    <div class="left">
-				        <button type="button" class="AXButton Blue" id="ax-grid-btn-regist"><i class="axi axi-plus-circle"></i> 등록</button>
-				        <!--<button type="button" class="AXButton" id="ax-grid-btn-remove"><i class="axi axi-minus-circle"></i> 삭제</button>-->
+				        <button type="button" class="AXButton Red" id="ax-grid-btn-regist"><i class="axi axi-plus-circle"></i> 등록</button>
+				        <button type="button" class="AXButton Blue" id="ax-grid-btn-remove"><i class="axi axi-minus-circle"></i> 삭제</button>
 				    </div>
 				    <div class="right">
-				        <button type="button" class="AXButton Blue" id="ax-search-btn-search"><i class="axi axi-ion-android-search"></i> 검색</button>
+				        <button type="button" class="AXButton" id="ax-search-btn-search"><i class="axi axi-ion-android-search"></i> 검색</button>
 				    </div>
 				    <div class="ax-clear"></div>
 				</div>
@@ -42,6 +42,9 @@
                     fnObj.modal.open("gridView", {
                         url:"edit.do", pars:""
                     });
+                });
+                $("#ax-grid-btn-remove").bind("click", function(){
+                    _this.grid.remove();
                 });
 	            $("#ax-search-btn-search").bind("click", function(){
 	                _this.search.submit();
@@ -157,6 +160,7 @@
 	                        mx:{min:0, max:767}, dx:{min:767}
 	                    },
 	                    colGroup : [
+                            {key:"nttId", label:"", width:"40", align:"center", formatter:"checkbox"},
 	                        {key:"nttId", label:"번호", width:"40", align:"center", formatter:"money"},
 	                        {key:"nttSj", label:"제목", width:"200"},
 	                        {key:"frstRegisterNm", label:"작성자", width:"90", align:"center"},
@@ -202,10 +206,19 @@
 	
 	                this.target.setList({
 	                    ajaxUrl:"<c:url value='/list.json' />", ajaxPars:"param1=1&param2=2", onLoad:function(){
-	                        trace(this);
+	                        //trace(this);
 	                    }
 	                });
-	            }
+	            },
+                remove: function(){
+                    var select = this.target.getCheckedList(0);
+                    if(select.length == 0){
+                        alert("삭제할 목록을 선택하세요");
+                        return false;
+                    }
+                    
+                    trace(select);
+                }
 	        },
 	        modal: {
 	            target: new AXModal(),
