@@ -187,7 +187,7 @@ public class AXU4JController {
         if (resultVO != null && resultVO.getId() != null && !resultVO.getId().equals("") && loginPolicyYn) {
 
             request.getSession().setAttribute("LoginVO", resultVO);
-            return "forward:/list.do";
+            return "redirect:/list.do";
         } else {
 
             model.addAttribute("message", egovMessageSource.getMessage("fail.common.login"));
