@@ -40,9 +40,6 @@ public class AXU4JController {
     @Resource(name="egovMessageSource")
     EgovMessageSource egovMessageSource;
 
-    @RequestMapping("/login.do")
-    public void login() { }
-
     @RequestMapping("/main.do")
     public void main() { }
 
