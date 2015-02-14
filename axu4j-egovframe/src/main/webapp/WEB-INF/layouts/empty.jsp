@@ -21,8 +21,8 @@
     <meta property="og:description" id="meta_description" content="Javascript UI Library based on JQuery" />
 
     <link rel="stylesheet" type="text/css" href="<c:url value='/plugins/axicon/axicon.min.css' />" />
-    <link rel="stylesheet" type="text/css" href="<c:url value='/plugins/axisj/ui/cocker/AXJ.min.css' />" />
-    <link rel="stylesheet" type="text/css" href="<c:url value='/ui/cocker/admin.css' />" />
+    <link rel="stylesheet" type="text/css" href="<c:url value='/plugins/axisj/ui/cocker/AXJ.min.css' />" id="axu-theme-axisj" />
+    <link rel="stylesheet" type="text/css" href="<c:url value='/ui/cocker/admin.css' />" id="axu-theme-admin" />
     <link rel="stylesheet" type="text/css" href="<c:url value='/ui/custom.css' />" />
     <!-- @@@@@@@@@@@@@@@@@@@@@@ css begin @@@@@@@@@@@@@@@@@@@@@@ -->
     <ax:write divname="css" />
