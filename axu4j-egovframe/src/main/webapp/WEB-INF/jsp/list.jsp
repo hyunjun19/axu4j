@@ -191,6 +191,10 @@
 	                            //toast.push(Object.toJSON({index:this.index, item:this.item}));
 	                            //alert(this.list);
 	                            //alert(this.page);
+                                if (this.item.useAt === "N") {
+                                    toast.push("삭제된 글은 조회할 수 없습니다.");
+                                    return;
+                                }
 	                            fnObj.modal.open("gridView", {
 	                                url:"edit.do", pars:"nttId=" + this.item.nttId
 	                            });
