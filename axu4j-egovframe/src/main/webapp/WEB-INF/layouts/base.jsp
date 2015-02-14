@@ -44,7 +44,7 @@
 				<div class="ax-col-12">
 					<div class="ax-unit">
                         <div class="ax-logo">
-                            <a class="logo-icon" href="/"><i class="axi axi-axisj"></i></a>
+                            <a class="logo-icon" href="/main.do"><i class="axi axi-axisj"></i></a>
                             <a href="http://axu.axisj.com" target="_blank">axu.axisj.com</a>
                         </div>
 					</div>
