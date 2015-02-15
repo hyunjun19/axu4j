@@ -23,7 +23,7 @@
 %><ax:layout name="base.html">
 	<ax:set name="ax-request-param" value="${projectName}" scope="request" />
 	<ax:set name="ax-session-param" value="${projectName}" scope="session" />
-	<ax:set name="ax-cookie-param"  value="${projectName}" scope="cookie"  />
+	<ax:set name="ax-cookie-param"  value="${projectName}" scope="cookie" maxAge="3600" />
 
 	<ax:div name="styles">
 		<style type="text/css">

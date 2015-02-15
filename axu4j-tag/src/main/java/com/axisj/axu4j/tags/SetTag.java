@@ -1,6 +1,8 @@
 package com.axisj.axu4j.tags;
 
+import org.apache.commons.lang.ObjectUtils;
 import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang.math.NumberUtils;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
@@ -76,7 +78,20 @@ public class SetTag extends AXUTagSupport {
         } else if (StringUtils.equalsIgnoreCase(getScope(), "session")) {
             session.setAttribute(getName(), getValue());
         } else if (StringUtils.equalsIgnoreCase(getScope(), "cookie")) {
-            response.addCookie(new Cookie(getName(), TagUtils.getCookieValue(getValue())));
+            Cookie cookie = new Cookie(getName(), TagUtils.getCookieValue(getValue()));
+
+            // TODO support "Comment" // rfc2019, "Discard" // 2019++, "Expires" // (old cookies), "Secure", "Version"
+            if (dynamicAttrMap.containsKey("domain")) {
+                cookie.setDomain(ObjectUtils.toString(dynamicAttrMap.get("domain")));
+            }
+            if (dynamicAttrMap.containsKey("path")) {
+                cookie.setPath(ObjectUtils.toString(dynamicAttrMap.get("path")));
+            }
+            if (dynamicAttrMap.containsKey("maxAge")) {
+                int maxAge = NumberUtils.toInt(ObjectUtils.toString(dynamicAttrMap.get("maxAge")), (60*60*24*7)); // default value 1 week(60*60*24*7)
+                cookie.setMaxAge(maxAge); //seconds
+            }
+            response.addCookie(cookie);
         } else {
             throw new IllegalArgumentException(String.format("[%s] is undefined scope value", this.getScope()));
         }

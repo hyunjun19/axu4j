@@ -77,10 +77,10 @@
                             cookie  : 요청에 수반되는 쿠키들을 이름으로 저장하는 Map
                         </td>
                         <td>
-<pre>JSP - ${param.name},   axu4j.xml - {{param.name}}
-JSP - ${request.name}, axu4j.xml - {{request.name}}
-JSP - ${session.name}, axu4j.xml - {{session.name}}
-JSP - ${cookie.name},  axu4j.xml - {{cookie.name}}</pre>
+<pre>JSP - \${param.name},   axu4j.xml - {{param.name}}
+JSP - \${request.name}, axu4j.xml - {{request.name}}
+JSP - \${session.name}, axu4j.xml - {{session.name}}
+JSP - \${cookie.name},  axu4j.xml - {{cookie.name}}</pre>
                         </td>
                     </tr>
                     <tr>
@@ -267,7 +267,7 @@ JSP - ${cookie.name},  axu4j.xml - {{cookie.name}}</pre>
 
     request.setAttribute("options", options);
 %&gt;
-&lt;ax:custom customid="select" name="test-select" options="${options}" emptyName="선택하세요." /&gt;</pre>
+&lt;ax:custom customid="select" name="test-select" options="\${options}" emptyName="선택하세요." /&gt;</pre>
                             <ax:custom customid="select" name="test-select" options="${options}" emptyName="선택하세요." />
                         </td>
                     </tr>
