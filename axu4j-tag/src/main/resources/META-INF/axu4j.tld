@@ -5,7 +5,7 @@
         version="2.1">
     <tlib-version>0.4.0</tlib-version>
     <short-name>AXU4j</short-name>
-    <uri>http://axis.com/axu4j</uri>
+    <uri>http://axisj.com/axu4j</uri>
 
 	<!-- [axu] layout -->
 	<tag>

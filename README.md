@@ -1,13 +1,48 @@
 # AXU4J
 =====
 
+[AXU4J](https://github.com/axisj-com/axu4j)
+
 AXU(https://github.com/axisj-com/axu) for java
 
-layout/tag engine
 악수(AXU)는 액시스제이에서 제공하는 '반응형 웹 애플리케이션 템플릿 패키지' 입니다.
-AXU4J는 악수를 좀 더 쉽게 사용할 수 있게 해주는 Java 개발 라이브러리 입니다.
-AXU4J는 같은 layout 엔진을 내장하여 반복되는 레이아웃을 간단하게 정리하고 적용 가능하게 해줍니다.
-또한 악수의 그리드시스템과 폼을 tag로 만들어 사용함으로서 좀 더 적고 간결한 소스 작성이 가능하며 재사용성과 유지보수성에 있어서 기존 순수 HTML 작성보다 압도적인 이점을 제공합니다.
+AXU4J는 악수를 좀 더 쉽게 사용할 수 있게 해주는 layout/tag engine 입니다.
+layout 엔진은 반복되는 레이아웃을 간단하게 정리하고 적용 가능하게 해줍니다.
+또한 악수의 그리드시스템과 폼을 tag로 만들어 사용함으로서 좀 더 적고 간결한 소스 작성이 가능하며
+기존 순수 HTML 작성보다 재사용과 유지보수에 편리합니다.
+
+xml 컨텐츠 내에서 사용하는 문법은 mustache 문법을 적용(http://mustache.github.io/)하였습니다.
+
+AXU4J를 사용하기 위해서는 JSP 상단에 아래 선언을 추가해야 합니다.
+<%@ taglib prefix="ax" uri="http://axisj.com/axu4j" %>
+
+[※ dynamic attributes 사용가능] 표시가 있는 태그는 아래와 같이 사용할 수 있습니다.
+axu4j.xml 설정
+```xml
+<row>
+    <wrap>
+<![CDATA[
+<div id="{{id}}" class="ax-layer {{css}}" style="{{style}}" data-dynaattr="{{dynaattr}}">
+	{{{doBody}}}
+</div>
+]]>
+    </wrap>
+</row>
+```
+
+JSP 사용법
+```jsp
+<ax:row dynaattr="foo">
+    row tag contents
+</ax:row>
+```
+
+output HTML
+```html
+<div id="row-1" class="ax-layer " style="" data-dynaattr="foo">
+	row tag contents
+</div>
+```
 
 ## 사용기술
 JSP Custom Tag Library
