@@ -30,6 +30,7 @@
 
     <script type="text/javascript" src="<c:url value='/plugins/jquery/jquery.min.js' />"></script>
     <script type="text/javascript" src="<c:url value='/plugins/axisj/dist/AXJ.min.js' />"></script>
+    <script type="text/javascript" src="<c:url value='/plugins/chartjs/Chart.min.js' />"></script>
 <!-- @@@@@@@@@@@@@@@@@@@@@@ js begin @@@@@@@@@@@@@@@@@@@@@@ -->
     <ax:write divname="js" />
 <!-- @@@@@@@@@@@@@@@@@@@@@@ js end   @@@@@@@@@@@@@@@@@@@@@@ -->

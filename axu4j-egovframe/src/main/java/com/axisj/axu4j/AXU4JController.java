@@ -286,5 +286,11 @@ public class AXU4JController {
      */
     @RequestMapping(value="/help.do")
     public void page_help() { }
+    
+    @RequestMapping(value="/modal.do")
+    public void modal_page() { }
+
+    @RequestMapping(value="/form.do")
+    public void form_page() { }
 
 }

@@ -21,7 +21,7 @@
 <div id="{{id}}" class="ax-col-{{size}}">
 	<div class="ax-unit">
 		<div class="ax-box {{css}}" style="{{style}}">
-            {{#wrap}}<div class="ax-box-wrap">{{/wrap}}
+            {{#wrap}}<div class="ax-box-wrap" style="position: relative;">{{/wrap}}
                 {{{doBody}}}
 			{{#wrap}}</div>{{/wrap}}
 		</div>

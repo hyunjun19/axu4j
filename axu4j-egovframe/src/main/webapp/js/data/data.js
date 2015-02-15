@@ -1,12 +1,12 @@
 var topMenu_data = [
-	{_id:"m01", label:"시작", url:"/", cn:[
+	{_id:"m01", label:"시작", url:"main.do", cn:[
 		{_id:"m0101", label:'AXU4J 홈', url:"main.do"},
 		{_id:"m0102", label:'AXU4J 도움말', url:"help.do"},
 		{_id:"m0103", label:'AXU4J Samples', url:"list.do", cn:[
 			{_id:"m010301", label:'게시판', url:"list.do"},
-			{_id:"m010302", label:'그리드 샘플', url:"main.do"},
-			{_id:"m010302", label:'폼 샘플', url:"main.do"},
-			{_id:"m010302", label:'Split 샘플', url:"main.do"}
+			{_id:"m010302", label:'그리드 샘플', url:"list-2.do"},
+			{_id:"m010303", label:'폼 샘플', url:"form.do"},
+			{_id:"m010304", label:'Split 샘플', url:"split.do"}
 		]}
 	]},
 	{_id:"m02", label:"정보마당", url:"#ax"},
