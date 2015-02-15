@@ -1,13 +1,43 @@
 <%@ page contentType="text/html; charset=UTF-8"
         %><%@ taglib prefix="c"  uri="http://java.sun.com/jsp/jstl/core"
-        %><%@ taglib prefix="ax" uri="http://axis.com/axu4j"
+        %><%@ taglib prefix="ax" uri="http://axisj.com/axu4j"
         %><ax:layout name="modal.jsp">
     <ax:div name="header">
         <h1>컨텐츠 제목</h1>
         <p class="desc">컨텐츠 상세 설명을 넣어주세요.</p>
     </ax:div>
     <ax:div name="contents">
-
+        <ax:form name="table-form" method="get">
+            <ax:fields>
+                <ax:field label="번호">
+                    <input type="text" name="user_key" title="" placeholder="" value="" class="AXInput" style="width:50px;" readonly="readonly" />
+                </ax:field>
+            </ax:fields>
+            <ax:fields>
+                <ax:field label="이메일" item-css="fullWidth">
+                    <input type="text" name="email_id" title="" placeholder="" value="" class="AXInput av-email av-required" />
+                </ax:field>
+            </ax:fields>
+            <ax:fields>
+                <ax:field label="비밀번호">
+                    <input type="password" name="passwd" title="" placeholder="" value="" class="AXInput av-required" style="width:150px;" />
+                </ax:field>
+            </ax:fields>
+            <ax:fields>
+                <ax:field label="레벨">
+                    <select name="user_lvl" class="AXSelect">
+                        <option value="1">최고관리자</option>
+                        <option value="2">관리자</option>
+                    </select>
+                </ax:field>
+            </ax:fields>
+            <ax:fields>
+                <ax:field label="만든 날짜">
+                    <input type="text" name="reg_dt" title="" placeholder="" value="" class="AXInput" style="width:120px;" readonly="readonly" />
+                </ax:field>
+            </ax:fields>
+        </ax:form>
+        <!--
         <form name="table-form" method="get" onsubmit="return false;">
             <div class="ax-rwd-table">
                 <div class="item-group" style="">
@@ -72,7 +102,7 @@
                 </div>
             </div>
         </form>
-
+        -->
     </ax:div>
     <ax:div name="buttons">
         <button type="button" class="AXButton" onclick="parent.myModal.close();">확인</button>

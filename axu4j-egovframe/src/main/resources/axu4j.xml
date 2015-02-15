@@ -131,7 +131,7 @@ output HTML
     <field>
         <wrap>
 <![CDATA[
-<div id="{{id}}" class="item">
+<div id="{{id}}" class="item {{item-css}}">
 	<div class="item-lable">
 		<span class="th">{{label}}</span>
 		<span class="td inputText {{css}}" style="{{style}}" title="{{title}}">
