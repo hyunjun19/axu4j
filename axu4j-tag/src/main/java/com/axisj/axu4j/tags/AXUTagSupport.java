@@ -16,6 +16,7 @@ import javax.servlet.jsp.tagext.SimpleTagSupport;
 import java.io.IOException;
 import java.io.StringReader;
 import java.io.StringWriter;
+import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
@@ -29,6 +30,9 @@ public abstract class AXUTagSupport extends SimpleTagSupport implements DynamicA
 	protected String   doBody  = StringUtils.EMPTY;
 	protected Map<String, Object> innerInstance  = new LinkedHashMap<String, Object>();
     protected Map<String, Object> dynamicAttrMap = new LinkedHashMap<String, Object>();
+
+    // mustache cache
+    private static final Map<String, Mustache> mustacheCacheMap = new HashMap<String, Mustache>();
 
 
 
@@ -68,8 +72,9 @@ public abstract class AXUTagSupport extends SimpleTagSupport implements DynamicA
 		try {
 			JspContext  context     = getJspContext();
 			JspFragment fragment    = getJspBody();
-            PageContext pageContext = (PageContext) getJspContext();
+            PageContext pageContext = (PageContext) context;
 			
+            // invoke before event
 			beforeDoTag(context, fragment);
 
             // 내장객체 추가
@@ -79,10 +84,17 @@ public abstract class AXUTagSupport extends SimpleTagSupport implements DynamicA
             innerInstance.put("cookie",  TagUtils.getCookieMap(pageContext));
             innerInstance.putAll(dynamicAttrMap);
 
-            Object[] params = new Object[] { this, innerInstance };
-            mustacheHtml = mustacheFactory.compile(new StringReader(tagBody), getClass().getCanonicalName());
-            mustacheHtml.execute(getJspContext().getOut(), params);
+            Object[] params      = new Object[] { this, innerInstance };
+            String   mustacheKey = getClass().getCanonicalName();
 
+            mustacheHtml = mustacheCacheMap.get(mustacheKey);
+            if (mustacheHtml == null) {
+                mustacheHtml = mustacheFactory.compile(new StringReader(tagBody), mustacheKey);
+                mustacheCacheMap.put(mustacheKey, mustacheHtml);
+            }
+            mustacheHtml.execute(context.getOut(), params);
+
+            // invoke after event
 			afterDoTag(context, fragment);
 			
 		} catch (Exception e) {
