@@ -1,6 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8"
         %><%@ taglib prefix="c"  uri="http://java.sun.com/jsp/jstl/core"
-        %><%@ taglib prefix="ax" uri="http://axis.com/axu4j"
+        %><%@ taglib prefix="ax" uri="http://axisj.com/axu4j"
         %><ax:layout name="modal.jsp">
     <ax:div name="header">
         <h1>게시물 관리</h1>
@@ -17,7 +17,7 @@
             <input type="hidden" name="bbsTyCode" value="<c:out value='${bdMstr.bbsTyCode}'/>" />
             <input type="hidden" name="replyPosblAt" value="<c:out value='${bdMstr.replyPosblAt}'/>" />
             <input type="hidden" name="fileAtchPosblAt" value="<c:out value='${bdMstr.fileAtchPosblAt}'/>" />
-            <input type="hidden" name="posblAtchFileNumber" value="<c:out value='${bdMstr.posblAtchFileNumber == "" ? bdMstr.posblAtchFileNumber : 0}'/>" />
+            <input type="hidden" name="posblAtchFileNumber" value="<c:out value='0'/>" />
             <input type="hidden" name="posblAtchFileSize" value="<c:out value='${bdMstr.posblAtchFileSize}'/>" />
             <input type="hidden" name="tmplatId" value="<c:out value='${bdMstr.tmplatId}'/>" />
             
@@ -25,7 +25,7 @@
             
             <ax:fields>
                 <ax:field label="번호">
-                    <input type="text" name="nttId" title="" placeholder="" value="<c:out value='${result.nttId == "" ? result.nttId : -1}'/>" class="AXInput" style="width:50px;" readonly="readonly" />
+                    <input type="text" name="nttId" title="" placeholder="" value="<c:out value='${result.nttId}'/>" class="AXInput" style="width:50px;" readonly="readonly" />
                 </ax:field>
             </ax:fields>
             <ax:fields>

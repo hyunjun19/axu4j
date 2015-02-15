@@ -1,6 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8"
 %><%@ taglib prefix="c"  uri="http://java.sun.com/jsp/jstl/core"
-%><%@ taglib prefix="ax" uri="http://axis.com/axu4j"
+%><%@ taglib prefix="ax" uri="http://axisj.com/axu4j"
 %><ax:layout name="base.jsp">
     <ax:set name="title" value="그리드 샘플" />
     <ax:set name="page_desc" value="그리드 샘플 코드" />

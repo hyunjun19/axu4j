@@ -1,13 +1,11 @@
 package com.axisj.axu4j.config;
 
-import org.simpleframework.xml.Element;
-import org.simpleframework.xml.ElementMap;
-import org.simpleframework.xml.Path;
-import org.simpleframework.xml.Root;
+import org.simpleframework.xml.*;
 
 import java.util.Map;
 
 @Root(name = "axu4j")
+@Namespace(reference = "http://axisj.com/axu4j")
 public class AXUConfig {
 
     @Path("config[1]")

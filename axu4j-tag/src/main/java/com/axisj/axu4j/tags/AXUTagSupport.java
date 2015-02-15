@@ -9,15 +9,17 @@ import org.slf4j.LoggerFactory;
 
 import javax.servlet.jsp.JspContext;
 import javax.servlet.jsp.JspException;
+import javax.servlet.jsp.PageContext;
+import javax.servlet.jsp.tagext.DynamicAttributes;
 import javax.servlet.jsp.tagext.JspFragment;
 import javax.servlet.jsp.tagext.SimpleTagSupport;
 import java.io.IOException;
 import java.io.StringReader;
 import java.io.StringWriter;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
-public abstract class AXUTagSupport extends SimpleTagSupport {
+public abstract class AXUTagSupport extends SimpleTagSupport implements DynamicAttributes {
 	protected static MustacheFactory mustacheFactory = new DefaultMustacheFactory();
 	protected static int tagIndex = 0;
 
@@ -25,7 +27,8 @@ public abstract class AXUTagSupport extends SimpleTagSupport {
 	protected Logger   logger  = LoggerFactory.getLogger(getClass());
 	protected String   tagBody = StringUtils.EMPTY;
 	protected String   doBody  = StringUtils.EMPTY;
-	protected Map<String, Object> innerInstance = new HashMap<String, Object>();
+	protected Map<String, Object> innerInstance  = new LinkedHashMap<String, Object>();
+    protected Map<String, Object> dynamicAttrMap = new LinkedHashMap<String, Object>();
 
 
 
@@ -43,6 +46,14 @@ public abstract class AXUTagSupport extends SimpleTagSupport {
 	public void setDoBody(String doBody) {
 		this.doBody = doBody;
 	}
+
+    public void setDynamicAttribute(String uri, String localName, Object value) throws JspException {
+        if (TagUtils.isELValue(value)) {
+            value = TagUtils.getElValue(getJspContext(), TagUtils.getElName(value));
+        }
+
+        dynamicAttrMap.put(localName, value);
+    }
 	
 	// =======================================================
 
@@ -55,27 +66,22 @@ public abstract class AXUTagSupport extends SimpleTagSupport {
 	@Override
 	public void doTag() throws JspException, IOException {
 		try {
-			JspContext  context  = getJspContext();
-			JspFragment fragment = getJspBody();
+			JspContext  context     = getJspContext();
+			JspFragment fragment    = getJspBody();
+            PageContext pageContext = (PageContext) getJspContext();
 			
 			beforeDoTag(context, fragment);
 
-			mustacheHtml = mustacheFactory.compile(new StringReader(tagBody), getClass().getCanonicalName());
+            // 내장객체 추가
+            innerInstance.put("param",   TagUtils.getRequestParameterMap(pageContext));
+            innerInstance.put("request", TagUtils.getRequestAttributeMap(pageContext));
+            innerInstance.put("session", TagUtils.getSessionAttributeMap(pageContext));
+            innerInstance.put("cookie",  TagUtils.getCookieMap(pageContext));
+            innerInstance.putAll(dynamicAttrMap);
 
-			LayoutTag layoutTag = (LayoutTag) findAncestorWithClass(this, LayoutTag.class);
-			if (layoutTag == null) {
-				mustacheHtml.execute(context.getOut(), this);
-			} else {
-				// 내장객체 추가
-				innerInstance.put("param",   layoutTag.getRequestParameterMap());
-				innerInstance.put("request", layoutTag.getRequestAttributeMap());
-				innerInstance.put("session", layoutTag.getSessionAttributeMap());
-				innerInstance.put("cookie",  layoutTag.getCookieMap());
-
-				Object[] params = new Object[] { this, innerInstance };
-				mustacheHtml.execute(getJspContext().getOut(), params);
-			}
-
+            Object[] params = new Object[] { this, innerInstance };
+            mustacheHtml = mustacheFactory.compile(new StringReader(tagBody), getClass().getCanonicalName());
+            mustacheHtml.execute(getJspContext().getOut(), params);
 
 			afterDoTag(context, fragment);
 			
@@ -83,9 +89,6 @@ public abstract class AXUTagSupport extends SimpleTagSupport {
 			logger.error(String.format("doTag is fail.\ntagBody: %s\nmustacheHtml: %s", tagBody, (mustacheHtml == null ? "null" : mustacheHtml.toString())), e);
 		}
 
-//		if (logger.isDebugEnabled()) {
-//			logger.debug(this.toString());
-//		}
 	}
 
 	/**

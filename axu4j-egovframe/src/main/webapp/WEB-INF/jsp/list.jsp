@@ -1,6 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8"
 %><%@ taglib prefix="c"  uri="http://java.sun.com/jsp/jstl/core"
-%><%@ taglib prefix="ax" uri="http://axis.com/axu4j"
+%><%@ taglib prefix="ax" uri="http://axisj.com/axu4j"
 %><ax:layout name="base.jsp">
     <ax:set name="title" value="게시판" />
     <ax:set name="page_desc" value="기본 게시판 샘플 코드" />
@@ -191,6 +191,10 @@
 	                            //toast.push(Object.toJSON({index:this.index, item:this.item}));
 	                            //alert(this.list);
 	                            //alert(this.page);
+                                if (this.item.useAt === "N") {
+                                    toast.push("삭제된 글은 조회할 수 없습니다.");
+                                    return;
+                                }
 	                            fnObj.modal.open("gridView", {
 	                                url:"edit.do", pars:"nttId=" + this.item.nttId
 	                            });

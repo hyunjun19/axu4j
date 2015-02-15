@@ -3,9 +3,9 @@
         xmlns="http://java.sun.com/xml/ns/javaee"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         version="2.1">
-    <tlib-version>0.3.0-SNAPSHOT</tlib-version>
+    <tlib-version>0.4.0</tlib-version>
     <short-name>AXU4j</short-name>
-    <uri>http://axis.com/axu4j</uri>
+    <uri>http://axisj.com/axu4j</uri>
 
 	<!-- [axu] layout -->
 	<tag>
@@ -50,6 +50,7 @@
     	<name>row</name>
     	<tag-class>com.axisj.axu4j.tags.RowTag</tag-class>
     	<body-content>scriptless</body-content>
+        <dynamic-attributes>true</dynamic-attributes>
     	<attribute>
     		<name>id</name>
     		<rtexprvalue>true</rtexprvalue>
@@ -69,6 +70,7 @@
     	<name>col</name>
     	<tag-class>com.axisj.axu4j.tags.ColTag</tag-class>
     	<body-content>scriptless</body-content>
+        <dynamic-attributes>true</dynamic-attributes>
     	<attribute>
     		<name>id</name>
     		<rtexprvalue>true</rtexprvalue>
@@ -96,6 +98,7 @@
     	<name>form</name>
     	<tag-class>com.axisj.axu4j.tags.FormTag</tag-class>
     	<body-content>scriptless</body-content>
+        <dynamic-attributes>true</dynamic-attributes>
     	<attribute>
     		<name>id</name>
     		<rtexprvalue>true</rtexprvalue>
@@ -129,6 +132,7 @@
     	<name>fields</name>
     	<tag-class>com.axisj.axu4j.tags.FieldsTag</tag-class>
     	<body-content>scriptless</body-content>
+        <dynamic-attributes>true</dynamic-attributes>
     	<attribute>
     		<name>id</name>
     		<rtexprvalue>true</rtexprvalue>
@@ -148,6 +152,7 @@
     	<name>field</name>
     	<tag-class>com.axisj.axu4j.tags.FieldTag</tag-class>
     	<body-content>scriptless</body-content>
+        <dynamic-attributes>true</dynamic-attributes>
     	<attribute>
     		<name>id</name>
     		<rtexprvalue>true</rtexprvalue>
@@ -175,6 +180,7 @@
     	<name>set</name>
     	<tag-class>com.axisj.axu4j.tags.SetTag</tag-class>
     	<body-content>empty</body-content>
+        <dynamic-attributes>true</dynamic-attributes>
     	<attribute>
     		<name>name</name>
 			<required>true</required>

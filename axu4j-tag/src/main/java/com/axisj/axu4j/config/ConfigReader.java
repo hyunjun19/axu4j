@@ -59,8 +59,8 @@ public class ConfigReader {
 			serializer.read(config, configFile);
 			
 			reloadTime = (new Date()).getTime();
-			if (logger.isDebugEnabled()) {
-				logger.debug("load config from {}", configFile.getAbsolutePath());
+            logger.info("load config from {}", configFile.getAbsolutePath());
+            if (logger.isDebugEnabled()) {
 				logger.debug("axu4j.xml\n{}", config);
 			}
 		} catch(Exception e) {
