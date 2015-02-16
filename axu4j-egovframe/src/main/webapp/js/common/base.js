@@ -10,16 +10,13 @@ var fcObj = {
 			fcObj.bindSideMenu();
 		}
 
-		try {
-			fnObj.pageStart();
-		}catch(e){
+		if(window.fnObj && fnObj.pageStart) fnObj.pageStart();
 
-		}
-		
 		this.theme.init();
 	},
 	pageResize: function(){
 		fcObj.setAsideMenu();
+		if(window.fnObj && fnObj.pageResize) fnObj.pageResize();
 	},
 	setAsideMenu: function(){
 		if(!jQuery(".ax-aside-box").data("status")){

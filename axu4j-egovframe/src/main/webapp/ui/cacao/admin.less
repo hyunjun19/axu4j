@@ -317,6 +317,13 @@ a{
                 float: right;
               }
             }
+			h3{
+				font-size:14px; color:@color-b; font-weight: normal; margin:15px 10px 10px 10px; padding:0px 0px;
+				.more		{
+					font-size: 14px;
+					float: right;
+				}
+			}
             p{font-size:12px; line-height:1.6em;color:@color-a; font-weight: normal; margin:10px 0px; padding:0px;}
 
             &.sample-01{
@@ -376,6 +383,9 @@ a{
 			&.expand{
               padding-left:0px;
             }
+			&.expandAll{
+				padding-left:0px;
+			}
 		}
 		
 	}
@@ -625,6 +635,8 @@ a{
 // 반응형 폼 서식
 .ax-rwd-table {
 	position: relative;
+	border-top: 1px solid #e2e2e2;
+	border-right: 1px solid #e2e2e2;
 	.item-group {
 		position: relative;
 		min-height: 40px;
@@ -660,6 +672,7 @@ a{
 					padding: 10px 0px;
 					box-sizing: border-box;
 					min-width:100px;
+					background: #fff6ac;
 				}
 				span.th.none {
 					border: 0px none;
@@ -674,6 +687,7 @@ a{
 					*line-height: 30px;
 					box-sizing: content-box;
 					vertical-align: middle;
+					text-align:left;min-width: 200px;
 					&.selectBox {
 						*padding-top: 7px;
 						*height: 28px;
@@ -696,14 +710,6 @@ a{
 					}
 					label {
 						vertical-align: middle;
-					}
-				}
-			}
-
-			&:first-child, &.first-child{
-				.item-lable, .item-label {
-					span.th {
-						border-left: none;
 					}
 				}
 			}
@@ -873,6 +879,11 @@ table.ax-layout{
                   margin-left:40px;
                 }
               }
+				.expandAll{
+					h1 {
+						margin-left:0px;
+					}
+				}
             }
 			.ax-content{
 				padding-left:0px;
@@ -1108,6 +1119,8 @@ table.ax-layout{
 
 @media @formMobile {
 	.ax-rwd-table{
+		border-top: 1px solid #e2e2e2;
+		border-right: 0px none;
 		.item-group{
 			position:relative;
 			min-height:40px;
@@ -1136,6 +1149,7 @@ table.ax-layout{
 						margin: 10px 10px 10px 15px;
 						box-sizing: content-box;
 						text-align:left;font-weight:bold;
+						background: none;
 					}
 					span.td{
 						display:block;float:none;

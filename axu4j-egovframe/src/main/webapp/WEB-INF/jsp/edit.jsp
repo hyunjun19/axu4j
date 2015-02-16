@@ -30,7 +30,7 @@
             </ax:fields>
             <ax:fields>
                 <ax:field label="등록일">
-                    <input type="text" name="regDate" id="reg_dt" title="" placeholder="" value="" class="AXInput" style="width:100px;" readonly="readonly" />
+                    <input type="text" name="regDate" id="reg_dt" title="" placeholder="" value="${result.frstRegisterPnttm}" class="AXInput" style="width:150px;" readonly="readonly" />
                 </ax:field>
             </ax:fields>
             <ax:fields>
@@ -96,6 +96,11 @@
                         }
                         */
 
+                        if(document.board.nttId.value == ""){
+                            document.board.nttId.value = "-1"; // 게시물 등록
+                        }else{
+                            // 게시물 수정
+                        }
                         var url = "/edit.json";
                         var pars = $(document.board).serialize();
                         

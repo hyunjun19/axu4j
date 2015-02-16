@@ -293,4 +293,6 @@ public class AXU4JController {
     @RequestMapping(value="/form.do")
     public void form_page() { }
 
+    @RequestMapping(value="/split.do")
+    public void split_page() { }
 }

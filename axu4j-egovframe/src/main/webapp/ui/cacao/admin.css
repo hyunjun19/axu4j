@@ -471,6 +471,17 @@ a:hover {
   font-size: 14px;
   float: right;
 }
+#AXPage .ax-body .ax-box h3 {
+  font-size: 14px;
+  color: #523636;
+  font-weight: normal;
+  margin: 15px 10px 10px 10px;
+  padding: 0px 0px;
+}
+#AXPage .ax-body .ax-box h3 .more {
+  font-size: 14px;
+  float: right;
+}
 #AXPage .ax-body .ax-box p {
   font-size: 12px;
   line-height: 1.6em;
@@ -536,6 +547,9 @@ a:hover {
   padding-left: 250px;
 }
 #AXPage .ax-body .ax-content.expand {
+  padding-left: 0px;
+}
+#AXPage .ax-body .ax-content.expandAll {
   padding-left: 0px;
 }
 #AXPage .ax-aside {
@@ -870,6 +884,8 @@ a:hover {
 }
 .ax-rwd-table {
   position: relative;
+  border-top: 1px solid #e2e2e2;
+  border-right: 1px solid #e2e2e2;
 }
 .ax-rwd-table .item-group {
   position: relative;
@@ -908,6 +924,7 @@ a:hover {
   padding: 10px 0px;
   box-sizing: border-box;
   min-width: 100px;
+  background: #fff6ac;
 }
 .ax-rwd-table .item-group .item .item-lable span.th.none,
 .ax-rwd-table .item-group .item .item-label span.th.none {
@@ -924,6 +941,8 @@ a:hover {
   *line-height: 30px;
   box-sizing: content-box;
   vertical-align: middle;
+  text-align: left;
+  min-width: 200px;
 }
 .ax-rwd-table .item-group .item .item-lable span.td.selectBox,
 .ax-rwd-table .item-group .item .item-label span.td.selectBox {
@@ -953,12 +972,6 @@ a:hover {
 .ax-rwd-table .item-group .item .item-lable span.td label,
 .ax-rwd-table .item-group .item .item-label span.td label {
   vertical-align: middle;
-}
-.ax-rwd-table .item-group .item:first-child .item-lable span.th,
-.ax-rwd-table .item-group .item.first-child .item-lable span.th,
-.ax-rwd-table .item-group .item:first-child .item-label span.th,
-.ax-rwd-table .item-group .item.first-child .item-label span.th {
-  border-left: none;
 }
 .ax-rwd-table .item-group .item.fullWidth {
   position: relative;
@@ -1157,6 +1170,9 @@ table.ax-layout.padding20 {
   }
   #AXPage .ax-body .ax-title .expand h1 {
     margin-left: 40px;
+  }
+  #AXPage .ax-body .ax-title .expandAll h1 {
+    margin-left: 0px;
   }
   #AXPage .ax-body .ax-content {
     padding-left: 0px;
@@ -1440,6 +1456,10 @@ table.ax-layout.padding20 {
   }
 }
 @media (max-width: 500px) {
+  .ax-rwd-table {
+    border-top: 1px solid #e2e2e2;
+    border-right: 0px none;
+  }
   .ax-rwd-table .item-group {
     position: relative;
     min-height: 40px;
@@ -1474,6 +1494,7 @@ table.ax-layout.padding20 {
     box-sizing: content-box;
     text-align: left;
     font-weight: bold;
+    background: none;
   }
   .ax-rwd-table .item-group .item .item-lable span.td,
   .ax-rwd-table .item-group .item .item-label span.td {
