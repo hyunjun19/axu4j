@@ -37,6 +37,8 @@ public class WriteTag extends SimpleTagSupport {
         PageContext pageContext = (PageContext) getJspContext();
         Map divMap = (Map) pageContext.getServletContext().getAttribute("divMap");
 
+        if (divMap == null || !divMap.containsKey(divname)) { return; }
+
         String divValue = ObjectUtils.toString(divMap.get(divname));
 
         if (StringUtils.isNotBlank(divValue)) {
