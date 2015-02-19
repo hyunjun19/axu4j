@@ -118,6 +118,72 @@
                     <h3>사이드 메뉴</h3>
                     <ul class="ax-aside-ul" id="ax-aside-ul"></ul>
                 </div>
+                <!--
+                <div class="H10"></div>
+                <div class="ax-box">
+                    <h3>사용자 박스</h3>
+                    
+                    <style type="text/css">
+                        .cx-aside-ul{
+                            list-style: none;
+                            margin: 0px;padding: 0px;
+                            border-top:1px solid #d9d9d9;
+                        }
+                        .cx-aside-ul li{
+                            list-style: none;
+                            border-bottom:1px solid #d9d9d9;
+                        }
+                        .cx-aside-ul li a {
+                            display: block;
+                            padding: 8px 10px;
+                            font-size: 13px;
+                            line-height:18px;
+                        }
+                        .cx-aside-ul ul.child{
+                            padding: 0px;
+                            border-top:1px solid #d9d9d9;
+                        }
+                        .cx-aside-ul ul.child li{
+                            border-bottom: 0px none;
+                            background: #f3f3f3;
+                            
+                        }
+                        .cx-aside-ul ul.child li a {
+                            padding-left: 30px;
+                            font-size: 12px;
+                            line-height: 15px;
+                        }
+                    </style>
+                    <ul class="cx-aside-ul top-border">
+                        <li>
+                            <a href="notice.php">
+                                <i class="axi axi-lightbulb-o"></i>
+                                공지사항</a>
+                        </li>
+                        <li>
+                            <a href="counselor-manage.php">
+                                <i class="axi axi-group"></i>
+                                상담원 관리</a>
+                            <ul class="child">
+                                <li>
+                                    <a href="counselor-register.php">상담원 등록</a>
+                                </li>
+                                <li>
+                                    <a href="counselor-manage.php">상담원 관리</a>
+                                </li>
+                                <li>
+                                    <a href="chat-room.php">대화방 조회(배정)</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="manager-info.php">
+                                <i class="axi axi-gear"></i>
+                                프로필 설정</a>
+                        </li>
+                    </ul>
+                </div>
+                -->
             </div>
         </div>
     </div>

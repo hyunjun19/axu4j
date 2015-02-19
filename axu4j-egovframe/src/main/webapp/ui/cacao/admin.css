@@ -600,9 +600,9 @@ a:hover {
 }
 #AXPage .ax-aside .ax-aside-box .ax-box {
   width: 100%;
-  min-height: 300px;
   background: #ffffff;
   border: 1px solid #e2e2e2;
+  padding-bottom: 2px;
   -webkit-border-radius: 6px 6px 6px 6px;
   -moz-border-radius: 6px 6px 6px 6px;
   border-radius: 6px 6px 6px 6px;

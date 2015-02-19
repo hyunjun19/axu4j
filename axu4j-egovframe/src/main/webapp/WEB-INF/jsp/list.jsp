@@ -209,7 +209,7 @@
 	                });
 	
 	                this.target.setList({
-	                    ajaxUrl:"<c:url value='/list.json' />", ajaxPars:"param1=1&param2=2", onLoad:function(){
+	                    ajaxUrl:"<c:url value='/list.json' />", ajaxPars:"useAt=Y", onLoad:function(){
 	                        //trace(this);
 	                    }
 	                });
@@ -220,6 +220,7 @@
                         alert("삭제할 목록을 선택하세요");
                         return false;
                     }
+                    if(!confirm("정말 삭제 하시겠습니까?")) return false;
 
                     var myProgress = new AXProgress();
                     myProgress.setConfig({

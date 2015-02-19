@@ -18,10 +18,8 @@ var topMenu_data = [
 var sideMenu_data = [
 	{label:'<i class="axi axi-home"></i> AXU4J 홈', url:"main.do", target:"_self"},
 	{label:'<i class="axi axi-help"></i> AXU4J 도움말', url:"help.do", target:"_self"},
-	{label:'<i class="axi axi-asterisk"></i> 관리자설정', url:"#ax", target:"_self"},
-	{label:'<i class="axi axi-columns"></i> 레이아웃', url:"#ax", target:"_self"},
-	{label:'<i class="axi axi-pagelines"></i> 페이지', url:"#ax", target:"_self"},
-	{label:'<i class="axi axi-sitemap"></i> 사이트맵', url:"#ax", target:"_self"},
-	{label:'<i class="axi axi-archive"></i> 모듈', url:"#ax", target:"_self"},
-	{label:'<i class="axi axi-bar-chart-o"></i> 접속통계', url:"#ax", target:"_self"}
+	{label:'<i class="axi axi-asterisk"></i> 게시판 샘플', url:"list.do", target:"_self"},
+	{label:'<i class="axi axi-columns"></i> 그리드 샘플', url:"list-2.do", target:"_self"},
+	{label:'<i class="axi axi-pagelines"></i> 폼 샘플', url:"form.do", target:"_self"},
+	{label:'<i class="axi axi-sitemap"></i> Split 샘플', url:"split.do", target:"_self"}
 ];
