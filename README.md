@@ -81,7 +81,7 @@ JSP Custom Tag Library
 ```
 3. JSP 선언
 ```jsp
-<%@ taglib prefix="ax" uri="http://axis.com/axu4j"%>
+<%@ taglib prefix="ax" uri="http://axisj.com/axu4j"%>
 ```
 4. axu4j.xml
 [axu4j.xml](https://raw.githubusercontent.com/axisj-com/axu4j/master/axu4j-tag/src/main/resources/axu4j.xml) 파일을 `/WEB-INF/classes`로 복사합니다.
@@ -270,7 +270,7 @@ JSP 사용
 <%@ page import="java.util.*"
 %><%@ page contentType="text/html; charset=UTF-8"
 %><%@ taglib prefix="c"  uri="http://java.sun.com/jsp/jstl/core"
-%><%@ taglib prefix="ax" uri="http://axis.com/axu4j"
+%><%@ taglib prefix="ax" uri="http://axisj.com/axu4j"
 %><%
 	List options = new ArrayList();
 	HashMap<String, String> one = new HashMap<String, String>();
