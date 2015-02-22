@@ -84,7 +84,10 @@
 			<div class="ax-layer ax-title">
 				<div class="ax-col-12 ax-content">
 <!-- @@@@@@@@@@@@@@@@@@@@@@ header begin @@@@@@@@@@@@@@@@@@@@@@ -->
-                    <ax:write divname="header" />
+                    <ax:write divname="header">
+                        <h1>AXU4J(AXU for Java)</h1>
+                        <p class="desc">레이아웃과 각 요소를 재사용하기 편하고, 각 요소에 패턴을 적용할 수 있습니다.</p>
+                    </ax:write>
 <!-- @@@@@@@@@@@@@@@@@@@@@@ header end   @@@@@@@@@@@@@@@@@@@@@@ -->
 				</div>
                 <div class="ax-clear"></div>

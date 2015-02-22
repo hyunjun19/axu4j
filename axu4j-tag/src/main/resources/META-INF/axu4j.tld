@@ -37,7 +37,7 @@
     <tag>
         <name>write</name>
         <tag-class>com.axisj.axu4j.tags.WriteTag</tag-class>
-        <body-content>empty</body-content>
+        <body-content>scriptless</body-content>
         <attribute>
             <name>divname</name>
             <required>true</required>

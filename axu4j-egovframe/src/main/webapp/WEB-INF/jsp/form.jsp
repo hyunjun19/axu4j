@@ -60,7 +60,7 @@
                 </ax:form>
                 
                 <div class="H10"></div>
-                <a href="http://dev.axisj.com/samples/AXInput/index.html">http://axisj:2013/samples/AXInput/index.html</a>
+                <a href="http://dev.axisj.com/samples/AXInput/index.html">http://dev.axisj.com/samples/AXInput/index.html</a>
                 <div class="H10"></div>
                 
                 <h2>버튼들</h2>
@@ -76,7 +76,7 @@
                 <button class="AXButtonSmall"><i class="axi axi-bmg-market"></i> 버튼</button>
 
                 <div class="H10"></div>
-                <a href="http://axisj:2013/samples/AXButton/index.html">http://dev.axisj.com/samples/AXButton/index.html</a>
+                <a href="http://dev.axisj.com/samples/AXButton/index.html">http://dev.axisj.com/samples/AXButton/index.html</a>
                 <div class="H10"></div>
                 
                 <h2>조합형</h2>
