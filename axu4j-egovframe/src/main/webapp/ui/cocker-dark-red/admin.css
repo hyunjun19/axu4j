@@ -74,8 +74,8 @@
 }
 html,
 body {
-  background: #f2f2f2;
-  color: #444444;
+  background: #f4f6fa;
+  color: #676a6c;
   height: 100%;
   margin: 0px;
   padding: 0px;
@@ -84,7 +84,7 @@ body {
   font-size: 12px;
 }
 a {
-  color: #444444;
+  color: #676a6c;
   text-decoration: none;
 }
 a:hover {
@@ -129,7 +129,7 @@ a:hover {
 .modal-log-info-wrap .ax-loginfo li.account {
   display: block;
   float: left;
-  color: #444444;
+  color: #676a6c;
   font-weight: bold;
   padding: 0px 10px;
 }
@@ -211,11 +211,12 @@ a:hover {
 }
 #AXPage .ax-header {
   z-index: 300;
-  border-bottom: 1px solid #d9d9d9;
-  height: 60px;
+  border-top: 3px solid #e03e68;
+  height: 57px;
   position: fixed;
   width: 100%;
-  background: #ffffff;
+  background-image: url(images/header-skin-1.png);
+  background-color: #3E495F;
   opacity: 0.95;
 }
 #AXPage .ax-header .ax-logo {
@@ -224,7 +225,7 @@ a:hover {
   margin-top: 8px;
 }
 #AXPage .ax-header .ax-logo a.logo-icon {
-  color: #468ec8;
+  color: #f3f3f3;
   text-decoration: none;
   font-size: 45px;
 }
@@ -237,13 +238,13 @@ a:hover {
   border: 0px none;
 }
 #AXPage .ax-header .ax-logo a {
-  color: #a6a6a6;
+  color: #9EA6B9;
   vertical-align: middle;
   text-decoration: underline;
 }
 #AXPage .ax-header .ax-top-menu {
   padding-left: 200px;
-  height: 60px;
+  height: 57px;
   width: 600px;
 }
 #AXPage .ax-header .ax-top-menu ul {
@@ -254,10 +255,11 @@ a:hover {
 #AXPage .ax-header .ax-top-menu ul li {
   float: left;
   font-size: 14px;
-  line-height: 60px;
+  line-height: 57px;
 }
 #AXPage .ax-header .ax-top-menu ul li a {
   padding: 0px 10px;
+  color: #9EA6B9;
 }
 #AXPage .ax-header .ax-top-menu .varrow1 {
   position: absolute;
@@ -289,13 +291,13 @@ a:hover {
   font-weight: bold;
 }
 #AXPage .ax-header .ax-top-menu.AXMenuBox .parentMenu a:hover {
-  color: skyblue;
+  color: #fff;
 }
 #AXPage .ax-header .ax-top-menu.AXMenuBox .parentMenu a:focus {
-  color: skyblue;
+  color: #fff;
 }
 #AXPage .ax-header .ax-top-menu.AXMenuBox .parentMenu a.on {
-  color: skyblue;
+  color: #fff;
 }
 #AXPage .ax-header .ax-top-menu.AXMenuBox .childMenu {
   position: absolute;
@@ -330,12 +332,15 @@ a:hover {
   border-radius: 3px;
   text-decoration: none;
   white-space: nowrap;
+  color: #444;
 }
 #AXPage .ax-header .ax-top-menu.AXMenuBox .childMenu ul li a:hover {
   background: #eee;
+  color: #e03e68;
 }
 #AXPage .ax-header .ax-top-menu.AXMenuBox .childMenu ul li a.on {
   background: #eee;
+  color: #e03e68;
 }
 #AXPage .ax-header .ax-top-menu.AXMenuBox .childMenu ul li a.expand {
   background-image: url(images/rightArrows.png);
@@ -367,12 +372,15 @@ a:hover {
   border-bottom: 1px solid #ebebeb;
 }
 #AXPage .ax-header .ax-loginfo {
-  height: 60px;
-  line-height: 60px;
+  height: 57px;
+  line-height: 57px;
   list-style: none;
   margin: 0px;
   padding: 0px;
   float: right;
+}
+#AXPage .ax-header .ax-loginfo a {
+  color: #9EA6B9;
 }
 #AXPage .ax-header .ax-loginfo li {
   display: inline;
@@ -392,12 +400,17 @@ a:hover {
   margin-top: 10px;
 }
 #AXPage .ax-header .ax-loginfo li.account {
-  color: #444444;
+  color: #9EA6B9;
   font-weight: bold;
   padding: 0px 10px;
 }
 #AXPage .ax-header .ax-loginfo li.lang {
   padding: 0px 20px;
+}
+#AXPage .ax-header .ax-loginfo li.btns a {
+  background: #e03e68;
+  border: 1px solid #e03e68;
+  color: #fff;
 }
 #AXPage .ax-body {
   z-index: 100;
@@ -416,7 +429,7 @@ a:hover {
   float: left;
   font-size: 24px;
   font-weight: normal;
-  color: #444444;
+  color: #676a6c;
   text-align: center;
   margin: 0px;
   padding: 0px;
@@ -426,7 +439,7 @@ a:hover {
   height: 30px;
   line-height: 30px;
   float: left;
-  color: #444444;
+  color: #676a6c;
   text-align: center;
   margin: 0px 0px 0px 10px;
   padding: 0px;
@@ -453,7 +466,7 @@ a:hover {
   position: relative;
   display: block;
   font-size: 20px;
-  color: #444444;
+  color: #676a6c;
   font-weight: normal;
   margin: 10px 0px;
   padding: 0px 0px;
@@ -464,7 +477,7 @@ a:hover {
 }
 #AXPage .ax-body .ax-box h2 {
   font-size: 16px;
-  color: #444444;
+  color: #676a6c;
   font-weight: normal;
   margin: 15px 10px 10px 10px;
   padding: 0px 0px;
@@ -475,7 +488,7 @@ a:hover {
 }
 #AXPage .ax-body .ax-box h3 {
   font-size: 14px;
-  color: #444444;
+  color: #676a6c;
   font-weight: normal;
   margin: 15px 10px 10px 10px;
   padding: 0px 0px;
@@ -487,7 +500,7 @@ a:hover {
 #AXPage .ax-body .ax-box p {
   font-size: 12px;
   line-height: 1.6em;
-  color: #444444;
+  color: #676a6c;
   font-weight: normal;
   margin: 10px 0px;
   padding: 0px;
@@ -568,7 +581,7 @@ a:hover {
   -moz-border-radius: 36px 36px 36px 36px;
   border-radius: 36px 36px 36px 36px;
   line-height: 36px;
-  background: #858585;
+  background: #e03e68;
   color: #ffffff;
   margin-left: 10px;
   text-align: center;
@@ -593,6 +606,9 @@ a:hover {
 #AXPage .ax-aside .ax-aside-menu-box .ax-aside-menu.on .axi-angle-double-left {
   display: none;
 }
+#AXPage .ax-aside .ax-aside-box i.axi {
+  color: #e03e68;
+}
 #AXPage .ax-aside .ax-aside-box .ax-box {
   width: 100%;
   background: #ffffff;
@@ -603,11 +619,12 @@ a:hover {
   -webkit-box-shadow: 0px 0px 2px 0 rgba(0, 0, 0, 0.05);
   -moz-box-shadow: 0px 0px 2px 0 rgba(0, 0, 0, 0.05);
   box-shadow: 0px 0px 2px 0 rgba(0, 0, 0, 0.05);
+  overflow: hidden;
   padding-bottom: 2px;
 }
 #AXPage .ax-aside .ax-aside-box .ax-box h1 {
   font-size: 24px;
-  color: #444444;
+  color: #676a6c;
   font-weight: normal;
   margin: 10px 0px;
   padding: 0px 0px;
@@ -615,7 +632,7 @@ a:hover {
 #AXPage .ax-aside .ax-aside-box .ax-box p {
   font-size: 12px;
   line-height: 1.6em;
-  color: #444444;
+  color: #676a6c;
   font-weight: normal;
   margin: 10px 0px;
   padding: 0px;
@@ -645,9 +662,12 @@ a:hover {
 }
 #AXPage .ax-aside .ax-aside-box .ax-box h3 {
   font-size: 14px;
-  color: #444444;
+  color: #676a6c;
   font-weight: normal;
   text-align: center;
+  margin: 0px;
+  padding: 14px 0px;
+  background: #EFEFEF;
 }
 #AXPage .ax-aside .ax-aside-box .ax-box h3 a {
   margin: 0px 5px;
@@ -672,10 +692,21 @@ a:hover {
   font-size: 13px;
   line-height: 22px;
 }
+#AXPage .ax-aside .ax-aside-box .ax-box .ax-aside-ul li a i.axi {
+  display: inline-block;
+  width: 22px;
+  height: 22px;
+  line-height: 22px;
+  text-align: center;
+  background: #e03e68;
+  color: #fff;
+  border-radius: 50%;
+  margin-right: 5px;
+}
 #AXPage .ax-aside .ax-aside-box .ax-box .ax-aside-ul li a:hover,
 #AXPage .ax-aside .ax-aside-box .ax-box .ax-aside-ul li a:focus {
-  background: #468ec8;
-  color: #ffffff;
+  background: #EFEFEF;
+  color: #e03e68;
 }
 #AXPage .ax-footer {
   z-index: 200;
@@ -685,7 +716,7 @@ a:hover {
   bottom: 0px;
   line-height: 40px;
   border-top: 1px solid #d9d9d9;
-  background: #ffffff;
+  background: #EFEFEF;
 }
 #AXPage .ax-footer .ax-version {
   list-style: none;
@@ -718,7 +749,7 @@ a:hover {
   float: none;
   font-size: 24px;
   font-weight: normal;
-  color: #444444;
+  color: #676a6c;
   text-align: center;
   margin: 0px;
   padding: 0px;
@@ -729,7 +760,7 @@ a:hover {
   height: 30px;
   line-height: 30px;
   float: none;
-  color: #444444;
+  color: #676a6c;
   text-align: center;
   margin: 0px 0px 0px 10px;
   padding: 0px;
@@ -740,7 +771,7 @@ a:hover {
 }
 #AXPage.login .ax-box h1 {
   text-align: center;
-  color: #444444;
+  color: #676a6c;
   font-weight: normal;
 }
 #AXPage.login .ax-box p {
@@ -798,7 +829,7 @@ a:hover {
   float: none;
   font-size: 20px;
   font-weight: normal;
-  color: #444444;
+  color: #676a6c;
   text-align: center;
   margin: 0px;
   padding: 0px;
@@ -809,7 +840,7 @@ a:hover {
   height: 16px;
   line-height: 16px;
   float: none;
-  color: #444444;
+  color: #676a6c;
   text-align: center;
   margin: 0px 0px 0px 0px;
   padding: 0px;
@@ -826,7 +857,7 @@ a:hover {
   float: none;
   font-size: 16px;
   font-weight: normal;
-  color: #444444;
+  color: #676a6c;
   text-align: left;
   margin: 0px;
   padding: 0px;
@@ -836,7 +867,7 @@ a:hover {
   height: 16px;
   line-height: 16px;
   float: none;
-  color: #444444;
+  color: #676a6c;
   text-align: center;
   margin: 0px 0px 0px 0px;
   padding: 0px;
@@ -1079,7 +1110,7 @@ table.ax-layout.padding20 {
   border-spacing: 20px;
   border-collapse: separate;
 }
-@media only screen and (min-width: 767px) and (max-width: 1024px) {
+@media only screen and (min-width: 767px) and (max-width: 1023px) {
   #AXPage .ax-wrap {
     margin: 0px auto;
   }
@@ -1182,7 +1213,7 @@ table.ax-layout.padding20 {
     clear: both;
   }
   #AXPage .ax-unit {
-    margin: 0px 3px;
+    margin: 0px 0px;
   }
   #AXPage .ax-col {
     float: left;
@@ -1261,7 +1292,7 @@ table.ax-layout.padding20 {
     float: left;
     line-height: 60px;
     padding-left: 10px;
-    padding-top: 5px;
+    padding-top: 3px;
   }
   #AXPage .ax-header .ax-loginfo {
     display: none;
@@ -1272,6 +1303,7 @@ table.ax-layout.padding20 {
     padding-right: 10px;
   }
   #AXPage .ax-header .mx-menu-button {
+    color: #9EA6B9;
     font-size: 30px;
   }
   #AXPage .ax-header .mx-menu-button#mx-aside-menu-handle {
@@ -1279,7 +1311,7 @@ table.ax-layout.padding20 {
   }
   #AXPage .ax-header .mx-menu-button:hover,
   #AXPage .ax-header .mx-menu-button:focus {
-    color: #468ec8;
+    color: #fff;
   }
   #AXPage .ax-body .ax-title {
     height: 50px;
@@ -1293,7 +1325,7 @@ table.ax-layout.padding20 {
     float: none;
     font-size: 24px;
     font-weight: normal;
-    color: #444444;
+    color: #676a6c;
     text-align: center;
     margin: 0px;
     padding: 0px;
@@ -1303,7 +1335,7 @@ table.ax-layout.padding20 {
     height: 20px;
     line-height: 20px;
     float: none;
-    color: #444444;
+    color: #676a6c;
     text-align: center;
     margin: 0px 0px 0px 0px;
     padding: 0px;
@@ -1315,6 +1347,10 @@ table.ax-layout.padding20 {
     padding-left: 0px;
   }
   #AXPage .ax-body .ax-box {
+    border-radius: 0px;
+    border: 0px none;
+    border-top: 3px solid #E7EAEC;
+    border-bottom: 1px solid #E7EAEC;
     /* 페이지 검색바 */
     /* 페이지 버튼그룹 */
     /* 페이지 그리드 */
@@ -1372,7 +1408,7 @@ table.ax-layout.padding20 {
     float: none;
     font-size: 20px;
     font-weight: normal;
-    color: #444444;
+    color: #676a6c;
     text-align: center;
     margin: 0px;
     padding: 0px;
@@ -1382,7 +1418,7 @@ table.ax-layout.padding20 {
     height: 16px;
     line-height: 16px;
     float: none;
-    color: #444444;
+    color: #676a6c;
     text-align: center;
     margin: 0px 0px 0px 0px;
     padding: 0px;

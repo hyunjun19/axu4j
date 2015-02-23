@@ -688,14 +688,27 @@ a:hover {
 #AXPage .ax-aside .ax-aside-box .ax-box .ax-aside-ul li {
   border-bottom: 1px solid #e8e8e8;
 }
+#AXPage .ax-aside .ax-aside-box .ax-box .ax-aside-ul li i.axi {
+  display: inline-block;
+  width: 22px;
+  height: 22px;
+  line-height: 22px;
+  text-align: center;
+  background: #ddc800;
+  color: #fff;
+  border-radius: 50%;
+  margin-right: 5px;
+}
 #AXPage .ax-aside .ax-aside-box .ax-box .ax-aside-ul li a {
   display: block;
   padding: 8px 10px;
+  font-size: 13px;
+  line-height: 22px;
 }
 #AXPage .ax-aside .ax-aside-box .ax-box .ax-aside-ul li a:hover,
 #AXPage .ax-aside .ax-aside-box .ax-box .ax-aside-ul li a:focus {
   background: #EFEFEF;
-  color: #ddc800;
+  color: #523636;
 }
 #AXPage .ax-aside .ax-aside-box .ax-box .ax-aside-page {
   display: none;

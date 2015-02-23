@@ -215,7 +215,8 @@ a:hover {
   height: 57px;
   position: fixed;
   width: 100%;
-  background: #3E495F;
+  background-image: url(images/header-skin-1.png);
+  background-color: #3E495F;
   opacity: 0.95;
 }
 #AXPage .ax-header .ax-logo {
@@ -335,11 +336,11 @@ a:hover {
 }
 #AXPage .ax-header .ax-top-menu.AXMenuBox .childMenu ul li a:hover {
   background: #eee;
-  color: #444;
+  color: #19AA8D;
 }
 #AXPage .ax-header .ax-top-menu.AXMenuBox .childMenu ul li a.on {
   background: #eee;
-  color: #444;
+  color: #19AA8D;
 }
 #AXPage .ax-header .ax-top-menu.AXMenuBox .childMenu ul li a.expand {
   background-image: url(images/rightArrows.png);
@@ -619,7 +620,7 @@ a:hover {
   -moz-box-shadow: 0px 0px 2px 0 rgba(0, 0, 0, 0.05);
   box-shadow: 0px 0px 2px 0 rgba(0, 0, 0, 0.05);
   overflow: hidden;
-  padding-bottom: 2px;
+  padding-bottom: 5px;
 }
 #AXPage .ax-aside .ax-aside-box .ax-box h1 {
   font-size: 24px;
@@ -685,9 +686,22 @@ a:hover {
 #AXPage .ax-aside .ax-aside-box .ax-box .ax-aside-ul li {
   border-bottom: 1px solid #d9d9d9;
 }
+#AXPage .ax-aside .ax-aside-box .ax-box .ax-aside-ul li i.axi {
+  display: inline-block;
+  width: 22px;
+  height: 22px;
+  line-height: 22px;
+  text-align: center;
+  background: #19AA8D;
+  color: #fff;
+  border-radius: 50%;
+  margin-right: 5px;
+}
 #AXPage .ax-aside .ax-aside-box .ax-box .ax-aside-ul li a {
   display: block;
   padding: 8px 10px;
+  font-size: 13px;
+  line-height: 22px;
 }
 #AXPage .ax-aside .ax-aside-box .ax-box .ax-aside-ul li a:hover,
 #AXPage .ax-aside .ax-aside-box .ax-box .ax-aside-ul li a:focus {

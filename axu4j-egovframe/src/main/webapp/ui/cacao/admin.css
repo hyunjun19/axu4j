@@ -673,6 +673,8 @@ a:hover {
 #AXPage .ax-aside .ax-aside-box .ax-box .ax-aside-ul li a {
   display: block;
   padding: 8px 10px;
+  font-size: 13px;
+  line-height: 22px;
 }
 #AXPage .ax-aside .ax-aside-box .ax-box .ax-aside-ul li a:hover,
 #AXPage .ax-aside .ax-aside-box .ax-box .ax-aside-ul li a:focus {

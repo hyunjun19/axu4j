@@ -490,17 +490,30 @@ a{
             list-style: none;
             margin:0px; padding:0px;
             border-top:@border;
-            li{
-              border-bottom:@border;
-              a{
-                display: block;
-                padding:8px 10px;
-                &:hover, &:focus{
-					background: #EFEFEF;
-                  color: #ddc800;
-                }
-              }
-            }
+
+			  li{
+				  border-bottom:@border;
+				  i.axi{
+					  display: inline-block;
+					  width:22px;height:22px;
+					  line-height: 22px;text-align: center;
+					  background: #ddc800;
+					  color:#fff;
+					  border-radius: 50%;
+					  margin-right:5px;
+				  }
+				  a{
+					  display: block;
+					  padding:8px 10px;
+					  font-size: 13px;
+					  line-height: 22px;
+					  &:hover, &:focus{
+						  background: #EFEFEF;
+						  color:#523636;
+					  }
+				  }
+			  }
+
           }
           .ax-aside-page{
 	          display: none;
