@@ -71,7 +71,7 @@
 }
 html,
 body {
-  background: #f4f6fa;
+  background: #fafafa;
   color: #666666;
   height: 100%;
   margin: 0px;
@@ -208,7 +208,7 @@ a:hover {
 }
 #AXPage .ax-header {
   z-index: 300;
-  border-top: 3px solid #f19a35;
+  border-top: 3px solid #ddc800;
   height: 57px;
   position: fixed;
   width: 100%;
@@ -404,9 +404,12 @@ a:hover {
   padding: 0px 20px;
 }
 #AXPage .ax-header .ax-loginfo li.btns a {
-  background: #f19a35;
-  border: 1px solid #f19a35;
-  color: #fff;
+  background: #ddc800;
+  border: 1px solid #ddc800;
+  color: #000;
+}
+#AXPage .ax-header .ax-loginfo li.btns a:hover {
+  background: #ffea00;
 }
 #AXPage .ax-body {
   z-index: 100;
@@ -582,7 +585,7 @@ a:hover {
   -moz-border-radius: 36px 36px 36px 36px;
   border-radius: 36px 36px 36px 36px;
   line-height: 36px;
-  background: #f19a35;
+  background: #ddc800;
   color: #ffffff;
   margin-left: 10px;
   text-align: center;
@@ -692,7 +695,7 @@ a:hover {
 #AXPage .ax-aside .ax-aside-box .ax-box .ax-aside-ul li a:hover,
 #AXPage .ax-aside .ax-aside-box .ax-box .ax-aside-ul li a:focus {
   background: #EFEFEF;
-  color: #f19a35;
+  color: #ddc800;
 }
 #AXPage .ax-aside .ax-aside-box .ax-box .ax-aside-page {
   display: none;
@@ -731,7 +734,7 @@ a:hover {
   height: 50px;
   overflow: hidden;
   padding: 20px;
-  background: #f4f6fa;
+  background: #fafafa;
   z-index: 100;
 }
 #AXPage.login .ax-title h1 {

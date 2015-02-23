@@ -17,7 +17,7 @@
 @color-d	:#fff;			//White
 
 @bgcolor	:#fff;			//White
-@bgcolor-a	:#F4F6FA;		//Light Gray
+@bgcolor-a	:#FAFAFA;		//Light Gray
 @bgcolor-b	:#444;			//Dark Gray
 @bgcolor-c	:#858585; 		//Middle Gray
 @bgcolor-d	:#523636;		//Blue 
@@ -139,7 +139,7 @@ a{
 	
 	.ax-header{
         z-index:300;
-		border-top:3px solid #f19a35;
+		border-top:3px solid #ddc800;
 		height:57px;
 		position: fixed; width:100%;
 		background-image: url(images/header-skin-1.png);
@@ -276,9 +276,12 @@ a{
 				}
 				&.btns{
 					a {
-						background: #f19a35;
-						border: 1px solid #f19a35;
-						color:#fff;
+						background: #ddc800;
+						border: 1px solid #ddc800;
+						color:#000;
+						&:hover{
+							background: #ffea00;
+						}
 					}
 				}
 			}
@@ -415,7 +418,7 @@ a{
           width:36px; height:36px;
           .util-border-radius(36px,36px,36px,36px);
           line-height: 36px;
-          background: #f19a35;
+          background: #ddc800;
           color:@color-d;
           margin-left:10px;
           text-align: center;
@@ -494,7 +497,7 @@ a{
                 padding:8px 10px;
                 &:hover, &:focus{
 					background: #EFEFEF;
-                  color: #f19a35;
+                  color: #ddc800;
                 }
               }
             }
