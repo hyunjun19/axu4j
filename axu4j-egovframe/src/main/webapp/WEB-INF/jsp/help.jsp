@@ -279,6 +279,7 @@ JSP - \${cookie.name},  axu4j.xml - {{cookie.name}}</pre>
     </ax:div>
     <ax:div name="scripts">
         <script type="text/javascript">
+            var page_menu_id = "m0102";
         </script>
     </ax:div>
 </ax:layout>

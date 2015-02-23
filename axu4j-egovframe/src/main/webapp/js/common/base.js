@@ -140,7 +140,7 @@ var fcObj = {
 	theme: {
 		sel: null,
 		init: function(){
-			var themes = ["cocker","cacao","cocker-dark"];
+			var themes = ["cocker","cocker-dark","cacao","cacao-dark"];
 			var po = [];
 			$.each(themes, function(){
 				po.push('<option value="', this,'">', this,'</option>');
@@ -159,7 +159,7 @@ var fcObj = {
 		},
 		change: function(theme){
 			jQuery("#axu-theme-admin").attr("href", "ui/"+theme+"/admin.css");
-			jQuery("#axu-theme-axisj").attr("href", "/plugins/axisj/ui/"+ theme.replace("cacao", "kakao").replace("cocker-dark", "cocker") +"/AXJ.min.css?v="+axf.timekey());
+			jQuery("#axu-theme-axisj").attr("href", "/plugins/axisj/ui/"+ theme.replace("cacao", "kakao").replace("-dark", "") +"/AXJ.min.css?v="+axf.timekey());
 			axf.setCookie("axutheme", theme);
 		}
 	}

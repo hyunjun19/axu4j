@@ -932,7 +932,7 @@ table.ax-layout{
 	#AXPage{
 		.ax-wrap 	{margin:0px auto;}
 		.ax-clear	{clear:both;}
-		.ax-unit	{margin:0px 3px;}
+		.ax-unit	{margin:0px 0px;}
 		.ax-col		{float:left;}
 		div[class*="ax-col-"] {float:left; height: inherit;}
 		.ax-col-1	{width:100%}
@@ -974,7 +974,8 @@ table.ax-layout{
 				float: left;
 				line-height: 60px;
 				padding-left:10px;
-				padding-top:5px;
+				padding-top:3px;
+				//a{color:#9EA6B9;}
 			}
 			.ax-loginfo{
 				display: none;
@@ -986,12 +987,13 @@ table.ax-layout{
 			}
 
 			.mx-menu-button{
+				color:#9EA6B9;
 				font-size:30px;
 				&#mx-aside-menu-handle{
 					margin-left:10px;
 				}
 				&:hover,&:focus{
-					color:@color-b;
+					color:#fff;
 				}
 			}
 
@@ -1020,6 +1022,10 @@ table.ax-layout{
 				padding-left:0px;
 			}
 			.ax-box {
+				border-radius: 0px;
+				border:0px none;
+				border-top:3px solid #E7EAEC;
+				border-bottom:1px solid #E7EAEC;
 				/* 페이지 검색바 */
 				.ax-search {
 					border-top:0px solid;
