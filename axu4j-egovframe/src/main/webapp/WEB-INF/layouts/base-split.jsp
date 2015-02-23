@@ -75,43 +75,45 @@
 </head>
 <body style="overflow: hidden;">
 <div id="AXPage">
-	<div class="ax-header">
-		<div class="ax-wrap">
-			<div class="ax-layer">
-				<div class="ax-col-12">
-					<div class="ax-unit">
-                        <div class="ax-logo">
-                            <a class="logo-icon" href="/main.do"><i class="axi axi-axisj"></i></a>
-                            <a href="http://axu.axisj.com" target="_blank">axu.axisj.com</a>
+    <ax:write divname="ax-header">
+        <div class="ax-header">
+            <div class="ax-wrap">
+                <div class="ax-layer">
+                    <div class="ax-col-12">
+                        <div class="ax-unit">
+                            <div class="ax-logo">
+                                <a class="logo-icon" href="/main.do"><i class="axi axi-axisj"></i></a>
+                                <a href="http://axu.axisj.com" target="_blank">axu.axisj.com</a>
+                            </div>
                         </div>
-					</div>
-				</div>
-			</div>
-			<div class="ax-layer">
-				<div class="ax-col-8">
-					<div class="ax-unit">
-                        <!-- 상단 top-down-menu 표시 영역 : s-->
-						<div id="ax-top-menu" class="ax-top-menu AXMenuBox"></div>
-                        <!-- e : 상단 top-down-menu 표시 영역 -->
-                        <div class="mx-top-menu"><a id="mx-top-menu-handle" class="mx-menu-button"><i class="axi axi-th"></i></a></div>
-					</div>
-				</div>
-				<div class="ax-col-4">
-					<div class="ax-unit">
-						<ul class="ax-loginfo" id="ax-loginfo">
-							<li class="profile"><div class="photo"></div></li>
-							<li class="account"><a href="#ax">로그인사용자</a></li>
-							<li class="btns"><a href="#ax" class="AXButton" onclick="location.href = 'login.do';"><i class="axi axi-power-off"></i> 로그아웃</a></li>
-							<!--li class="lang"><a href="#ax"><i class="axi axi-keyboard-o"></i> 한국어</a></li-->
-						</ul>
-						<div class="mx-loginfo"><a id="mx-loginfo-handle" class="mx-menu-button"><i class="axi axi-bars"></i></a></div>
-					</div>
-				</div>
-				<div class="ax-clear"></div>
-			</div>
-		</div>
-	</div>
-	<div class="H60"></div>
+                    </div>
+                </div>
+                <div class="ax-layer">
+                    <div class="ax-col-8">
+                        <div class="ax-unit">
+                            <!-- 상단 top-down-menu 표시 영역 : s-->
+                            <div id="ax-top-menu" class="ax-top-menu AXMenuBox"></div>
+                            <!-- e : 상단 top-down-menu 표시 영역 -->
+                            <div class="mx-top-menu"><a id="mx-top-menu-handle" class="mx-menu-button"><i class="axi axi-th"></i></a></div>
+                        </div>
+                    </div>
+                    <div class="ax-col-4">
+                        <div class="ax-unit">
+                            <ul class="ax-loginfo" id="ax-loginfo">
+                                <li class="profile"><div class="photo"></div></li>
+                                <li class="account"><a href="#ax">로그인사용자</a></li>
+                                <li class="btns"><a href="#ax" class="AXButton" onclick="location.href = 'login.do';"><i class="axi axi-power-off"></i> 로그아웃</a></li>
+                                <!--li class="lang"><a href="#ax"><i class="axi axi-keyboard-o"></i> 한국어</a></li-->
+                            </ul>
+                            <div class="mx-loginfo"><a id="mx-loginfo-handle" class="mx-menu-button"><i class="axi axi-bars"></i></a></div>
+                        </div>
+                    </div>
+                    <div class="ax-clear"></div>
+                </div>
+            </div>
+        </div>
+        <div class="H60"></div>
+    </ax:write>
     <!-- e ax-header -->
 
 	<div class="ax-body">

@@ -9,13 +9,13 @@
 
 // Global Preset //////////////////
 @color		:#a6a6a6; 		//Light Gray
-@color-a	:#444;			//Dark Gray
+@color-a	:#676A6C;			//Dark Gray
 @color-b	:#468ec8; 		//Blue
 @color-c	:#ff6f64;		//Caution
 @color-d	:#fff;			//White
 
 @bgcolor	:#fff;			//White
-@bgcolor-a	:#f2f2f2;		//Light Gray
+@bgcolor-a	:#F4F6FA;		//Light Gray
 @bgcolor-b	:#444;			//Dark Gray
 @bgcolor-c	:#858585; 		//Middle Gray
 @bgcolor-d	:#468ec8;		//Blue 
@@ -27,7 +27,7 @@
 
 @wide:		~"(min-width:1151px)";
 @desktop:   ~"only screen and (min-width: 1024px) and (max-width: 1151px)";
-@tablet:    ~"only screen and (min-width: 767px) and (max-width: 1024px)";
+@tablet:    ~"only screen and (min-width: 767px) and (max-width: 1023px)";
 @mobile:	~"(max-width: 767px)";
 @formMobile: ~"(max-width: 500px)";
 
@@ -141,17 +141,17 @@ a{
 
 	.ax-header{
 		z-index:300;
-		border-bottom:@border;
-		height:60px;
+		border-top:3px solid #19AA8D;
+		height:57px;
 		position: fixed; width:100%;
-		background: @bgcolor;
+		background: #3E495F;
 		opacity: 0.95;
 
 		.ax-logo{
 			position: absolute;
 			line-height:45px;margin-top:8px;
 			a.logo-icon{
-				color: @color-b;
+				color: #f3f3f3;
 				text-decoration: none;
 				font-size:45px;
 				i.axi{
@@ -164,7 +164,7 @@ a{
 				border:0px none;
 			}
 			a{
-				color:@color;
+				color:#9EA6B9;
 				vertical-align: middle;
 				text-decoration: underline;
 			}
@@ -172,16 +172,17 @@ a{
 
 		.ax-top-menu{
 			padding-left:200px;
-			height: 60px;width: 600px;
+			height: 57px;width: 600px;
 			ul{
 				list-style: none;
 				margin:0px; padding:0px;
 				li{
 					float:left;
 					font-size:14px;
-					line-height: 60px;
+					line-height: 57px;
 					a{
 						padding:0px 10px;
+						color:#9EA6B9;
 					}
 				}
 			}
@@ -199,9 +200,9 @@ a{
 					position:relative;
 					a{
 						font-weight:bold;
-						&:hover{color:skyblue;}
-						&:focus{color:skyblue;}
-						&.on{color:skyblue;}
+						&:hover{color:#fff;}
+						&:focus{color:#fff;}
+						&.on{color:#fff;}
 					}
 				}
 
@@ -220,8 +221,9 @@ a{
 							background:#fff;
 							border-radius:3px;
 							text-decoration: none;white-space:nowrap;
-							&:hover{background:#eee;}
-							&.on{background:#eee;}
+							color:#444;
+							&:hover{background:#eee;color:#444;}
+							&.on{background:#eee;color:#444;}
 							&.expand{
 								background-image:url(images/rightArrows.png);background-repeat:no-repeat;background-position:100% 0px;padding-right:30px;
 								&:hover{
@@ -243,11 +245,14 @@ a{
 
 
 		.ax-loginfo{
-			height: 60px;
-			line-height: 60px;
+			height: 57px;
+			line-height: 57px;
 			list-style: none;
 			margin:0px; padding:0px;
 			float:right;
+			a {
+				color: #9EA6B9;
+			}
 			li{
 				display: inline;
 				vertical-align: middle;
@@ -263,12 +268,19 @@ a{
 					}
 				}
 				&.account{
-					color:@color-a;
+					color:#9EA6B9;
 					font-weight: bold;
 					padding:0px 10px;
 				}
 				&.lang{
 					padding:0px 20px;
+				}
+				&.btns{
+					a {
+						background: #1AB394;
+						border: 1px solid #1AB394;
+						color:#fff;
+					}
 				}
 			}
 		}
@@ -391,8 +403,9 @@ a{
 		width:260px;left: 0px;top:130px;
 		padding-bottom:50px;
 		z-index:200;
-
+		
 		.ax-aside-menu-box{
+			
 			position: absolute;
 			left: 0px;top:-53px;
 			.ax-aside-menu{
@@ -400,7 +413,7 @@ a{
 				width:36px; height:36px;
 				.util-border-radius(36px,36px,36px,36px);
 				line-height: 36px;
-				background: @bgcolor-c;
+				background: #1AB394;
 				color:@color-d;
 				margin-left:10px;
 				text-align: center;
@@ -419,12 +432,14 @@ a{
 			}
 		}
 		.ax-aside-box{
+			i.axi{color:#19AA8D;}
 			.ax-box{
 				width:100%; 
 				background:@bgcolor;
 				border:@border-b;
 				.util-border-radius(6px, 6px, 6px, 6px);
 				.util-drop-shadow (0px, 0px, 2px, 0, 0.05);
+				overflow: hidden;
 				padding-bottom:2px;
 
 				h1{font-size:24px; color:@color-a; font-weight: normal; margin:10px 0px; padding:0px 0px;}
@@ -457,6 +472,8 @@ a{
 					color:@color-a;
 					font-weight: normal;
 					text-align: center;
+					margin:0px;padding:14px 0px;
+					background: #EFEFEF;
 					a{
 						margin:0px 5px;
 						cursor: pointer;
@@ -476,8 +493,8 @@ a{
 							display: block;
 							padding:8px 10px;
 							&:hover, &:focus{
-								background: @bgcolor-d;
-								color:@color-d;
+								background: #EFEFEF;
+								color:#19AA8D;
 							}
 						}
 					}
@@ -493,7 +510,7 @@ a{
 		height:40px; position: fixed; width: 100%; bottom:0px;
 		line-height: 40px;
 		border-top:@border;
-		background: @bgcolor;
+		background: #EFEFEF;
 		.ax-version{
 			list-style: none;
 			margin:0px; padding:0px;

@@ -54,6 +54,7 @@ public class AXU4JController {
 
     @RequestMapping("/list.json")
     public void listJson(@ModelAttribute("searchVO") BoardVO boardVO, ModelMap model) throws Exception {
+
         LoginVO user = (LoginVO) EgovUserDetailsHelper.getAuthenticatedUser();
 
         boardVO.setBbsId(boardVO.getBbsId());
@@ -78,7 +79,7 @@ public class AXU4JController {
         boardVO.setRecordCountPerPage(paginationInfo.getRecordCountPerPage());
 
         Map<String, Object> map = bbsMngService.selectBoardArticles(boardVO, vo.getBbsAttrbCode());
-        int totCnt = Integer.parseInt((String)map.get("resultCnt"));
+        int totCnt = Integer.parseInt((String) map.get("resultCnt"));
 
         paginationInfo.setTotalRecordCount(totCnt);
 

@@ -20,7 +20,7 @@ var fcObj = {
 	},
 	setAsideMenu: function(){
 		if(!jQuery(".ax-aside-box").data("status")){
-			if(axf.clientWidth() <= 1024 && axf.clientWidth() >= 767){
+			if(axf.clientWidth() <= 1023 && axf.clientWidth() >= 767){
 				jQuery(".ax-aside-menu").addClass("on");
 				jQuery(".ax-aside-box").hide();
 			}else if(axf.clientWidth() >= 1024){
@@ -140,7 +140,7 @@ var fcObj = {
 	theme: {
 		sel: null,
 		init: function(){
-			var themes = ["cocker","cacao"];
+			var themes = ["cocker","cacao","cocker-dark"];
 			var po = [];
 			$.each(themes, function(){
 				po.push('<option value="', this,'">', this,'</option>');
@@ -159,7 +159,7 @@ var fcObj = {
 		},
 		change: function(theme){
 			jQuery("#axu-theme-admin").attr("href", "ui/"+theme+"/admin.css");
-			jQuery("#axu-theme-axisj").attr("href", "/plugins/axisj/ui/"+ theme.replace("cacao", "kakao") +"/AXJ.min.css?v="+axf.timekey());
+			jQuery("#axu-theme-axisj").attr("href", "/plugins/axisj/ui/"+ theme.replace("cacao", "kakao").replace("cocker-dark", "cocker") +"/AXJ.min.css?v="+axf.timekey());
 			axf.setCookie("axutheme", theme);
 		}
 	}

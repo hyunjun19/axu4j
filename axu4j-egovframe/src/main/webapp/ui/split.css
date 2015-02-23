@@ -1,15 +1,9 @@
 html,
 body {
-  background: #fff;
-}
-#AXPage .ax-header {
-  background: #eee;
+  background: #F4F6FA;
 }
 #AXPage .cx-wrap {
   padding: 10px;
-}
-#AXPage .ax-footer {
-  background: #eee;
 }
 .AXSplit {
   position: absolute;
