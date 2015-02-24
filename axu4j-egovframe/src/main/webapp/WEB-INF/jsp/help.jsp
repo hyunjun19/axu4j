@@ -33,8 +33,7 @@
         </style>
     </ax:div>
     <%--<ax:div name="header">--%>
-        <%--<h1>Hello AXU4j</h1>--%>
-        <%--<p class="desc">AXU4J를 소개합니다.</p>--%>
+        <%--<h1>Hello AXU4j</h1><p class="desc">AXU4J를 소개합니다.</p>--%>
     <%--</ax:div>--%>
     <ax:div name="contents">
         <ax:row>

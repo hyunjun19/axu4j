@@ -142,7 +142,7 @@ var fcObj = {
 		init: function(){
 			var themes = [
 				["cocker","cocker"],
-				["cocker-dark","cocker"],
+				["cocker-dark","bulldog"],
 				["cocker-dark-red","cocker"],
 				["cacao","kakao"],
 				["cacao-dark","kakao"]

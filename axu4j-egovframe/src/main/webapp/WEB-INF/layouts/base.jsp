@@ -123,7 +123,7 @@
                     <h3>사이드 메뉴</h3>
                     <ul class="ax-aside-ul" id="ax-aside-ul"></ul>
                 </div>
-                <!--
+
                 <div class="H10"></div>
                 <div class="ax-box">
                     <h3>사용자 박스</h3>
@@ -142,7 +142,7 @@
                             display: block;
                             padding: 8px 10px;
                             font-size: 13px;
-                            line-height:18px;
+                            line-height:22px;
                         }
                         .cx-aside-ul ul.child{
                             padding: 0px;
@@ -183,12 +183,12 @@
                         </li>
                         <li>
                             <a href="manager-info.php">
-                                <i class="axi axi-gear"></i>
+                                <i class="axi axi-cog"></i>
                                 프로필 설정</a>
                         </li>
                     </ul>
                 </div>
-                -->
+
             </div>
         </div>
     </div>
