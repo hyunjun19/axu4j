@@ -215,44 +215,50 @@ a:hover {
   height: 57px;
   position: fixed;
   width: 100%;
-  background-image: url(images/header-skin-1.png);
-  background-color: #3E495F;
+  background: #003c7f;
+  background: -webkit-linear-gradient(#002c5d, #003c7f);
+  /* For Safari */
+  background: -o-linear-gradient(#002c5d, #003c7f);
+  /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(#002c5d, #003c7f);
+  /* For Firefox 3.6 to 15 */
+  background: linear-gradient(#002c5d, #003c7f);
+  /* Standard syntax */
+  filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr=#002c5d, endColorstr=#003c7f);
+  /*For IE7-8-9*/
   opacity: 0.95;
 }
 #AXPage .ax-header .ax-logo {
   position: absolute;
-  margin-top: 5px;
   z-index: 1;
-  display: block;
 }
 #AXPage .ax-header .ax-logo a {
   padding: 0px 10px;
-  height: 45px;
+  height: 57px;
   display: inline-block;
-  text-decoration: none;
 }
 #AXPage .ax-header .ax-logo a .logo-img {
-  display: block;
-  float: left;
-  line-height: 45px;
-  height: 45px;
+  background: url('images/logo.png') no-repeat;
+  background-size: contain;
+  background-position: center center;
+  width: 36px;
+  height: 36px;
+  display: inline-block;
   vertical-align: middle;
 }
 #AXPage .ax-header .ax-logo a .logo-img i.axi {
-  color: #f3f3f3;
-  font-size: 35px;
-  line-height: 45px;
+  display: none;
 }
 #AXPage .ax-header .ax-logo a .logo-txt {
-  display: block;
-  float: left;
-  padding: 0px 5px;
   color: #9EA6B9;
+  padding: 0px 5px;
+  font-weight: normal;
   vertical-align: middle;
   text-decoration: none;
+  text-shadow: none;
   font-size: 14px;
   font-family: "Arial Black";
-  line-height: 45px;
+  line-height: 60px;
 }
 #AXPage .ax-header .ax-top-menu {
   padding-left: 200px;
@@ -270,8 +276,11 @@ a:hover {
   line-height: 57px;
 }
 #AXPage .ax-header .ax-top-menu ul li a {
-  padding: 0px 10px;
   color: #9EA6B9;
+  padding: 6px 10px;
+  -webkit-border-radius: 8px 0 8px 0;
+  -moz-border-radius: 8px 0 8px 0;
+  border-radius: 8px 0 8px 0;
 }
 #AXPage .ax-header .ax-top-menu .varrow1 {
   position: absolute;
@@ -303,13 +312,16 @@ a:hover {
   font-weight: bold;
 }
 #AXPage .ax-header .ax-top-menu.AXMenuBox .parentMenu a:hover {
-  color: #fff;
+  color: #003c7f;
+  background: #ffffff;
 }
 #AXPage .ax-header .ax-top-menu.AXMenuBox .parentMenu a:focus {
-  color: #fff;
+  color: #003c7f;
+  background: #ffffff;
 }
 #AXPage .ax-header .ax-top-menu.AXMenuBox .parentMenu a.on {
-  color: #fff;
+  color: #003c7f;
+  background: #ffffff;
 }
 #AXPage .ax-header .ax-top-menu.AXMenuBox .childMenu {
   position: absolute;
@@ -319,13 +331,15 @@ a:hover {
 }
 #AXPage .ax-header .ax-top-menu.AXMenuBox .childMenu ul {
   background: #ebebeb;
-  border: 1px solid #ccc;
+  border: 1px solid #003c7f;
   border-radius: 5px;
   padding: 3px;
   margin: 0px;
   display: block;
   position: relative;
-  box-shadow: 0px 0px 3px #ccc;
+  -webkit-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.25);
+  -moz-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.25);
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.25);
 }
 #AXPage .ax-header .ax-top-menu.AXMenuBox .childMenu ul li {
   float: none;
@@ -340,19 +354,17 @@ a:hover {
   padding: 0px 10px;
   height: 30px;
   line-height: 30px;
-  background: #fff;
+  color: #ffffff;
+  background: #468ec8;
   border-radius: 3px;
   text-decoration: none;
   white-space: nowrap;
-  color: #444;
 }
 #AXPage .ax-header .ax-top-menu.AXMenuBox .childMenu ul li a:hover {
   background: #eee;
-  color: #e03e68;
 }
 #AXPage .ax-header .ax-top-menu.AXMenuBox .childMenu ul li a.on {
   background: #eee;
-  color: #e03e68;
 }
 #AXPage .ax-header .ax-top-menu.AXMenuBox .childMenu ul li a.expand {
   background-image: url(images/rightArrows.png);
@@ -373,7 +385,7 @@ a:hover {
 }
 #AXPage .ax-header .ax-top-menu.AXMenuBox .childsMenu ul {
   background: #ebebeb;
-  border: 1px solid #ccc;
+  border: 1px solid #003c7f;
   padding: 3px;
   margin: 0px;
 }
@@ -610,7 +622,7 @@ a:hover {
 }
 #AXPage .ax-aside .ax-aside-menu-box .ax-aside-menu:hover,
 #AXPage .ax-aside .ax-aside-menu-box .ax-aside-menu:focus {
-  background: #468ec8;
+  background: #003c7f;
 }
 #AXPage .ax-aside .ax-aside-menu-box .ax-aside-menu.on .axi-angle-double-right {
   display: inline;
@@ -624,7 +636,7 @@ a:hover {
   height: 22px;
   line-height: 22px;
   text-align: center;
-  background: #e03e68;
+  background: #003c7f;
   color: #fff;
   border-radius: 50%;
   margin-right: 5px;
@@ -715,7 +727,7 @@ a:hover {
 #AXPage .ax-aside .ax-aside-box .ax-box .ax-aside-ul li a:hover,
 #AXPage .ax-aside .ax-aside-box .ax-box .ax-aside-ul li a:focus {
   background: #EFEFEF;
-  color: #e03e68;
+  color: #003c7f;
 }
 #AXPage .ax-footer {
   z-index: 200;

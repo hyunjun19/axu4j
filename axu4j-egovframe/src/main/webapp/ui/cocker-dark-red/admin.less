@@ -150,24 +150,36 @@ a{
 
 		.ax-logo{
 			position: absolute;
-			line-height:45px;margin-top:8px;
-			a.logo-icon{
-				color: #f3f3f3;
-				text-decoration: none;
-				font-size:45px;
-				i.axi{
-					padding:5px;
-					font-size:35px;
-				}
-			}
-			img{
-				vertical-align: middle;
-				border:0px none;
-			}
+			margin-top:5px;
+			z-index:1;
+			display: block;
 			a{
-				color:#9EA6B9;
-				vertical-align: middle;
-				text-decoration: underline;
+				padding:0px 10px;
+				height:45px;
+				display: inline-block;
+				text-decoration: none;
+
+				.logo-img{
+					display: block;float: left;
+					line-height: 45px;
+					height:45px;
+					vertical-align: middle;
+					i.axi{
+						color: #f3f3f3;
+						font-size:35px;
+						line-height: 45px;
+					}
+				}
+				.logo-txt{
+					display: block;float: left;
+					padding:0px 5px;
+					color:#9EA6B9;
+					vertical-align: middle;
+					text-decoration: none;
+					font-size:14px;
+					font-family: "Arial Black";
+					line-height: 45px;
+				}
 			}
 		}
 

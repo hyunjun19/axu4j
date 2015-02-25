@@ -5,7 +5,7 @@
 %><%
 
 %><ax:layout name="base.jsp">
-    <ax:set name="title" value="메인페이지" scope="" />
+    <ax:set name="title" value="메인페이지" />
     <ax:div name="css">
         <style type="text/css">
             .legend-container {

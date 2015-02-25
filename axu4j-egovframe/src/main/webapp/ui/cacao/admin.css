@@ -217,26 +217,59 @@ a:hover {
 }
 #AXPage .ax-header .ax-logo {
   position: absolute;
-  line-height: 45px;
-  margin-top: 8px;
-}
-#AXPage .ax-header .ax-logo a.logo-icon {
-  color: #523636;
-  text-decoration: none;
-  font-size: 45px;
-}
-#AXPage .ax-header .ax-logo a.logo-icon i.axi {
-  padding: 5px;
-  font-size: 35px;
-}
-#AXPage .ax-header .ax-logo img {
-  vertical-align: middle;
-  border: 0px none;
+  margin-top: 6px;
+  z-index: 1;
+  display: block;
+  /*
+			line-height:45px;margin-top:8px;
+			a.logo-icon{
+				color: @color-b;
+				text-decoration: none;
+				font-size:45px;	
+				i.axi{
+					padding:5px;
+					font-size:35px;
+				}
+			}
+            img{
+              vertical-align: middle;
+              border:0px none;
+            }
+			a{
+				color:@color;
+				vertical-align: middle;
+				text-decoration: underline;
+			}
+			*/
 }
 #AXPage .ax-header .ax-logo a {
-  color: #a6a6a6;
+  padding: 0px 10px;
+  height: 45px;
+  display: inline-block;
+  text-decoration: none;
+}
+#AXPage .ax-header .ax-logo a .logo-img {
+  display: block;
+  float: left;
+  line-height: 45px;
+  height: 45px;
   vertical-align: middle;
-  text-decoration: underline;
+}
+#AXPage .ax-header .ax-logo a .logo-img i.axi {
+  color: #523636;
+  font-size: 35px;
+  line-height: 45px;
+}
+#AXPage .ax-header .ax-logo a .logo-txt {
+  display: block;
+  float: left;
+  padding: 0px 5px;
+  color: #523636;
+  vertical-align: middle;
+  text-decoration: none;
+  font-size: 14px;
+  font-family: "Arial Black";
+  line-height: 45px;
 }
 #AXPage .ax-header .ax-top-menu {
   padding-left: 200px;

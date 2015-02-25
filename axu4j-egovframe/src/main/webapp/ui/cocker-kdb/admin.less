@@ -18,12 +18,14 @@
 @bgcolor-a	:#F4F6FA;		//Light Gray
 @bgcolor-b	:#444;			//Dark Gray
 @bgcolor-c	:#858585; 		//Middle Gray
-@bgcolor-d	:#468ec8;		//Blue 
+@bgcolor-d	:#003c7f;		//Blue
 
 @border		:1px solid #d9d9d9;		//Light Gray
 @border-a	:3px solid #858585; 	//Profile border Gray
 @border-b	:1px solid #e2e2e2; 	//Box border line Gray
 @border-c	:1px solid #858585; 	//Box border line Gray
+
+@radius     :8px;                   //for top menu radius
 
 @wide:		~"(min-width:1151px)";
 @desktop:   ~"only screen and (min-width: 1024px) and (max-width: 1151px)";
@@ -141,44 +143,40 @@ a{
 
 	.ax-header{
 		z-index:300;
-		border-top:3px solid #19AA8D;
+		border-top:3px solid #e03e68;
 		height:57px;
 		position: fixed; width:100%;
-		background-image: url(images/header-skin-1.png);
-		background-color: #3E495F;
+		//background-image: url(images/header-skin-1.png);
+		//background-color: #3E495F;
+		.util-gradient (top,#002c5d,@bgcolor-d);
 		opacity: 0.95;
 
 		.ax-logo{
 			position: absolute;
-			margin-top:5px;
 			z-index:1;
-			display: block;
 			a{
 				padding:0px 10px;
-				height:45px;
+				height:57px;
 				display: inline-block;
-				text-decoration: none;
-
 				.logo-img{
-					display: block;float: left;
-					line-height: 45px;
-					height:45px;
+					i.axi{display: none;}
+					background:url('images/logo.png') no-repeat;
+					background-size: contain;
+					background-position: center center;
+					width:36px; height:36px;
+					display: inline-block;
 					vertical-align: middle;
-					i.axi{
-						color: #f3f3f3;
-						font-size:35px;
-						line-height: 45px;
-					}
 				}
 				.logo-txt{
-					display: block;float: left;
+					color: #9EA6B9;
 					padding:0px 5px;
-					color:#9EA6B9;
+					font-weight: normal;
 					vertical-align: middle;
 					text-decoration: none;
+					text-shadow: none;
 					font-size:14px;
 					font-family: "Arial Black";
-					line-height: 45px;
+					line-height: 60px;
 				}
 			}
 		}
@@ -194,8 +192,9 @@ a{
 					font-size:14px;
 					line-height: 57px;
 					a{
-						padding:0px 10px;
 						color:#9EA6B9;
+						padding:6px 10px;
+						.util-border-radius(@radius,0,0,@radius);
 					}
 				}
 			}
@@ -213,17 +212,17 @@ a{
 					position:relative;
 					a{
 						font-weight:bold;
-						&:hover{color:#fff;}
-						&:focus{color:#fff;}
-						&.on{color:#fff;}
+						&:hover{color:@bgcolor-d; background: @bgcolor;}
+						&:focus{color:@bgcolor-d; background: @bgcolor;}
+						&.on{color:@bgcolor-d; background: @bgcolor;}
 					}
 				}
 
 				.childMenu{position:absolute;line-height:25px;font-size:12px;display:none;}
 				.childMenu ul{
-					background:#ebebeb;border:1px solid #ccc;border-radius:5px;
+					background:#ebebeb;border:1px solid @bgcolor-d;border-radius:5px;
 					padding:3px; margin:0px;display:block;position:relative;
-					box-shadow:0px 0px 3px #ccc;
+					.util-drop-shadow;
 					li{
 						float:none;padding:0px; margin:0px;border-bottom:1px solid #ebebeb;
 						a{
@@ -231,12 +230,12 @@ a{
 							display:block;_width:100%;
 							padding:0px 10px;
 							height:30px;line-height:30px;
-							background:#fff;
+							color:@color-d;
+							background:@color-b;
 							border-radius:3px;
 							text-decoration: none;white-space:nowrap;
-							color:#444;
-							&:hover{background:#eee;color:#19AA8D;}
-							&.on{background:#eee;color:#19AA8D;}
+							&:hover{background:#eee;}
+							&.on{background:#eee;}
 							&.expand{
 								background-image:url(images/rightArrows.png);background-repeat:no-repeat;background-position:100% 0px;padding-right:30px;
 								&:hover{
@@ -249,7 +248,7 @@ a{
 				.childsMenu{
 					position:absolute;line-height:20px;font-size:12px;
 					ul{
-						background:#ebebeb;border:1px solid #ccc;padding:3px; margin:0px;
+						background:#ebebeb;border:1px solid @bgcolor-d;padding:3px; margin:0px;
 						li{float:none;padding:0px; margin:0px;border-bottom:1px solid #ebebeb;}
 					}
 				}
@@ -290,8 +289,8 @@ a{
 				}
 				&.btns{
 					a {
-						background: #1AB394;
-						border: 1px solid #1AB394;
+						background: #e03e68;
+						border: 1px solid #e03e68;
 						color:#fff;
 					}
 				}
@@ -426,7 +425,7 @@ a{
 				width:36px; height:36px;
 				.util-border-radius(36px,36px,36px,36px);
 				line-height: 36px;
-				background: #1AB394;
+				background: #e03e68;
 				color:@color-d;
 				margin-left:10px;
 				text-align: center;
@@ -449,7 +448,7 @@ a{
 				display: inline-block;
 				width:22px;height:22px;
 				line-height: 22px;text-align: center;
-				background: #19AA8D;
+				background: @bgcolor-d;
 				color:#fff;
 				border-radius: 50%;
 				margin-right:5px;
@@ -510,15 +509,15 @@ a{
 					border-top:@border;
 					li{
 						border-bottom:@border;
-						
 						a{
+
 							display: block;
 							padding:8px 10px;
 							font-size: 13px;
 							line-height: 22px;
 							&:hover, &:focus{
 								background: #EFEFEF;
-								color:#19AA8D;
+								color:@bgcolor-d;
 							}
 						}
 					}
@@ -904,7 +903,6 @@ a{
 	}
 }
 
-
 // 공통 클래스 적합 대상들
 table.ax-layout{
 	border-collapse:collapse;
@@ -1254,7 +1252,7 @@ table.ax-layout{
 
 @media @formMobile {
 	.ax-rwd-table{
-	 .ax-rwd-table-mobile();
+		.ax-rwd-table-mobile();
 	}
 }
 

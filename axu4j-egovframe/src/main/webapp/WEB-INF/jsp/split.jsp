@@ -12,10 +12,10 @@
                 <div class="cx-panel">
                     <!-- panel {-->
                     <div class="p-title">
-                        <div class="tit">업무모델</div>
+                        <div class="tit">제목</div>
                         <div class="btns">
-                            <button type="button" class="AXButton Classic" data-btn="model-search"><i class="axi axi-search3"></i> 검색</button>
-                            <button type="button" class="AXButton Classic"><i class="axi axi-add-circle"></i> 등록</button>
+                            <button type="button" class="AXButton Classic" data-btn="model-search"><i class="axi axi-search3"></i> 찾기</button>
+                            <button type="button" class="AXButton Classic"><i class="axi axi-add-circle"></i> 추가</button>
                         </div>
                     </div>
 
@@ -24,8 +24,8 @@
                     <div class="p-title">
                         <div class="tabs" id="tab-target"></div>
                         <div class="btns">
-                            <button type="button" class="AXButton"><i class="axi axi-search3"></i> 검색</button>
-                            <button type="button" class="AXButton"><i class="axi axi-add-circle"></i> 등록</button>
+                            <button type="button" class="AXButton"><i class="axi axi-search3"></i> 찾기</button>
+                            <button type="button" class="AXButton"><i class="axi axi-add-circle"></i> 추가</button>
                         </div>
                     </div>
 
@@ -34,8 +34,8 @@
                     <div class="p-title">
                         <div class="tabs small" id="tab-target-1"></div>
                         <div class="btns">
-                            <button type="button" class="AXButtonSmall"><i class="axi axi-search3"></i> 검색</button>
-                            <button type="button" class="AXButtonSmall"><i class="axi axi-add-circle"></i> 등록</button>
+                            <button type="button" class="AXButtonSmall"><i class="axi axi-search3"></i> 찾기</button>
+                            <button type="button" class="AXButtonSmall"><i class="axi axi-add-circle"></i> 추가</button>
                         </div>
                     </div>
 
@@ -72,10 +72,10 @@
                     <!-- panel {-->
 
                     <div class="p-title">
-                        <div class="tit">코드 템플릿</div>
+                        <div class="tit">프로젝트</div>
                         <div class="btns">
-                            <button type="button" class="AXButton Classic"><i class="axi axi-search3"></i> 검색</button>
-                            <button type="button" class="AXButton Classic"><i class="axi axi-add-circle"></i> 등록</button>
+                            <button type="button" class="AXButton Classic"><i class="axi axi-search3"></i> 찾기</button>
+                            <button type="button" class="AXButton Classic"><i class="axi axi-add-circle"></i> 추가</button>
                         </div>
                     </div>
 
@@ -89,10 +89,10 @@
                             </colgroup>
                             <tbody id="temp-form-body">
                             <tr>
-                                <th>제목</th>
-                                <td>스프링 MVC 모델 기반</td>
+                                <th>Title</th>
+                                <td>AXISJ - AXU4J 템플릿</td>
                                 <th>작성</th>
-                                <td>김기상(공개) 2014-07-02</td>
+                                <td>장기영(공개) 2014-07-02</td>
                             </tr>
                             <tr>
                                 <th>설명</th>
@@ -111,7 +111,7 @@
                         <div class="tabs" id="tab-target-2"></div>
                         <div class="btns">
                             <button type="button" class="AXButton"><i class="axi axi-plus2"></i> 코드생성</button>
-                            <button type="button" class="AXButton"><i class="axi axi-ion-code-download"></i> 다운받기</button>
+                            <!--<button type="button" class="AXButton"><i class="axi axi-ion-code-download"></i> 다운받기</button>-->
                         </div>
                     </div>
                     <div class="H10" style="height: 3px;"></div>
@@ -222,8 +222,8 @@
                         value:"M",
                         overflow:"visible", /* "visible" */
                         options:[
-                            {optionValue:"M", optionText:"업무모델"},
-                            {optionValue:"T", optionText:"코드템플릿"}
+                            {optionValue:"M", optionText:"코드A"},
+                            {optionValue:"T", optionText:"코드B"}
                         ],
                         onchange: function(selectedObject, value){
                             //toast.push(Object.toJSON(this));
@@ -245,8 +245,8 @@
                         value:"M",
                         overflow:"visible", /* "visible" */
                         options:[
-                            {optionValue:"M", optionText:"업무모델"},
-                            {optionValue:"T", optionText:"코드템플릿"}
+                            {optionValue:"M", optionText:"코알라A"},
+                            {optionValue:"T", optionText:"꼬끼리"}
                         ],
                         onchange: function(selectedObject, value){
                             //toast.push(Object.toJSON(this));
@@ -268,11 +268,9 @@
                         value:"0",
                         overflow:"visible", /* "visible" */
                         options:[
-                            {optionValue:"0", optionText:"Controler"},
-                            {optionValue:"1", optionText:"Service", closable:true},
-                            {optionValue:"2", optionText:"Dao", closable:true},
-                            {optionValue:"3", optionText:"Domain", closable:true},
-                            {optionValue:"4", optionText:"코드 템플릿", closable:true}
+                            {optionValue:"0", optionText:"M"},
+                            {optionValue:"1", optionText:"V", closable:true},
+                            {optionValue:"2", optionText:"C", closable:true}
                         ],
                         onchange: function(selectedObject, value){
                             //toast.push(Object.toJSON(this));

@@ -20,8 +20,10 @@
 
     request.setAttribute("options",     options);
     request.setAttribute("projectName", "axu4j");
+    request.setAttribute("title", "페이지 타이틀");
+
 %><ax:layout name="base.jsp">
-    <ax:set name="ax-request-param" value="${projectName}" scope="request" />
+    <ax:set name="ax-request-param" value="${projectName}" scope="" />
     <ax:set name="ax-session-param" value="${projectName}" scope="session" />
     <ax:set name="ax-cookie-param"  value="${projectName}" scope="cookie"  />
 
@@ -267,7 +269,11 @@ JSP - \${cookie.name},  axu4j.xml - {{cookie.name}}</pre>
     request.setAttribute("options", options);
 %&gt;
 &lt;ax:custom customid="select" name="test-select" options="\${options}" emptyName="선택하세요." /&gt;</pre>
-                            <ax:custom customid="select" name="test-select" options="${options}" emptyName="선택하세요." />
+                            
+                            <ax:custom customid="select" name="test-select" 
+                                       options="${options}" emptyName="선택하세요." />
+                            
+                            
                         </td>
                     </tr>
 

@@ -144,6 +144,7 @@ var fcObj = {
 				["cocker","cocker"],
 				["cocker-dark","bulldog"],
 				["cocker-dark-red","cocker"],
+				//["cocker-kdb","cocker"],
 				["cacao","kakao"],
 				["cacao-dark","kakao"]
 			];

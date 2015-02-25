@@ -218,26 +218,38 @@ a:hover {
 }
 #AXPage .ax-header .ax-logo {
   position: absolute;
-  line-height: 45px;
-  margin-top: 8px;
-}
-#AXPage .ax-header .ax-logo a.logo-icon {
-  color: #f3f3f3;
-  text-decoration: none;
-  font-size: 45px;
-}
-#AXPage .ax-header .ax-logo a.logo-icon i.axi {
-  padding: 5px;
-  font-size: 35px;
-}
-#AXPage .ax-header .ax-logo img {
-  vertical-align: middle;
-  border: 0px none;
+  margin-top: 5px;
+  z-index: 1;
+  display: block;
 }
 #AXPage .ax-header .ax-logo a {
+  padding: 0px 10px;
+  height: 45px;
+  display: inline-block;
+  text-decoration: none;
+}
+#AXPage .ax-header .ax-logo a .logo-img {
+  display: block;
+  float: left;
+  line-height: 45px;
+  height: 45px;
+  vertical-align: middle;
+}
+#AXPage .ax-header .ax-logo a .logo-img i.axi {
+  color: #fff;
+  font-size: 35px;
+  line-height: 45px;
+}
+#AXPage .ax-header .ax-logo a .logo-txt {
+  display: block;
+  float: left;
+  padding: 0px 5px;
   color: #d0c3a8;
   vertical-align: middle;
-  text-decoration: underline;
+  text-decoration: none;
+  font-size: 14px;
+  font-family: "Arial Black";
+  line-height: 45px;
 }
 #AXPage .ax-header .ax-top-menu {
   padding-left: 200px;
