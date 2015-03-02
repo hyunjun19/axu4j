@@ -1,5 +1,7 @@
 package com.axisj.axu4j.tags;
 
+import com.axisj.axu4j.config.AXUConfig;
+import com.axisj.axu4j.config.ConfigReader;
 import com.github.mustachejava.DefaultMustacheFactory;
 import com.github.mustachejava.Mustache;
 import com.github.mustachejava.MustacheFactory;
@@ -84,13 +86,17 @@ public abstract class AXUTagSupport extends SimpleTagSupport implements DynamicA
             innerInstance.put("cookie",  TagUtils.getCookieMap(pageContext));
             innerInstance.putAll(dynamicAttrMap);
 
-            Object[] params      = new Object[] { this, innerInstance };
-            String   mustacheKey = getClass().getCanonicalName();
+            Object[]  params      = new Object[] { this, innerInstance };
+            String    mustacheKey = getClass().getCanonicalName();
+            AXUConfig config      = ConfigReader.getConfig();
 
             mustacheHtml = mustacheCacheMap.get(mustacheKey);
             if (mustacheHtml == null) {
                 mustacheHtml = mustacheFactory.compile(new StringReader(tagBody), mustacheKey);
-                mustacheCacheMap.put(mustacheKey, mustacheHtml);
+
+                if (!StringUtils.equalsIgnoreCase("DEV", config.getMode())) {
+                    mustacheCacheMap.put(mustacheKey, mustacheHtml);
+                }
             }
             mustacheHtml.execute(context.getOut(), params);
 

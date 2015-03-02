@@ -1,5 +1,6 @@
 package com.axisj.axu4j.config;
 
+import org.apache.commons.lang.StringUtils;
 import org.simpleframework.xml.Serializer;
 import org.simpleframework.xml.core.Persister;
 import org.slf4j.Logger;
@@ -20,18 +21,12 @@ public class ConfigReader {
 	private static final String defaultConfigFilename = "axu4j.xml";
 	
 	private static AXUConfig config = null;
-	private static long reloadTime = 0L;
-	
+
 	private ConfigReader() {}
 	
 	public static AXUConfig getConfig() {
-		if (config == null) {
+		if (config == null || StringUtils.equalsIgnoreCase("DEV", config.getMode())) {
 			load();
-		} else if (config.getReloadTime() > 0L) {
-			long now = (new Date()).getTime();
-			if ((now - reloadTime) > config.getReloadTime()) {
-				load();
-			}
 		}
 		
 		return config;
@@ -58,7 +53,6 @@ public class ConfigReader {
 			
 			serializer.read(config, configFile);
 			
-			reloadTime = (new Date()).getTime();
             logger.info("load config from {}", configFile.getAbsolutePath());
             if (logger.isDebugEnabled()) {
 				logger.debug("axu4j.xml\n{}", config);

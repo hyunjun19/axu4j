@@ -9,8 +9,8 @@ import java.util.Map;
 public class AXUConfig {
 
     @Path("config[1]")
-    @Element(name = "reloadtime", required = false, type = Long.class)
-    private long reloadTime = 60000;
+    @Element(name = "mode", required = false)
+    private String mode = "RUN";
 
     @Path("layout[1]")
     @Element(name = "prefix")
@@ -48,12 +48,12 @@ public class AXUConfig {
     // =======================================================
 
 
-    public long getReloadTime() {
-        return reloadTime;
+    public String getMode() {
+        return mode;
     }
 
-    public void setReloadTime(long reloadTime) {
-        this.reloadTime = reloadTime;
+    public void setMode(String mode) {
+        this.mode = mode;
     }
 
     public String getLayoutPrefix() {
@@ -126,7 +126,7 @@ public class AXUConfig {
     @Override
     public String toString() {
         return "AXUConfig{" +
-                "reloadTime=" + reloadTime +
+                "mode='" + mode + '\'' +
                 ", layoutPrefix='" + layoutPrefix + '\'' +
                 ", layoutEncoding='" + layoutEncoding + '\'' +
                 ", rowWrap='" + rowWrap + '\'' +
