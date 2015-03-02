@@ -65,6 +65,7 @@ output HTML
 <![CDATA[
 <div id="{{id}}" class="ax-layer {{css}}" style="{{style}}">
 	{{{doBody}}}
+	<div class="ax-clear"></div>
 </div>
 ]]>
         </wrap>
