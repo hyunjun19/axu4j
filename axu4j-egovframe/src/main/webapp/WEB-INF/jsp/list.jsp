@@ -167,25 +167,6 @@
 	                        {key:"frstRegisterPnttm", label:"작성일", width:"90", align:"center"},
 	                        {key:"nttCn", label:"비고", width:"*"}
 	                    ],
-	                    view: {
-	                        label:true,
-	                        column: [ // col 은 4
-	                            {key:"title", label:"제목", col:4, addClass:"underLine"},
-	                            {key:"no", label:"번호", col:1},
-	                            {key:"desc", label:"비고", col:3},
-	                            {key:"writer", label:"작성자"},
-	                            {key:"regDate", label:"작성일"},
-	                            {key:"", label:"사용자연산", formatter: function(){
-	                                return (this.item.no * 987).money();
-	                            }}
-	                        ],
-	                        buttons: [
-	                            {addClass:"handle", onclick:function(){
-	                                toast.push("handle Click");
-	                                trace(this.item);
-	                            }}
-	                        ]
-	                    },
 	                    body : {
 	                        onclick: function(){
 	                            //toast.push(Object.toJSON({index:this.index, item:this.item}));
