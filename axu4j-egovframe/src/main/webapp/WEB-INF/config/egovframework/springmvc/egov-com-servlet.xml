@@ -77,6 +77,10 @@
             <mvc:exclude-mapping path="/actionLogin.do"/>
 		    <bean class="egovframework.com.cmm.interceptor.AuthenticInterceptor" />
         </mvc:interceptor>
+        <mvc:interceptor>
+            <mvc:mapping path="/*.do" />
+            <bean class="com.axisj.axu4j.JSPStopWatchInterceptor" />
+        </mvc:interceptor>
     </mvc:interceptors>
 
     <!-- Annotation 을 사용하지 않는 경우에 대한 MVC 처리 설정 -->

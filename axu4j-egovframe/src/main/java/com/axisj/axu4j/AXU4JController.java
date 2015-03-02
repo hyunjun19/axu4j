@@ -291,7 +291,7 @@ public class AXU4JController {
     @RequestMapping(value="/modal.do")
     public void modal_page() { }
 
-    @RequestMapping(value="/form.do")
+    @RequestMapping(value={ "/form.do", "/form-non-axu4j.do" })
     public void form_page() { }
 
     @RequestMapping(value="/split.do")
