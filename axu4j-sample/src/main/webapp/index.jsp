@@ -269,6 +269,7 @@ JSP - ${cookie.name},  axu4j.xml - {{cookie.name}}</pre>
 %&gt;
 &lt;ax:custom customid="select" name="test-select" options="${options}" emptyName="선택하세요." /&gt;</pre>
                                 <ax:custom customid="select" name="test-select" options="${options}" emptyName="선택하세요." />
+                                <ax:custom customid="form" name="test-from" />
                             </td>
                         </tr>
 
