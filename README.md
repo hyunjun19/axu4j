@@ -76,7 +76,7 @@ JSP Custom Tag Library
 <dependency>
 	<groupId>com.axisj</groupId>
 	<artifactId>axu4j</artifactId>
-	<version>0.4.0-RELEASE</version>
+	<version>0.4.3-RELEASE</version>
 </dependency>
 ```
 3. JSP 선언

@@ -18,11 +18,11 @@
                         <input type="hidden" name="userSe" value="USR" />
                         <div class="ax-input">
                             <span class="name">E-mail</span>
-                            <input type="text" name="id" value="" class="AXInput" placeholder="e-mail">
+                            <input type="text" name="id" value="admin" class="AXInput" placeholder="e-mail">
                         </div>
                         <div class="ax-input">
                             <span class="name">Password</span>
-                            <input type="password" name="password" value="" class="AXInput" placeholder="password">
+                            <input type="password" name="password" value="1" class="AXInput" placeholder="password">
                         </div>
 
                         <div class="ax-clear"></div>

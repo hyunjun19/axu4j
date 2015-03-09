@@ -178,6 +178,7 @@
                                 }
 	                            fnObj.modal.open("gridView", {
 	                                url:"edit.do", pars:"nttId=" + this.item.nttId
+//	                                url:"edit-non-axu4j.do", pars:"nttId=" + this.item.nttId
 	                            });
 	                        }
 	                    },

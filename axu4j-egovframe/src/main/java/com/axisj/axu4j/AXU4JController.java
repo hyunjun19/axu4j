@@ -130,7 +130,7 @@ public class AXU4JController {
         model.addAttribute("brdMstrVO", masterVo);
     }
 
-    @RequestMapping("/edit.do")
+    @RequestMapping(value={ "/edit.do", "/edit-non-axu4j.do" })
     public void edit(@ModelAttribute("searchVO") BoardVO boardVO, @ModelAttribute("board") BoardVO vo, ModelMap model)
         throws Exception {
 
