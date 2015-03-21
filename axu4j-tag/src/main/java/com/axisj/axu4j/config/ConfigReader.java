@@ -20,7 +20,8 @@ public class ConfigReader {
 	private static final Logger logger = LoggerFactory.getLogger(ConfigReader.class);
 	private static final String defaultConfigFilename = "axu4j.xml";
 	
-	private static AXUConfig config = null;
+	private static AXUConfig config  = null;
+    private static long lastLoadTime = -1L;
 
 	private ConfigReader() {}
 	
@@ -43,7 +44,15 @@ public class ConfigReader {
 				config = new AXUConfig();
 				logger.debug("create new AXUConfig instance");
 			}
-			
+
+            // DEV 모드인 경우 각 태그마다 config를 요청하므로 3초에 한 번씩만 설정을 로딩하도록 한다.
+            long nowTime = (new Date()).getTime();
+            if (nowTime - lastLoadTime < 3000) {
+                return;
+            } else {
+                lastLoadTime = nowTime;
+            }
+
 			Serializer serializer = new Persister();
 			URL configUrl = config.getClass().getClassLoader().getResource(confingFilename);
 			if (configUrl == null) {
