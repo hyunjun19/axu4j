@@ -136,7 +136,8 @@ JSP - ${cookie.name},  axu4j.xml - {{cookie.name}}</pre>
                                 # id: tag의 id입니다. 기본값은 자동으로 생성됩니다.<br/>
                                 # size: 가로 길이를 의미하며 1 ~ 12 까지 지정할 수 있습니다.<br/>
                                 # css: tag에 추가될 class 입니다.<br/>
-                                # style: tag에 추가될 style 입니다.
+                                # style: tag에 추가될 style 입니다.<br/>
+                                # wrap: div.ax-box-wrap 요소를 사용합니다. true|false
                             </td>
                             <td>
                                 <a href="https://www.axisj.com/ko/axu/docs#axu-3" target="_blank">악수 그리드 시스템</a>을 사용하기 위한 col tag입니다.<br/>
