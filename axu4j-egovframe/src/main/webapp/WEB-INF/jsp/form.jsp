@@ -14,7 +14,7 @@
 			<ax:col size="12" wrap="true">
 
                 <h2>반응형 테이블 / 입력도구</h2>
-                <ax:form name="table-form" method="get">
+                <ax:form name="table-form" method="get" labelwidth="140px">
                     <ax:fields>
                         <ax:field label="번호">
                             <input type="text" name="" id="ax-inp-number" class="AXInput W100" />

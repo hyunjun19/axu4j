@@ -27,7 +27,7 @@
     <ax:set name="ax-session-param" value="${projectName}" scope="session" />
     <ax:set name="ax-cookie-param"  value="${projectName}" scope="cookie"  />
 
-    <ax:div name="styles">
+    <ax:div name="css">
         <style type="text/css">
             .AXGridTable td { white-space: normal; }
             .AXGridTable a { text-decoration: underline; }
@@ -162,7 +162,8 @@ JSP - \${cookie.name},  axu4j.xml - {{cookie.name}}</pre>
                             # method: HTML form의 method입니다. 기본값은 POST값 입니다.<br/>
                             # action: HTML form의 action입니다.<br/>
                             # css: tag에 추가될 class 입니다.<br/>
-                            # style: tag에 추가될 style 입니다.
+                            # style: tag에 추가될 style 입니다.<br/>
+                            # labelwidth: form tag 내부의 field tag에 적용되는 labelwidth 기본값 입니다.
                         </td>
                         <td>HTML form과 동일하며 form외에 레이아웃과 스타일적 요소를 추가적으로 가지고 있습니다.</td>
                         <td>
@@ -197,7 +198,8 @@ JSP - \${cookie.name},  axu4j.xml - {{cookie.name}}</pre>
                             # label: 입력 항목명 입니다.<br/>
                             # title: 입력 항목에 대한 설명을 입력합니다. HTML title attribute입니다.<br/>
                             # css: tag에 추가될 class 입니다.<br/>
-                            # style: tag에 추가될 style 입니다.
+                            # style: tag에 추가될 style 입니다.<br/>
+                            # labelwidth: label에 적용되는 labelwidth 값 입니다. 이 값을 명시하지 않는 경우 form tag에 labelwidth 값이 있는 경우 해당 값을 사용합니다.
                         </td>
                         <td>fields tag 내부에서 컬럼처럼 사용되는 tag입니다.</td>
                         <td>

@@ -3,35 +3,35 @@
         xmlns="http://java.sun.com/xml/ns/javaee"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         version="2.1">
-    <tlib-version>0.4.0</tlib-version>
+    <tlib-version>1.0.1</tlib-version>
     <short-name>AXU4j</short-name>
     <uri>http://axisj.com/axu4j</uri>
 
-	<!-- [axu] layout -->
-	<tag>
-		<name>layout</name>
-		<tag-class>com.axisj.axu4j.tags.LayoutTag</tag-class>
-		<body-content>scriptless</body-content>
-		<attribute>
-			<name>name</name>
-			<description>layout name</description>
-			<required>true</required>
-			<rtexprvalue>true</rtexprvalue>
-		</attribute>
-	</tag>
+    <!-- [axu] layout -->
+    <tag>
+        <name>layout</name>
+        <tag-class>com.axisj.axu4j.tags.LayoutTag</tag-class>
+        <body-content>scriptless</body-content>
+        <attribute>
+            <name>name</name>
+            <description>layout name</description>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
 
-	<!-- [axu] div -->
-	<tag>
-		<name>div</name>
-		<tag-class>com.axisj.axu4j.tags.DivTag</tag-class>
-		<body-content>scriptless</body-content>
-		<attribute>
-			<name>name</name>
-			<description>div name</description>
-			<required>true</required>
-			<rtexprvalue>true</rtexprvalue>
-		</attribute>
-	</tag>
+    <!-- [axu] div -->
+    <tag>
+        <name>div</name>
+        <tag-class>com.axisj.axu4j.tags.DivTag</tag-class>
+        <body-content>scriptless</body-content>
+        <attribute>
+            <name>name</name>
+            <description>div name</description>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
 
     <!-- [axu] write -->
     <tag>
@@ -47,165 +47,174 @@
 
     <!-- [axu] row -->
     <tag>
-    	<name>row</name>
-    	<tag-class>com.axisj.axu4j.tags.RowTag</tag-class>
-    	<body-content>scriptless</body-content>
+        <name>row</name>
+        <tag-class>com.axisj.axu4j.tags.RowTag</tag-class>
+        <body-content>scriptless</body-content>
         <dynamic-attributes>true</dynamic-attributes>
-    	<attribute>
-    		<name>id</name>
-    		<rtexprvalue>true</rtexprvalue>
-    	</attribute>
-    	<attribute>
-    		<name>css</name>
-    		<rtexprvalue>true</rtexprvalue>
-    	</attribute>
-    	<attribute>
-    		<name>style</name>
-    		<rtexprvalue>true</rtexprvalue>
-    	</attribute>
+        <attribute>
+            <name>id</name>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>css</name>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>style</name>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
     </tag>
-    
+
     <!-- [axu] col -->
     <tag>
-    	<name>col</name>
-    	<tag-class>com.axisj.axu4j.tags.ColTag</tag-class>
-    	<body-content>scriptless</body-content>
+        <name>col</name>
+        <tag-class>com.axisj.axu4j.tags.ColTag</tag-class>
+        <body-content>scriptless</body-content>
         <dynamic-attributes>true</dynamic-attributes>
-    	<attribute>
-    		<name>id</name>
-    		<rtexprvalue>true</rtexprvalue>
-    	</attribute>
-    	<attribute>
-    		<name>size</name>
-    		<rtexprvalue>true</rtexprvalue>
-    	</attribute>
-    	<attribute>
-    		<name>css</name>
-    		<rtexprvalue>true</rtexprvalue>
-    	</attribute>
-    	<attribute>
-    		<name>style</name>
-    		<rtexprvalue>true</rtexprvalue>
-    	</attribute>
+        <attribute>
+            <name>id</name>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>size</name>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>css</name>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>style</name>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
         <attribute>
             <name>wrap</name>
             <rtexprvalue>true</rtexprvalue>
         </attribute>
     </tag>
-    
+
     <!-- [axu] form -->
     <tag>
-    	<name>form</name>
-    	<tag-class>com.axisj.axu4j.tags.FormTag</tag-class>
-    	<body-content>scriptless</body-content>
+        <name>form</name>
+        <tag-class>com.axisj.axu4j.tags.FormTag</tag-class>
+        <body-content>scriptless</body-content>
         <dynamic-attributes>true</dynamic-attributes>
-    	<attribute>
-    		<name>id</name>
-    		<rtexprvalue>true</rtexprvalue>
-    	</attribute>
-    	<attribute>
-    		<name>name</name>
-    		<required>true</required>
-    		<rtexprvalue>true</rtexprvalue>
-    	</attribute>
-    	<attribute>
-    		<name>action</name>
-    		<rtexprvalue>true</rtexprvalue>
-    	</attribute>
-    	<attribute>
-    		<name>method</name>
-    		<description>GET or POST(default)</description>
-    		<rtexprvalue>true</rtexprvalue>
-    	</attribute>
-    	<attribute>
-    		<name>css</name>
-    		<rtexprvalue>true</rtexprvalue>
-    	</attribute>
-    	<attribute>
-    		<name>style</name>
-    		<rtexprvalue>true</rtexprvalue>
-    	</attribute>
+        <attribute>
+            <name>id</name>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>name</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>action</name>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>method</name>
+            <description>GET or POST(default)</description>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>css</name>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>style</name>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>labelwidth</name>
+            <description>field's default label width in this form</description>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
     </tag>
-    
+
     <!-- [axu] fields -->
     <tag>
-    	<name>fields</name>
-    	<tag-class>com.axisj.axu4j.tags.FieldsTag</tag-class>
-    	<body-content>scriptless</body-content>
+        <name>fields</name>
+        <tag-class>com.axisj.axu4j.tags.FieldsTag</tag-class>
+        <body-content>scriptless</body-content>
         <dynamic-attributes>true</dynamic-attributes>
-    	<attribute>
-    		<name>id</name>
-    		<rtexprvalue>true</rtexprvalue>
-    	</attribute>
-    	<attribute>
-    		<name>css</name>
-    		<rtexprvalue>true</rtexprvalue>
-    	</attribute>
-    	<attribute>
-    		<name>style</name>
-    		<rtexprvalue>true</rtexprvalue>
-    	</attribute>
+        <attribute>
+            <name>id</name>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>css</name>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>style</name>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
     </tag>
-    
+
     <!-- [axu] field -->
     <tag>
-    	<name>field</name>
-    	<tag-class>com.axisj.axu4j.tags.FieldTag</tag-class>
-    	<body-content>scriptless</body-content>
+        <name>field</name>
+        <tag-class>com.axisj.axu4j.tags.FieldTag</tag-class>
+        <body-content>scriptless</body-content>
         <dynamic-attributes>true</dynamic-attributes>
-    	<attribute>
-    		<name>id</name>
-    		<rtexprvalue>true</rtexprvalue>
-    	</attribute>
-    	<attribute>
-    		<name>label</name>
-    		<rtexprvalue>true</rtexprvalue>
-    	</attribute>
-    	<attribute>
-    		<name>title</name>
-    		<rtexprvalue>true</rtexprvalue>
-    	</attribute>
-    	<attribute>
-    		<name>css</name>
-    		<rtexprvalue>true</rtexprvalue>
-    	</attribute>
-    	<attribute>
-    		<name>style</name>
-    		<rtexprvalue>true</rtexprvalue>
-    	</attribute>
+        <attribute>
+            <name>id</name>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>label</name>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>labelwidth</name>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>title</name>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>css</name>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>style</name>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
     </tag>
 
     <!-- [axu] set -->
     <tag>
-    	<name>set</name>
-    	<tag-class>com.axisj.axu4j.tags.SetTag</tag-class>
-    	<body-content>empty</body-content>
+        <name>set</name>
+        <tag-class>com.axisj.axu4j.tags.SetTag</tag-class>
+        <body-content>empty</body-content>
         <dynamic-attributes>true</dynamic-attributes>
-    	<attribute>
-    		<name>name</name>
-			<required>true</required>
-    		<rtexprvalue>true</rtexprvalue>
-    	</attribute>
-    	<attribute>
-    		<name>value</name>
-			<required>true</required>
-    		<rtexprvalue>true</rtexprvalue>
-    	</attribute>
-    	<attribute>
-    		<name>scope</name>
-    		<rtexprvalue>true</rtexprvalue>
-    	</attribute>
+        <attribute>
+            <name>name</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>value</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>scope</name>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
     </tag>
     <!-- [axu] custom -->
     <tag>
-    	<name>custom</name>
-    	<tag-class>com.axisj.axu4j.tags.CustomTag</tag-class>
-    	<body-content>scriptless</body-content>
-    	<attribute>
-    		<name>customid</name>
-			<required>true</required>
-    		<rtexprvalue>true</rtexprvalue>
-    	</attribute>
-    	<dynamic-attributes>true</dynamic-attributes>
+        <name>custom</name>
+        <tag-class>com.axisj.axu4j.tags.CustomTag</tag-class>
+        <body-content>scriptless</body-content>
+        <attribute>
+            <name>customid</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <dynamic-attributes>true</dynamic-attributes>
     </tag>
 </taglib>

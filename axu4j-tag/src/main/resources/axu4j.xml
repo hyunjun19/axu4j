@@ -41,7 +41,7 @@ output HTML
 <div id="row-1" class="ax-layer " style="" data-dynaattr="foo">
 	row tag contents
 </div>
-``
+```
 
 -->
 <axu4j xmlns="http://axisj.com/axu4j">
@@ -134,7 +134,7 @@ output HTML
 <![CDATA[
 <div id="{{id}}" class="item">
 	<div class="item-lable">
-		<span class="th">{{{label}}}</span>
+		<span class="th" style="{{#labelwidth}}width:{{labelwidth}};min-width:{{labelwidth}}{{/labelwidth}}">{{{label}}}</span>
 		<span class="td inputText {{css}}" style="{{style}}" title="{{title}}">
 			{{{doBody}}}
 		</span>
@@ -147,7 +147,7 @@ output HTML
 
     <!--
     custom: 사용자 정의 Tag 사용자 정의 태그를 정의하고 JSP에서 이를 쉽게 사용할 수 있습니다.
-    자세한 사용법은 https://github.com/axisj-com/axu4j/wiki/Manual(ver-0.4.0)#custom 여기를 참고하세요.
+    자세한 사용법은 https://github.com/axisj-com/axu4j/wiki/Manual(ver-1.0.1)#custom 여기를 참고하세요.
     ※ dynamic attributes 사용가능
     -->
     <customs>

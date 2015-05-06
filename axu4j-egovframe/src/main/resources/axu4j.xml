@@ -41,7 +41,7 @@ output HTML
 <div id="row-1" class="ax-layer " style="" data-dynaattr="foo">
 	row tag contents
 </div>
-``
+```
 
 -->
 <axu4j xmlns="http://axisj.com/axu4j">
@@ -134,7 +134,7 @@ output HTML
 <![CDATA[
 <div id="{{id}}" class="item">
 	<div class="item-lable">
-		<span class="th">{{{label}}}</span>
+		<span class="th" style="{{#labelwidth}}width:{{labelwidth}};min-width:{{labelwidth}}{{/labelwidth}}">{{{label}}}</span>
 		<span class="td inputText {{css}}" style="{{style}}" title="{{title}}">
 			{{{doBody}}}
 		</span>
