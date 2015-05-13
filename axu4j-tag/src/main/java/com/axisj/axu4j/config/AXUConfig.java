@@ -44,6 +44,18 @@ public class AXUConfig {
     @ElementMap(entry="custom", key="id", attribute = true, inline = true, data = true)
     private Map<String, String> customMap;
 
+    @Path("table[1]")
+    @Element(name = "wrap", data = true)
+    private String tableWrap;
+
+    @Path("tr[1]")
+    @Element(name = "wrap", data = true)
+    private String trWrap;
+
+    @Path("td[1]")
+    @Element(name = "wrap", data = true)
+    private String tdWrap;
+
 
     // =======================================================
 
@@ -120,7 +132,31 @@ public class AXUConfig {
         this.customMap = customMap;
     }
 
-    // =======================================================
+    public String getTableWrap() {
+        return tableWrap;
+    }
+
+    public void setTableWrap(String tableWrap) {
+        this.tableWrap = tableWrap;
+    }
+
+    public String getTrWrap() {
+        return trWrap;
+    }
+
+    public void setTrWrap(String trWrap) {
+        this.trWrap = trWrap;
+    }
+
+    public String getTdWrap() {
+        return tdWrap;
+    }
+
+    public void setTdWrap(String tdWrap) {
+        this.tdWrap = tdWrap;
+    }
+
+// =======================================================
 
 
     @Override
@@ -135,6 +171,9 @@ public class AXUConfig {
                 ", fieldsWrap='" + fieldsWrap + '\'' +
                 ", fieldWrap='" + fieldWrap + '\'' +
                 ", customMap=" + customMap +
+                ", tableWrap='" + tableWrap + '\'' +
+                ", trWrap='" + trWrap + '\'' +
+                ", tdWrap='" + tdWrap + '\'' +
                 '}';
     }
 }

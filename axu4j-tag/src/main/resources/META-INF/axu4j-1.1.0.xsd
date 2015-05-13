@@ -60,12 +60,44 @@ output HTML
       </xs:element>
     </xs:sequence>
   </xs:complexType>
+  <xs:complexType name="trType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="wrap"/>
+    </xs:sequence>
+  </xs:complexType>
   <xs:complexType name="fieldsType">
     <xs:sequence>
       <xs:element type="xs:string" name="wrap"/>
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="fieldType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="wrap"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="customType">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute type="xs:string" name="id" use="optional"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="rowType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="wrap"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tableType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="wrap"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tdType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="wrap"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="colType">
     <xs:sequence>
       <xs:element type="xs:string" name="wrap"/>
     </xs:sequence>
@@ -114,33 +146,19 @@ output HTML
     ※ dynamic attributes 사용가능</xs:documentation>
         </xs:annotation>
       </xs:element>
+      <xs:element type="axu4:tableType" name="table" xmlns:axu4="http://axisj.com/axu4j"/>
+      <xs:element type="axu4:trType" name="tr" xmlns:axu4="http://axisj.com/axu4j"/>
+      <xs:element type="axu4:tdType" name="td" xmlns:axu4="http://axisj.com/axu4j"/>
       <xs:element type="axu4:customsType" name="customs" xmlns:axu4="http://axisj.com/axu4j">
         <xs:annotation>
           <xs:documentation>custom: 사용자 정의 Tag 사용자 정의 태그를 정의하고 JSP에서 이를 쉽게 사용할 수 있습니다.
-    자세한 사용법은 https://github.com/axisj-com/axu4j/wiki/Manual(ver-0.4.0)#custom 여기를 참고하세요.
+    자세한 사용법은 https://github.com/axisj-com/axu4j/wiki/Manual(ver-1.0.1)#custom 여기를 참고하세요.
     ※ dynamic attributes 사용가능</xs:documentation>
         </xs:annotation>
       </xs:element>
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="formType">
-    <xs:sequence>
-      <xs:element type="xs:string" name="wrap"/>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="customType">
-    <xs:simpleContent>
-      <xs:extension base="xs:string">
-        <xs:attribute type="xs:string" name="id" use="optional"/>
-      </xs:extension>
-    </xs:simpleContent>
-  </xs:complexType>
-  <xs:complexType name="rowType">
-    <xs:sequence>
-      <xs:element type="xs:string" name="wrap"/>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="colType">
     <xs:sequence>
       <xs:element type="xs:string" name="wrap"/>
     </xs:sequence>

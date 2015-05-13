@@ -146,6 +146,48 @@ output HTML
     </field>
 
     <!--
+    table: HTML table과 동일합니다.
+    ※ dynamic attributes 사용가능
+    -->
+    <table>
+        <wrap>
+<![CDATA[
+<table id="{{id}}" class="{{css}}" style="{{style}}">
+{{{doBody}}}
+</table>
+]]>
+        </wrap>
+    </table>
+
+    <!--
+    tr: HTML tr과 동일합니다.
+    ※ dynamic attributes 사용가능
+    -->
+    <tr>
+        <wrap>
+<![CDATA[
+<tr id="{{id}}" class="{{css}}" style="{{style}}">
+{{{doBody}}}
+</tr>
+]]>
+        </wrap>
+    </tr>
+
+    <!--
+    td: HTML td와 동일합니다.
+    ※ dynamic attributes 사용가능
+    -->
+    <td>
+        <wrap>
+<![CDATA[
+<td id="{{id}}" class="{{css}}" style="{{style}}">
+{{{doBody}}}
+</td>
+]]>
+        </wrap>
+    </td>
+
+    <!--
     custom: 사용자 정의 Tag 사용자 정의 태그를 정의하고 JSP에서 이를 쉽게 사용할 수 있습니다.
     자세한 사용법은 https://github.com/axisj-com/axu4j/wiki/Manual(ver-0.4.0)#custom 여기를 참고하세요.
     ※ dynamic attributes 사용가능

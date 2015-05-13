@@ -205,6 +205,7 @@
             <rtexprvalue>true</rtexprvalue>
         </attribute>
     </tag>
+
     <!-- [axu] custom -->
     <tag>
         <name>custom</name>
@@ -213,6 +214,66 @@
         <attribute>
             <name>customid</name>
             <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <dynamic-attributes>true</dynamic-attributes>
+    </tag>
+
+    <!-- [axu] table -->
+    <tag>
+        <name>table</name>
+        <tag-class>com.axisj.axu4j.tags.TableTag</tag-class>
+        <body-content>scriptless</body-content>
+        <attribute>
+            <name>id</name>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>css</name>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>style</name>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <dynamic-attributes>true</dynamic-attributes>
+    </tag>
+
+    <!-- [axu] tr -->
+    <tag>
+        <name>tr</name>
+        <tag-class>com.axisj.axu4j.tags.TrTag</tag-class>
+        <body-content>scriptless</body-content>
+        <attribute>
+            <name>id</name>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>css</name>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>style</name>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <dynamic-attributes>true</dynamic-attributes>
+    </tag>
+
+    <!-- [axu] td -->
+    <tag>
+        <name>td</name>
+        <tag-class>com.axisj.axu4j.tags.TdTag</tag-class>
+        <body-content>scriptless</body-content>
+        <attribute>
+            <name>id</name>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>css</name>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>style</name>
             <rtexprvalue>true</rtexprvalue>
         </attribute>
         <dynamic-attributes>true</dynamic-attributes>
