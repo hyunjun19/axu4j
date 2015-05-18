@@ -5,14 +5,14 @@ import com.axisj.axu4j.config.ConfigReader;
 import com.github.mustachejava.DefaultMustacheFactory;
 import com.github.mustachejava.Mustache;
 import com.github.mustachejava.MustacheFactory;
+import org.apache.commons.lang.BooleanUtils;
+import org.apache.commons.lang.ObjectUtils;
 import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.PageContext;
 import javax.servlet.jsp.tagext.SimpleTagSupport;
@@ -27,6 +27,8 @@ import java.util.Map;
  */
 public class LayoutTag extends SimpleTagSupport {
 	protected static MustacheFactory mustacheFactory = new DefaultMustacheFactory();
+    private static final String HEADER_KEY_PJAX = "X-PJAX"; // see -> https://github.com/defunkt/jquery-pjax
+    private static final String HEADER_KEY_AXU4J_DIV = "X-AXU4J-DIV";
 
 	protected Mustache mustacheHtml;
 	protected Logger logger = LoggerFactory.getLogger(getClass());
@@ -52,9 +54,20 @@ public class LayoutTag extends SimpleTagSupport {
 		// set global parameter
 		globalMap.put("__AXU4J_CONTEXT_PATH__", request.getContextPath());
 
-		// invoke body tags. like div, row, col...
-		StringWriter dummy = new StringWriter();
-		getJspBody().invoke(dummy);
+        // invoke body tags. like div, row, col...
+        StringWriter dummy = new StringWriter();
+        getJspBody().invoke(dummy);
+
+        boolean isPjax = BooleanUtils.toBoolean(ObjectUtils.toString(request.getHeader(HEADER_KEY_PJAX)));
+        if (isPjax) {
+            Writer out = pageContext.getOut();
+            String[] divs = StringUtils.split(request.getHeader(HEADER_KEY_AXU4J_DIV), ",");
+
+            for(String div : divs) {
+                out.write(divMap.get(StringUtils.trim(div)));
+            }
+            return;
+        }
 
         AXUConfig config = ConfigReader.getConfig();
         String layoutFilename = getLayoutFilename();

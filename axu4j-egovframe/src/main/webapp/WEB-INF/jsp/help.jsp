@@ -34,9 +34,15 @@
             .point { color: #FC3838; }
         </style>
     </ax:div>
+
+    <ax:div name="js">
+        <script type="text/javascript" src="<c:url value='/plugins/jquery.pjax.js' />"></script>
+    </ax:div>
+
     <ax:div name="header">
         <h1>Hello AXU4j</h1><p class="desc">AXU4J를 소개합니다.</p>
     </ax:div>
+
     <ax:div name="contents">
         <ax:row>
             <ax:col size="12">
@@ -287,6 +293,13 @@ JSP - \${cookie.name},  axu4j.xml - {{cookie.name}}</pre>
     <ax:div name="scripts">
         <script type="text/javascript">
             var page_menu_id = "m0102";
+
+            // pjax 요청시 axu4j에서 반환할 div 영역명을 설정합니다.
+            $(document).on("pjax:beforeSend", function(e, xhr, options) {
+                xhr.setRequestHeader("X-AXU4J-DIV", "contents");
+                return true;
+            });
+            $(document).pjax("#ax-aside-ul a", "#CXPage");
         </script>
     </ax:div>
 </ax:layout>
