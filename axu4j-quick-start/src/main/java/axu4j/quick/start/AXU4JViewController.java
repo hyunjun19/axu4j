@@ -19,19 +19,19 @@ public class AXU4JViewController {
     @RequestMapping("/list-2")
     public void list2() { }
 
-    @RequestMapping(value="/help.do")
+    @RequestMapping(value="/help")
     public void help() { }
 
-    @RequestMapping(value="/modal.do")
+    @RequestMapping(value="/modal")
     public void modal() { }
 
-    @RequestMapping(value={ "/form.do", "/form-non-axu4j.do" })
+    @RequestMapping(value={ "/form", "/form-non-axu4j" })
     public void form() { }
 
-    @RequestMapping(value="/split.do")
+    @RequestMapping(value="/split")
     public void split() { }
 
-    @RequestMapping(value="/table.do")
+    @RequestMapping(value="/table")
     public void table() { }
 
     @RequestMapping("/view")

@@ -191,7 +191,9 @@
 	                });
 	
 	                this.target.setList({
-	                    ajaxUrl:"<c:url value='/list.json' />", ajaxPars:"useAt=Y", onLoad:function(){
+	                    ajaxUrl :"<c:url value='/data/list' />",
+                        ajaxPars:"useAt=Y",
+                        onLoad  :function(){
 	                        //trace(this);
 	                    }
 	                });
