@@ -17,6 +17,7 @@ import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.PageContext;
 import javax.servlet.jsp.tagext.SimpleTagSupport;
 import java.io.*;
+import java.util.HashMap;
 import java.util.Hashtable;
 import java.util.Map;
 
@@ -37,9 +38,8 @@ public class LayoutTag extends SimpleTagSupport {
 		super();
 	}
 
-	//private Map<String, String> divMap    = new HashMap<String, String>();
-	private Hashtable<String, String> divMap    = new Hashtable<String, String>();
-	private Map<String, Object> globalMap = new HashMap<String, Object>();
+    private Hashtable<String, String> divMap = new Hashtable<String, String>();
+    private Map<String, Object> globalMap = new HashMap<String, Object>();
 
 	private String name;
 	private String key;
@@ -102,7 +102,7 @@ public class LayoutTag extends SimpleTagSupport {
             if (layoutFileReader != null) {
                 layoutFileReader.close();
             }
-            divMap=null;
+            divMap = null;
         }
     }
 
