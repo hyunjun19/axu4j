@@ -78,7 +78,7 @@ public class LayoutTag extends SimpleTagSupport {
             // JSP
             if (StringUtils.endsWithIgnoreCase(layoutFilename, "jsp")) {
 
-                pageContext.getServletContext().setAttribute("divMap", divMap);
+                pageContext.getRequest().setAttribute("divMap", divMap);
                 pageContext.forward(layoutFilename);
 
             // HTML, else

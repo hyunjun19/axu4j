@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.axisj</groupId>
 	<artifactId>axu4j</artifactId>
-    <version>1.2.1-RELEASE</version>
+    <version>1.2.2-RELEASE</version>
 	<name>axu4j Taglib</name>
 	<description>AXU for Java</description>
 	<url>https://github.com/axisj-com/axu4j</url>

@@ -35,7 +35,7 @@ public class WriteTag extends SimpleTagSupport {
     @Override
     public void doTag() throws JspException, IOException {
         PageContext pageContext = (PageContext) getJspContext();
-        Map divMap = (Map) pageContext.getServletContext().getAttribute("divMap");
+        Map divMap = (Map) pageContext.getRequest().getAttribute("divMap");
         String divValue;
 
         if (divMap == null || !divMap.containsKey(divname)) {
