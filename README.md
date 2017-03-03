@@ -389,3 +389,4 @@ reference http://freemarker.org/docs/pgui_misc_servlet.html#autoid_56
 
 ## trouble shooting
 1. [JDK 1.5 구동문제](https://github.com/hyunjun19/axu4j/issues/39)
+2. [WAS에 따라서 설정파일을 못가져 오는 경우](https://github.com/hyunjun19/axu4j/issues/37)
